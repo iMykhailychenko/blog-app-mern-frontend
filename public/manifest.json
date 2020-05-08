@@ -1,0 +1,25 @@
+{
+  "short_name": "Blog Application",
+  "name": "This is a blog application with the ability to authorize, create / delete posts and much more.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "blog.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192 64x64"
+    },
+    {
+      "src": "blog.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
