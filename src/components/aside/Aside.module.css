@@ -1,0 +1,13 @@
+.aside {
+  min-width: 300px;
+  position: relative;
+}
+
+.inner {
+  position: sticky;
+  top: 20px;
+  left: 0;
+  height: max-content;
+  width: 100%;
+  padding: 70px 30px 70px 0;
+}

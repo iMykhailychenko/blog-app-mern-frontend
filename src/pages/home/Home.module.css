@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.content {
+  width: auto;
+  margin-top: 60px;
+  padding: 50px;
+  background: rgb(240, 240, 240);
+}
