@@ -12,6 +12,7 @@
   display: block;
   padding: 30px;
   text-transform: uppercase;
+  font-size: 0.8rem;
   transition: 0.3 ease-in-out;
 }
 
@@ -39,7 +40,7 @@
 
   .list {
     position: absolute;
-    top: 0;
+    top: 70px;
     left: 0;
     z-index: -1;
     flex-direction: column;
@@ -70,7 +71,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 28px;
-    height: 1px;
+    height: 2px;
     background: #a5a5a5;
     transition: 0.2s ease-in-out;
   }
@@ -87,17 +88,5 @@
   .mobileMenu:hover span:nth-of-type(2) {
     top: unset;
     bottom: 31px;
-  }
-
-  .mobileMenu::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 30px;
-    width: 60px;
-    border-radius: 8px;
-    border: 1px solid #a5a5a5;
   }
 }

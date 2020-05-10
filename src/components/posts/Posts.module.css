@@ -6,7 +6,7 @@
 .card {
   break-inside: avoid;
   background-color: #ffffff;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   transition: 0.3s ease-in-out;
 }
 
@@ -89,6 +89,28 @@
   .list {
     columns: unset;
     column-gap: unset;
+  }
+}
+
+@media (max-width: 900px) {
+  .list {
+    columns: 2;
+    column-gap: 20px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .list {
+    columns: unset;
+    column-gap: unset;
+  }
+
+  .card {
+    margin-bottom: 50px;
   }
 }
 

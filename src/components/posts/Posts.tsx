@@ -8,7 +8,7 @@ import User from './components/User';
 import styles from './Posts.module.css';
 
 // dev utils
-import content from './content';
+import content from './dev-content';
 
 interface Props {}
 

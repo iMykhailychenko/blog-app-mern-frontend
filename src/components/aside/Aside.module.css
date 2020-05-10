@@ -26,6 +26,12 @@
   }
 }
 
+@media (max-width: 900px) {
+  .inner {
+    height: 100%;
+    padding: 30px 0;
+  }
+}
 
 @media (max-width: 550px) {
   .aside {
