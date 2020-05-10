@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../Posts.module.css';
 
 interface Props {
@@ -11,15 +12,11 @@ const User: React.FC<Props> = ({ avatar, name, nick }) => (
   <div className={styles.inner}>
     <div className={styles.user}>
       <img className={styles.avatar} src={avatar} alt="" />
-      <a
-        href="https://ihor-mykhailychenko.netlify.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.userInfo}
-      >
+
+      <Link to={`/user/${nick}`} className={styles.userInfo}>
         <p className={styles.name}>{name}</p>
         <p className={styles.nick}>{`@${nick}`}</p>
-      </a>
+      </Link>
     </div>
   </div>
 );

@@ -26,3 +26,78 @@
 .active {
   color: rgb(65, 164, 230);
 }
+
+.mobileMenu {
+  display: none;
+}
+
+/* media rules */
+@media (max-width: 768px) {
+  .nav {
+    height: 80px;
+  }
+
+  .list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    flex-direction: column;
+    width: 100%;
+    background: #f6f6f6;
+    border-bottom: 2px solid #eeeeee;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .list.open {
+    top: 80px;
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: relative;
+    height: 70px;
+    width: 80px;
+    border: none;
+  }
+
+  .mobileMenu span {
+    position: absolute;
+    top: 29px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 1px;
+    background: #a5a5a5;
+    transition: 0.2s ease-in-out;
+  }
+
+  .mobileMenu span:nth-of-type(2) {
+    top: unset;
+    bottom: 29px;
+  }
+
+  .mobileMenu:hover span {
+    top: 31px;
+  }
+
+  .mobileMenu:hover span:nth-of-type(2) {
+    top: unset;
+    bottom: 31px;
+  }
+
+  .mobileMenu::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 60px;
+    border-radius: 8px;
+    border: 1px solid #a5a5a5;
+  }
+}

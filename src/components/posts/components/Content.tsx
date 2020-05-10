@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../Posts.module.css';
 
 interface Props {
+  id: string;
   placeholder?: string;
   title: string;
   text: string;
@@ -9,43 +11,31 @@ interface Props {
   tags: string[];
 }
 
-const Content: React.FC<Props> = ({ placeholder, title, text, date, tags }) => (
+const Content: React.FC<Props> = ({
+  id,
+  placeholder,
+  title,
+  text,
+  date,
+  tags,
+}) => (
   <>
-    <a
-      className={styles.postLink}
-      href="https://ihor-mykhailychenko.netlify.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link to={`/post/${id}`} className={styles.postLink}>
       {placeholder && <img className={styles.img} src={placeholder} alt="" />}
-    </a>
-
-    <div className={styles.inner}>
-      <div className={styles.content}>
-        <a
-          className={styles.postLink}
-          href="https://ihor-mykhailychenko.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h4 className={styles.title}>{title}</h4>
-          <p className={styles.text}>{text}</p>
-        </a>
-        {!!tags.length &&
-          tags.map((tag, index) => (
-            <a
-              className={styles.tag}
-              key={index}
-              href="https://ihor-mykhailychenko.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {`#${tag}`}
-            </a>
-          ))}
-
+      <div className={styles.inner}>
+        <h4 className={styles.title}>{title}</h4>
+        <p className={styles.text}>{text}</p>
         <p className={styles.date}>{date}</p>
       </div>
+    </Link>
+
+    <div className={styles.inner}>
+      {!!tags.length &&
+        tags.map((tag, index) => (
+          <Link to={`/tags/${tag}`} key={index} className={styles.tag}>
+            {`#${tag}`}
+          </Link>
+        ))}
     </div>
   </>
 );

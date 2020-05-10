@@ -2,6 +2,5 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  border-color: #747474;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.01), 0 6px 6px rgba(0,0,0,0.01);
+  border-bottom: 2px solid #f1f1f1;
 }

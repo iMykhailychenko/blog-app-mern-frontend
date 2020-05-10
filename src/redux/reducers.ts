@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { localeReducer } from './locale/localeReducer';
+import { menuReducer } from './mobile_menu/menuReducer';
 
 const rootReducer = combineReducers({
-  locale: localeReducer,
+  menu: menuReducer,
 });
 
 export default rootReducer;

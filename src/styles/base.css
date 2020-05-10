@@ -15,7 +15,8 @@ body {
   text-rendering: optimizeSpeed;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: #292929;
+  color: #414141;
+  line-height: 1.5;
 }
 
 ul,

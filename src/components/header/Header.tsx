@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './nav/Navbar';
+import Navbar from './nav/NavbarContainer';
 import styles from './Header.module.css';
 
 interface Props {}

@@ -1,5 +1,6 @@
 .aside {
-  min-width: 300px;
+  max-width: 350px;
+  min-width: 350px;
   position: relative;
 }
 
@@ -10,4 +11,25 @@
   height: max-content;
   width: 100%;
   padding: 70px 30px 70px 0;
+}
+
+@media (max-width: 900px) {
+  .aside {
+    margin: 0 auto;
+    max-width: 450px;
+    min-width: 450px;
+    text-align: center;
+  }
+
+  .inner {
+    padding-right: 0;
+  }
+}
+
+
+@media (max-width: 550px) {
+  .aside {
+    max-width: 100%;
+    min-width: 100%;
+  }
 }

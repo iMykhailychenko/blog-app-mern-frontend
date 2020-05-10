@@ -14,9 +14,10 @@ interface Props {}
 
 const Post: React.FC<Props> = () => (
   <ul className={styles.list}>
-    {content.map(({ post: { id, ...args }, user }) => (
-      <li className={styles.card} key={id}>
-        <Content {...args} />
+    {content.map(({ post, user }) => (
+      <li className={styles.card} key={post.id}>
+        <Content {...post} />
+
         <User {...user} />
       </li>
     ))}

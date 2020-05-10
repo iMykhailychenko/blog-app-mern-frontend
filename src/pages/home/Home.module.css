@@ -10,3 +10,16 @@
   padding: 50px;
   background: rgb(240, 240, 240);
 }
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0;
+    background: #ffffff;
+  }
+}

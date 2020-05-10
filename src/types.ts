@@ -1,16 +1,16 @@
-export const TOGGLE_LOCALE = 'TOGGLE_LOCALE';
+export const TOGGLE_MENU = 'TOGGLE_MENU';
 
 export interface IState {
-  locale: string;
+  menu: boolean;
 }
 
 // Action types
-interface ToggleLocale {
-  type: typeof TOGGLE_LOCALE;
-  payload: string;
+interface ToggleMenu {
+  type: typeof TOGGLE_MENU;
+  payload: boolean;
 }
 
-export type ActionTypes = ToggleLocale;
+export type ActionTypes = ToggleMenu;
 
 export interface Dispatch<S> {
   <A extends ActionTypes>(action: A): A;

@@ -3,8 +3,9 @@ import clsx from 'clsx';
 
 // components
 import Aside from '../../components/aside/Aside';
-import FormLogin from '../../components/form/FormLogin';
+import FormLogin from '../../components/aside/aside-form/FormLogin';
 import Posts from '../../components/posts/Posts';
+import LoadMore from '../../components/load-more/LoadMore';
 
 import styles from './Home.module.css';
 
@@ -17,8 +18,10 @@ const Home: React.FC<Props> = () => (
     <Aside>
       <FormLogin />
     </Aside>
+
     <div className={styles.content}>
       <Posts />
+      <LoadMore />
     </div>
   </main>
 );
