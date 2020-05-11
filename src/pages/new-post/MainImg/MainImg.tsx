@@ -1,5 +1,5 @@
 import React, { Component, ChangeEvent } from 'react';
-import styles from '../NewPost.module.css';
+import styles from './MainImg.module.css';
 
 interface Props {}
 interface State {

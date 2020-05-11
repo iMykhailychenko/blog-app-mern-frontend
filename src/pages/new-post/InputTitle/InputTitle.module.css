@@ -1,0 +1,13 @@
+/* title input */
+.title {
+  width: 100%;
+  background: none;
+  padding: 10px 20px;
+  font-size: 3rem;
+  transition: 0.3s ease-in-out;
+}
+
+.title:hover {
+  border-bottom: 2px solid rgba(129, 129, 129, 0.4);
+  background: #f6f6f6;
+}

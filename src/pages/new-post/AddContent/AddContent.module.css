@@ -1,0 +1,75 @@
+/* add content btn */
+.addContainer {
+  padding: 70px 0;
+}
+
+.addTitle {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.add {
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background: #000;
+  transition: 0.2s ease-in-out;
+}
+
+.add:hover,
+.add:focus {
+  box-shadow: 0 0 0 4px rgba(31, 31, 31, 0.3);
+}
+
+.add::before,
+.add::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 16px;
+  width: 2px;
+  background: #ffffff;
+}
+
+.add::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* add content block */
+.contentLabl {
+  position: relative;
+  width: max-content;
+  padding: 15px 0;
+  margin: 40px auto 20px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.contentLabl::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  height: 20px;
+  width: 20px;
+  background: #000000;
+}
+
+.contentLabl li {
+  padding: 10px 80px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  background: #000;
+}
+
+.contentLabl li:hover {
+  opacity: 0.5;
+}

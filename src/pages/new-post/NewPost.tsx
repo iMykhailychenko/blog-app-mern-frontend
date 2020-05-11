@@ -4,10 +4,11 @@ import clsx from 'clsx';
 // components
 import Aside from '../../components/aside/Aside';
 import ScrollTop from '../../components/scroll-top/ScrollTop';
-import Title from './components/Title';
-import MainImg from './components/MainImg';
-import AddContentBtn from './components/AddContentBtn';
+import InputTitle from './InputTitle/InputTitle';
+import MainImg from './MainImg/MainImg';
+import AddContent from './AddContent/AddContent';
 
+// styles
 import styles from './NewPost.module.css';
 
 const main = clsx(styles.main, 'container');
@@ -20,11 +21,9 @@ const NewPost: React.FC<Props> = () => (
 
     <div className={styles.content}>
       <form action="" method="POST">
-        <Title />
-
+        <InputTitle />
         <MainImg />
-
-        <AddContentBtn />
+        <AddContent />
       </form>
     </div>
 

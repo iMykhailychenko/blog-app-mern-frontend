@@ -1,0 +1,42 @@
+/* main post img */
+.addImg {
+  position: absolute;
+  visibility: hidden;
+}
+
+.addImg:focus .addImgLable {
+  background: #ffffff;
+}
+
+.addImgLable {
+  position: relative;
+  display: block;
+  width: max-content;
+  margin: 30px auto;
+  padding: 30px 60px;
+  padding-left: 90px;
+  border-radius: 8px;
+  border: 1px dashed #a1a1a1;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.addImgLable::before,
+.addImgLable::after {
+  content: '';
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 2px;
+  background: #000;
+}
+
+.addImgLable::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.addImgLable:hover {
+  background: #ffffff;
+}
