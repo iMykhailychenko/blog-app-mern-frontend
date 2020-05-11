@@ -4,9 +4,9 @@ import clsx from 'clsx';
 // components
 import Aside from '../../components/aside/Aside';
 import ScrollTop from '../../components/scroll-top/ScrollTop';
-import InputTitle from './InputTitle/InputTitle';
+import MainTitleInput from './MainTitleInput/MainTitleInput';
 import MainImg from './MainImg/MainImg';
-import AddContent from './AddContent/AddContent';
+import ContentEditor from './ContentEditor/ContentEditor';
 
 // styles
 import styles from './NewPost.module.css';
@@ -21,9 +21,9 @@ const NewPost: React.FC<Props> = () => (
 
     <div className={styles.content}>
       <form action="" method="POST">
-        <InputTitle />
+        <MainTitleInput />
         <MainImg />
-        <AddContent />
+        <ContentEditor />
       </form>
     </div>
 

@@ -1,42 +1,67 @@
-/* main post img */
+.container {
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.containerWitImg {
+  margin-bottom: 60px;
+}
+
+.containerWitImg:hover .imgBtn,
+.containerWitImg:hover .lableWitImg {
+  opacity: 1;
+}
+
+.containerWitImg:hover::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
 .addImg {
   position: absolute;
   visibility: hidden;
 }
 
-.addImg:focus .addImgLable {
+.addImg:focus .lable {
   background: #ffffff;
 }
 
-.addImgLable {
-  position: relative;
+.lable {
   display: block;
   width: max-content;
   margin: 30px auto;
   padding: 30px 60px;
-  padding-left: 90px;
   border-radius: 8px;
   border: 1px dashed #a1a1a1;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
-.addImgLable::before,
-.addImgLable::after {
-  content: '';
-  position: absolute;
-  left: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 16px;
-  width: 2px;
-  background: #000;
-}
-
-.addImgLable::after {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-.addImgLable:hover {
+.lable:hover {
   background: #ffffff;
+}
+
+.imgBtn,
+.lableWitImg {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: none;
+  opacity: 0.4;
+  transition: 0.2s ease-in-out;
+}
+
+.lableWitImg {
+  right: 80px;
 }

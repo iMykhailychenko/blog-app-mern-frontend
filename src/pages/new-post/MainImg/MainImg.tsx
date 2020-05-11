@@ -1,4 +1,5 @@
 import React, { Component, ChangeEvent } from 'react';
+import clsx from 'clsx';
 import styles from './MainImg.module.css';
 
 interface Props {}
@@ -21,24 +22,34 @@ export default class MainImg extends Component<Props, State> {
 
   render() {
     const { mainImg } = this.state;
+    const container = clsx(styles.container, mainImg && styles.containerWitImg);
+    const lable = clsx(styles.lable, mainImg && styles.lableWitImg);
 
     return (
-      <>
-        {mainImg && <img src={mainImg} alt="" />}
+      <div className={container}>
+        {mainImg && (
+          <>
+            <img className={styles.img} src={mainImg} alt="" />
+            <button className={styles.imgBtn}>Delete</button>
+          </>
+        )}
 
-        <label htmlFor="image_uploads" className={styles.addImgLable}>
-          Choose main post image ( .jpg, .jpeg, .png, .webp, .gif )
+        <label className={lable}>
+          <span>
+            {mainImg
+              ? 'Change image'
+              : 'Choose main post image ( .jpg, .jpeg, .png, .webp, .gif )'}
+          </span>
+
+          <input
+            type="file"
+            className={styles.addImg}
+            onChange={this.handleChange}
+            name="img"
+            accept=".jpg, .jpeg, .png, .webp, .gif"
+          />
         </label>
-
-        <input
-          id="image_uploads"
-          type="file"
-          className={styles.addImg}
-          onChange={this.handleChange}
-          name="img"
-          accept=".jpg, .jpeg, .png, .webp, .gif"
-        />
-      </>
+      </div>
     );
   }
 }
