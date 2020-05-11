@@ -38,8 +38,14 @@
   width: 50px;
   margin: 0 auto;
   border-radius: 50%;
-  background: #000;
+  border: none;
   outline: none;
+  background: #000;
+  transition: 0.2s ease-in-out;
+}
+.add:hover,
+.add:focus {
+  box-shadow: 0 0 0 4px rgba(31, 31, 31, 0.3);
 }
 
 .add::before,

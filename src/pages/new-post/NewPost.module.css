@@ -1,0 +1,122 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  margin-top: 60px;
+  padding: 50px;
+  background: rgb(240, 240, 240);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin: 30px 0;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid rgba(129, 129, 129, 0.4);
+  outline: none;
+}
+
+.input::placeholder {
+  font-weight: 300;
+  color: #a1a1a1;
+}
+
+.input:focus {
+  border-bottom: 2px solid rgba(38, 143, 255, 0.5);
+}
+
+/* title input */
+.title {
+  width: 100%;
+  background: none;
+  padding: 10px 20px;
+  font-size: 3rem;
+}
+
+/* main post img */
+.addImg {
+  display: none;
+}
+
+.addImgLable {
+  position: relative;
+  display: block;
+  width: max-content;
+  margin: 30px auto;
+  padding: 30px 60px;
+  padding-left: 90px;
+  border-radius: 8px;
+  border: 1px dashed #a1a1a1;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.addImgLable::before,
+.addImgLable::after {
+  content: '';
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 2px;
+  background: #000;
+}
+
+.addImgLable::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.addImgLable:hover {
+  background: #ffffff;
+}
+
+/* add content btn */
+.addContainer {
+  padding: 70px 0;
+  border-top: 2px solid rgba(129, 129, 129, 0.4);
+}
+
+.addTitle {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.add {
+  position: relative;
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background: #000;
+  transition: 0.2s ease-in-out;
+}
+
+.add:hover,
+.add:focus {
+  box-shadow: 0 0 0 4px rgba(31, 31, 31, 0.3);
+}
+
+.add::before,
+.add::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 16px;
+  width: 2px;
+  background: #ffffff;
+}
+
+.add::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}

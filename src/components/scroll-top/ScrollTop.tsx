@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import throttle from 'lodash.throttle';
 
 // styles
 import styles from './ScrollTop.module.css';
@@ -19,16 +18,16 @@ export default class ScrollTop extends Component<Props, State> {
   };
 
   componentDidMount() {
-    window.addEventListener('scroll', throttle(this.handleScroll, 300));
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', throttle(this.handleScroll, 300));
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll = (): void => {
     const { top } = this.state;
-    const scrollTop = window.scrollY < 250 ? false : true;
+    const scrollTop = window.scrollY < 150 ? false : true;
 
     if (top === scrollTop) return;
 
