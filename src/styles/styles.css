@@ -1,0 +1,15 @@
+@charset "UTF-8";
+@import './normalize.css';
+@import './base.css';
+@import './btn.css';
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media (max-width: 550px) {
+  .container {
+    width: 90%;
+  }
+}
