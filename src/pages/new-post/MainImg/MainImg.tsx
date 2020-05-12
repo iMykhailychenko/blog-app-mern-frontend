@@ -30,7 +30,7 @@ export default class MainImg extends Component<Props, State> {
         {mainImg && (
           <>
             <img className={styles.img} src={mainImg} alt="" />
-            <button className={styles.imgBtn}>Delete</button>
+            <button className={styles.imgBtn}>Remove</button>
           </>
         )}
 
