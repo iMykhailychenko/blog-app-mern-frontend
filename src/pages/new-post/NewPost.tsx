@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import clsx from 'clsx';
 
 // components
@@ -15,14 +15,20 @@ const main = clsx(styles.main, 'container');
 
 interface Props {}
 
+const handleSubmit = (event: FormEvent) => {
+  event.preventDefault();
+};
+
 const NewPost: React.FC<Props> = () => (
   <main className={main}>
     <Aside></Aside>
 
     <div className={styles.content}>
-      <form action="" method="POST">
+      <form action="" method="POST" onSubmit={handleSubmit}>
         <MainTitleInput />
+
         <MainImg />
+
         <ContentEditor />
       </form>
     </div>

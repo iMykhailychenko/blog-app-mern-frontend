@@ -1,32 +1,51 @@
-import React, { Component } from 'react';
-import { Editor } from '@tinymce/tinymce-react';
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
 
-export default class ContentEditor extends Component {
-  handleEditorChange = (e: any): void => {
-    console.log('Content was updated:', e.target.getContent());
-  };
+import './theme.css';
 
-  render() {
-    return (
-      <Editor
-        apiKey="fbjg6yiybznikw5yv4zrbi1asyt38cay9443z5k3z004a6ag"
-        initialValue="<p>Initial content</p>"
-        init={{
-          height: 500,
-          menubar: true,
-          plugins: [
-            'advlist autolink lists link image',
-            'charmap print preview anchor help',
-            'searchreplace visualblocks code',
-            'insertdatetime media table paste wordcount',
-          ],
-          toolbar:
-            'undo redo | formatselect | bold italic | \
-            alignleft aligncenter alignright | \
-            bullist numlist outdent indent | help',
-        }}
-        onChange={this.handleEditorChange}
-      />
-    );
-  }
-}
+interface Props {}
+
+const modules = {
+  toolbar: [
+    [{ header: [2, 3, 4, false] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' },
+    ],
+    ['code-block', 'link', 'image'],
+    ['clean'],
+  ],
+};
+
+const formats = [
+  'header',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'list',
+  'bullet',
+  'indent',
+  'code-block',
+  'link',
+  'image',
+];
+
+const ContentEditor: React.FC<Props> = () => {
+  const [value, setValue] = useState('');
+  return (
+    <ReactQuill
+      theme="snow"
+      value={value}
+      onChange={setValue}
+      modules={modules}
+      formats={formats}
+    />
+  );
+};
+
+export default ContentEditor;

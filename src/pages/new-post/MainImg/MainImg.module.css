@@ -35,9 +35,10 @@
 
 .lable {
   display: block;
-  width: max-content;
+  width: 100%;
+  text-align: center;
   margin: 30px auto;
-  padding: 30px 60px;
+  padding: 30px 10px;
   border-radius: 8px;
   border: 1px dashed #a1a1a1;
   cursor: pointer;
@@ -53,6 +54,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  width: max-content;
   margin: 0;
   padding: 8px 10px;
   border-radius: 8px;
@@ -63,5 +65,12 @@
 }
 
 .lableWitImg {
-  right: 80px;
+  right: 90px;
+}
+
+.imgBtn:hover,
+.lableWitImg:hover,
+.imgBtn:focus,
+.lableWitImg:focus {
+  box-shadow: 0 0 0 4px rgba(228, 228, 228, 0.5);
 }
