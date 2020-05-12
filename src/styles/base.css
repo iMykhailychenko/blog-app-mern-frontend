@@ -52,7 +52,7 @@ textarea {
 }
 
 textarea {
-  resize: none;
+  resize: vertical;
 }
 
 button {
