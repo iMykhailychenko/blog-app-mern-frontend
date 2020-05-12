@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 
+// styles
+import 'react-quill/dist/quill.snow.css';
 import './theme.css';
 
 interface Props {}
 
 const modules = {
   toolbar: [
-    [{ header: [2, 3, 4, false] }],
+    [{ header: [2, 3, 4, 5, false] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [
       { list: 'ordered' },
@@ -41,6 +43,7 @@ const ContentEditor: React.FC<Props> = () => {
     <ReactQuill
       theme="snow"
       value={value}
+      placeholder="Write youre content here"
       onChange={setValue}
       modules={modules}
       formats={formats}

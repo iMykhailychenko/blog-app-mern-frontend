@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent } from 'react';
+import React, { Component, ChangeEvent, createRef } from 'react';
 import clsx from 'clsx';
 import styles from './MainImg.module.css';
 
@@ -8,6 +8,8 @@ interface State {
 }
 
 export default class MainImg extends Component<Props, State> {
+  fileInputRef = createRef<HTMLInputElement>();
+
   state = {
     mainImg: '',
   };
@@ -20,6 +22,14 @@ export default class MainImg extends Component<Props, State> {
     this.setState({ mainImg });
   };
 
+  handleClick = (): void => {
+    const { current } = this.fileInputRef;
+
+    if (!current || !current.files || !current.files.length) return;
+    current.value = '';
+    this.setState({ mainImg: '' });
+  };
+
   render() {
     const { mainImg } = this.state;
     const container = clsx(styles.container, mainImg && styles.containerWitImg);
@@ -30,7 +40,9 @@ export default class MainImg extends Component<Props, State> {
         {mainImg && (
           <>
             <img className={styles.img} src={mainImg} alt="" />
-            <button className={styles.imgBtn}>Remove</button>
+            <button className={styles.imgBtn} onClick={this.handleClick}>
+              Remove
+            </button>
           </>
         )}
 
@@ -43,6 +55,7 @@ export default class MainImg extends Component<Props, State> {
 
           <input
             type="file"
+            ref={this.fileInputRef}
             className={styles.addImg}
             onChange={this.handleChange}
             name="img"

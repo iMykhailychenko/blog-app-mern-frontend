@@ -9,22 +9,24 @@ import user from './dev-uder';
 
 interface Props {}
 
-const Profile: React.FC<Props> = () => (
-  <div className={styles.inner}>
-    <img className={styles.img} src={avatar} alt="" />
+const Profile: React.FC<Props> = () => {
+  return (
+    <div className={styles.inner}>
+      <img className={styles.img} src={avatar} alt="" />
 
-    <Link className={styles.link} to={`/user/${user.nick}`}>
-      <p className={styles.name}>{user.name}</p>
-      <p className={styles.nick}>{`@${user.nick}`}</p>
-    </Link>
+      <Link className={styles.link} to={`/user/${user.nick}`}>
+        <p className={styles.name}>{user.name}</p>
+        <p className={styles.nick}>{`@${user.nick}`}</p>
+      </Link>
 
-    <p className={styles.text}>{`total posts: ${user.posts}`}</p>
+      <p className={styles.text}>{`total posts: ${user.posts}`}</p>
 
-    <Link to="/new-post">
-      <button className={styles.add} />
-      <p className={styles.text}>Add new post</p>
-    </Link>
-  </div>
-);
+      <Link to="/new-post">
+        <button className="add" />
+        <p className={styles.text}>Add new post</p>
+      </Link>
+    </div>
+  );
+};
 
 export default Profile;
