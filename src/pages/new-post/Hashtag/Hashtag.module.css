@@ -19,6 +19,13 @@
 }
 
 .tags {
-  margin-top: 50px;
+  margin: 20px 0 50px;
+  min-height: 24px;
   color: #3273dc;
+}
+
+.noTags {
+  margin: 20px 0 50px;
+  min-height: 24px;
+  color: #888888;
 }
