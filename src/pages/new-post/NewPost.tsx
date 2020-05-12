@@ -25,7 +25,7 @@ const handleSubmit = (event: FormEvent) => {
 const NewPost: React.FC<Props> = () => (
   <main className={main}>
     <Aside>
-      <Profile />
+      <Profile addBtn={false} />
     </Aside>
 
     <div className={styles.content}>
