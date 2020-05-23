@@ -7,11 +7,13 @@ import avatar from '../../../images/avatar.jpg';
 // import dev utils
 import user from './dev-uder';
 
+
 interface Props {
   addBtn?: boolean;
 }
 
 const Profile: React.FC<Props> = ({ addBtn = true }) => {
+
   return (
     <div className={styles.inner}>
       <img className={styles.img} src={avatar} alt="" />

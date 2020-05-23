@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import styles from './Hashtag.module.css';
 import inputStyles from '../Input.module.css';
 
+
 interface Props {
   tags: string[];
   handleInput(event: ChangeEvent<HTMLInputElement>): void;

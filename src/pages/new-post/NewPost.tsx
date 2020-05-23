@@ -11,6 +11,7 @@ import MainImg from './MainImg/MainImg';
 import ContentEditor from './ContentEditor/ContentEditor';
 import Hashtag from './Hashtag/HashtagContainer';
 
+
 // styles
 import styles from './NewPost.module.css';
 
