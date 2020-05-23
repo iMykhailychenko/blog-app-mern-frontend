@@ -7,9 +7,13 @@ import avatar from '../../../images/avatar.jpg';
 // import dev utils
 import user from './dev-uder';
 
-interface Props {}
 
-const Profile: React.FC<Props> = () => {
+interface Props {
+  addBtn?: boolean;
+}
+
+const Profile: React.FC<Props> = ({ addBtn = true }) => {
+
   return (
     <div className={styles.inner}>
       <img className={styles.img} src={avatar} alt="" />
@@ -21,10 +25,12 @@ const Profile: React.FC<Props> = () => {
 
       <p className={styles.text}>{`total posts: ${user.posts}`}</p>
 
-      <Link to="/new-post">
-        <button className="add" />
-        <p className={styles.text}>Add new post</p>
-      </Link>
+      {addBtn && (
+        <Link to="/new-post">
+          <button className="add" />
+          <p className={styles.text}>Add new post</p>
+        </Link>
+      )}
     </div>
   );
 };

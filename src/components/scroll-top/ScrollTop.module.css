@@ -31,7 +31,8 @@
 /* media rules */
 @media (max-width: 900px) {
   .btn {
-    left: 24px;
+    left: unset;
+    right: 24px;
     bottom: 50px;
   }
 }
