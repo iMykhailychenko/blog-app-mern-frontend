@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import {
   NEW_POST_TITLE,
   NEW_POST_DESC,
@@ -7,47 +8,71 @@ import {
   ActionTypes,
 } from '../../types';
 
-interface Post {
-  title: string;
-  desc: string;
-  img: string;
-  tags: string[];
-  content: any;
-}
 
-const initValue: Post = {
-  title: '',
-  desc: '',
-  img: '',
-  tags: [],
-  content: {},
-};
-
-export const newPostReducer = (
-  state: Post = initValue,
+const newPostTitleReducer = (
+  title: string = '',
   action: ActionTypes,
-): Post => {
+): string => {
   switch (action.type) {
     case NEW_POST_TITLE:
-      const stateTitle = { ...state, title: action.payload };
-      return stateTitle;
-
-    case NEW_POST_DESC:
-      const stateDesc = { ...state, desc: action.payload };
-      return stateDesc;
-
-    case NEW_POST_IMG:
-      return state;
-
-    case NEW_POST_TAGS:
-      const tags = action.payload.trim().split(' ');
-      const stateTags = { ...state, tags };
-      return stateTags;
-
-    case NEW_POST_CONTENT:
-      return state;
+      return action.payload;
 
     default:
-      return state;
+      return title;
   }
 };
+
+const newPostDescReducer = (desc: string = '', action: ActionTypes): string => {
+  switch (action.type) {
+    case NEW_POST_DESC:
+      return action.payload;
+
+    default:
+      return desc;
+  }
+};
+
+const newPostImgReducer = (img: string = '', action: ActionTypes): string => {
+  switch (action.type) {
+    case NEW_POST_IMG:
+      return action.payload;
+
+    default:
+      return img;
+  }
+};
+
+const newPostTagsReducer = (
+  tags: string[] = [],
+  action: ActionTypes,
+): string[] => {
+  switch (action.type) {
+    case NEW_POST_TAGS:
+      const newTags = action.payload.trim().split(' ');
+      return newTags;
+
+    default:
+      return tags;
+  }
+};
+
+const newPostContentReducer = (
+  content: any = {},
+  action: ActionTypes,
+): any => {
+  switch (action.type) {
+    case NEW_POST_CONTENT:
+      return content;
+
+    default:
+      return content;
+  }
+};
+
+export const newPostReducer = combineReducers({
+  title: newPostTitleReducer,
+  desc: newPostDescReducer,
+  img: newPostImgReducer,
+  tags: newPostTagsReducer,
+  content: newPostContentReducer,
+});

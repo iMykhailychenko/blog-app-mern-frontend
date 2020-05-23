@@ -9,10 +9,12 @@ interface Props {
   handleInput(event: ChangeEvent<HTMLInputElement>): void;
 }
 
-
 const Hashtag: React.FC<Props> = ({ tags, handleInput }) => {
   const input = clsx(inputStyles.input, styles.input);
-  const tagsStr = tags.reduce((acc, item) => (acc += `#${item} `), '');
+  const tagsStr = tags.reduce(
+    (acc, item) => (acc += !item ? '' : `#${item} `),
+    '',
+  );
 
   return (
     <>
@@ -26,11 +28,7 @@ const Hashtag: React.FC<Props> = ({ tags, handleInput }) => {
         placeholder="nature sun river weekend ..."
       />
 
-      {!tagsStr.length ? (
-        <p className={styles.noTags}>No hashtag</p>
-      ) : (
-        <p className={styles.tags}>{tagsStr}</p>
-      )}
+      <p className={styles.tags}>{tagsStr}</p>
     </>
   );
 };
