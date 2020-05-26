@@ -1,14 +1,21 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+
+//redux
+import { useSelector, useDispatch } from 'react-redux';
+import { IState } from '../../../redux/rootState';
+
+// utils
 import clsx from 'clsx';
+
+// styles
 import styles from './Navbar.module.css';
 
-interface Props {
-  menu: boolean;
-  toggleMenu(menu: boolean): void;
-}
 
-const Navbar: React.FC<Props> = ({ menu, toggleMenu }) => {
+const Navbar: React.FC<{}> = () => {
+  const menu = useSelector((state: IState) => state.menu);
+  const dispatch = useDispatch();
+
   const menuClass = clsx(styles.list, menu && styles.open);
 
   return (
@@ -16,7 +23,7 @@ const Navbar: React.FC<Props> = ({ menu, toggleMenu }) => {
       <button
         className={styles.mobileMenu}
         type="button"
-        onClick={() => toggleMenu(menu)}
+        onClick={() => dispatch(menu)}
       >
         <span />
         <span />
@@ -29,7 +36,7 @@ const Navbar: React.FC<Props> = ({ menu, toggleMenu }) => {
             exact
             className={styles.link}
             activeClassName={styles.active}
-            onClick={() => toggleMenu(menu)}
+            onClick={() => dispatch(menu)}
           >
             Home
           </NavLink>
@@ -39,7 +46,7 @@ const Navbar: React.FC<Props> = ({ menu, toggleMenu }) => {
             to="/trial"
             className={styles.link}
             activeClassName={styles.active}
-            onClick={() => toggleMenu(menu)}
+            onClick={() => dispatch(menu)}
           >
             Get trial accaunt
           </NavLink>

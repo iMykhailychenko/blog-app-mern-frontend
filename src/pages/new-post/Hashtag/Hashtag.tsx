@@ -1,21 +1,16 @@
-import React, { ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import clsx from 'clsx';
 
 import styles from './Hashtag.module.css';
 import inputStyles from '../Input.module.css';
 
+const Hashtag: React.FC<{}> = () => {
+  const [value, setValue] = useState('');
+  const handleInput = (event: ChangeEvent<HTMLInputElement>): void => {
+    setValue(event.target.value);
+  };
 
-interface Props {
-  tags: string[];
-  handleInput(event: ChangeEvent<HTMLInputElement>): void;
-}
-
-const Hashtag: React.FC<Props> = ({ tags, handleInput }) => {
   const input = clsx(inputStyles.input, styles.input);
-  const tagsStr = tags.reduce(
-    (acc, item) => (acc += !item ? '' : `#${item} `),
-    '',
-  );
 
   return (
     <>
@@ -24,12 +19,13 @@ const Hashtag: React.FC<Props> = ({ tags, handleInput }) => {
       <input
         className={input}
         onChange={handleInput}
+        value={value}
         type="text"
         name="hashtag"
         placeholder="nature sun river weekend ..."
       />
 
-      <p className={styles.tags}>{tagsStr}</p>
+      <p className={styles.tags}>{value}</p>
     </>
   );
 };

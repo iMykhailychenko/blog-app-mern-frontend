@@ -41,7 +41,7 @@ const NewPost: React.FC<Props> = () => (
       <Hashtag />
 
       <button className="btn btn--info" type="button" onClick={handleClick}>
-        Publish
+        Publcate
       </button>
     </div>
 

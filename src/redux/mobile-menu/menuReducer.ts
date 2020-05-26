@@ -1,4 +1,4 @@
-import { TOGGLE_MENU, ActionTypes } from '../../types';
+import { TOGGLE_MENU, ActionTypes } from '../types';
 
 export const menuReducer = (
   menu: boolean = false,

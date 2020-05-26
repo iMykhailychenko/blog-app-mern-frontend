@@ -12,8 +12,6 @@ interface Errors {
   password?: string;
 }
 
-interface Props {}
-
 const initialValues: Values = {
   email: '',
   password: '',
@@ -21,7 +19,7 @@ const initialValues: Values = {
 
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-const FormLogin: React.FC<Props> = () => (
+const FormLogin: React.FC<{}> = () => (
   <>
     <Formik
       initialValues={initialValues}

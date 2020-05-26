@@ -1,4 +1,4 @@
-import { ActionTypes } from '../../types';
+import { ActionTypes } from '../types';
 // import { TOGGLE_MENU, ActionTypes } from '../../types';
 // import { setDataToLocalStorage } from '../../helpers/storage';
 

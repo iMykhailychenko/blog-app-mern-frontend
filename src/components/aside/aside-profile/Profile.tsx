@@ -5,7 +5,7 @@ import styles from './Profile.module.css';
 import avatar from '../../../images/avatar.jpg';
 
 // import dev utils
-import user from './dev-uder';
+import user from './dev-user';
 
 
 interface Props {
