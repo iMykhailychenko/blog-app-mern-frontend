@@ -5,11 +5,11 @@ import clsx from 'clsx';
 import Aside from '../../components/aside/Aside';
 import Profile from '../../components/aside/aside-profile/Profile';
 import ScrollTop from '../../components/scroll-top/ScrollTop';
-import MainTitleInput from './MainTitleInput/MainTitleInputContainer';
-import ShortDesc from './ShortDesc/ShortDescContainer';
+import MainTitleInput from './MainTitleInput/MainTitleInput';
+import ShortDesc from './ShortDesc/ShortDesc';
 import MainImg from './MainImg/MainImg';
 import ContentEditor from './ContentEditor/ContentEditor';
-import Hashtag from './Hashtag/HashtagContainer';
+import Hashtag from './Hashtag/Hashtag';
 
 
 // styles

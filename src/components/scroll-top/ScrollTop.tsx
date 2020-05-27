@@ -5,23 +5,22 @@ import { CSSTransition } from 'react-transition-group';
 import styles from './ScrollTop.module.css';
 import pop from '../../transitions/pop.module.css';
 
-
 const ScrollTop: React.FC<{}> = () => {
   const buttonRef = createRef<HTMLButtonElement>();
 
   const [top, setTop] = useState(false);
 
-  const handleScroll = (): void => {
-    const scrollTop = window.scrollY < 150 ? false : true;
-    if (top === scrollTop) return;
-    setTop(scrollTop);
-  };
-
+  
   useEffect(() => {
+    const handleScroll = (): void => {
+      const scrollTop = window.scrollY < 150 ? false : true;
+      if (top === scrollTop) return;
+      setTop(scrollTop);
+    };
     window.addEventListener('scroll', handleScroll);
 
     return window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [top]);
 
   const handleClick = (): void => {
     window.scrollTo({
