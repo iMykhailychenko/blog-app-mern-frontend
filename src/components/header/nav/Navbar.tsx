@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-
 //redux
 import { useSelector, useDispatch } from 'react-redux';
+import {menuActions} from '../../../redux/mobile-menu/menuActions'
 import { IState } from '../../../redux/rootState';
-
 // utils
 import clsx from 'clsx';
-
 // styles
 import styles from './Navbar.module.css';
 
@@ -37,7 +35,7 @@ const Navbar: React.FC<{}> = () => {
           <button
             className={styles.mobileMenu}
             type="button"
-            onClick={() => dispatch(menu)}
+            onClick={() => dispatch(menuActions(menu))}
           >
             <span />
             <span />
@@ -50,7 +48,7 @@ const Navbar: React.FC<{}> = () => {
                 exact
                 className={styles.link}
                 activeClassName={styles.active}
-                onClick={() => dispatch(menu)}
+                onClick={() => dispatch(menuActions(menu))}
               >
                 Home
               </NavLink>
@@ -60,7 +58,7 @@ const Navbar: React.FC<{}> = () => {
                 to="/trial"
                 className={styles.link}
                 activeClassName={styles.active}
-                onClick={() => dispatch(menu)}
+                onClick={() => dispatch(menuActions(menu))}
               >
                 Get trial accaunt
               </NavLink>
