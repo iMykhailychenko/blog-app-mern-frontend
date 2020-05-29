@@ -3,15 +3,15 @@ import { ActionTypes } from '../types';
 // import { setDataToLocalStorage } from '../../helpers/storage';
 
 const setData = (store: any) => (next: (action: ActionTypes) => any) => (
-  action: ActionTypes,
+    action: ActionTypes,
 ) => {
-  next(action);
+    next(action);
 
-  // switch (action.type) {
-  //   case TOGGLE_LOCALE:
-  //     setDataToLocalStorage('locale', action.payload);
-  //     break;
-  // }
+    // switch (action.type) {
+    //   case TOGGLE_LOCALE:
+    //     setDataToLocalStorage('locale', action.payload);
+    //     break;
+    // }
 };
 
 export default setData;

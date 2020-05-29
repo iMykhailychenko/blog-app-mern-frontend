@@ -38,16 +38,16 @@
 .ql-editor p {
     margin-top: 16px;
     padding: 0 10%;
-	font-size: 1rem;
-	line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .ql-snow .ql-editor blockquote {
-	margin: 0 10%;
+    margin: 0 10%;
     margin-bottom: 5px;
     margin-top: 15px;
-	padding-left: 16px;
-	line-height: 1.4;
+    padding-left: 16px;
+    line-height: 1.4;
     font-size: 1rem;
     border-left: 4px solid #ccc;
 }
@@ -87,8 +87,8 @@
 .ql-editor ol li:not(.ql-direction-rtl),
 .ql-editor ul li:not(.ql-direction-rtl) {
     padding-bottom: 15px;
-	font-size: 1rem;
-	line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .ql-editor li:not(.ql-direction-rtl)::before {
@@ -96,14 +96,14 @@
 }
 
 .ql-snow .ql-editor img {
-	position: relative;
-	left: -10%;
+    position: relative;
+    left: -10%;
     max-width: 120%;
     width: 120%;
 }
 
 .ql-snow .ql-editor pre.ql-syntax {
-	margin: 20px 10%;
-	padding: 20px;
-	line-height: 1.4;
+    margin: 20px 10%;
+    padding: 20px;
+    line-height: 1.4;
 }

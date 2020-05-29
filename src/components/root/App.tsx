@@ -9,19 +9,18 @@ import Footer from '../footer/Footer';
 import Home from '../../pages/home/Home';
 import NewPost from '../../pages/new-post/NewPost';
 
-interface Props {}
 
-const App: React.FC<Props> = () => (
-  <>
-    <Header />
-    
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/new-post" component={NewPost} />
-    </Switch>
+const App: React.FC<{}> = () => (
+    <>
+        <Header />
 
-    <Footer />
-  </>
+        <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/new-post" component={NewPost} />
+        </Switch>
+
+        <Footer />
+    </>
 );
 
 export default App;

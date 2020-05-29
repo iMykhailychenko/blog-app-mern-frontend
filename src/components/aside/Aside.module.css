@@ -1,40 +1,40 @@
 .aside {
-  max-width: 350px;
-  min-width: 350px;
-  position: relative;
+    max-width: 350px;
+    min-width: 350px;
+    position: relative;
 }
 
 .inner {
-  position: sticky;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  padding: 70px 30px 70px 0;
+    position: sticky;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: 70px 30px 70px 0;
 }
 
 @media (max-width: 900px) {
-  .aside {
-    margin: 0 auto;
-    max-width: 450px;
-    min-width: 450px;
-    text-align: center;
-  }
+    .aside {
+        margin: 0 auto;
+        max-width: 450px;
+        min-width: 450px;
+        text-align: center;
+    }
 
-  .inner {
-    padding-right: 0;
-  }
+    .inner {
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 900px) {
-  .inner {
-    height: 100%;
-    padding: 30px 0;
-  }
+    .inner {
+        height: 100%;
+        padding: 30px 0;
+    }
 }
 
 @media (max-width: 550px) {
-  .aside {
-    max-width: 100%;
-    min-width: 100%;
-  }
+    .aside {
+        max-width: 100%;
+        min-width: 100%;
+    }
 }

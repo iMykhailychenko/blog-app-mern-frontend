@@ -1,3 +1,3 @@
 export interface IState {
-  menu: boolean;
+    menu: boolean;
 }

@@ -1,10 +1,10 @@
 .container {
-  margin: 100px 0 50px;
+    margin: 100px 0 50px;
 }
 
 .container .btn {
-  display: block;
-  width: max-content;
-  margin: 0 auto;
-  padding: 16px 40px;
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+    padding: 16px 40px;
 }

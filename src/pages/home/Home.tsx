@@ -16,18 +16,18 @@ const main = clsx(styles.main, 'container');
 interface Props {}
 
 const Home: React.FC<Props> = () => (
-  <main className={main}>
-    <Aside>
-      {/* <FormLogin /> */} <Profile />
-    </Aside>
+    <main className={main}>
+        <Aside>
+            {/* <FormLogin /> */} <Profile />
+        </Aside>
 
-    <div className={styles.content}>
-      <Posts />
-      <LoadMore />
-    </div>
+        <div className={styles.content}>
+            <Posts />
+            <LoadMore />
+        </div>
 
-    <ScrollTop />
-  </main>
+        <ScrollTop />
+    </main>
 );
 
 export default Home;

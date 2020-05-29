@@ -1,77 +1,77 @@
 .container {
-  position: relative;
-  transition: 0.3s ease-in-out;
-  overflow: hidden;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .containerWitImg {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .containerWitImg:hover .imgBtn,
 .containerWitImg:hover .lableWitImg {
-  opacity: 1;
+    opacity: 1;
 }
 
 .containerWitImg:hover::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .addImg {
-  position: absolute;
-  visibility: hidden;
+    position: absolute;
+    visibility: hidden;
 }
 
 .addImg:focus .lable {
-  background: #ffffff;
+    background: #ffffff;
 }
 
 .lable {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin: 0 auto 15px;
-  padding: 30px 10px;
-  border-radius: 8px;
-  border: 1px dashed #a1a1a1;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 15px;
+    padding: 30px 10px;
+    border-radius: 8px;
+    border: 1px dashed #a1a1a1;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
 .lable:hover {
-  background: #eeeeee;
+    background: #eeeeee;
 }
 
 .imgBtn,
 .lableWitImg {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: max-content;
-  margin: 0;
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: #ffffff;
-  border: none;
-  outline: none;
-  opacity: 0.4;
-  transition: 0.2s ease-in-out;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: max-content;
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    opacity: 0.4;
+    transition: 0.2s ease-in-out;
 }
 
 .lableWitImg {
-  right: 100px;
+    right: 100px;
 }
 
 .imgBtn:hover,
 .lableWitImg:hover,
 .imgBtn:focus,
 .lableWitImg:focus {
-  box-shadow: 0 0 0 4px rgba(228, 228, 228, 0.5);
+    box-shadow: 0 0 0 4px rgba(228, 228, 228, 0.5);
 }

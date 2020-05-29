@@ -4,12 +4,12 @@
 @import './btn.css';
 
 .container {
-  width: 95%;
-  margin: 0 auto;
+    width: 95%;
+    margin: 0 auto;
 }
 
 @media (max-width: 550px) {
-  .container {
-    width: 90%;
-  }
+    .container {
+        width: 90%;
+    }
 }

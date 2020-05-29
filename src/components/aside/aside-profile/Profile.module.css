@@ -1,32 +1,32 @@
 .img {
-  height: 180px;
-  width: 180px;
-  margin: 0 auto 30px;
-  border-radius: 50%;
-  object-fit: cover;
+    height: 180px;
+    width: 180px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .name,
 .nick {
-  text-align: center;
+    text-align: center;
 }
 
 .nick {
-  color: #3273dc;
+    color: #3273dc;
 }
 
 .name:hover,
 .nick:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .text {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .text:nth-last-of-type(1) {
-  margin-top: 10px;
-  font-size: 0.8rem;
+    margin-top: 10px;
+    font-size: 0.8rem;
 }

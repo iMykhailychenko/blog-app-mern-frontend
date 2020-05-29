@@ -1,77 +1,77 @@
 .btn {
-  padding: 10px 30px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: none;
-  font-weight: 700;
-  transition: 0.2s ease-in-out;
-  outline: none;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    transition: 0.2s ease-in-out;
+    outline: none;
 }
 
 .btn--blue {
-  background-color: #007bff;
-  color: #ffffff;
+    background-color: #007bff;
+    color: #ffffff;
 }
 .btn--blue:hover,
 .btn--blue:focus {
-  box-shadow: 0 0 0 4px rgba(38, 143, 255, 0.5);
+    box-shadow: 0 0 0 4px rgba(38, 143, 255, 0.5);
 }
 
 .btn--gray {
-  background-color: #6c757d;
-  color: #ffffff;
+    background-color: #6c757d;
+    color: #ffffff;
 }
 .btn--gray:hover,
 .btn--gray:focus {
-  box-shadow: 0 0 0 4px rgba(130, 138, 145, 0.5);
+    box-shadow: 0 0 0 4px rgba(130, 138, 145, 0.5);
 }
 
 .btn--light {
-  background-color: #f8f9fa;
+    background-color: #f8f9fa;
 }
 .btn--light:hover,
 .btn--light:focus {
-  box-shadow: 0 0 0 4px rgba(216, 217, 219, 0.5);
+    box-shadow: 0 0 0 4px rgba(216, 217, 219, 0.5);
 }
 
 .btn--info {
-  background-color: #17a2b8;
-  color: #ffffff;
+    background-color: #17a2b8;
+    color: #ffffff;
 }
 .btn--info:hover,
 .btn--info:focus {
-  box-shadow: 0 0 0 4px rgba(58, 176, 195, 0.5);
+    box-shadow: 0 0 0 4px rgba(58, 176, 195, 0.5);
 }
 
 .add {
-  position: relative;
-  display: block;
-  height: 50px;
-  width: 50px;
-  margin: 0 auto;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  background: #000;
-  transition: 0.2s ease-in-out;
+    position: relative;
+    display: block;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: #000;
+    transition: 0.2s ease-in-out;
 }
 .add:hover,
 .add:focus {
-  box-shadow: 0 0 0 4px rgba(31, 31, 31, 0.3);
+    box-shadow: 0 0 0 4px rgba(31, 31, 31, 0.3);
 }
 
 .add::before,
 .add::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 16px;
-  width: 2px;
-  background: #ffffff;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 16px;
+    width: 2px;
+    background: #ffffff;
 }
 
 .add::before {
-  transform: translate(-50%, -50%) rotate(90deg);
+    transform: translate(-50%, -50%) rotate(90deg);
 }

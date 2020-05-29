@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-
 // components
 import Aside from '../../components/aside/Aside';
 import Profile from '../../components/aside/aside-profile/Profile';
@@ -10,43 +9,43 @@ import ShortDesc from './ShortDesc/ShortDesc';
 import MainImg from './MainImg/MainImg';
 import ContentEditor from './ContentEditor/ContentEditor';
 import Hashtag from './Hashtag/Hashtag';
-
-
 // styles
 import styles from './NewPost.module.css';
 
 const main = clsx(styles.main, 'container');
 
-interface Props {}
-
 const handleClick = () => {
-  console.log('this');
+    console.log('this');
 };
 
-const NewPost: React.FC<Props> = () => (
-  <main className={main}>
-    <Aside>
-      <Profile addBtn={false} />
-    </Aside>
+const NewPost: React.FC<{}> = () => (
+    <main className={main}>
+        <Aside>
+            <Profile addBtn={false} />
+        </Aside>
 
-    <div className={styles.content}>
-      <MainTitleInput />
+        <div className={styles.content}>
+            <MainTitleInput />
 
-      <ShortDesc />
+            <ShortDesc />
 
-      <MainImg />
+            <MainImg />
 
-      <ContentEditor />
+            <ContentEditor />
 
-      <Hashtag />
+            <Hashtag />
 
-      <button className="btn btn--info" type="button" onClick={handleClick}>
-        Publcate
-      </button>
-    </div>
+            <button
+                className="btn btn--info"
+                type="button"
+                onClick={handleClick}
+            >
+                Publcate
+            </button>
+        </div>
 
-    <ScrollTop />
-  </main>
+        <ScrollTop />
+    </main>
 );
 
 export default NewPost;
