@@ -15,7 +15,6 @@ const MainTitleInput: React.FC<{}> = () => {
     };
 
     const mobile = window.innerWidth > 768;
-    console.log(mobile);
 
     return (
         <input

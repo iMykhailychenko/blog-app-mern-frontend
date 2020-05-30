@@ -22,7 +22,6 @@ const ScrollTop: React.FC<{}> = () => {
         };
     }, []);
 
-    console.log('scrollTop');
     const handleClick = (): void => {
         window.scrollTo({
             top: 0,
