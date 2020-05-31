@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { contentActions } from '../../../redux/post-editor/editorActions';
+// libs
 import ReactQuill from 'react-quill';
-
 // styles
 import 'react-quill/dist/quill.snow.css';
 import './theme.css';
-
-interface Props {}
 
 const modules = {
     toolbar: [
@@ -37,17 +37,18 @@ const formats = [
     'image',
 ];
 
-const ContentEditor: React.FC<Props> = () => {
-    const [value, setValue] = useState('');
+const ContentEditor = () => {
+    const dispatch = useDispatch();
 
-    // console.log(value);
+    const handleChange = (value: string): void => {
+        dispatch(contentActions(value));
+    };
 
     return (
         <ReactQuill
             theme="snow"
-            value={value}
             placeholder="Write youre content here"
-            onChange={setValue}
+            onChange={handleChange}
             modules={modules}
             formats={formats}
         />
