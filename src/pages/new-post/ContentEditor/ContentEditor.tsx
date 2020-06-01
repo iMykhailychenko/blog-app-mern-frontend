@@ -63,7 +63,7 @@ import 'draft-js/dist/Draft.css';
 // import styles from './ContentEditor.module.css';
 
 const ContentEditor = () => {
-    const [editorState, setEditorState] = React.useState(() =>
+    const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty(),
     );
 
