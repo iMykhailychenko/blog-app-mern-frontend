@@ -6,12 +6,12 @@
     background: none;
     outline: none;
     border: none;
-    border-bottom: 0.2rem solid transparent;
+    border-radius: 0.5rem;
+    background: #efefef;
     transition: 0.3s ease-in-out;
 }
 
 .input:hover,
 .input:focus {
-    background: #efefef;
-    border-bottom: 0.2rem solid rgb(84, 84, 146);
+    background: #dedede;
 }

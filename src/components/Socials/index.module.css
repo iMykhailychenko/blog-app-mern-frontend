@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 45%;
+    margin: 0 auto;
+}
+
+.link {
+    display: block;
+}
+
+.link svg {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    fill: #666;
+    transition: 0.3s ease-in-out;
+}
+
+.link svg:hover {
+    fill: #007bff;
+}

@@ -13,7 +13,8 @@ const main = clsx(styles.main, 'container');
 export default () => (
     <main className={main}>
         <Aside>
-            {/* <FormLogin /> */} <Profile />
+            {/* <FormLogin /> */}
+            <Profile />
         </Aside>
 
         <div className={styles.content}>

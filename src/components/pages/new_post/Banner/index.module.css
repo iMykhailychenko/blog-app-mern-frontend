@@ -37,7 +37,7 @@
 
 .img {
     position: relative;
-    height: 75vh;
+    max-height: 90vh;
     width: 100%;
     object-fit: cover;
     margin: 8rem auto;
@@ -50,7 +50,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
     opacity: 0;
     transition: 0.3s ease-in-out;
@@ -67,7 +67,7 @@
     align-items: center;
     width: 45%;
     height: 30vh;
-    margin: 8rem auto;
+    margin: 3rem auto;
     border-radius: 0.5rem;
     background: #efefef;
     transition: 0.3s ease-in-out;

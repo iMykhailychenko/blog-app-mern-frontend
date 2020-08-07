@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
+import router from '../../../config/router';
 import toggleMenu from './nav.actions';
 import { IState } from '../../../helpers/interfaces';
 import styles from './index.module.css';
@@ -44,7 +45,7 @@ export default () => {
                     <ul className={menuClass}>
                         <li>
                             <NavLink
-                                to="/"
+                                to={router.home}
                                 exact
                                 className={styles.link}
                                 activeClassName={styles.active}
@@ -55,7 +56,7 @@ export default () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/trial"
+                                to={router.trial}
                                 className={styles.link}
                                 activeClassName={styles.active}
                                 onClick={() => dispatch(toggleMenu(menu))}
@@ -65,7 +66,7 @@ export default () => {
                         </li>
                     </ul>
 
-                    <Link to="/signup" className="btn btn--blue">
+                    <Link to={router.auth.signup} className="btn btn--blue">
                         Sign up
                     </Link>
                 </>
@@ -74,7 +75,7 @@ export default () => {
                     <ul className={menuClass}>
                         <li>
                             <NavLink
-                                to="/"
+                                to={router.home}
                                 exact
                                 className={styles.link}
                                 activeClassName={styles.active}
@@ -84,7 +85,7 @@ export default () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/trial"
+                                to={router.trial}
                                 className={styles.link}
                                 activeClassName={styles.active}
                             >
@@ -92,7 +93,7 @@ export default () => {
                             </NavLink>
                         </li>
                     </ul>
-                    <Link to="/signup" className="btn btn--blue">
+                    <Link to={router.auth.signup} className="btn btn--blue">
                         Sign up
                     </Link>
                 </>

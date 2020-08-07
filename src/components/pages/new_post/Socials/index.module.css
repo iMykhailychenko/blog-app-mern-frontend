@@ -1,0 +1,31 @@
+.list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 45%;
+    margin: 0 auto;
+    padding-left: 1rem;
+}
+
+.text {
+    width: 45%;
+    margin: 4rem auto 1rem;
+    padding-left: 1rem;
+    font-size: 1.2rem;
+}
+
+.link {
+    display: block;
+}
+
+.link svg {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    fill: #666;
+    transition: 0.3s ease-in-out;
+}
+
+.link svg:hover {
+    fill: #007bff;
+}

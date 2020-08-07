@@ -9,7 +9,6 @@ export default () => (
         {content.map(({ items, user }) => (
             <li className={styles.card} key={items.id}>
                 <Content {...items} />
-
                 <User {...user} />
             </li>
         ))}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import router from '../../../../../config/router';
 import styles from '../index.module.css';
 
 interface IProps {
@@ -13,9 +14,9 @@ interface IProps {
 
 export default ({ id, placeholder, title, text, date, tags }: IProps) => (
     <>
-        <Link to={`/post/${id}`} className={styles.postLink}>
+        <Link to={router.post.single(id)} className={styles.postLink}>
             {placeholder && (
-                <img className={styles.img} src={placeholder} alt="" />
+                <img className={styles.img} src={placeholder} alt={title} />
             )}
             <div className={styles.inner}>
                 <h4 className={styles.title}>{title}</h4>
@@ -26,10 +27,10 @@ export default ({ id, placeholder, title, text, date, tags }: IProps) => (
 
         <div className={styles.inner}>
             {!!tags.length &&
-                tags.map((tag, index) => (
+                tags.map(tag => (
                     <Link
-                        to={`/tags/${tag}`}
-                        key={index}
+                        to={router.post.tag(tag)}
+                        key={tag}
                         className={styles.tag}
                     >
                         {`#${tag}`}
