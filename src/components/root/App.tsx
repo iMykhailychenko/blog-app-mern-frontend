@@ -1,16 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-// import components
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
-
-// pages
-import Home from '../../pages/home/Home';
-import NewPost from '../../pages/new-post/NewPost';
+import Header from '../header';
+import Footer from '../footer';
+import Home from '../pages/home';
+import NewPost from '../pages/new_post';
 
 
-const App: React.FC<{}> = () => (
+const App = () => (
     <>
         <Header />
 

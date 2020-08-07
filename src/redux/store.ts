@@ -4,6 +4,4 @@ import ReduxThunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 const enhancer = applyMiddleware(ReduxThunk);
-const store = createStore(rootReducer, composeWithDevTools(enhancer));
-
-export default store;
+export default createStore(rootReducer, composeWithDevTools(enhancer));

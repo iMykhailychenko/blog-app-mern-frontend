@@ -1,5 +1,5 @@
-import { IState } from './rootState';
+import { IState } from '../helpers/interfaces';
 
-// post editor
-export const getEditPost = (state: IState) => state.editorPost;
-export const getEditTag = (state: IState) => state.editorPost.tags;
+export const getBanner = (state: IState): File | null => state.post.newPost.banner 
+export const getTitle = (state: IState): string => state.post.newPost.title 
+export const getDesc = (state: IState): string => state.post.newPost.desc 
