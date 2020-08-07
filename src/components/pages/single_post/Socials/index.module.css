@@ -2,8 +2,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 45%;
+    width: 55%;
+    min-width: 80rem;
     margin: 0 auto;
+}
+
+.text {
+    width: 55%;
+    min-width: 80rem;
+    margin: 4rem auto 1rem;
+    font-size: 1.2rem;
 }
 
 .link {
@@ -20,4 +28,12 @@
 
 .link svg:hover {
     fill: #007bff;
+}
+
+@media (max-width: 1000px) {
+    .list,
+    .text {
+        width: 90%;
+        min-width: unset;
+    }
 }

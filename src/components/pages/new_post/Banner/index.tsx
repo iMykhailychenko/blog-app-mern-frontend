@@ -15,7 +15,7 @@ export default () => {
         dispatch(banner(files[0]));
     };
 
-    return value ? (
+    return value && value.name ? (
         <div
             className={styles.wrp}
             onClick={(): void => {

@@ -21,7 +21,12 @@ interface IBanner {
 
 interface ITags {
   type: typeof NEW_POST_TAGS;
-  payload: string[];
+  payload: string;
 }
 
-export type IActions = ITitle | IDesc | IBanner | ITags;
+interface IContent {
+  type: typeof NEW_POST_CONTENT;
+  payload: string;
+}
+
+export type IActions = ITitle | IDesc | IBanner | ITags | IContent;

@@ -12,7 +12,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -30,7 +30,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: [],
+            tags: '',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -47,25 +47,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
-            date: '09 december 2020, 18:00',
-        },
-        user: {
-            id: uuidv4(),
-            avatar,
-            name: 'Ihor Mykhailychenko',
-            nick: 'ihormykh',
-        },
-    },
-    {
-        items: {
-            id: uuidv4(),
-            placeholder,
-            title:
-                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
-            text:
-                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: [],
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -83,7 +65,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: '',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -101,7 +83,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: [],
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -119,7 +101,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: '',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -137,75 +119,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: [],
-            date: '09 december 2020, 18:00',
-        },
-        user: {
-            id: uuidv4(),
-            avatar,
-            name: 'Ihor Mykhailychenko',
-            nick: 'ihormykh',
-        },
-    },
-    {
-        items: {
-            id: uuidv4(),
-            title:
-                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
-            text:
-                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
-            date: '09 december 2020, 18:00',
-        },
-        user: {
-            id: uuidv4(),
-            avatar,
-            name: 'Ihor Mykhailychenko',
-            nick: 'ihormykh',
-        },
-    },
-    {
-        items: {
-            id: uuidv4(),
-            title:
-                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
-            text:
-                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
-            date: '09 december 2020, 18:00',
-        },
-        user: {
-            id: uuidv4(),
-            avatar,
-            name: 'Ihor Mykhailychenko',
-            nick: 'ihormykh',
-        },
-    },
-    {
-        items: {
-            id: uuidv4(),
-            title:
-                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
-            text:
-                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
-            date: '09 december 2020, 18:00',
-        },
-        user: {
-            id: uuidv4(),
-            avatar,
-            name: 'Ihor Mykhailychenko',
-            nick: 'ihormykh',
-        },
-    },
-    {
-        items: {
-            id: uuidv4(),
-            title:
-                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
-            text:
-                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -223,7 +137,75 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: '',
+            date: '09 december 2020, 18:00',
+        },
+        user: {
+            id: uuidv4(),
+            avatar,
+            name: 'Ihor Mykhailychenko',
+            nick: 'ihormykh',
+        },
+    },
+    {
+        items: {
+            id: uuidv4(),
+            title:
+                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
+            text:
+                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
+            tags: 'react js typescript css html',
+            date: '09 december 2020, 18:00',
+        },
+        user: {
+            id: uuidv4(),
+            avatar,
+            name: 'Ihor Mykhailychenko',
+            nick: 'ihormykh',
+        },
+    },
+    {
+        items: {
+            id: uuidv4(),
+            title:
+                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
+            text:
+                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
+            tags: 'react js typescript css html',
+            date: '09 december 2020, 18:00',
+        },
+        user: {
+            id: uuidv4(),
+            avatar,
+            name: 'Ihor Mykhailychenko',
+            nick: 'ihormykh',
+        },
+    },
+    {
+        items: {
+            id: uuidv4(),
+            title:
+                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
+            text:
+                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
+            tags: 'react js typescript css html',
+            date: '09 december 2020, 18:00',
+        },
+        user: {
+            id: uuidv4(),
+            avatar,
+            name: 'Ihor Mykhailychenko',
+            nick: 'ihormykh',
+        },
+    },
+    {
+        items: {
+            id: uuidv4(),
+            title:
+                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
+            text:
+                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -241,7 +223,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -259,7 +241,7 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {
@@ -277,7 +259,25 @@ const posts: IPost[] = [
                 'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
             text:
                 'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
-            tags: ['react', 'js', 'typescript', 'css', 'html'],
+            tags: 'react js typescript css html',
+            date: '09 december 2020, 18:00',
+        },
+        user: {
+            id: uuidv4(),
+            avatar,
+            name: 'Ihor Mykhailychenko',
+            nick: 'ihormykh',
+        },
+    },
+    {
+        items: {
+            id: uuidv4(),
+            placeholder,
+            title:
+                'Dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus',
+            text:
+                'Aamet consectetur, adipisicing elit. Illum repellendus delectus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum repellendus delectus.',
+            tags: 'react js typescript css html',
             date: '09 december 2020, 18:00',
         },
         user: {

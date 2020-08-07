@@ -5,7 +5,8 @@ const initState: INewPost = {
   title: '',
   desc: '',
   banner: null,
-  tags: [],
+  tags: '',
+  content: '',
 }
 
 export default (state: INewPost = initState, action: types.IActions): INewPost => {
@@ -18,6 +19,12 @@ export default (state: INewPost = initState, action: types.IActions): INewPost =
 
     case types.NEW_POST_BANNER:
       return { ...state, banner: action.payload };
+
+    case types.NEW_POST_CONTENT:
+      return { ...state, content: action.payload };
+
+    case types.NEW_POST_TAGS:
+      return { ...state, tags: action.payload };
 
     default:
       return state;

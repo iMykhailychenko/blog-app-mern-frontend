@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ReactQuill from 'react-quill';
+import { content } from '../NewPost.actions';
+import { getContent } from '../../../../redux/selectors';
 import 'react-quill/dist/quill.snow.css';
+import './styles.css';
 
 const modules = {
     toolbar: [
@@ -12,8 +16,8 @@ const modules = {
             { indent: '-1' },
             { indent: '+1' },
         ],
-        ['code'],
         ['link', 'image'],
+        ['code-block'],
         ['clean'],
     ],
 };
@@ -28,21 +32,26 @@ const formats = [
     'list',
     'bullet',
     'indent',
-    'code-block',
+    'code',
     'link',
     'image',
+    'code-block',
 ];
 
 export default () => {
-    const [value, setValue] = useState('');
+    const dispatch = useDispatch();
+    const value = useSelector(getContent);
 
     return (
         <ReactQuill
             theme="snow"
+            placeholder="Main post content ..."
             modules={modules}
             formats={formats}
             value={value}
-            onChange={setValue}
+            onChange={(text: string): void => {
+                dispatch(content(text));
+            }}
         />
     );
 };

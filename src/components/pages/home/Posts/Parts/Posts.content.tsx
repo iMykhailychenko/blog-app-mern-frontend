@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import router from '../../../../../config/router';
+import { generateTags } from '../../../../../helpers/functions';
 import styles from '../index.module.css';
 
 interface IProps {
@@ -9,7 +10,7 @@ interface IProps {
     title: string;
     text: string;
     date: string;
-    tags: string[];
+    tags: string;
 }
 
 export default ({ id, placeholder, title, text, date, tags }: IProps) => (
@@ -26,8 +27,8 @@ export default ({ id, placeholder, title, text, date, tags }: IProps) => (
         </Link>
 
         <div className={styles.inner}>
-            {!!tags.length &&
-                tags.map(tag => (
+            {tags.length &&
+                generateTags(tags).map(tag => (
                     <Link
                         to={router.post.tag(tag)}
                         key={tag}

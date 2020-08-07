@@ -8,10 +8,8 @@ import Posts from './Posts';
 import LoadMore from '../../load_more';
 import styles from './index.module.css';
 
-const main = clsx(styles.main, 'container');
-
 export default () => (
-    <main className={main}>
+    <main className={clsx(styles.main, 'container')}>
         <Aside>
             {/* <FormLogin /> */}
             <Profile />

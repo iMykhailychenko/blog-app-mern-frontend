@@ -65,7 +65,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45%;
+    width: 55%;
+    min-width: 80rem;
     height: 30vh;
     margin: 3rem auto;
     border-radius: 0.5rem;
@@ -76,4 +77,12 @@
 .add:hover,
 .add:focus {
     background: #dedede;
+}
+
+
+@media (max-width: 1000px) {
+    .add {
+        width: 90%;
+        min-width: unset;
+    }
 }

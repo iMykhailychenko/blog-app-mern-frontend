@@ -1,0 +1,39 @@
+.list,
+.text {
+    width: 55%;
+    min-width: 80rem;
+    margin: 0 auto 2rem;
+}
+
+.list {
+    display: flex;
+	flex-wrap: wrap;
+	padding-left: 0.5rem;
+}
+
+.item {
+    margin-left: 0.5rem;
+	padding: 0.3rem .4rem;
+	color: #007bff;
+    background: rgb(240, 240, 240);
+    border-radius: 0.5rem;
+}
+
+.text {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.input {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 1000px) {
+    .list,
+    .text {
+        width: 90%;
+        min-width: unset;
+    }
+}

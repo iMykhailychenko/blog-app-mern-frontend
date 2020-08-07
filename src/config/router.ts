@@ -4,7 +4,9 @@ export default {
 
     post: {
         single: (id: string): string => `/post/${id}`,
+        singleStat: '/post/:id',
         tag: (tag: string): string => `/tags/${tag}`,
+        tagStat: '/tags/:tag',
         new: '/new_post',
     },
 
@@ -14,5 +16,6 @@ export default {
         forgotPass: '/forgot_pass',
         resetPass: '/reset_pass',
         user: (id: string): string => `/user/${id}`,
+        userStat: '/user/:id',
     }
 }

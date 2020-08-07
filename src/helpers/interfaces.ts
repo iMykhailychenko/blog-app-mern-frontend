@@ -4,7 +4,7 @@ export interface IPost {
         placeholder?: string;
         title: string;
         text: string;
-        tags: string[] | [];
+        tags: string;
         date: string;
     };
     user: {
@@ -15,11 +15,26 @@ export interface IPost {
     };
 }
 
-export interface INewPost {
+export interface IPostFields {
     title: string;
     desc: string;
+    tags: string;
+    content: string;
+}
+
+export interface INewPost extends IPostFields {
     banner: File | null;
-    tags: string[];
+}
+
+export interface ISinglePost extends IPostFields {
+    banner: string;
+    date: string;
+    user: {
+        id: string;
+        avatar: string;
+        name: string;
+        nick: string;
+    };
 }
 
 export interface IState {
@@ -31,5 +46,10 @@ export interface IState {
             error: boolean;
         };
         newPost: INewPost;
+        single: {
+            loading: boolean;
+            items: ISinglePost;
+            error: boolean;
+        }
     };
 }

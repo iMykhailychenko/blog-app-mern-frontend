@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import styles from './index.module.css';
 import pop from '../../transitions/pop.module.css';
 
-const ScrollTop: React.FC<{}> = () => {
+const ScrollTop = ({ left }: { left?: string }) => {
     const buttonRef = createRef<HTMLButtonElement>();
 
     const [top, setTop] = useState(false);
@@ -33,6 +33,7 @@ const ScrollTop: React.FC<{}> = () => {
             <button
                 className={styles.btn}
                 ref={buttonRef}
+                style={left ? { left } : {}}
                 onClick={handleClick}
                 type="button"
             />

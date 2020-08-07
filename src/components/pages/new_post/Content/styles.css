@@ -1,0 +1,56 @@
+.quill {
+    width: 55%;
+    min-width: 80rem;
+    margin: 0 auto;
+}
+
+.quill img {
+    max-height: 55vh;
+    object-fit: cover;
+}
+
+.ql-snow .ql-editor a {
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.5rem;
+    color: inherit;
+    cursor: pointer;
+}
+
+.ql-snow .ql-editor a:hover {
+    text-decoration: none;
+    background: #fff;
+}
+
+.quill .ql-toolbar.ql-snow {
+    border: none;
+}
+
+.quill .ql-container.ql-snow {
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    border-radius: 0.5rem;
+    background: #efefef;
+    font-family: inherit;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.quill .ql-container.ql-snow p {
+    line-height: 1.4;
+}
+
+.ql-editor.ql-blank::before {
+    font-style: normal;
+}
+
+.quill .ql-container.ql-snow:hover,
+.quill .ql-container.ql-snow:focus {
+    background: #dedede;
+}
+
+@media (max-width: 1000px) {
+    .quill {
+        width: 90%;
+        min-width: unset;
+    }
+}
