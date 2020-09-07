@@ -1,25 +1,34 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import Aside from '../../aside';
-// import FormLogin from '../../components/aside/aside-form/FormLogin';
-import Profile from '../../aside/aside_profile';
-import ScrollTop from '../../scroll_top';
-import Posts from './Posts';
+import FormLogin from '../../aside/aside_form';
+import ScrollTop from '../../scroll_top_btn';
+import Posts from '../../posts';
+import { getAuth } from '../../../redux/selectors';
 import LoadMore from '../../load_more';
 import styles from './index.module.css';
 
-export default () => (
-    <main className={clsx(styles.main, 'container')}>
-        <Aside>
-            {/* <FormLogin /> */}
-            <Profile />
-        </Aside>
+import posts from '../../../assets/posts';
 
-        <div className={styles.content}>
-            <Posts />
-            <LoadMore />
-        </div>
+export default () => {
+    const { isAuth } = useSelector(getAuth);
 
-        <ScrollTop />
-    </main>
-);
+    return (
+        <main className={clsx(styles.main, 'container')}>
+            {!isAuth && (
+                <Aside>
+                    <FormLogin />
+                </Aside>
+            )}
+
+            <div className={styles.content}>
+                <h2 className={styles.title}>Popular posts</h2>
+                <Posts content={posts} />
+                <LoadMore />
+            </div>
+
+            <ScrollTop />
+        </main>
+    );
+};

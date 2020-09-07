@@ -1,7 +1,8 @@
 .btn {
-    padding: 1rem 3rem;
+    height: 3.5rem;
+    padding: 0.6rem 3rem;
     background-color: #ffffff;
-    border-radius: 0.8rem;
+    border-radius: 0.4rem;
     border: none;
     font-weight: 700;
     font-size: 1.4rem;
@@ -10,21 +11,20 @@
 }
 
 .btn--blue {
-    background-color: #007bff;
+    background-color: #4dacff;
     color: #ffffff;
 }
 .btn--blue:hover,
 .btn--blue:focus {
-    box-shadow: 0 0 0 0.4rem rgba(38, 143, 255, 0.5);
+    box-shadow: 0 0 0 0.3rem rgba(12, 112, 219, 0.4);
 }
 
 .btn--gray {
-    background-color: #6c757d;
-    color: #ffffff;
+    background-color: #eeeeee;
 }
 .btn--gray:hover,
 .btn--gray:focus {
-    box-shadow: 0 0 0 0.4rem rgba(130, 138, 145, 0.5);
+    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
 }
 
 .btn--light {
@@ -32,16 +32,16 @@
 }
 .btn--light:hover,
 .btn--light:focus {
-    box-shadow: 0 0 0 0.4rem rgba(216, 217, 219, 0.5);
+    box-shadow: 0 0 0 0.3rem rgba(216, 217, 219, 0.4);
 }
 
 .btn--info {
-    background-color: #17a2b8;
+    background-color: #65b4c4;
     color: #ffffff;
 }
 .btn--info:hover,
 .btn--info:focus {
-    box-shadow: 0 0 0 0.4rem rgba(58, 176, 195, 0.5);
+    box-shadow: 0 0 0 0.3rem rgba(58, 176, 195, 0.4);
 }
 
 .add {

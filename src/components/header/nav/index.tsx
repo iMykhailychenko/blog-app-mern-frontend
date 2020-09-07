@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Profile from '../profile';
+import MobileNav from './MobileNav';
+import DesktopNav from './DesktopNav';
+import { getAuth } from '../../../redux/selectors';
 import router from '../../../config/router';
-import toggleMenu from './nav.actions';
 import { IState } from '../../../helpers/interfaces';
 import styles from './index.module.css';
+import toggleMenu from './nav.actions';
 
 export default () => {
+    const { isAuth } = useSelector(getAuth);
+    const { pathname } = useLocation();
+
+    const logPath: { [key: string]: boolean } = {
+        '/': true,
+        '/login': true,
+    };
+
+    const signPath: { [key: string]: boolean } = {
+        '/signup': true,
+    };
+
     // media
     const [mobile, setMobile] = useState(false);
     useEffect(() => {
@@ -27,7 +45,14 @@ export default () => {
     // open/close mobile menu
     const menu = useSelector((state: IState) => state.menu);
     const dispatch = useDispatch();
-    const menuClass = clsx(styles.list, menu && styles.open);
+
+    const closeM = (): void => {
+        dispatch(toggleMenu(false));
+    };
+
+    const toggleM = (): void => {
+        dispatch(toggleMenu(!menu));
+    };
 
     return (
         <nav className={styles.nav}>
@@ -36,67 +61,59 @@ export default () => {
                     <button
                         className={styles.mobileMenu}
                         type="button"
-                        onClick={() => dispatch(toggleMenu(menu))}
+                        onClick={toggleM}
                     >
                         <span />
                         <span />
                     </button>
 
-                    <ul className={menuClass}>
-                        <li>
-                            <NavLink
-                                to={router.home}
-                                exact
-                                className={styles.link}
-                                activeClassName={styles.active}
-                                onClick={() => dispatch(toggleMenu(menu))}
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to={router.trial}
-                                className={styles.link}
-                                activeClassName={styles.active}
-                                onClick={() => dispatch(toggleMenu(menu))}
-                            >
-                                Get trial accaunt
-                            </NavLink>
-                        </li>
-                    </ul>
+                    {menu && (
+                        <>
+                            <div className={styles.backdrop} onClick={closeM} />
 
-                    <Link to={router.auth.signup} className="btn btn--blue">
-                        Sign up
-                    </Link>
+                            <MobileNav
+                                onClick={toggleM}
+                                className={clsx(
+                                    styles.list,
+                                    menu && styles.open,
+                                )}
+                            />
+                        </>
+                    )}
                 </>
             ) : (
-                <>
-                    <ul className={menuClass}>
-                        <li>
-                            <NavLink
-                                to={router.home}
-                                exact
-                                className={styles.link}
-                                activeClassName={styles.active}
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to={router.trial}
-                                className={styles.link}
-                                activeClassName={styles.active}
-                            >
-                                Get trial accaunt
-                            </NavLink>
-                        </li>
-                    </ul>
-                    <Link to={router.auth.signup} className="btn btn--blue">
-                        Sign up
+                <DesktopNav
+                    className={clsx(styles.list, menu && styles.open)}
+                />
+            )}
+
+            {isAuth ? (
+                <Profile />
+            ) : (
+                <div className={styles.btn_wrp}>
+                    <Link to={router.search} className={styles.btn}>
+                        <FontAwesomeIcon icon={faSearch} />
                     </Link>
-                </>
+
+                    {!logPath[pathname] && (
+                        <Link
+                            to={router.auth.login}
+                            className="btn btn--gray"
+                            style={{ marginLeft: '1rem' }}
+                        >
+                            Login
+                        </Link>
+                    )}
+                    {!signPath[pathname] && (
+                        <Link
+                            to={router.auth.signup}
+                            className="btn btn--blue"
+                            style={{ marginLeft: '1rem' }}
+                        >
+                            Sign up
+                        </Link>
+                    )}
+                </div>
             )}
         </nav>
     );

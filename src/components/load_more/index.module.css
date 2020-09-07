@@ -6,5 +6,11 @@
     display: block;
     width: max-content;
     margin: 0 auto;
-    padding: 1.6rem 4rem;
+    padding: 0.6rem 4rem;
+}
+
+@media (max-width: 900px) {
+    .container {
+        margin: 0 0 5rem;
+    }
 }

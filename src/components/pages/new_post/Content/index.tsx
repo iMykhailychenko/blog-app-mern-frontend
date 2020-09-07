@@ -4,11 +4,11 @@ import ReactQuill from 'react-quill';
 import { content } from '../NewPost.actions';
 import { getContent } from '../../../../redux/selectors';
 import 'react-quill/dist/quill.snow.css';
-import './styles.css';
+import './index.css';
 
 const modules = {
     toolbar: [
-        [{ header: [1, 2, 3, false] }],
+        [{ header: [2, 3, 4, false] }],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
         [
             { list: 'ordered' },

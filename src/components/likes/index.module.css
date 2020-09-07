@@ -1,0 +1,19 @@
+.list {
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.item {
+    margin-right: 2rem;
+    cursor: pointer;
+    color: rgb(97, 97, 97);
+    transition: 0.3s ease-in-out;
+}
+
+.item:hover {
+    color: #007bff;
+}
+
+.num {
+    padding-left: 0.8rem;
+}

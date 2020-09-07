@@ -1,4 +1,4 @@
-import React, { createRef, ChangeEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { banner } from '../NewPost.actions';
 import { getBanner } from '../../../../redux/selectors';
@@ -6,7 +6,6 @@ import styles from './index.module.css';
 
 export default () => {
     const dispatch = useDispatch();
-    const fileInputRef = createRef<HTMLInputElement>();
     const value = useSelector(getBanner);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -38,7 +37,6 @@ export default () => {
 
             <input
                 type="file"
-                ref={fileInputRef}
                 className={styles.input}
                 onChange={handleChange}
                 name="img"

@@ -1,12 +1,23 @@
+type IDynamic = [(id: string) => string, string];
+
 export default {
     home: '/',
     trial: '/trial',
+    settings: '/settings',
+    about: '/about',
+    question: '/question',
+    search: '/search',
+    user: [(id: string): string => `/user/${id}`, '/user/:id'] as IDynamic,
 
     post: {
-        single: (id: string): string => `/post/${id}`,
-        singleStat: '/post/:id',
-        tag: (tag: string): string => `/tags/${tag}`,
-        tagStat: '/tags/:tag',
+        single: [
+            (id: string): string => `/post/${id}`,
+            '/post/:id',
+        ] as IDynamic,
+        tag: [
+            (tag: string): string => `/tags/${tag}`,
+            '/tags/:tag',
+        ] as IDynamic,
         new: '/new_post',
     },
 
@@ -15,7 +26,5 @@ export default {
         login: '/login',
         forgotPass: '/forgot_pass',
         resetPass: '/reset_pass',
-        user: (id: string): string => `/user/${id}`,
-        userStat: '/user/:id',
-    }
-}
+    },
+};

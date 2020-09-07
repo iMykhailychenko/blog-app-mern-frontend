@@ -1,5 +1,34 @@
 .header {
     position: relative;
-    z-index: 1;
+    z-index: 7;
     width: 100%;
+    background: #fff;
+}
+
+.transform {
+    transform: translateY(-100%);
+    transition: 0.3s ease-in-out;
+}
+
+.btn {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: 6;
+    transform: translateX(-50%);
+    height: 6rem;
+    width: 100%;
+    font-size: 1.4rem;
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.btn:hover ~ .transform {
+    transform: translateY(0);
+}
+
+.transform:hover {
+    transform: translateY(0);
 }

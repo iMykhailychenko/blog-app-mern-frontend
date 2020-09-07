@@ -7,20 +7,13 @@
     margin: 0 auto;
 }
 
-.text {
-    width: 55%;
-    min-width: 80rem;
-    margin: 4rem auto 1rem;
-    font-size: 1.2rem;
-}
-
 .link {
     display: block;
 }
 
 .link svg {
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     margin-right: 2rem;
     fill: #666;
     transition: 0.3s ease-in-out;
@@ -31,9 +24,8 @@
 }
 
 @media (max-width: 1000px) {
-    .list,
-    .text {
-        width: 90%;
+    .list {
+        width: 100%;
         min-width: unset;
     }
 }

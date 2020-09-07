@@ -1,0 +1,54 @@
+.wrp {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+    position: relative;
+    min-width: 28rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+.close {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.3rem;
+    background: none;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+}
+
+.close::after,
+.close::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 0.2rem;
+    background: rgb(95, 95, 95);
+}
+
+.close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+@media (max-width: 500px) {
+    .content {
+        width: 90% !important;
+    }
+}

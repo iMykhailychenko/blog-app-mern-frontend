@@ -1,3 +1,14 @@
+import { IModal } from '../common/modal/Modal.types';
+
+export interface IUser {
+    id: string;
+    avatar: string;
+    name: string;
+    email: string,
+    nick: string;
+    posts?: number;
+}
+
 export interface IPost {
     items: {
         id: string;
@@ -6,13 +17,11 @@ export interface IPost {
         text: string;
         tags: string;
         date: string;
+        like: string[];
+        dislike: string[];
+        watched: string[];
     };
-    user: {
-        id: string;
-        avatar: string;
-        name: string;
-        nick: string;
-    };
+    user: IUser;
 }
 
 export interface IPostFields {
@@ -29,16 +38,52 @@ export interface INewPost extends IPostFields {
 export interface ISinglePost extends IPostFields {
     banner: string;
     date: string;
-    user: {
-        id: string;
-        avatar: string;
-        name: string;
-        nick: string;
-    };
+    like: string[];
+    dislike: string[];
+    watched: string[];
+    user: IUser;
+}
+
+export interface IComment {
+    id: string;
+    date: string;
+    text: string;
+    parent: boolean;
+    img?: string;
+    like: string[];
+    dislike: string[];
+    user: IUser;
+    answers?: IComment[];
+}
+
+export interface IAuth {
+    loading: boolean;
+    error: boolean;
+    isAuth: boolean;
+    user: IUser | {};
+}
+
+export interface INotification {
+    type: 'like' | 'comment',
+    target: 'post' | 'comment',
+    user: IUser,
+    post: IPost,
 }
 
 export interface IState {
+    auth: IAuth;
     menu: boolean;
+    modal: IModal;
+    search: string;
+    picture: {
+        loading: boolean;
+        error: boolean;
+        src: string;
+    };
+    comment: {
+        text: string;
+        img: File | null;
+    };
     post: {
         list: {
             loading: boolean;
@@ -50,6 +95,6 @@ export interface IState {
             loading: boolean;
             items: ISinglePost;
             error: boolean;
-        }
+        };
     };
 }

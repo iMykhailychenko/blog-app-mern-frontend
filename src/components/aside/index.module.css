@@ -1,7 +1,7 @@
 .aside {
-    max-width: 35rem;
-    min-width: 35rem;
     position: relative;
+    max-width: 30rem;
+    min-width: 30rem;
 }
 
 .inner {
@@ -9,14 +9,14 @@
     top: 2rem;
     left: 0;
     width: 100%;
-    padding: 7rem 3rem 7rem 0;
+    padding: 2rem 3rem 7rem 0;
 }
 
 @media (max-width: 900px) {
     .aside {
         margin: 0 auto;
-        max-width: 45rem;
-        min-width: 45rem;
+        max-width: 30rem;
+        min-width: 30rem;
         text-align: center;
     }
 

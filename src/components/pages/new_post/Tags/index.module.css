@@ -12,11 +12,18 @@
 }
 
 .item {
-    margin-left: 0.5rem;
-	padding: 0.3rem .4rem;
-	color: #007bff;
-    background: rgb(240, 240, 240);
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem 1rem;
+    color: #007bff;
+    font-size: 1.5rem;
+    background: rgb(234, 244, 253);
     border-radius: 0.5rem;
+    transition: 0.3s ease-in-out;
+}
+
+.item:hover {
+    background: rgb(206, 233, 255);
 }
 
 .text {
@@ -28,6 +35,7 @@
 
 .input {
     font-size: 1.2rem;
+    margin-top: 0;
 }
 
 @media (max-width: 1000px) {
