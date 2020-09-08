@@ -22,7 +22,7 @@ export default () => {
                 </Aside>
             )}
 
-            <div className={styles.content}>
+            <div className={clsx(styles.content, isAuth && styles.auth)}>
                 <h2 className={styles.title}>Popular posts</h2>
                 <Posts content={posts} />
                 <LoadMore />

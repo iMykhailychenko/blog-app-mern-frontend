@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import React, { ReactElement } from 'react';
+import Slider from 'react-slick';
 import styles from './index.module.css';
 import content from '../../../../assets/slider';
 
@@ -8,40 +7,36 @@ export default ({
     className = undefined,
 }: {
     className?: string | undefined;
-}) => {
-    return (
-        <div className={className}>
-            <Carousel
-                showDots={true}
+}) => (
+    <div className={className}>
+        <div className={styles.wrp}>
+            <Slider
+                dots={true}
+                slidesToShow={1}
+                slidesToScroll={1}
+                initialSlide={0}
                 arrows={false}
-                responsive={{
-                    mobile: {
-                        breakpoint: { max: 50000, min: 0 },
-                        items: 1,
-                    },
-                }}
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={6000}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={300}
-                containerClass={styles.wrp}
-                dotListClass={styles.dot}
-                itemClass={styles.slide}
+                autoplay
+                infinite
+                draggable
+                autoplaySpeed={5500}
+                dotsClass={styles.dotsList}
+                appendDots={(dots: ReactElement): ReactElement => (
+                    <ul> {dots} </ul>
+                )}
             >
                 {content.map(({ text, banner }, index) => (
-                    <Fragment key={index}>
+                    <div className={styles.slide} key={index}>
                         <img
                             className={styles.img}
+                            draggable={false}
                             src={banner}
                             alt=""
-                            draggable={false}
                         />
-                        <p key={index}>{text}</p>
-                    </Fragment>
+                        <p>{text}</p>
+                    </div>
                 ))}
-            </Carousel>
+            </Slider>
         </div>
-    );
-};
+    </div>
+);

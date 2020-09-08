@@ -21,6 +21,7 @@ export default () => {
                         quibusdam saepe
                     </h3>
                 </div>
+
                 <Slider className={styles.slider} />
             </div>
         </>
