@@ -27,7 +27,7 @@ export default ({ onClick, onLogout }: IProps) => {
                 to={router.post.new}
                 onClick={onClick}
             >
-                Create new post
+                New post
             </Link>
             <Link
                 className={styles.link}
