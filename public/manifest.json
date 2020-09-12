@@ -5,18 +5,13 @@
     "icons": [
         {
             "src": "favicon.ico",
-            "sizes": "24x24 16x16",
-            "type": "image/x-icon"
-        },
-        {
-            "src": "blog.png",
-            "sizes": "32x32",
+            "sizes": "128x128 64x64 32x32 24x24 16x16",
             "type": "image/x-icon"
         },
         {
             "src": "blog.jpg",
             "type": "image/jpg",
-            "sizes": "192x192 64x64"
+            "sizes": "192x192"
         },
         {
             "src": "blog.jpg",

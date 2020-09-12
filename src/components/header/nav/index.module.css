@@ -52,11 +52,11 @@
     align-items: center;
     height: 3.5rem;
     width: 3.5rem;
-    background: rgb(246, 246, 246);
+    background-color: #eeeeee;
+    color: #414141;
     border: none;
     border-radius: 0.4rem;
     font-size: 1.2rem;
-    color: rgb(104, 104, 104);
     transition: 0.3s ease-in-out;
 }
 

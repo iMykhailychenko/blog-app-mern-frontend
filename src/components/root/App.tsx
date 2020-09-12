@@ -33,6 +33,9 @@ const ForgotPass = lazy(() =>
 const Search = lazy(() =>
     import('../pages/search' /* webpackChunkName: "Search" */),
 );
+const Tags = lazy(() =>
+    import('../pages/tags' /* webpackChunkName: "Tags" */),
+);
 
 const App = () => (
     <>
@@ -49,6 +52,7 @@ const App = () => (
                 <Route path={router.question} component={Question} />
                 <Route path={router.trial} component={Trial} />
                 <Route path={router.search} component={Search} />
+                <Route path={router.post.tag[1]} component={Tags} />
 
                 <AuthWrap path={router.auth.login} component={Login} revers />
                 <AuthWrap

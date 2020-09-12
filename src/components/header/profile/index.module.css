@@ -97,7 +97,8 @@
     height: 3.5rem;
     width: 3.5rem;
     margin-right: 1rem;
-    background: rgb(246, 246, 246);
+    background-color: #eeeeee;
+    color: #414141;
     border: none;
     border-radius: 0.4rem;
     font-size: 1.2rem;
