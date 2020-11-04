@@ -51,6 +51,26 @@
     border: none;
 }
 
+.text {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    padding: 1rem;
+    height: 5rem;
+    width: 5rem;
+    margin-right: 2rem;
+    background: #eee;
+    border-radius: 50%;
+    border: none;
+}
+
 @media (max-width: 900px) {
     .title {
         margin-top: 0;
