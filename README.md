@@ -19,3 +19,8 @@ This repository is the IU part of the application.
 ```To preview the page, follow the link below```
 
 https://mykh-blog.netlify.app/
+
+
+## Backend part repository
+
+https://github.com/iMykhailychenko/blog-app-mern-frontend
