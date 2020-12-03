@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../../../routes';
 import styles from './index.module.css';
@@ -10,7 +10,7 @@ interface IProps {
     nick: string;
 }
 
-export default ({ id, avatar, name, nick }: IProps) => (
+const User = ({ id, avatar, name, nick }: IProps): ReactElement => (
     <div className={styles.user}>
         <img className={styles.avatar} src={avatar} alt={name} />
 
@@ -20,3 +20,5 @@ export default ({ id, avatar, name, nick }: IProps) => (
         </Link>
     </div>
 );
+
+export default User;

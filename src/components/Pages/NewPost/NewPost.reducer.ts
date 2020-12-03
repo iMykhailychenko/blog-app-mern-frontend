@@ -1,5 +1,5 @@
 import * as types from './NewPost.types';
-import { INewPost } from '../../../helpers/interfaces';
+import { INewPost } from '../../../interfaces';
 
 const initState: INewPost = {
     title: '',

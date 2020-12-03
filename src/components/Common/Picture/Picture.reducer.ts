@@ -1,5 +1,4 @@
 import * as types from './Picture.types';
-const placeholder = '/abot.jpg'
 
 export default (
     state: types.IState = {
@@ -15,7 +14,7 @@ export default (
 
         case types.GET_PICTURE_SUCCESS:
             return {
-                src: typeof payload === 'string' ? payload : placeholder,
+                src: typeof payload === 'string' ? payload : '/abot.jpg',
                 loading: false,
                 error: false,
             };

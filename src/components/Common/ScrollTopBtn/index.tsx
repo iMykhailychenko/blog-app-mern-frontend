@@ -1,7 +1,7 @@
 import React, { createRef, useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './index.module.css';
-import pop from '../../transitions/pop.module.css';
+import pop from '../../../transitions/pop.module.css';
 
 const ScrollTop = () => {
     const buttonRef = createRef<HTMLButtonElement>();

@@ -11,7 +11,7 @@ const Profile = (): ReactElement => {
     return (
         <ul className={styles.list}>
             <li>
-                <Link to={routes.User.path[0](1)}>Your profile</Link>
+                <Link to={routes.User.path[0]('1')}>Your profile</Link>
             </li>
             <li>
                 <Link to={routes.Post.New.path}>Create new post</Link>

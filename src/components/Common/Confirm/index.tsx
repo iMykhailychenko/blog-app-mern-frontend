@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
-import { close } from '../../common/modal/Modal.action';
+import { close } from '../Modal/Modal.action';
 import styles from './index.module.css';
 
 interface IProps {

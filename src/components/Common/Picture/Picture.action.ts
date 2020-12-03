@@ -1,9 +1,8 @@
 import { ThunkAction } from 'redux-thunk';
 import { Action } from 'redux';
 import * as types from './Picture.types';
-import api from '../../config/api';
-import { IState } from '../../helpers/interfaces';
-import placeholder from '../../images/banner.jpg';
+import api from '../../../assets/api';
+import { IState } from '../../../interfaces';
 
 const random = (max: number): number => Math.floor(Math.random() * (max - 1)) + 1;
 
@@ -22,7 +21,7 @@ export const getPicture = <T>(param: T): ThunkAction<void, IState, unknown, Acti
         console.log(error);
         dispatch({
             type: types.GET_PICTURE_SUCCESS,
-            payload: placeholder,
+            payload: '/about.jpg',
         });
         dispatch({
             type: types.GET_PICTURE_ERROR,
