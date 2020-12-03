@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import text from '../components/Pages/SinglePost/Comments/NewComment/NewComment.reducer';
 import img from '../components/Pages/SinglePost/Comments/AttachedImg/AttachedImg.reducer';
 import modal from '../components/Common/Modal/Modal.reducer';

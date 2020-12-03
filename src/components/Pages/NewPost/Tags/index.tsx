@@ -6,8 +6,6 @@ import { getTags } from '../../../../redux/selectors';
 import inputs from '../inputs.module.css';
 import styles from './index.module.css';
 
-const generateTags = (str: string): string[] => str.trim().toLowerCase().split(' ');
-
 const Tags = (): ReactElement => {
     const dispatch = useDispatch();
     const value = useSelector(getTags);

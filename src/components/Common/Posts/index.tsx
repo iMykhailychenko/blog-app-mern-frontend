@@ -31,42 +31,43 @@ const mediaAuth = (col: number): { [key: number]: number; default: number } => (
 const Posts = ({ content, col = 2 }: IProps): ReactElement => {
     const { isAuth } = useSelector(getAuth);
     return (
-        <Masonry
-            breakpointCols={isAuth ? mediaAuth(col) : mediaNotAuth(col)}
-            className={styles.list}
-            columnClassName={styles.column}
-        >
-            {content.map(({ items, user }) => (
-                <li className={clsx(styles.card, !items.placeholder && styles.grid)} key={items.id}>
-                    <Link to={routes.Post.Single.path[0](items.id)} className={styles.postLink}>
-                        {items.placeholder && <img className={styles.img} src={items.placeholder} alt={items.title} />}
-                        <div className={styles.inner}>
-                            <h4 className={styles.title}>{items.title}</h4>
-                            <p className={styles.text}>{items.text}</p>
-                            <p className={styles.date}>{items.date}</p>
-                        </div>
-                    </Link>
+        // <Masonry
+        //     breakpointCols={isAuth ? mediaAuth(col) : mediaNotAuth(col)}
+        //     className={styles.list}
+        //     columnClassName={styles.column}
+        // >
+        //     {content.map(({ items, user }) => (
+        //         <li className={clsx(styles.card, !items.placeholder && styles.grid)} key={items.id}>
+        //             <Link to={routes.Post.Single.path[0](items.id)} className={styles.postLink}>
+        //                 {items.placeholder && <img className={styles.img} src={items.placeholder} alt={items.title} />}
+        //                 <div className={styles.inner}>
+        //                     <h4 className={styles.title}>{items.title}</h4>
+        //                     <p className={styles.text}>{items.text}</p>
+        //                     <p className={styles.date}>{items.date}</p>
+        //                 </div>
+        //             </Link>
 
-                    <div className={styles.likes}>
-                        <Likes like={items.like} dislike={items.dislike} watched={items.watched} />
-                    </div>
+        //             <div className={styles.likes}>
+        //                 <Likes like={items.like} dislike={items.dislike} watched={items.watched} />
+        //             </div>
 
-                    {!!items.tags.length && (
-                        <div className={styles.tags}>
-                            {generateTags(items.tags).map(tag => (
-                                <Link to={routes.Post.Tag.path[0](tag)} key={tag} className={styles.tag}>
-                                    {`#${tag}`}
-                                </Link>
-                            ))}
-                        </div>
-                    )}
+        //             {!!items.tags.length && (
+        //                 <div className={styles.tags}>
+        //                     {generateTags(items.tags).map(tag => (
+        //                         <Link to={routes.Post.Tag.path[0](tag)} key={tag} className={styles.tag}>
+        //                             {`#${tag}`}
+        //                         </Link>
+        //                     ))}
+        //                 </div>
+        //             )}
 
-                    <div className={styles.inner}>
-                        <User {...user} />
-                    </div>
-                </li>
-            ))}
-        </Masonry>
+        //             <div className={styles.inner}>
+        //                 <User {...user} />
+        //             </div>
+        //         </li>
+        //     ))}
+        // </Masonry>
+        <div className="">lorem</div>
     );
 };
 

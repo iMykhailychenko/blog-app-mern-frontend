@@ -5,6 +5,7 @@ import Comments from './Comments';
 import Likes from '../../Common/Likes';
 import ScrollTop from '../../Common/ScrollTopBtn';
 import { generateTags } from '../../../assets/helpers';
+
 import 'react-quill/dist/quill.snow.css';
 import '../new_post/Content/index.css';
 import './content.css';
