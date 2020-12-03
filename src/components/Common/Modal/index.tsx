@@ -1,9 +1,9 @@
-import React, { MouseEvent, useEffect } from 'react';
+import React, { MouseEvent, ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getModal } from '../../../redux/selectors';
-import styles from './index.module.css';
 import { close } from './Modal.action';
+import styles from './index.module.css';
 
 const width: { [key: string]: string } = {
     s: '30%',
@@ -11,7 +11,7 @@ const width: { [key: string]: string } = {
     l: '80%',
 };
 
-export default () => {
+const Modal = (): ReactElement | null => {
     const dispatch = useDispatch();
     const modal = useSelector(getModal);
 
@@ -46,3 +46,5 @@ export default () => {
         </div>
     ) : null;
 };
+
+export default Modal;

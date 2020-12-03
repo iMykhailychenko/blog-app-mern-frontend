@@ -1,5 +1,4 @@
-import { IState, IAuth } from '../helpers/interfaces';
-import { IModal } from '../common/modal/Modal.types';
+import { IState, IAuth, IModal } from '../interfaces';
 
 // new post
 export const getBanner = (state: IState): File | null => state.post.newPost.banner;

@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Socials from './Socials';
 import Title from './Title';
 import Tags from './Tags';
 import Desc from './Desc';
-import Date from './Date';
+import Date from './DateText';
 import Banner from './Banner';
 import Content from './Content';
-import ScrollTop from '../../scroll_top_btn';
+import ScrollTop from '../../Common/ScrollTopBtn';
 import styles from './index.module.css';
 
-export default () => (
+const NewPost = (): ReactElement => (
     <div className={styles.container}>
         <div className={styles.content}>
             <Socials />
@@ -32,3 +32,5 @@ export default () => (
         </div>
     </div>
 );
+
+export default NewPost;

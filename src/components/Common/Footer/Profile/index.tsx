@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../Auth/Auth.action';
+import { logout } from '../../../Pages/Auth/Auth.action';
 import styles from './index.module.css';
 import routes from '../../../../routes';
 

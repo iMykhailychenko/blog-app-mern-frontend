@@ -1,53 +1,57 @@
-import { lazy } from 'react';
+import React from 'react';
+
+type IDynamic = [(id: string) => string, string];
 
 const routes = {
-    Home: { path: '/', component: lazy(() => import('../components/Pages/Home' /* webpackChunkName: "Home" */)) },
+    Home: { path: '/', component: React.lazy(() => import('../components/Pages/Home' /* webpackChunkName: "Home" */)) },
     Trial: {
         path: '/trial',
-        component: lazy(() => import('../components/Pages/Trial' /* webpackChunkName: "Trial" */)),
+        component: React.lazy(() => import('../components/Pages/Trial' /* webpackChunkName: "Trial" */)),
     },
-    // Settings: { path: '/settings', component: lazy(() => import('../components/Pages/Settings' /* webpackChunkName: "About" */))  },
+    // Settings: { path: '/settings', component: React.lazy(() => import('../components/Pages/Settings' /* webpackChunkName: "About" */))  },
     About: {
         path: '/about',
-        component: lazy(() => import('../components/Pages/About' /* webpackChunkName: "About" */)),
+        component: React.lazy(() => import('../components/Pages/About' /* webpackChunkName: "About" */)),
     },
     Question: {
         path: '/question',
-        component: lazy(() => import('../components/Pages/Question' /* webpackChunkName: "Question" */)),
+        component: React.lazy(() => import('../components/Pages/Question' /* webpackChunkName: "Question" */)),
     },
     Search: {
         path: '/search',
-        component: lazy(() => import('../components/Pages/Search' /* webpackChunkName: "Search" */)),
+        component: React.lazy(() => import('../components/Pages/Search' /* webpackChunkName: "Search" */)),
     },
     User: {
         path: [(id: string): string => `/user/${id}`, '/user/:id'] as IDynamic,
-        component: lazy(() => import('../components/Pages/Profile' /* webpackChunkName: "Profile" */)),
+        component: React.lazy(() => import('../components/Pages/Profile' /* webpackChunkName: "Profile" */)),
     },
     Post: {
         Single: {
             path: [(id: string): string => `/post/${id}`, '/post/:id'] as IDynamic,
-            component: lazy(() => import('../components/Pages/SinglePost' /* webpackChunkName: "SinglePost" */)),
+            component: React.lazy(() => import('../components/Pages/SinglePost' /* webpackChunkName: "SinglePost" */)),
         },
         Tag: {
             path: [(tag: string): string => `/tags/${tag}`, '/tags/:tag'] as IDynamic,
-            component: lazy(() => import('../components/Pages/Tags' /* webpackChunkName: "Tags" */)),
+            component: React.lazy(() => import('../components/Pages/Tags' /* webpackChunkName: "Tags" */)),
         },
         New: {
             path: '/new_post',
-            component: lazy(() => import('../components/Pages/NewPost' /* webpackChunkName: "NewPost" */)),
+            component: React.lazy(() => import('../components/Pages/NewPost' /* webpackChunkName: "NewPost" */)),
         },
     },
     Auth: {
-        // Signup: { path: '/signup', component: lazy(() => import('../components/Pages/Login' /* webpackChunkName: "Login" */))  },
+        // Signup: { path: '/signup', component: React.lazy(() => import('../components/Pages/Login' /* webpackChunkName: "Login" */))  },
         Login: {
             path: '/login',
-            component: lazy(() => import('../components/Pages/Login' /* webpackChunkName: "Login" */)),
+            component: React.lazy(() => import('../components/Pages/Auth/Login' /* webpackChunkName: "Login" */)),
         },
         ForgotPass: {
             path: '/forgot_pass',
-            component: lazy(() => import('../components/Pages/ForgotPass' /* webpackChunkName: "ForgotPass" */)),
+            component: React.lazy(
+                () => import('../components/Pages/Auth/ForgotPass' /* webpackChunkName: "ForgotPass" */),
+            ),
         },
-        // ResetPass: { path: '/reset_pass', component: lazy(() => import('../components/Pages/ResetPass' /* webpackChunkName: "ResetPass" */))  },
+        // ResetPass: { path: '/reset_pass', component: React.lazy(() => import('../components/Pages/ResetPass' /* webpackChunkName: "ResetPass" */))  },
     },
 };
 

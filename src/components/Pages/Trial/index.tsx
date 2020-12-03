@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PageTitle from '../../../common/page_title';
-import router from '../../../config/router';
+import PageTitle from '../../Common/PageTitle';
+import routes from '../../../routes';
 import styles from './index.module.css';
 
 export default () => {
@@ -20,7 +20,8 @@ export default () => {
                 <div className={styles.inner}>
                     <h2 className={styles.title}>You are lucky, I signed up for you</h2>
                     <p className={styles.text}>
-                        Just go to the <Link to={router.auth.login}>login</Link> page and enter this email and password:
+                        Just go to the <Link to={routes.Auth.Login.path}>login</Link> page and enter this email and
+                        password:
                     </p>
                     <kbd>example@mail.com</kbd>
                     <br />

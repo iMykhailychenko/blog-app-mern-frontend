@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import Search from '../../../common/forms/search';
-import Posts from '../../posts';
+import SearchForm from '../../Common/Forms/Search';
+import Posts from '../../Common/Posts';
 import { getSearch } from '../../../redux/selectors';
 import styles from './index.module.css';
-import posts from '../../../assets/posts';
 
-export default () => {
+const Search = (): ReactElement => {
     const search = useSelector(getSearch);
     return (
         <>
-            <Search />
+            <SearchForm />
             <div className={styles.content}>
                 <h2 className={styles.title}>{search.length ? 'Search results:' : 'Popular posts:'}</h2>
-                <Posts content={posts} />
+                {/* <Posts content={posts} /> */}
             </div>
         </>
     );
 };
+
+export default Search;

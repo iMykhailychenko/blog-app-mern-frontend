@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import router from '../../../../config/router';
-import { getAuth } from '../../../../redux/selectors';
+import { getAuth } from '../../../../../redux/selectors';
 import styles from '../index.module.css';
+import routes from '../../../../../routes';
 
 interface IProps {
     onClick: () => void;
     className?: string;
 }
 
-export default ({ onClick, className }: IProps) => {
+const MobileNav = ({ onClick, className }: IProps): ReactElement => {
     const { isAuth } = useSelector(getAuth);
 
     return (
         <ul className={className}>
             <li>
                 <NavLink
-                    to={router.home}
+                    to={routes.Home.path}
                     exact
                     className={styles.link}
                     activeClassName={styles.active}
@@ -27,19 +27,29 @@ export default ({ onClick, className }: IProps) => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to={router.about} className={styles.link} activeClassName={styles.active} onClick={onClick}>
+                <NavLink
+                    to={routes.About.path}
+                    className={styles.link}
+                    activeClassName={styles.active}
+                    onClick={onClick}
+                >
                     About
                 </NavLink>
             </li>
             <li>
-                <NavLink to={router.question} className={styles.link} activeClassName={styles.active} onClick={onClick}>
+                <NavLink
+                    to={routes.Question.path}
+                    className={styles.link}
+                    activeClassName={styles.active}
+                    onClick={onClick}
+                >
                     Question
                 </NavLink>
             </li>
             {!isAuth && (
                 <li>
                     <NavLink
-                        to={router.trial}
+                        to={routes.Trial.path}
                         className={styles.link}
                         activeClassName={styles.active}
                         onClick={onClick}
@@ -51,3 +61,5 @@ export default ({ onClick, className }: IProps) => {
         </ul>
     );
 };
+
+export default MobileNav;

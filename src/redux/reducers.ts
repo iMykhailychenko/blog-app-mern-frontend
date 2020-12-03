@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import text from '../components/pages/single_post/Comments/NewComment/NewComment.reducer';
-import img from '../components/pages/single_post/Comments/AttachedImg/AttachedImg.reducer';
-import modal from '../common/modal/Modal.reducer';
-import menu from '../components/header/nav/nav.reducer';
-import newPost from '../components/pages/new_post/NewPost.reducer';
-import auth from '../components/auth/Auth.reducer';
-import picture from '../components/picture/Picture.reducer';
-import search from '../common/forms/search/Search.reducer';
+import text from '../components/Pages/SinglePost/Comments/NewComment/NewComment.reducer';
+import img from '../components/Pages/SinglePost/Comments/AttachedImg/AttachedImg.reducer';
+import modal from '../components/Common/Modal/Modal.reducer';
+import menu from '../components/Common/Header/Navigation/Navigation.reducer';
+import newPost from '../components/Pages/NewPost/NewPost.reducer';
+import auth from '../components/Pages/Auth/Auth.reducer';
+import picture from '../components/Common/Picture/Picture.reducer';
+import search from '../components/Common/Forms/Search/Search.reducer';
 
 const persistConfig = {
     key: 'root',

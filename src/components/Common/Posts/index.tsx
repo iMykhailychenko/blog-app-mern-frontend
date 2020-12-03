@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import clsx from 'clsx';
-import Likes from '../likes';
-import router from '../../config/router';
-import { generateTags } from '../../helpers/functions';
-import { getAuth } from '../../redux/selectors';
-import User from '../user';
+import User from '../User';
+import Likes from '../Likes';
+import { generateTags } from '../../../assets/helpers';
+import { getAuth } from '../../../redux/selectors';
+import { IPost } from '../../../interfaces';
 import styles from './index.module.css';
-import { IPost } from '../../helpers/interfaces';
+import routes from '../../../routes';
 
 interface IProps {
     content: IPost[];
@@ -28,7 +28,7 @@ const mediaAuth = (col: number): { [key: number]: number; default: number } => (
     580: 1,
 });
 
-export default ({ content, col = 2 }: IProps) => {
+const Posts = ({ content, col = 2 }: IProps): ReactElement => {
     const { isAuth } = useSelector(getAuth);
     return (
         <Masonry
@@ -38,7 +38,7 @@ export default ({ content, col = 2 }: IProps) => {
         >
             {content.map(({ items, user }) => (
                 <li className={clsx(styles.card, !items.placeholder && styles.grid)} key={items.id}>
-                    <Link to={router.post.single[0](items.id)} className={styles.postLink}>
+                    <Link to={routes.Post.Single.path[0](items.id)} className={styles.postLink}>
                         {items.placeholder && <img className={styles.img} src={items.placeholder} alt={items.title} />}
                         <div className={styles.inner}>
                             <h4 className={styles.title}>{items.title}</h4>
@@ -54,7 +54,7 @@ export default ({ content, col = 2 }: IProps) => {
                     {!!items.tags.length && (
                         <div className={styles.tags}>
                             {generateTags(items.tags).map(tag => (
-                                <Link to={router.post.tag[0](tag)} key={tag} className={styles.tag}>
+                                <Link to={routes.Post.Tag.path[0](tag)} key={tag} className={styles.tag}>
                                     {`#${tag}`}
                                 </Link>
                             ))}
@@ -69,3 +69,5 @@ export default ({ content, col = 2 }: IProps) => {
         </Masonry>
     );
 };
+
+export default Posts;

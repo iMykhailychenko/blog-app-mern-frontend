@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { title } from '../NewPost.actions';
@@ -6,7 +6,7 @@ import { getTitle } from '../../../../redux/selectors';
 import inputs from '../inputs.module.css';
 import styles from './index.module.css';
 
-export default () => {
+const Title = (): ReactElement => {
     const dispatch = useDispatch();
     const value = useSelector(getTitle);
 
@@ -23,3 +23,5 @@ export default () => {
         />
     );
 };
+
+export default Title;

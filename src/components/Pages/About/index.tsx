@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Slider from './Slider';
 import styles from './index.module.css';
-import PageTitle from '../../../common/page_title';
+import PageTitle from '../../Common/PageTitle';
 
-export default () => {
+const About = (): ReactElement => {
     return (
         <>
             <PageTitle>
@@ -26,3 +26,5 @@ export default () => {
         </>
     );
 };
+
+export default About;

@@ -33,7 +33,7 @@ const formats = [
     'code-block',
 ];
 
-export default () => {
+const Content = () => {
     const dispatch = useDispatch();
     const value = useSelector(getContent);
 
@@ -50,3 +50,5 @@ export default () => {
         />
     );
 };
+
+export default Content;

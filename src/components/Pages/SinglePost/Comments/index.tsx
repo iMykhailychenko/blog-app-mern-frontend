@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import NewComment from './NewComment';
 import CommentsList from './CommentsList';
 
-export default () => {
+const Comment = (): ReactElement => {
     return (
         <>
             <CommentsList />
@@ -10,3 +10,5 @@ export default () => {
         </>
     );
 };
+
+export default Comment;

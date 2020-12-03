@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import EditModal from '../../EditModal';
 import CommentModal from '../../CommentModal';
-import Confirm from '../../../../../confirm';
-import Likes from '../../../../../likes';
-import modal from '../../../../../../common/modal/Modal.operations';
+import Confirm from '../../../../../Common/Confirm';
+import Likes from '../../../../../Common/Likes';
+import modal from '../../../../../Common/Modal/Modal.operations';
 import { getAuth } from '../../../../../../redux/selectors';
-import { IComment } from '../../../../../../helpers/interfaces';
+import { IComment } from '../../../../../../interfaces';
 import styles from '../index.module.css';
 
-export default (comment: IComment) => {
+const Buttons = (comment: IComment): ReactElement => {
     const { isAuth } = useSelector(getAuth);
 
     return (
@@ -64,3 +64,5 @@ export default (comment: IComment) => {
         </div>
     );
 };
+
+export default Buttons;

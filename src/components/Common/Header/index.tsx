@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
-import Navbar from './nav';
+import Navigation from './Navigation';
 import styles from './index.module.css';
 
 const style: { [key: string]: boolean } = {
@@ -11,7 +11,7 @@ const style: { [key: string]: boolean } = {
     '/forgot_pass': true,
 };
 
-export default () => {
+const Header = (): ReactElement => {
     const { pathname } = useLocation();
     const media = window.innerWidth > 768;
 
@@ -25,9 +25,11 @@ export default () => {
 
             <header className={clsx(styles.header, style[pathname] && media ? styles.transform : null)}>
                 <div className="container">
-                    <Navbar />
+                    <Navigation />
                 </div>
             </header>
         </>
     );
 };
+
+export default Header;

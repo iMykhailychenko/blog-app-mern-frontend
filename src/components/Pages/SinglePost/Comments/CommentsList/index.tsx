@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ImgModal from '../ImgModal';
 import Buttons from './Buttons';
-import User from '../../../../user';
-import modal from '../../../../../common/modal/Modal.operations';
+import User from '../../../../Common/User';
+import modal from '../../../../Common/Modal/Modal.operations';
 import styles from './index.module.css';
-import { comments } from '../../../../../assets/comments';
 
-export default () => (
+const CommentsList = (): ReactElement => (
     <div className={styles.container}>
         <h3 className={styles.title}>Comments:</h3>
 
-        <ul className={styles.list}>
+        {/* <ul className={styles.list}>
             {comments.map(comment => (
                 <li className={styles.item} key={comment.id}>
                     <User {...comment.user} />
@@ -66,6 +65,8 @@ export default () => (
                     )}
                 </li>
             ))}
-        </ul>
+        </ul> */}
     </div>
 );
+
+export default CommentsList;

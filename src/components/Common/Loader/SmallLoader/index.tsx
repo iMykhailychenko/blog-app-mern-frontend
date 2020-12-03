@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styles from './index.module.css';
 
 interface IProps {
@@ -7,7 +7,7 @@ interface IProps {
     className?: string | undefined;
 }
 
-export default ({ width = 38, height = 38, className = undefined }: IProps) => {
+const SmallLoader = ({ width = 38, height = 38, className = undefined }: IProps): ReactElement => {
     return (
         <div className={className}>
             <svg width={width} height={height} viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
@@ -30,3 +30,5 @@ export default ({ width = 38, height = 38, className = undefined }: IProps) => {
         </div>
     );
 };
+
+export default SmallLoader;

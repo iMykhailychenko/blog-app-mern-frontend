@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Profile from '../profile';
+import Profile from '../Profile';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
-import { getAuth } from '../../../redux/selectors';
-import router from '../../../config/router';
-import { IState } from '../../../helpers/interfaces';
+import { getAuth } from '../../../../redux/selectors';
+import { IState } from '../../../../interfaces';
+import toggleMenu from './Navigation.actions';
+import routes from '../../../../routes';
 import styles from './index.module.css';
-import toggleMenu from './nav.actions';
 
-export default () => {
+const Navigation = (): ReactElement => {
     const { isAuth } = useSelector(getAuth);
     const { pathname } = useLocation();
 
@@ -79,17 +79,17 @@ export default () => {
                 <Profile />
             ) : (
                 <div className={styles.btn_wrp}>
-                    <Link to={router.search} className={styles.btn}>
+                    <Link to={routes.Search.path} className={styles.btn}>
                         <FontAwesomeIcon icon={faSearch} />
                     </Link>
 
                     {!logPath[pathname] && (
-                        <Link to={router.auth.login} className="btn btn--gray" style={{ marginLeft: '1rem' }}>
+                        <Link to={routes.Auth.Login.path} className="btn btn--gray" style={{ marginLeft: '1rem' }}>
                             Login
                         </Link>
                     )}
                     {!signPath[pathname] && (
-                        <Link to={router.auth.signup} className="btn btn--blue" style={{ marginLeft: '1rem' }}>
+                        <Link to={'/routes.Auth'} className="btn btn--blue" style={{ marginLeft: '1rem' }}>
                             Sign up
                         </Link>
                     )}
@@ -98,3 +98,5 @@ export default () => {
         </nav>
     );
 };
+
+export default Navigation;

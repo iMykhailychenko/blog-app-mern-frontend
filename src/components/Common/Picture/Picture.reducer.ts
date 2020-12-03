@@ -1,5 +1,5 @@
 import * as types from './Picture.types';
-import placeholder from '../../images/banner.jpg';
+const placeholder = '/abot.jpg'
 
 export default (
     state: types.IState = {

@@ -1,9 +1,9 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import searchAction from './Search.action';
 import styles from './index.module.css';
 
-export default () => {
+const Search = (): ReactElement => {
     const dispatch = useDispatch();
 
     const handleChange = (event: ChangeEvent<HTMLFormElement>): void => {
@@ -27,3 +27,5 @@ export default () => {
         </form>
     );
 };
+
+export default Search;

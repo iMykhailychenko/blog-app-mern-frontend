@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faEye } from '@fortawesome/free-solid-svg-icons';
 import styles from './index.module.css';
@@ -10,7 +10,7 @@ interface IProps {
     click?: boolean;
 }
 
-export default ({ like, dislike, watched, click }: IProps) => {
+const Likes = ({ like, dislike, watched, click }: IProps): ReactElement => {
     return (
         <ul className={styles.list} style={click ? {} : { pointerEvents: 'none' }}>
             <li className={styles.item}>
@@ -30,3 +30,5 @@ export default ({ like, dislike, watched, click }: IProps) => {
         </ul>
     );
 };
+
+export default Likes;

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +6,7 @@ import { addImg } from './AttachmentImg.actions';
 import { getCommentImg } from '../../../../../redux/selectors';
 import styles from './index.module.css';
 
-export default () => {
+const AttachedImg = (): ReactElement => {
     const dispatch = useDispatch();
     const file = useSelector(getCommentImg);
 
@@ -41,3 +41,5 @@ export default () => {
         </div>
     );
 };
+
+export default AttachedImg;

@@ -1,33 +1,33 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import router from '../../../../config/router';
-import { getAuth } from '../../../../redux/selectors';
+import { getAuth } from '../../../../../redux/selectors';
+import routes from '../../../../../routes';
 import styles from '../index.module.css';
 
-export default ({ className }: { className?: string }) => {
+const DesktopNav = ({ className }: { className?: string }): ReactElement => {
     const { isAuth } = useSelector(getAuth);
 
     return (
         <ul className={className}>
             <li>
-                <NavLink to={router.home} exact className={styles.link} activeClassName={styles.active}>
+                <NavLink to={routes.Home.path} exact className={styles.link} activeClassName={styles.active}>
                     Home
                 </NavLink>
             </li>
             <li>
-                <NavLink to={router.about} className={styles.link} activeClassName={styles.active}>
+                <NavLink to={routes.About.path} className={styles.link} activeClassName={styles.active}>
                     About
                 </NavLink>
             </li>
             <li>
-                <NavLink to={router.question} className={styles.link} activeClassName={styles.active}>
+                <NavLink to={routes.Question.path} className={styles.link} activeClassName={styles.active}>
                     Question
                 </NavLink>
             </li>
             {!isAuth && (
                 <li>
-                    <NavLink to={router.trial} className={styles.link} activeClassName={styles.active}>
+                    <NavLink to={routes.Trial.path} className={styles.link} activeClassName={styles.active}>
                         Get trial accaunt
                     </NavLink>
                 </li>
@@ -35,3 +35,5 @@ export default ({ className }: { className?: string }) => {
         </ul>
     );
 };
+
+export default DesktopNav;

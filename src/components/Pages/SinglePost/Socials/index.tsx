@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styles from './index.module.css';
 
-export default ({ title }: { title: string }) => {
+const Socials = ({ title }: { title: string }): ReactElement => {
     return (
         <ul className={styles.list}>
             <li className={styles.item}>
@@ -113,3 +113,5 @@ export default ({ title }: { title: string }) => {
         </ul>
     );
 };
+
+export default Socials;

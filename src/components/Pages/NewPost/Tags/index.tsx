@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { tags } from '../NewPost.actions';
@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 const generateTags = (str: string): string[] => str.trim().toLowerCase().split(' ');
 
-export default () => {
+const Tags = (): ReactElement => {
     const dispatch = useDispatch();
     const value = useSelector(getTags);
 
@@ -16,11 +16,11 @@ export default () => {
         <>
             <p className={styles.text}>Provide tags for your post:</p>
 
-            <ul className={styles.list}>
+            {/* <ul className={styles.list}>
                 {generateTags(value).map((tag, index) => (
                     <li className={styles.item} key={tag + index}>{`#${tag.length < 15 ? tag : tag.slice(0, 15)}`}</li>
                 ))}
-            </ul>
+            </ul> */}
 
             <input
                 type="text"
@@ -35,3 +35,5 @@ export default () => {
         </>
     );
 };
+
+export default Tags;

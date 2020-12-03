@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import Socials from './Socials';
-import Likes from '../../likes';
 import Comments from './Comments';
-import ScrollTop from '../../scroll_top_btn';
-import { generateTags } from '../../../helpers/functions';
-import router from '../../../config/router';
+import Likes from '../../Common/Likes';
+import ScrollTop from '../../Common/ScrollTopBtn';
+import { generateTags } from '../../../assets/helpers';
 import 'react-quill/dist/quill.snow.css';
 import '../new_post/Content/index.css';
 import './content.css';
 import styles from './index.module.css';
 
-import { post } from '../../../assets/single_post';
-
-export default () => (
+const SinglePost = (): ReactElement => (
     <div className={styles.container}>
-        <div className={styles.content}>
+        {/* <div className={styles.content}>
             <div className={styles.likesHead}>
                 <div>
                     <p className={styles.subtext}>Share this post in social media:</p>
@@ -64,6 +61,8 @@ export default () => (
             <Comments />
 
             <ScrollTop />
-        </div>
+        </div> */}
     </div>
 );
+
+export default SinglePost;

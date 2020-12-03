@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, ReactElement, useState } from 'react';
 import AttachedImg from '../AttachedImg';
 import styles from './index.module.css';
 
@@ -8,7 +8,7 @@ interface IProps {
     onChange: (text: string) => void;
 }
 
-export default ({ value = '', edit = false, onChange }: IProps) => {
+const CommentForm = ({ value = '', edit = false, onChange }: IProps): ReactElement => {
     const [text, setText] = useState(value);
 
     const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
@@ -36,3 +36,5 @@ export default ({ value = '', edit = false, onChange }: IProps) => {
         </form>
     );
 };
+
+export default CommentForm;

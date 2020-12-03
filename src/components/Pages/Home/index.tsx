@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
-import Aside from '../../aside';
-import FormLogin from '../../aside/aside_form';
-import ScrollTop from '../../scroll_top_btn';
-import Posts from '../../posts';
+
+import Aside from '../../Common/Aside';
+import FormLogin from '../../Common/Aside/AsideForm';
+import ScrollTop from '../../Common/ScrollTopBtn';
+import Posts from '../../Common/Posts';
+import LoadMore from '../../Common/LoadMore';
+
 import { getAuth } from '../../../redux/selectors';
-import LoadMore from '../../load_more';
 import styles from './index.module.css';
 
-import posts from '../../../assets/posts';
-
-export default () => {
+const Home = (): ReactElement => {
     const { isAuth } = useSelector(getAuth);
 
     return (
@@ -24,7 +24,7 @@ export default () => {
 
             <div className={clsx(styles.content, isAuth && styles.auth)}>
                 <h2 className={styles.title}>Popular posts</h2>
-                <Posts content={posts} />
+                {/* <Posts content={posts} /> */}
                 <LoadMore />
             </div>
 
@@ -32,3 +32,5 @@ export default () => {
         </main>
     );
 };
+
+export default Home;

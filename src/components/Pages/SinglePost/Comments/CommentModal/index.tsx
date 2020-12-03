@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import CommentForm from '../CommentForm';
-import User from '../../../../user';
+import User from '../../../../Common/User';
 import { comment } from '../NewComment/NewComment.actions';
-import { IUser } from '../../../../../helpers/interfaces';
+import { IUser } from '../../../../../interfaces';
 import styles from './index.module.css';
 
-export default ({ user }: { user: IUser }) => {
+const CommentModal = ({ user }: { user: IUser }): ReactElement => {
     const dispatch = useDispatch();
     const handleChange = (value: string): void => {
         dispatch(comment(value));
@@ -20,3 +20,5 @@ export default ({ user }: { user: IUser }) => {
         </div>
     );
 };
+
+export default CommentModal;

@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './styles/styles.css';
 
-import App from './Components/App';
+import App from './components/App';
 import store from './redux/store';
 
 const persistor = persistStore(store);

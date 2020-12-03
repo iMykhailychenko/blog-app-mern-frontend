@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { desc } from '../NewPost.actions';
@@ -6,7 +6,7 @@ import { getDesc } from '../../../../redux/selectors';
 import inputs from '../inputs.module.css';
 import styles from './index.module.css';
 
-export default () => {
+const Desc = (): ReactElement => {
     const dispatch = useDispatch();
     const value = useSelector(getDesc);
 
@@ -24,3 +24,5 @@ export default () => {
         />
     );
 };
+
+export default Desc;

@@ -1,9 +1,9 @@
-import React from 'react';
-import PageTitle from '../../../common/page_title';
+import React, { ReactElement } from 'react';
+import PageTitle from '../../Common/PageTitle';
+import QuestionForm from '../../Common/Forms/Question';
 import styles from './index.module.css';
-import Question from '../../../common/forms/question';
 
-export default () => {
+const Question = (): ReactElement => {
     return (
         <>
             <PageTitle>
@@ -25,9 +25,11 @@ export default () => {
                         quibusdam sequi. Mollitia expedita vero dolorum.
                     </p>
 
-                    <Question />
+                    <QuestionForm />
                 </div>
             </div>
         </>
     );
 };
+
+export default Question;

@@ -1,32 +1,33 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import router from '../../../../config/router';
+import routes from '../../../../../routes';
 import styles from '../index.module.css';
-import user from '../../../../assets/user';
 
 interface IProps {
     onClick: () => void;
     onLogout: () => void;
 }
 
-export default ({ onClick, onLogout }: IProps) => {
+const ProfileModal = ({ onClick, onLogout }: IProps): ReactElement => {
     return (
         <div className={styles.modal}>
-            <h4 className={styles.name}>{user.name}</h4>
+            {/* <h4 className={styles.name}>{user.name}</h4>
             <p className={styles.nick}>{'@' + user.nick}</p>
 
-            <Link className={styles.link} to={router.user[0](user.id)} onClick={onClick}>
+            <Link className={styles.link} to={routes.User.path[0](user.id)} onClick={onClick}>
                 Your profile
             </Link>
-            <Link className={styles.link} to={router.post.new} onClick={onClick}>
+            <Link className={styles.link} to={routes.Post.New.path} onClick={onClick}>
                 New post
             </Link>
-            <Link className={styles.link} to={router.settings} onClick={onClick}>
+            <Link className={styles.link} to={routes.Settings.path} onClick={onClick}>
                 Settings
-            </Link>
+            </Link> */}
             <button className={styles.link} onClick={onLogout}>
                 Log out
             </button>
         </div>
     );
 };
+
+export default ProfileModal;

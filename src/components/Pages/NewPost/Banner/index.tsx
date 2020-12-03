@@ -1,10 +1,10 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { banner } from '../NewPost.actions';
 import { getBanner } from '../../../../redux/selectors';
 import styles from './index.module.css';
 
-export default () => {
+const Banner = (): ReactElement => {
     const dispatch = useDispatch();
     const value = useSelector(getBanner);
 
@@ -41,3 +41,5 @@ export default () => {
         </div>
     );
 };
+
+export default Banner;

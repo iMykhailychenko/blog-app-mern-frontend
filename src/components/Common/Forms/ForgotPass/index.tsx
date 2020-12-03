@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 // import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import router from '../../../config/router';
 import styles from './index.module.css';
+import routes from '../../../../routes';
 
 interface Values {
     email: string;
@@ -14,7 +14,7 @@ interface Errors {
 }
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-export default () => {
+const ForgotPass = (): ReactElement => {
     const initialValues: Values = {
         email: '',
     };
@@ -38,7 +38,7 @@ export default () => {
                     <Field className={styles.input} type="email" name="email" placeholder="email" />
                     <ErrorMessage name="email" render={msg => <span className={styles.errors}>{msg}</span>} />
 
-                    <Link className={styles.link} to={router.auth.login}>
+                    <Link className={styles.link} to={routes.Auth.Login.path}>
                         Go to login page
                     </Link>
 
@@ -50,3 +50,5 @@ export default () => {
         </Formik>
     );
 };
+
+export default ForgotPass;

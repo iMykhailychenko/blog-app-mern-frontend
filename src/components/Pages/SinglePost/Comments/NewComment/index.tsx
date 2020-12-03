@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CommentForm from '../CommentForm';
 import { comment } from './NewComment.actions';
 import { getAuth } from '../../../../../redux/selectors';
-import router from '../../../../../config/router';
+import routes from '../../../../../routes';
 import styles from './index.module.css';
 
-export default () => {
+const NewComment = (): ReactElement => {
     const dispatch = useDispatch();
     const { isAuth } = useSelector(getAuth);
     const handleChange = (value: string): void => {
@@ -22,9 +22,11 @@ export default () => {
     ) : (
         <div className={styles.container}>
             <p className={styles.auth}>
-                <Link to={router.auth.login}>Login</Link> or <Link to={router.auth.signup}>Signup</Link> to leave the
-                comment
+                <Link to={routes.Auth.Login.path}>Login</Link> or <Link to={'/routes.Auth.Signup.path'}>Signup</Link> to
+                leave the comment
             </p>
         </div>
     );
 };
+
+export default NewComment;

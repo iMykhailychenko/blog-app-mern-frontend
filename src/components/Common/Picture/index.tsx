@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as selector from '../../redux/selectors';
+import * as selector from '../../../redux/selectors';
 import { getPicture } from './Picture.action';
 import styles from './index.module.css';
 
@@ -24,7 +24,7 @@ const params: IParam = {
     },
 };
 
-export default () => {
+const Picture = (): ReactElement => {
     const dispatch = useDispatch();
     const picture = useSelector(selector.getPicture);
 
@@ -34,3 +34,5 @@ export default () => {
 
     return <img className={styles.banner} src={picture} alt="banner" />;
 };
+
+export default Picture;

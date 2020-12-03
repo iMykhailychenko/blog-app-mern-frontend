@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import router from '../../../config/router';
-import { login } from '../../../components/auth/Auth.action';
+import { login } from '../../../Pages/Auth/Auth.action';
 import styles from './index.module.css';
+import routes from '../../../../routes';
 
 interface Values {
     email: string;
@@ -20,7 +20,7 @@ interface Errors {
 
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-export default () => {
+const Login = (): ReactElement => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
 
@@ -68,7 +68,7 @@ export default () => {
                         <ErrorMessage name="password" render={msg => <span className={styles.errors}>{msg}</span>} />
                     </div>
 
-                    <Link className={styles.link} to={router.auth.forgotPass}>
+                    <Link className={styles.link} to={routes.Auth.ForgotPass.path}>
                         Forgot your password?
                     </Link>
 
@@ -140,3 +140,5 @@ export default () => {
         </Formik>
     );
 };
+
+export default Login;

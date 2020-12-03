@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
-import user from '../../../assets/user';
-import { logout } from '../../auth/Auth.action';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
-import router from '../../../config/router';
+import { logout } from '../../../Pages/Auth/Auth.action';
 import styles from './index.module.css';
-import notification from '../../../assets/notification';
+import routes from '../../../../routes';
 
-export default () => {
+const Profile = (): ReactElement => {
     const dispatch = useDispatch();
 
     // profile modal
@@ -42,17 +40,17 @@ export default () => {
             {news && <div className={styles.backdrop} onClick={closeN} />}
 
             <div className={styles.container}>
-                <Link className={styles.btn} to={router.search}>
+                <Link className={styles.btn} to={routes.Search.path}>
                     <FontAwesomeIcon icon={faSearch} />
                 </Link>
 
                 <button className={styles.btn} onClick={openN}>
-                    {!!notification.length && <span className={styles.num}>{notification.length}</span>}
+                    {/* {!!notification.length && <span className={styles.num}>{notification.length}</span>} */}
                     <FontAwesomeIcon icon={faBell} />
                 </button>
 
                 <button className={styles.wrp} onClick={openP}>
-                    <img className={styles.avatar} src={user.avatar} alt={user.name} />
+                    {/* <img className={styles.avatar} src={user.avatar} alt={user.name} /> */}
                     <FontAwesomeIcon icon={faChevronDown} />
                 </button>
 
@@ -63,3 +61,5 @@ export default () => {
         </>
     );
 };
+
+export default Profile;

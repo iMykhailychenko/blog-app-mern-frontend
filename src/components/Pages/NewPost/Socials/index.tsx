@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styles from './index.module.css';
 
-export default () => {
+const Socials = (): ReactElement => {
     return (
         <>
             <p className={styles.text}>Share this post in social media:</p>
@@ -92,3 +92,5 @@ export default () => {
         </>
     );
 };
+
+export default Socials;
