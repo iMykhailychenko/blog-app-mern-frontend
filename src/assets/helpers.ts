@@ -1,4 +1,4 @@
-export const debounce = <F extends (...args: any) => any>(func: F, waitFor: number) => {
+export const debounce = <T extends (...args: any) => any>(func: T, waitFor: number) => {
     let timeout: number = 0;
 
     const debounced = (...args: any) => {
@@ -6,7 +6,7 @@ export const debounce = <F extends (...args: any) => any>(func: F, waitFor: numb
         setTimeout(() => func(...args), waitFor);
     };
 
-    return debounced as (...args: Parameters<F>) => ReturnType<F>;
+    return debounced as (...args: Parameters<T>) => ReturnType<T>;
 };
 
 export const addZero = (value: number): string => String(value).padStart(2, '0');

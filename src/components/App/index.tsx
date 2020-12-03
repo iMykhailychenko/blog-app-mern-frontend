@@ -15,9 +15,7 @@ const App = () => (
         <ScrollTop />
         <Suspense fallback={<Loader />}>
             <Switch>
-                {/* <Route path={routes.Home.path} exact component={routes.Home.component} />
-                <Route path={routes.Post.Single.path[1]} component={routes.Post.Single.component} />
-                {/* <Route path={routes.Home.path} exact component={routes.Home.component} />
+                <Route path={routes.Home.path} exact component={routes.Home.component} />
                 <Route path={routes.Post.Single.path[1]} component={routes.Post.Single.component} />
                 <Route path={routes.User.path[1]} component={routes.User.component} />
                 <Route path={routes.About.path} component={routes.About.component} />
@@ -27,7 +25,7 @@ const App = () => (
                 <Route path={routes.Post.Tag.path[1]} component={routes.Post.Tag.component} />
                 <AuthWrap path={routes.Post.New.path} component={routes.Post.New.component} />
                 <AuthWrap path={routes.Auth.Login.path} component={routes.Auth.Login.component} revers />
-                <AuthWrap path={routes.Auth.ForgotPass.path} component={routes.Auth.ForgotPass.component} revers /> */}
+                <AuthWrap path={routes.Auth.ForgotPass.path} component={routes.Auth.ForgotPass.component} revers />
             </Switch>
         </Suspense>
         <Footer />
