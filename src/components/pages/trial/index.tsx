@@ -18,20 +18,16 @@ export default () => {
                 <img className={styles.img} src="trial.jpg" alt="" />
 
                 <div className={styles.inner}>
-                    <h2 className={styles.title}>
-                        You are lucky, I signed up for you
-                    </h2>
+                    <h2 className={styles.title}>You are lucky, I signed up for you</h2>
                     <p className={styles.text}>
-                        Just go to the <Link to={router.auth.login}>login</Link>{' '}
-                        page and enter this email and password:
+                        Just go to the <Link to={router.auth.login}>login</Link> page and enter this email and password:
                     </p>
                     <kbd>example@mail.com</kbd>
                     <br />
                     <kbd>Asdf1234</kbd>
                     <p className={styles.text}>
-                        After login you will get access to the test account.
-                        will be able to create / delete / modify posts and much
-                        more
+                        After login you will get access to the test account. will be able to create / delete / modify
+                        posts and much more
                     </p>
                 </div>
             </div>

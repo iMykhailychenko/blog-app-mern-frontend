@@ -12,9 +12,7 @@ export default () => {
         <>
             <Search />
             <div className={styles.content}>
-                <h2 className={styles.title}>
-                    {search.length ? 'Search results:' : 'Popular posts:'}
-                </h2>
+                <h2 className={styles.title}>{search.length ? 'Search results:' : 'Popular posts:'}</h2>
                 <Posts content={posts} />
             </div>
         </>

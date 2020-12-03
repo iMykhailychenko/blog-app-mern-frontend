@@ -18,9 +18,7 @@ export default () => (
 
         <div className={styles.content}>
             <h2 className={styles.title}>{`${user.name}'s posts:`}</h2>
-            <p className={styles.text}>
-                {'This is all the posts created by ' + user.name}
-            </p>
+            <p className={styles.text}>{'This is all the posts created by ' + user.name}</p>
             <Posts content={posts} />
             <LoadMore />
         </div>

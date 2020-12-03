@@ -16,9 +16,8 @@ export default () => {
             <div className={styles.slider_block}>
                 <div className={styles.slider_title}>
                     <h3>
-                        Perspiciatis aliquam doloremque vitae, assumenda amet
-                        fugit reiciendis similique cupiditate explicabo
-                        quibusdam saepe
+                        Perspiciatis aliquam doloremque vitae, assumenda amet fugit reiciendis similique cupiditate
+                        explicabo quibusdam saepe
                     </h3>
                 </div>
 
