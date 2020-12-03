@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 100%;
+}
+
+.title {
+    width: 80%;
+    text-align: center;
+    font-size: 10rem;
+    line-height: 1.2;
+}
+
+@media (max-width: 1200px) {
+    .title {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        height: 50vh;
+    }
+
+    .title {
+        font-size: 4rem;
+    }
+}
