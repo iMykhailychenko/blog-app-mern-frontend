@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import styles from './index.module.css';
+// import styles from './index.module.css';
 
 interface IProps {
     width?: number;

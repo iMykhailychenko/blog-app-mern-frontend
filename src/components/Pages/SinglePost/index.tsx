@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import Socials from './Socials';
-import Comments from './Comments';
-import Likes from '../../Common/Likes';
-import ScrollTop from '../../Common/ScrollTopBtn';
-import { generateTags } from '../../../assets/helpers';
+// import { Link } from 'react-router-dom';
+// import Socials from './Socials';
+// import Comments from './Comments';
+// import Likes from '../../Common/Likes';
+// import ScrollTop from '../../Common/ScrollTopBtn';
+// import { generateTags } from '../../../assets/helpers';
 
 import 'react-quill/dist/quill.snow.css';
-import '../new_post/Content/index.css';
+import '../NewPost/Content/index.css';
 import './content.css';
 import styles from './index.module.css';
 

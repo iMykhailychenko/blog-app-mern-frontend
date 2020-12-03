@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../../Pages/Auth/Auth.action';
 import styles from './index.module.css';
 import routes from '../../../../routes';
 
@@ -18,13 +17,7 @@ const Profile = (): ReactElement => {
             </li>
             <li>{/* <Link to={routes.Settings.p}>Settings</Link> */}</li>
             <li>
-                <button
-                    onClick={(): void => {
-                        dispatch(logout());
-                    }}
-                >
-                    Log out
-                </button>
+                <button type="button">Log out</button>
             </li>
         </ul>
     );

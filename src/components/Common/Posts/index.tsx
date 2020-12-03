@@ -1,35 +1,36 @@
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Masonry from 'react-masonry-css';
-import clsx from 'clsx';
-import User from '../User';
-import Likes from '../Likes';
-import { generateTags } from '../../../assets/helpers';
-import { getAuth } from '../../../redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { Link } from 'react-router-dom';
+// import Masonry from 'react-masonry-css';
+// import clsx from 'clsx';
+// import User from '../User';
+// import Likes from '../Likes';
+// import { generateTags } from '../../../assets/helpers';
+// import { getAuth } from '../../../redux/selectors';
 import { IPost } from '../../../interfaces';
-import styles from './index.module.css';
-import routes from '../../../routes';
+// import styles from './index.module.css';
+// import routes from '../../../routes';
 
 interface IProps {
     content: IPost[];
     col?: number;
 }
 
-const mediaNotAuth = (col: number): { [key: number]: number; default: number } => ({
-    default: col,
-    1100: 1,
-    900: 2,
-    580: 1,
-});
+// const mediaNotAuth = (col: number): { [key: number]: number; default: number } => ({
+//     default: col,
+//     1100: 1,
+//     900: 2,
+//     580: 1,
+// });
 
-const mediaAuth = (col: number): { [key: number]: number; default: number } => ({
-    default: col,
-    580: 1,
-});
+// const mediaAuth = (col: number): { [key: number]: number; default: number } => ({
+//     default: col,
+//     580: 1,
+// });
 
 const Posts = ({ content, col = 2 }: IProps): ReactElement => {
-    const { isAuth } = useSelector(getAuth);
+    // const { isAuth } = useSelector(getAuth);
+    console.log(content, col);
     return (
         // <Masonry
         //     breakpointCols={isAuth ? mediaAuth(col) : mediaNotAuth(col)}

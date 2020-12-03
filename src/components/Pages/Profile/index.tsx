@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Aside from '../../Common/Aside';
 import AsideProfile from '../../Common/Aside/AsideProfile';
 import ScrollTop from '../../Common/ScrollTopBtn';
-import Posts from '../../Common/Posts';
+// import Posts from '../../Common/Posts';
 import LoadMore from '../../Common/LoadMore';
 import styles from './index.module.css';
 

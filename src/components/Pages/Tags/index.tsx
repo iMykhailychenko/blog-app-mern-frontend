@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 // import { useParams } from 'react-router-dom';
-import Posts from '../../Common/Posts';
+// import Posts from '../../Common/Posts';
 import styles from './index.module.css';
 
 const Tags = (): ReactElement => {

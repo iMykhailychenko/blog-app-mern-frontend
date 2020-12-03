@@ -35,7 +35,7 @@ const slider: { id: number; text: string; banner: string }[] = [
     },
 ];
 
-export default ({ className = undefined }: { className?: string | undefined }) => (
+const SliderComponent = ({ className = undefined }: { className?: string | undefined }): ReactElement => (
     <div className={className}>
         <div className={styles.wrp}>
             <Slider
@@ -61,3 +61,5 @@ export default ({ className = undefined }: { className?: string | undefined }) =
         </div>
     </div>
 );
+
+export default SliderComponent;

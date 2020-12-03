@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { login } from '../../../Pages/Auth/Auth.action';
 import styles from './index.module.css';
 import routes from '../../../../routes';
 
@@ -34,12 +33,12 @@ const Login = (): ReactElement => {
             initialValues={initialValues}
             validate={(values: Values): Errors => {
                 const errors: Errors = {};
+                console.log(values);
                 return errors;
             }}
             onSubmit={(values, actions) => {
                 actions.resetForm();
-                console.log('dddd');
-                dispatch(login());
+                console.log(values);
             }}
         >
             {() => (

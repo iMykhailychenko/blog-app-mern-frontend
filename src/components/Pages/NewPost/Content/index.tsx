@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactQuill from 'react-quill';
-import { content } from '../NewPost.actions';
 import { getContent } from '../../../../redux/selectors';
 import 'react-quill/dist/quill.snow.css';
 import './index.css';
@@ -33,8 +32,7 @@ const formats = [
     'code-block',
 ];
 
-const Content = () => {
-    const dispatch = useDispatch();
+const Content = (): ReactElement => {
     const value = useSelector(getContent);
 
     return (
@@ -45,7 +43,7 @@ const Content = () => {
             formats={formats}
             value={value}
             onChange={(text: string): void => {
-                dispatch(content(text));
+                console.log(text);
             }}
         />
     );

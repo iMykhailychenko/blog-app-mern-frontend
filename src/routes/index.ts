@@ -3,12 +3,15 @@ import React from 'react';
 type IDynamic = [(id: string) => string, string];
 
 const routes = {
-    Home: { path: '/', component: React.lazy(() => import('../components/Pages/Home' /* webpackChunkName: "Home" */)) },
+    Home: {
+        path: '/',
+        component: React.lazy(() => import('../components/Pages/Home' /* webpackChunkName: "Home" */)),
+    },
     Trial: {
         path: '/trial',
         component: React.lazy(() => import('../components/Pages/Trial' /* webpackChunkName: "Trial" */)),
     },
-    // Settings: { path: '/settings', component: React.lazy(() => import('../components/Pages/Settings' /* webpackChunkName: "About" */))  },
+    // Settings: { path: '/settings', component: React.lazy(() => import('../components/Pages/Settings' /* webpackChunkName: "Settings" */))  },
     About: {
         path: '/about',
         component: React.lazy(() => import('../components/Pages/About' /* webpackChunkName: "About" */)),
@@ -40,7 +43,7 @@ const routes = {
         },
     },
     Auth: {
-        // Signup: { path: '/signup', component: React.lazy(() => import('../components/Pages/Login' /* webpackChunkName: "Login" */))  },
+        // Signup: { path: '/signup', component: React.lazy(() => import('../components/Pages/Login' /* webpackChunkName: "Signup" */))  },
         Login: {
             path: '/login',
             component: React.lazy(() => import('../components/Pages/Auth/Login' /* webpackChunkName: "Login" */)),

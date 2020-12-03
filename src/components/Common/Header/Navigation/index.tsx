@@ -65,7 +65,7 @@ const Navigation = (): ReactElement => {
 
                     {menu && (
                         <>
-                            <div className={styles.backdrop} onClick={closeM} />
+                            <div className={styles.backdrop} onClick={closeM} aria-hidden />
 
                             <MobileNav onClick={toggleM} className={clsx(styles.list, menu && styles.open)} />
                         </>

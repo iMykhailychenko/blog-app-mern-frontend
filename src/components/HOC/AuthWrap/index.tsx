@@ -2,7 +2,7 @@ import React, { ComponentClass, FunctionComponent, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
-import router from '../../../routes';
+// import router from '../../../routes';
 import { getAuth } from '../../../redux/selectors';
 
 interface IProps {
@@ -19,7 +19,8 @@ const AuthWrap = ({ exact = false, revers = false, path, component }: IProps): R
     return authWithRevers ? (
         <Route exact={exact} path={path} component={component} />
     ) : (
-        <Redirect to={router.Home.path} />
+        // <Redirect to={router.Home.path} />
+        <Redirect to={'/'} />
     );
 };
 

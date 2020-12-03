@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import SearchForm from '../../Common/Forms/Search';
-import Posts from '../../Common/Posts';
+// import Posts from '../../Common/Posts';
 import { getSearch } from '../../../redux/selectors';
 import styles from './index.module.css';
 

@@ -65,7 +65,7 @@ export interface IAuth {
     loading: boolean;
     error: boolean;
     isAuth: boolean;
-    user: IUser | {};
+    user: IUser | null;
 }
 
 export interface INotification {

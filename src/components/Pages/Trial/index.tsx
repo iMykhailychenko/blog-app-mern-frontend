@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { ReactElement } from 'react';
+// import { Link } from 'react-router-dom';
 import PageTitle from '../../Common/PageTitle';
-import routes from '../../../routes';
+// import routes from '../../../routes';
 import styles from './index.module.css';
 
-export default () => {
+const Trial = (): ReactElement => {
     return (
         <>
             <PageTitle>
@@ -20,7 +20,7 @@ export default () => {
                 <div className={styles.inner}>
                     <h2 className={styles.title}>You are lucky, I signed up for you</h2>
                     <p className={styles.text}>
-                        Just go to the <Link to={routes.Auth.Login.path}>login</Link> page and enter this email and
+                        {/* Just go to the <Link to={routes.Auth.Login.path}>login</Link> page and enter this email and */}
                         password:
                     </p>
                     <kbd>example@mail.com</kbd>
@@ -35,3 +35,5 @@ export default () => {
         </>
     );
 };
+
+export default Trial;

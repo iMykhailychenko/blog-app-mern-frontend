@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import Nav from './Nav';
 import Login from './Login';
 import Profile from './Profile';
-import Modal from '../../Common/Modal';
 
 import { getAuth } from '../../../redux/selectors';
 import styles from './index.module.css';
@@ -21,7 +20,6 @@ const Footer = (): ReactElement => {
 
     return (
         <>
-            <Modal />
             <footer className={styles.footer} style={style[pathname] ? { marginTop: '0' } : {}}>
                 <div className={styles.container}>
                     <div className={styles.inner}>

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
-import ImgModal from '../ImgModal';
-import Buttons from './Buttons';
-import User from '../../../../Common/User';
-import modal from '../../../../Common/Modal/Modal.operations';
+// import ImgModal from '../ImgModal';
+// import Buttons from './Buttons';
+// import User from '../../../../Common/User';
+// import modal from '../../../../Common/Modal/Modal.operations';
 import styles from './index.module.css';
 
 const CommentsList = (): ReactElement => (

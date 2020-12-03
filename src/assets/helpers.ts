@@ -1,12 +1,12 @@
-export const debounce = <T extends (...args: any) => any>(func: T, waitFor: number) => {
-    let timeout: number = 0;
+export const debounce = <M extends [], S extends (...args: M) => void>(func: S, waitFor: number): S => {
+    const timeout = 0;
 
-    const debounced = (...args: any) => {
+    return ((...args: M): void => {
         clearTimeout(timeout);
-        setTimeout(() => func(...args), waitFor);
-    };
-
-    return debounced as (...args: Parameters<T>) => ReturnType<T>;
+        setTimeout((): void => {
+            func(...args);
+        }, waitFor);
+    }) as S;
 };
 
 export const addZero = (value: number): string => String(value).padStart(2, '0');

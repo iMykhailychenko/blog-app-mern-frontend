@@ -1,13 +1,12 @@
 import React, { ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
-import { logout } from '../../../Pages/Auth/Auth.action';
 import styles from './index.module.css';
-import routes from '../../../../routes';
+// import routes from '../../../../routes';
 
 const Profile = (): ReactElement => {
     const dispatch = useDispatch();
@@ -22,7 +21,6 @@ const Profile = (): ReactElement => {
     };
     const handleLoguot = (): void => {
         closeP();
-        dispatch(logout());
     };
 
     // user activity information
@@ -36,25 +34,25 @@ const Profile = (): ReactElement => {
 
     return (
         <>
-            {profile && <div className={styles.backdrop} onClick={closeP} />}
-            {news && <div className={styles.backdrop} onClick={closeN} />}
+            {profile && <div className={styles.backdrop} onClick={closeP} aria-hidden />}
+            {news && <div className={styles.backdrop} onClick={closeN} aria-hidden />}
 
             <div className={styles.container}>
-                <Link className={styles.btn} to={routes.Search.path}>
+                {/* <Link className={styles.btn} to={routes.Search.path}>
                     <FontAwesomeIcon icon={faSearch} />
-                </Link>
+                </Link> */}
 
-                <button className={styles.btn} onClick={openN}>
+                <button className={styles.btn} type="button" onClick={openN}>
                     {/* {!!notification.length && <span className={styles.num}>{notification.length}</span>} */}
                     <FontAwesomeIcon icon={faBell} />
                 </button>
 
-                <button className={styles.wrp} onClick={openP}>
+                <button className={styles.wrp} type="button" onClick={openP}>
                     {/* <img className={styles.avatar} src={user.avatar} alt={user.name} /> */}
                     <FontAwesomeIcon icon={faChevronDown} />
                 </button>
 
-                {profile && <ProfileModal onClick={closeP} onLogout={handleLoguot} />}
+                {profile && <ProfileModal onLogout={handleLoguot} />}
 
                 {news && <NewsModal onClick={closeN} />}
             </div>

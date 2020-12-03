@@ -1,17 +1,16 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
-import searchAction from './Search.action';
 import styles from './index.module.css';
 
 const Search = (): ReactElement => {
     const dispatch = useDispatch();
 
-    const handleChange = (event: ChangeEvent<HTMLFormElement>): void => {
-        dispatch(searchAction(event.target.value ? event.target.value : ''));
-    };
+    // const handleChange = (event: ChangeEvent<HTMLFormElement>): void => {
+    //     dispatch(searchAction(event.target.value ? event.target.value : ''));
+    // };
 
     return (
-        <form className={styles.form} action="#" method="post" onChange={handleChange} onReset={handleChange}>
+        <form className={styles.form} action="#" method="post">
             <div className={styles.inner}>
                 <label className={styles.label}>
                     <p className={styles.text}>What do you want to read?</p>

@@ -24,11 +24,12 @@ const ForgotPass = (): ReactElement => {
             initialValues={initialValues}
             validate={(values: Values): Errors => {
                 const errors: Errors = {};
+                console.log(values);
                 return errors;
             }}
             onSubmit={(values, actions) => {
                 actions.resetForm();
-                console.log('forgot pass');
+                console.log(values);
             }}
         >
             {() => (

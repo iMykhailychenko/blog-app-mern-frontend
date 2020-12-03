@@ -9,7 +9,7 @@ interface IProps {
 
 const NewxModal = ({ onClick }: IProps): ReactElement => {
     return (
-        <div className={`${styles.modal} ${styles.news}`} onClick={onClick}>
+        <div className={`${styles.modal} ${styles.news}`} onClick={onClick} aria-hidden>
             {/* {!notification.length ? (
                 <p className={styles.nothing}>Nothing to show</p>
             ) : (

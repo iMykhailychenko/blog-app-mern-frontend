@@ -1,6 +1,5 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { banner } from '../NewPost.actions';
 import { getBanner } from '../../../../redux/selectors';
 import styles from './index.module.css';
 
@@ -11,16 +10,10 @@ const Banner = (): ReactElement => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         const { files } = event.target;
         if (!files || !files.length) return;
-        dispatch(banner(files[0]));
     };
 
     return value && value.name ? (
-        <div
-            className={styles.wrp}
-            onClick={(): void => {
-                dispatch(banner(null));
-            }}
-        >
+        <div aria-hidden className={styles.wrp}>
             <img className={styles.img} src={window.URL.createObjectURL(value)} alt="Post banner" />
             <span>Click to delete img</span>
         </div>
