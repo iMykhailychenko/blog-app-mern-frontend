@@ -6,17 +6,21 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 
 import './styles/styles.css';
-
 import App from './components/App';
-import store from './redux/store';
 
+import sagas from './redux/sagas';
+import { store } from './redux/store';
+
+store.runSaga(sagas);
 const persistor = persistStore(store);
 
 ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <BrowserRouter>
-                <App />
+                <React.StrictMode>
+                    <App />
+                </React.StrictMode>
             </BrowserRouter>
         </PersistGate>
     </Provider>,

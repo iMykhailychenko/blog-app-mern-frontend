@@ -9,9 +9,7 @@ import styles from './index.module.css';
 const NewComment = (): ReactElement => {
     const dispatch = useDispatch();
     const { isAuth } = useSelector(getAuth);
-    const handleChange = (value: string): void => {
-
-    };
+    const handleChange = (value: string): void => {};
 
     return isAuth ? (
         <div className={styles.container}>

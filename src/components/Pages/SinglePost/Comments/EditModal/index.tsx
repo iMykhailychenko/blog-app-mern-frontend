@@ -6,9 +6,7 @@ import styles from './index.module.css';
 
 const EditModal = ({ text }: { text: string }): ReactElement => {
     const dispatch = useDispatch();
-    const handleChange = (value: string): void => {
-
-    };
+    const handleChange = (value: string): void => {};
 
     return (
         <div className={styles.container}>

@@ -17,21 +17,15 @@ const Buttons = (comment: IComment): ReactElement => {
 
             {isAuth && (
                 <>
-                    <button className={styles.link} type="button" >
+                    <button className={styles.link} type="button">
                         Answer
                     </button>
 
-                    <button
-                        className={styles.link} type="button"
-                       
-                    >
+                    <button className={styles.link} type="button">
                         Edit
                     </button>
 
-                    <button
-                        className={styles.link}
-                        type="button"
-                    >
+                    <button className={styles.link} type="button">
                         Delete
                     </button>
                 </>

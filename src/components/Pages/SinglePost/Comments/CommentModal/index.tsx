@@ -7,9 +7,7 @@ import styles from './index.module.css';
 
 const CommentModal = ({ user }: { user: IUser }): ReactElement => {
     const dispatch = useDispatch();
-    const handleChange = (value: string): void => {
-
-    };
+    const handleChange = (value: string): void => {};
 
     return (
         <div className={styles.container}>
