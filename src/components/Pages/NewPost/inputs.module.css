@@ -1,0 +1,25 @@
+.input {
+    display: block;
+    width: 55%;
+    min-width: 80rem;
+    margin: 0 auto 3rem;
+    padding: 1rem;
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background: #efefef;
+    transition: 0.3s ease-in-out;
+}
+
+.input:hover,
+.input:focus {
+    background: #dedede;
+}
+
+@media (max-width: 1000px) {
+    .input {
+        width: 90%;
+        min-width: unset;
+    }
+}

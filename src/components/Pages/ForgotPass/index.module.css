@@ -1,0 +1,60 @@
+.container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: #fff;
+}
+
+.banner {
+    position: relative;
+    height: 100vh;
+    z-index: 3;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
+    transform: translate(-50%, -50%);
+    width: 35rem;
+    padding: 2rem 3rem 5rem;
+    border-radius: 0.4rem;
+    background: #fff;
+}
+
+@media (max-width: 900px) {
+    .login {
+        padding: 5rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        position: relative;
+    }
+}

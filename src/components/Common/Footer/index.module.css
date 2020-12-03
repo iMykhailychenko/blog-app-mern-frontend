@@ -1,0 +1,40 @@
+.footer {
+    margin-top: 8rem;
+    padding: 4rem 0;
+    background: #111;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+.inner {
+    width: 50%;
+}
+
+.logo {
+    width: 50%;
+}
+
+.text {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 2rem;
+        flex-direction: column-reverse;
+    }
+
+    .inner {
+        width: 100%;
+    }
+
+    .logo {
+        width: 100%;
+    }
+}

@@ -1,0 +1,34 @@
+.container {
+    width: 55%;
+    min-width: 80rem;
+    margin: 4rem auto 3rem;
+}
+
+.title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.auth {
+    padding: 2rem 3rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    background: rgb(243, 243, 243);
+}
+
+.auth a {
+    color: #6d7279;
+}
+
+.auth a:hover,
+.auth a:focus {
+    text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 90%;
+        min-width: unset;
+    }
+}
