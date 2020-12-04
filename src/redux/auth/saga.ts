@@ -12,6 +12,7 @@ function* login({ payload }: IAction) {
     } catch (error) {
         yield put({ type: types.LOGIN_ERROR });
         if (error?.response?.status === 401) return;
+        console.log(error);
         notifications('error', 'Something went wrong');
     }
 }

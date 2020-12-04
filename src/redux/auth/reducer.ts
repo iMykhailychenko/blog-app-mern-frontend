@@ -29,7 +29,7 @@ const auth = (state: IAuth = INIT, action: IAction): IAuth => {
 const authConfig = {
     storage,
     key: 'blog_auth',
-    white: ['user'],
+    // white: ['user'],
     transforms: [encryptor],
 };
 
