@@ -2,6 +2,6 @@ import { combineReducers } from 'redux';
 
 import list from './list/reducer';
 
-const post = combineReducers({ list });
+const posts = combineReducers({ list });
 
-export default post;
+export default posts;

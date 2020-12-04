@@ -1,106 +1,46 @@
-import { ReactNode } from 'react';
-
-export interface IModal {
-    node: null | ReactNode;
-    size?: 's' | 'm' | 'l';
-}
-
 export interface IParams {
     [key: string]: string | number;
 }
 
 export interface IUser {
-    id: string;
+    _id: string;
     avatar: string;
     name: string;
+    surname: string;
     email: string;
     nick: string;
-    posts?: number;
-}
-
-export interface IPost {
-    items: {
-        id: string;
-        placeholder?: string;
-        title: string;
-        text: string;
-        tags: string;
-        date: string;
-        like: string[];
-        dislike: string[];
-        watched: string[];
-    };
-    user: IUser;
-}
-
-export interface IPostFields {
-    title: string;
-    desc: string;
-    tags: string;
-    content: string;
-}
-
-export interface INewPost extends IPostFields {
-    banner: File | null;
-}
-
-export interface ISinglePost extends IPostFields {
-    banner: string;
-    date: string;
-    like: string[];
-    dislike: string[];
-    watched: string[];
-    user: IUser;
-}
-
-export interface IComment {
-    id: string;
-    date: string;
-    text: string;
-    parent: boolean;
-    img?: string;
-    like: string[];
-    dislike: string[];
-    user: IUser;
-    answers?: IComment[];
 }
 
 export interface IAuth {
     loading: boolean;
-    error: boolean;
-    isAuth: boolean;
     user: IUser | null;
 }
 
-export interface INotification {
-    type: 'like' | 'comment';
-    target: 'post' | 'comment';
-    user: IUser;
-    post: IPost;
+export interface IPost {
+    _id: string;
+    feedback: {
+        view: string[];
+        like: string[];
+        dislike: string[];
+    };
+    banner: string;
+    tags: string[];
+    title: string;
+    desc: string;
+    content: string;
+    user: string;
+    date: string;
+    author: [IUser];
+}
+
+export interface IPostList extends IPost {
+    loading: boolean;
+    data: IPost[] | null;
 }
 
 export interface IState {
     auth: IAuth;
-    menu: boolean;
-    modal: IModal;
-    search: string;
-    picture: {
-        loading: boolean;
-        src: string;
-    };
-    comment: {
-        text: string;
-        img: File | null;
-    };
-    post: {
-        list: {
-            loading: boolean;
-            items: IPost[] | null;
-        };
-        new: INewPost;
-        single: {
-            loading: boolean;
-            items: ISinglePost;
-        };
+    posts: {
+        list: IPostList;
     };
 }

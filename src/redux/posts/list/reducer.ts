@@ -3,12 +3,12 @@ import { IAction, types } from '../types';
 
 interface IState {
     loading: boolean;
-    items: IPost[] | null;
+    data: IPost[] | null;
 }
 
 const INIT: IState = {
     loading: true,
-    items: null,
+    data: null,
 };
 
 const list = (state: IState = INIT, action: IAction): IState => {
@@ -17,10 +17,10 @@ const list = (state: IState = INIT, action: IAction): IState => {
             return INIT;
 
         case types.GET_POSTS_SUCCESS:
-            return { items: action.payload as IPost[], loading: false };
+            return { data: action.payload as IPost[], loading: false };
 
         case types.GET_POSTS_ERROR:
-            return { items: null, loading: false };
+            return { data: null, loading: false };
 
         default:
             return state;

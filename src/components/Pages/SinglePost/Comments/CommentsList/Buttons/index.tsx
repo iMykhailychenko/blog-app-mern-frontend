@@ -1,19 +1,19 @@
 import React, { ReactElement } from 'react';
 
 // import { useSelector } from 'react-redux';
-import { IComment } from '../../../../../../interfaces';
+// import { IComment } from '../../../../../../interfaces';
 // import Confirm from '../../../../../Common/Confirm';
 import Likes from '../../../../../Common/Likes';
 // import CommentModal from '../../CommentModal';
 // import EditModal from '../../EditModal';
 import styles from '../index.module.css';
 
-const Buttons = (comment: IComment): ReactElement => {
+const Buttons = (): ReactElement => {
     // const { isAuth } = useSelector(getAuth);
 
     return (
         <div className={styles.likes}>
-            <Likes like={comment.like} dislike={comment.dislike} click />
+            {/* <Likes like={comment.like} dislike={comment.dislike} click /> */}
 
             {/* {isAuth && ( */}
             <>
