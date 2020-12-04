@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import ReactQuill from 'react-quill';
-import { getContent } from '../../../../redux/selectors';
 import 'react-quill/dist/quill.snow.css';
 import './index.css';
+
+import React, { ReactElement } from 'react';
+import ReactQuill from 'react-quill';
+// import { useSelector } from 'react-redux';
 
 const modules = {
     toolbar: [
@@ -33,7 +33,7 @@ const formats = [
 ];
 
 const Content = (): ReactElement => {
-    const value = useSelector(getContent);
+    // const value = useSelector(getContent);
 
     return (
         <ReactQuill
@@ -41,7 +41,7 @@ const Content = (): ReactElement => {
             placeholder="Main post content ..."
             modules={modules}
             formats={formats}
-            value={value}
+            // value={value}
             onChange={(text: string): void => {
                 console.log(text);
             }}

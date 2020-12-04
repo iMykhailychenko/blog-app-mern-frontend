@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
-import NewComment from './NewComment';
+
 import CommentsList from './CommentsList';
+import NewComment from './NewComment';
 
 const Comment = (): ReactElement => {
     return (

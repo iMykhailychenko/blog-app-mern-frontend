@@ -1,23 +1,23 @@
+import './styles/styles.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { persistStore } from 'redux-persist';
-import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import './styles/styles.css';
-import App from './components/App';
-
+import App from './components/App/index';
+import ModalComponent from './components/Common/Modal';
 import sagas from './redux/sagas';
-import { store } from './redux/store';
+import { persistor, sagaMiddleware, store } from './redux/store';
 
-store.runSaga(sagas);
-const persistor = persistStore(store);
+sagaMiddleware.run(sagas);
 
 ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <BrowserRouter>
+                <ModalComponent />
                 <React.StrictMode>
                     <App />
                 </React.StrictMode>

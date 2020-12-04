@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 // import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import React, { ReactElement } from 'react';
+
 // import { INotification } from '../../../../../../interfaces';
 import styles from './index.module.css';
 // import routes from '../../../../../../routes';

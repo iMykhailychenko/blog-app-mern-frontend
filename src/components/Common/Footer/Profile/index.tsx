@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import styles from './index.module.css';
+import { Link } from 'react-router-dom';
+
 import routes from '../../../../routes';
+import styles from './index.module.css';
 
 const Profile = (): ReactElement => {
     const dispatch = useDispatch();
+    console.log(dispatch);
 
     return (
         <ul className={styles.list}>

@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react';
+import { faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown, faEye } from '@fortawesome/free-solid-svg-icons';
+import React, { ReactElement } from 'react';
+
 import styles from './index.module.css';
 
 interface IProps {

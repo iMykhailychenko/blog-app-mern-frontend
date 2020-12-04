@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react';
+import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 // import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentAlt } from '@fortawesome/free-solid-svg-icons';
-// import { INotification } from '../../../../../../interfaces';
+import React, { ReactElement } from 'react';
 
+// import { INotification } from '../../../../../../interfaces';
 import styles from './index.module.css';
 // import routes from '../../../../../../routes';
 

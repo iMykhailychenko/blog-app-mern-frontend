@@ -1,18 +1,23 @@
 import React, { ReactElement, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 
-import Loader from '../Common/Loader/BigLoader';
-import ScrollTop from '../HOC/ScrollTop';
-import AuthWrap from '../HOC/AuthWrap';
-import Header from '../Common/Header';
-import Footer from '../Common/Footer';
-
-import routes from '../../routes';
+// import routes from '../../routes';
+// import Footer from '../Common/Footer';
+// import Header from '../Common/Header';
+// import Loader from '../Common/Loader/BigLoader';
+// import AuthWrap from '../HOC/AuthWrap';
+// import ScrollTop from '../HOC/ScrollTop';
 
 const App = (): ReactElement => {
+    console.log('object');
     return (
         <>
-            <Header />
+            <div className="">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quos corporis error voluptatem rem odio
+                dicta consequatur quam dignissimos sit hic eligendi odit aut aliquam dolore quisquam possimus, repellat
+                voluptatum.
+            </div>
+            {/* <Header />
             <ScrollTop />
             <Suspense fallback={<Loader />}>
                 <Switch>
@@ -29,7 +34,7 @@ const App = (): ReactElement => {
                     <AuthWrap path={routes.Auth.ForgotPass.path} component={routes.Auth.ForgotPass.component} revers />
                 </Switch>
             </Suspense>
-            <Footer />
+            <Footer /> */}
         </>
     );
 };

@@ -1,30 +1,30 @@
-import React, { ReactElement, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Profile from '../Profile';
-import MobileNav from './MobileNav';
-import DesktopNav from './DesktopNav';
-import { getAuth } from '../../../../redux/selectors';
+import React, { ReactElement, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+// import { useLocation } from 'react-router-dom';
 import { IState } from '../../../../interfaces';
-import toggleMenu from './Navigation.actions';
-import routes from '../../../../routes';
+// import routes from '../../../../routes';
+import Profile from '../Profile';
+import DesktopNav from './DesktopNav';
 import styles from './index.module.css';
+import MobileNav from './MobileNav';
+import toggleMenu from './Navigation.actions';
+
+// const logPath: { [key: string]: boolean } = {
+//     '/': true,
+//     '/login': true,
+// };
+
+// const signPath: { [key: string]: boolean } = {
+//     '/signup': true,
+// };
 
 const Navigation = (): ReactElement => {
-    const { isAuth } = useSelector(getAuth);
-    const { pathname } = useLocation();
-
-    const logPath: { [key: string]: boolean } = {
-        '/': true,
-        '/login': true,
-    };
-
-    const signPath: { [key: string]: boolean } = {
-        '/signup': true,
-    };
+    // const { isAuth } = useSelector(getAuth);
+    // const { pathname } = useLocation();
 
     // media
     const [mobile, setMobile] = useState(false);
@@ -75,8 +75,8 @@ const Navigation = (): ReactElement => {
                 <DesktopNav className={clsx(styles.list, menu && styles.open)} />
             )}
 
-            {isAuth ? (
-                <Profile />
+            <Profile />
+            {/* {false ? (
             ) : (
                 <div className={styles.btn_wrp}>
                     <Link to={routes.Search.path} className={styles.btn}>
@@ -94,7 +94,7 @@ const Navigation = (): ReactElement => {
                         </Link>
                     )}
                 </div>
-            )}
+            )} */}
         </nav>
     );
 };

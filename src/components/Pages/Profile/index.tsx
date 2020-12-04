@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react';
 import clsx from 'clsx';
+import React, { ReactElement } from 'react';
+
 import Aside from '../../Common/Aside';
 import AsideProfile from '../../Common/Aside/AsideProfile';
-import ScrollTop from '../../Common/ScrollTopBtn';
 // import Posts from '../../Common/Posts';
 import LoadMore from '../../Common/LoadMore';
+import ScrollTop from '../../Common/ScrollTopBtn';
 import styles from './index.module.css';
 
 const Profile = (): ReactElement => (

@@ -1,13 +1,12 @@
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
-// import { Link, useParams } from 'react-router-dom';
 
-import { getAuth } from '../../../../redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { Link, useParams } from 'react-router-dom';
 // import routes from '../../../../routes';
 import styles from './index.module.css';
 
 const AsideProfile = (): ReactElement => {
-    const auth = useSelector(getAuth);
+    // const auth = useSelector(getAuth);
     // const params = useParams();
 
     return (
@@ -21,14 +20,12 @@ const AsideProfile = (): ReactElement => {
 
             <p className={styles.text}>{`total posts: ${user.posts}`}</p> */}
 
-            {auth.isAuth && (
-                // <Link to={router.post.new}>
-                <>
-                    <button className="add" type="button" />
-                    <p className={styles.text}>Add new post</p>
-                </>
-                // </Link>
-            )}
+            {/* <Link to={router.post.new}> */}
+            <>
+                <button className="add" type="button" />
+                <p className={styles.text}>Add new post</p>
+            </>
+            {/* </Link> */}
         </div>
     );
 };

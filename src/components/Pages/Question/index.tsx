@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
-import PageTitle from '../../Common/PageTitle';
+
 import QuestionForm from '../../Common/Forms/Question';
+import PageTitle from '../../Common/PageTitle';
 import styles from './index.module.css';
 
 const Question = (): ReactElement => {

@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
+// import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getAuth } from '../../../../../redux/selectors';
-import styles from '../index.module.css';
+
 import routes from '../../../../../routes';
+import styles from '../index.module.css';
 
 interface IProps {
     onClick: () => void;
@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const MobileNav = ({ onClick, className }: IProps): ReactElement => {
-    const { isAuth } = useSelector(getAuth);
+    // const { isAuth } = useSelector(getAuth);
 
     return (
         <ul className={className}>
@@ -46,7 +46,7 @@ const MobileNav = ({ onClick, className }: IProps): ReactElement => {
                     Question
                 </NavLink>
             </li>
-            {!isAuth && (
+            {/* {!isAuth && (
                 <li>
                     <NavLink
                         to={routes.Trial.path}
@@ -57,7 +57,7 @@ const MobileNav = ({ onClick, className }: IProps): ReactElement => {
                         Get trial accaunt
                     </NavLink>
                 </li>
-            )}
+            )} */}
         </ul>
     );
 };

@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
+
+// import { useDispatch } from 'react-redux';
 import styles from './index.module.css';
 
 interface IProps {
@@ -8,6 +9,7 @@ interface IProps {
 }
 
 const Confirm = ({ title, onSubmit }: IProps): ReactElement => {
+    console.log(onSubmit);
     return (
         <div className={styles.wrp}>
             <h2 className={styles.title}>{title}</h2>

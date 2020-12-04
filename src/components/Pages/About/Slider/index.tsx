@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import Slider from 'react-slick';
+
 import styles from './index.module.css';
 
 const slider: { id: number; text: string; banner: string }[] = [

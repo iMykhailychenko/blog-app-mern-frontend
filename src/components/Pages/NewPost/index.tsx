@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react';
-import Socials from './Socials';
-import Title from './Title';
-import Tags from './Tags';
-import Desc from './Desc';
-import DateText from './DateText';
+
+import ScrollTop from '../../Common/ScrollTopBtn';
 import Banner from './Banner';
 import Content from './Content';
-import ScrollTop from '../../Common/ScrollTopBtn';
+import DateText from './DateText';
+import Desc from './Desc';
 import styles from './index.module.css';
+import Socials from './Socials';
+import Tags from './Tags';
+import Title from './Title';
 
 const NewPost = (): ReactElement => (
     <div className={styles.container}>

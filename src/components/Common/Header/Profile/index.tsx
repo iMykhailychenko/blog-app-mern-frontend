@@ -1,15 +1,17 @@
-import React, { ReactElement, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { faBell, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 // import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import React, { ReactElement, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import styles from './index.module.css';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
-import styles from './index.module.css';
 // import routes from '../../../../routes';
 
 const Profile = (): ReactElement => {
     const dispatch = useDispatch();
+    console.log(dispatch);
 
     // profile modal
     const [profile, setProfile] = useState(false);

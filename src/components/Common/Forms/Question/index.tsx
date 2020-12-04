@@ -1,8 +1,7 @@
-import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
 import clsx from 'clsx';
-import { getAuth } from '../../../../redux/selectors';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React, { ReactElement } from 'react';
+
 import styles from './index.module.css';
 
 interface Values {
@@ -16,17 +15,15 @@ interface Errors {
     email?: string;
     text?: string;
 }
-
+const initialValues: Values = {
+    name: '',
+    email: '',
+    text: '',
+};
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const Question = (): ReactElement => {
-    const { isAuth } = useSelector(getAuth);
-
-    const initialValues: Values = {
-        name: isAuth ? 'user.name' : '',
-        email: isAuth ? 'user.email' : '',
-        text: '',
-    };
+    // const { isAuth } = useSelector(getAuth);
 
     return (
         <Formik

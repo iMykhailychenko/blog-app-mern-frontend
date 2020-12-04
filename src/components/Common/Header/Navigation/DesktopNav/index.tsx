@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getAuth } from '../../../../../redux/selectors';
+
 import routes from '../../../../../routes';
 import styles from '../index.module.css';
 
 const DesktopNav = ({ className }: { className?: string }): ReactElement => {
-    const { isAuth } = useSelector(getAuth);
+    // const { isAuth } = useSelector(getAuth);
 
     return (
         <ul className={className}>
@@ -25,13 +25,13 @@ const DesktopNav = ({ className }: { className?: string }): ReactElement => {
                     Question
                 </NavLink>
             </li>
-            {!isAuth && (
+            {/* {!isAuth && (
                 <li>
                     <NavLink to={routes.Trial.path} className={styles.link} activeClassName={styles.active}>
                         Get trial accaunt
                     </NavLink>
                 </li>
-            )}
+            )} */}
         </ul>
     );
 };

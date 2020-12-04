@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+
 import ForgotPassForm from '../../../Common/Forms/ForgotPass';
 import Picture from '../../../Common/Picture';
 import styles from './index.module.css';

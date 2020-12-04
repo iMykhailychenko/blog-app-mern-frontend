@@ -1,13 +1,14 @@
-import React, { ChangeEvent, ReactElement } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { getDesc } from '../../../../redux/selectors';
+import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
+
 import inputs from '../inputs.module.css';
 import styles from './index.module.css';
 
 const Desc = (): ReactElement => {
     const dispatch = useDispatch();
-    const value = useSelector(getDesc);
+    console.log(dispatch);
+    // const value = useSelector(getDesc);
 
     return (
         <textarea

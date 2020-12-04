@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
-import Slider from './Slider';
-import styles from './index.module.css';
+
 import PageTitle from '../../Common/PageTitle';
+import styles from './index.module.css';
+import Slider from './Slider';
 
 const About = (): ReactElement => {
     return (

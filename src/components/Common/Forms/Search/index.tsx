@@ -1,9 +1,11 @@
-import React, { ChangeEvent, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
+
 import styles from './index.module.css';
 
 const Search = (): ReactElement => {
     const dispatch = useDispatch();
+    console.log(dispatch);
 
     // const handleChange = (event: ChangeEvent<HTMLFormElement>): void => {
     //     dispatch(searchAction(event.target.value ? event.target.value : ''));

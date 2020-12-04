@@ -5,6 +5,10 @@ export interface IModal {
     size?: 's' | 'm' | 'l';
 }
 
+export interface IParams {
+    [key: string]: string | number;
+}
+
 export interface IUser {
     id: string;
     avatar: string;
@@ -82,7 +86,6 @@ export interface IState {
     search: string;
     picture: {
         loading: boolean;
-        error: boolean;
         src: string;
     };
     comment: {
@@ -92,14 +95,12 @@ export interface IState {
     post: {
         list: {
             loading: boolean;
-            items: IPost[];
-            error: boolean;
+            items: IPost[] | null;
         };
-        newPost: INewPost;
+        new: INewPost;
         single: {
             loading: boolean;
             items: ISinglePost;
-            error: boolean;
         };
     };
 }

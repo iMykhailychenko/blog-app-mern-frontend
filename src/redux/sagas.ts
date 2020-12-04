@@ -1,5 +1,7 @@
 import { all, fork } from 'redux-saga/effects';
 
-export default function* sagas() {
-    yield all([fork(console.log)]);
+import post from './post/saga';
+
+export default function* sagas(): Generator {
+    yield all([fork(post)]);
 }

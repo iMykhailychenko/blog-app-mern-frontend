@@ -1,11 +1,12 @@
-import React, { ReactElement, useState } from 'react';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React, { ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import styles from './index.module.css';
+
 import routes from '../../../../routes';
+import styles from './index.module.css';
 
 interface Values {
     email: string;
@@ -21,6 +22,7 @@ interface Errors {
 
 const Login = (): ReactElement => {
     const dispatch = useDispatch();
+    console.log(dispatch);
     const [show, setShow] = useState(false);
 
     const initialValues: Values = {

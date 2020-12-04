@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react';
 import clsx from 'clsx';
+import React, { ReactElement } from 'react';
+
 import styles from './index.module.css';
 
 const LoadMore = (): ReactElement => (

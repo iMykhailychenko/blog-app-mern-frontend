@@ -1,10 +1,11 @@
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import clsx from 'clsx';
-import Navigation from './Navigation';
+
 import styles from './index.module.css';
+import Navigation from './Navigation';
 
 const style: { [key: string]: boolean } = {
     '/login': true,
