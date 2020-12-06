@@ -1,0 +1,161 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 8;
+}
+
+.wrp {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.avatar {
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  transition: 0.3s ease-in-out;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  background-color: #4dacff;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.wrp:hover .placeholder,
+.wrp:focus .placeholder {
+  box-shadow: 0 0 0 0.3rem #add9ff;
+}
+
+.wrp:hover .avatar,
+.wrp:focus .avatar {
+  box-shadow: 0 0 0 0.3rem #add9ff;
+}
+
+.modal {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  z-index: 10;
+  padding: 4rem;
+  background: rgb(255, 255, 255);
+  border: 0.1rem solid #b6b6b6;
+  border-radius: 0.5rem;
+}
+
+.news {
+  right: 7rem;
+  min-width: 60rem;
+}
+
+.nothing {
+  font-size: 1.4rem;
+}
+
+.name {
+  margin: 0;
+  width: max-content;
+  font-size: 1.8rem;
+}
+
+.nick {
+  display: block;
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  font-size: 1.4rem;
+  border-bottom: 0.1rem solid #b6b6b6;
+}
+
+.link {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.4rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  background: none;
+  border: none;
+  color: rgb(61, 61, 61);
+  outline: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: 1rem;
+  background-color: #eeeeee;
+  color: #414141;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  color: rgb(104, 104, 104);
+  transition: 0.3s ease-in-out;
+  outline: none;
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
+}
+
+.num {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.6rem;
+  padding: 0.1rem 0.4rem;
+  background: rgb(218, 95, 95);
+  border-radius: 0.4rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 706px) {
+  .news {
+    right: 0;
+    min-width: unset;
+    width: 95vw;
+  }
+}
+
+@media (max-width: 550px) {
+  .news {
+    width: 90vw;
+    padding: 4rem 2rem;
+  }
+}

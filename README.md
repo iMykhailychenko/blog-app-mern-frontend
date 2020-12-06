@@ -10,10 +10,11 @@ This repository is the IU part of the application.
 #### Technology stack
 
 ``` 
+- next.js
 - react
 - typescript
 - redux
-- nodejs
+- saga
 ```
 
 ```To preview the page, follow the link below```
