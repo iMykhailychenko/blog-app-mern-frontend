@@ -1,3 +1,4 @@
+import 'quill/dist/quill.snow.css';
 import '../styles/styles.css';
 
 import { AppProps } from 'next/app';

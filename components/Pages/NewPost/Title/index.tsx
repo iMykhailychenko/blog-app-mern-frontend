@@ -7,7 +7,6 @@ import css from './index.module.css';
 
 const Title = (): ReactElement => {
   const dispatch = useDispatch();
-  console.log(dispatch);
   // const value = useSelector(getTitle);
 
   return (

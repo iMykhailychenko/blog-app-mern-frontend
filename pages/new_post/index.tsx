@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 
 import ScrollTop from '../../components/Common/ScrollTopBtn';
 import Banner from '../../components/Pages/NewPost/Banner';
+import ContentEditor from '../../components/Pages/NewPost/ContentEditor';
 import DateText from '../../components/Pages/NewPost/DateText';
 import Desc from '../../components/Pages/NewPost/Desc';
 import Socials from '../../components/Pages/NewPost/Socials';
@@ -18,7 +19,7 @@ const NewPost = (): ReactElement => (
       <Tags />
       <Banner />
       <Desc />
-      {/* <Content /> */}
+      <ContentEditor />
       <Socials />
       <ScrollTop />
     </div>

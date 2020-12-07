@@ -7,7 +7,6 @@ import styles from './index.module.css';
 
 const Tags = (): ReactElement => {
   const dispatch = useDispatch();
-  console.log(dispatch);
   // const value = useSelector(getTags);
 
   return (

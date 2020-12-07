@@ -5,7 +5,6 @@ import styles from './index.module.css';
 
 const Banner = (): ReactElement => {
   const dispatch = useDispatch();
-  console.log(dispatch);
   // const value = useSelector(getBanner);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
