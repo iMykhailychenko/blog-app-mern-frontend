@@ -81,7 +81,7 @@
 
 @media (max-width: 1000px) {
   .add {
-      width: 90%;
-      min-width: unset;
+    width: 90%;
+    min-width: unset;
   }
 }
