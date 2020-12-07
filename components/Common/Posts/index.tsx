@@ -8,6 +8,7 @@ import { formateDate } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
 import { IPost, IState } from '../../../interfaces';
 import Likes from '../Likes';
+import User from '../User';
 import css from './index.module.css';
 
 interface IProps {
@@ -74,7 +75,9 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
             </div>
           )}
 
-          <div className={css.inner}>{/* <User {...user} /> */}</div>
+          <div className={css.inner}>
+            <User user={items.author[0]} />
+          </div>
         </li>
       ))}
     </Masonry>

@@ -14,7 +14,7 @@
   margin-bottom: 5rem;
   background-color: #ffffff;
   transition: 0.3s ease-in-out;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   box-shadow: 0 0.1rem 0.3rem rgba(54, 39, 39, 0.02),
     0 1rem 2rem rgba(0, 0, 0, 0.05);
 }
@@ -42,9 +42,8 @@
 /* === content === */
 .img {
   height: 35rem;
-  border-radius: 1.5rem;
+  border-radius: 1rem 1rem 0 0;
   object-fit: cover;
-  box-shadow: 0 1rem 2rem rgba(54, 39, 39, 0.2), 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
 .title {

@@ -1,25 +1,31 @@
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
-// import { Link } from 'react-router-dom';
-// import routes from '../../../routes';
-import styles from './index.module.css';
+import routes from '../../../assets/routes';
+import { IUser } from '../../../interfaces';
+import UserAvatar from '../UserAvatar';
+import css from './index.module.css';
 
 interface IProps {
-  id: string;
-  avatar: string;
-  name: string;
-  nick: string;
+  user: IUser;
 }
 
-const User = ({ id, avatar, name, nick }: IProps): ReactElement => (
-  <div className={styles.user}>
-    <img className={styles.avatar} src={avatar} alt={name} />
-
-    {/* <Link to={routes.User.path[0](id)} className={styles.userInfo}> */}
-    <p className={styles.name}>{name}</p>
-    <p className={styles.nick}>{`@${nick + id}`}</p>
-    {/* </Link> */}
-  </div>
-);
+const User = ({ user }: IProps): ReactElement | null =>
+  user ? (
+    <div className={css.user}>
+      <UserAvatar
+        width={5}
+        height={5}
+        avatar={user.avatar}
+        name={(user.name[0] + user.surname[0]).toUpperCase()}
+      />
+      <Link href={routes.user[0](user._id)}>
+        <a className={css.userInfo}>
+          <p className={css.name}>{user.name + ' ' + user.surname}</p>
+          <p className={css.nick}>{`@${user?.nick}`}</p>
+        </a>
+      </Link>
+    </div>
+  ) : null;
 
 export default User;

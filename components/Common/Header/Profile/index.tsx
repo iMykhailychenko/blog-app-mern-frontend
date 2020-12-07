@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
 import { IState, IUser } from '../../../../interfaces';
+import UserAvatar from '../../UserAvatar';
 import css from './index.module.css';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
@@ -60,17 +61,15 @@ const Profile = (): ReactElement => {
           type="button"
           onClick={handleDrop('profile')}
         >
-          {user.avatar ? (
-            <img className={css.avatar} src={user.avatar} alt={user.name} />
-          ) : (
-            <div className={css.placeholder}>
-              {(user.name[0] + user.surname[0]).toUpperCase()}
-            </div>
-          )}
+          <UserAvatar
+            avatar={user.avatar}
+            name={(user.name[0] + user.surname[0]).toUpperCase()}
+          />
+
           <FontAwesomeIcon icon={faChevronDown} />
         </button>
 
-        {dropdown.profile && <ProfileModal />}
+        {dropdown.profile && <ProfileModal onClick={handleDrop('profile')} />}
         {dropdown.news && <NewsModal onClick={handleDrop('news')} />}
       </div>
     </>

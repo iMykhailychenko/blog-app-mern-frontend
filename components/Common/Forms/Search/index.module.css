@@ -15,7 +15,11 @@
 
 .text {
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.submit {
+  height: 5.3rem;
 }
 
 .input_wrp {
@@ -27,8 +31,8 @@
   position: absolute;
   top: 50%;
   right: 0.3rem;
-  height: 3rem;
-  width: 3rem;
+  height: 90%;
+  width: 5rem;
   transform: translateY(-50%);
   background: none;
   font-weight: 600;
@@ -46,7 +50,7 @@
 .input {
   display: block;
   width: 50rem;
-  padding: 0.7rem;
+  padding: 1.6rem;
   font-size: 1.4rem;
   background: none;
   outline: none;

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { ReactElement } from 'react';
+import React, { MouseEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
@@ -19,8 +19,11 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
     dispatch({ type: types.LOGOUT_START });
   };
 
-  const handleClick = (): void => {
-    onClick();
+  const handleClick = (event: MouseEvent<HTMLDivElement>): void => {
+    if (event.target === event.currentTarget) return;
+    setTimeout(() => {
+      onClick();
+    }, 200);
   };
 
   return (

@@ -1,0 +1,10 @@
+.input {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+@media (max-width: 690px) {
+  .input {
+    font-size: 3rem;
+  }
+}

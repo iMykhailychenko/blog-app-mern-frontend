@@ -2,17 +2,17 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 
-import styles from './index.module.css';
+import css from './index.module.css';
 import Navigation from './Navigation';
 
 const Header = (): ReactElement => {
   return (
     <>
-      <button className={styles.btn}>
+      <button className={css.btn}>
         <FontAwesomeIcon icon={faChevronDown} />
       </button>
 
-      <header className={styles.header}>
+      <header className={css.header}>
         <div className="container">
           <Navigation />
         </div>

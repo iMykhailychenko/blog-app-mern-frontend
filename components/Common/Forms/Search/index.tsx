@@ -1,6 +1,7 @@
+import clsx from 'clsx';
 import React, { ChangeEvent, FormEvent, ReactElement } from 'react';
 
-import styles from './index.module.css';
+import css from './index.module.css';
 
 interface IProps {
   value: string;
@@ -19,28 +20,23 @@ const SearchForm = ({ value, onChange, onSubmit }: IProps): ReactElement => {
   };
 
   return (
-    <form
-      className={styles.form}
-      action="#"
-      method="post"
-      onSubmit={handleSubmit}
-    >
-      <div className={styles.inner}>
-        <label className={styles.label}>
-          <p className={styles.text}>What do you want to read?</p>
-          <div className={styles.input_wrp}>
+    <form className={css.form} action="#" method="post" onSubmit={handleSubmit}>
+      <div className={css.inner}>
+        <label className={css.label}>
+          <p className={css.text}>What do you want to read?</p>
+          <div className={css.input_wrp}>
             <input
               value={value}
               onChange={handleChange}
               type="text"
               name="search"
-              className={styles.input}
-              placeholder="start typing"
+              className={css.input}
+              placeholder="Start typing"
             />
-            <input type="reset" className={styles.reset} value="&#10005;" />
+            <input type="reset" className={css.reset} value="&#10005;" />
           </div>
         </label>
-        <button type="submit" className="btn btn--blue">
+        <button type="submit" className={clsx('btn btn--blue', css.submit)}>
           Search
         </button>
       </div>

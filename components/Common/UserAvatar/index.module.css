@@ -1,0 +1,30 @@
+.avatar {
+  height: 3.5rem;
+  width: 3.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.placeholder:hover,
+.placeholder:focus {
+  box-shadow: 0 0 0 0.3rem #c5c5c5;
+}

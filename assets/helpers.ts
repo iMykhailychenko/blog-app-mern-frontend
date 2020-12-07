@@ -15,7 +15,7 @@ export const debounce = <M extends [], S extends (...args: M) => void>(
 export const addZero = (value: number): string =>
   String(value).padStart(2, '0');
 
-export const formateDate = (str: string): string => {
+export const formateDate = (str: string | number): string => {
   const date = new Date(str);
   return `${addZero(date.getDate())}.${addZero(
     date.getMonth() + 1,

@@ -24,36 +24,6 @@
   outline: none;
 }
 
-.avatar {
-  height: 3.5rem;
-  width: 3.5rem;
-  margin-right: 1rem;
-  object-fit: cover;
-  border-radius: 1rem;
-  transition: 0.3s ease-in-out;
-}
-
-.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3.5rem;
-  width: 3.5rem;
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  object-fit: cover;
-  border-radius: 1rem;
-  background-color: #4dacff;
-  color: #fff;
-  transition: 0.3s ease-in-out;
-}
-
-.wrp:hover .placeholder,
-.wrp:focus .placeholder {
-  box-shadow: 0 0 0 0.3rem #add9ff;
-}
-
 .wrp:hover .avatar,
 .wrp:focus .avatar {
   box-shadow: 0 0 0 0.3rem #add9ff;
