@@ -7,7 +7,11 @@ import { IState, IUser } from '../../../../../interfaces';
 import types from '../../../../../redux/types';
 import styles from '../index.module.css';
 
-const ProfileModal = (): ReactElement => {
+interface IProps {
+  onClick: () => void;
+}
+
+const ProfileModal = ({ onClick }: IProps): ReactElement => {
   const dispatch = useDispatch();
   const user = useSelector<IState, IUser>(state => state.auth.user);
 
@@ -15,8 +19,12 @@ const ProfileModal = (): ReactElement => {
     dispatch({ type: types.LOGOUT_START });
   };
 
+  const handleClick = (): void => {
+    onClick();
+  };
+
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={handleClick} aria-hidden>
       <h4 className={styles.name}>{`${user.name} ${user.surname}`}</h4>
       <p className={styles.nick}>{'@' + user.nick}</p>
 

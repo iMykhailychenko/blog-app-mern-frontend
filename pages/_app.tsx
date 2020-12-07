@@ -12,7 +12,6 @@ import interceptors from '../assets/interceptors';
 import Footer from '../components/Common/Footer';
 import Header from '../components/Common/Header';
 import ModalComponent from '../components/Common/Modal';
-import ScrollTop from '../components/Common/ScrollTopBtn';
 import AuthInterceptor from '../components/HOC/AuthInterceptor';
 import { wrapper } from '../redux/store';
 
@@ -77,7 +76,6 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
         <title>Blog Application</title>
       </Head>
       <AuthInterceptor />
-      <ScrollTop />
       <ModalComponent />
       <Header />
       <Component {...pageProps} />

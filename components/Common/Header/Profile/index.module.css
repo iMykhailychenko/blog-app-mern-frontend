@@ -29,7 +29,7 @@
   width: 3.5rem;
   margin-right: 1rem;
   object-fit: cover;
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   transition: 0.3s ease-in-out;
 }
 
@@ -43,7 +43,7 @@
   font-size: 1.5rem;
   margin-right: 1rem;
   object-fit: cover;
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   background-color: #4dacff;
   color: #fff;
   transition: 0.3s ease-in-out;
@@ -67,7 +67,7 @@
   padding: 4rem;
   background: rgb(255, 255, 255);
   border: 0.1rem solid #b6b6b6;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .news {
@@ -121,7 +121,7 @@
   background-color: #eeeeee;
   color: #414141;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   font-size: 1.2rem;
   color: rgb(104, 104, 104);
   transition: 0.3s ease-in-out;
@@ -139,7 +139,7 @@
   right: -0.6rem;
   padding: 0.1rem 0.4rem;
   background: rgb(218, 95, 95);
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   color: #fff;
   font-size: 1rem;
   font-weight: 600;

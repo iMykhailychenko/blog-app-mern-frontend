@@ -1,6 +1,5 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 
 import styles from './index.module.css';
@@ -13,7 +12,7 @@ const Header = (): ReactElement => {
         <FontAwesomeIcon icon={faChevronDown} />
       </button>
 
-      <header className={clsx(styles.header)}>
+      <header className={styles.header}>
         <div className="container">
           <Navigation />
         </div>

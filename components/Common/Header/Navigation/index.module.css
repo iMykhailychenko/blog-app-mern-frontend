@@ -16,23 +16,6 @@
   font-size: 1.2rem;
 }
 
-.link::before {
-  content: '';
-  position: absolute;
-  top: 60%;
-  left: 1rem;
-  transform: translateY(-50%);
-  width: 0;
-  height: 2rem;
-  background: rgb(231, 237, 248);
-  transition: 0.3s ease-in-out;
-  z-index: -1;
-}
-
-.link:hover::before {
-  width: 60%;
-}
-
 .list :global(.btn) {
   margin-left: 1.4rem;
 }
@@ -55,7 +38,7 @@
   background-color: #eeeeee;
   color: #414141;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 1rem;
   font-size: 1.2rem;
   transition: 0.3s ease-in-out;
 }
@@ -96,7 +79,7 @@
     padding: 3rem;
     background: rgb(255, 255, 255);
     border: 0.1rem solid #b6b6b6;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
   }
 
   .link {
@@ -110,14 +93,6 @@
     border: none;
     color: rgb(61, 61, 61);
     outline: none;
-  }
-
-  .link::before {
-    display: none;
-  }
-
-  .link:hover {
-    text-decoration: underline;
   }
 
   .mobileMenu {
