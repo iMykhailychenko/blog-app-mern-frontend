@@ -15,12 +15,12 @@ const options = {
   theme: 'snow',
 };
 
-const ContentEditor = (): ReactElement => {
+const ContentEditor = (): ReactElement | null => {
   const editorRef = useRef(null);
-  console.log();
+  console.log(process.browser);
 
   useEffect(() => {
-    if (editorRef?.current) {
+    if (editorRef?.current && process.browser) {
       instance.editor = new Quill(editorRef.current, options);
 
       return () => {
