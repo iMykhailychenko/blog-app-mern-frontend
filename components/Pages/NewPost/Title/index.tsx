@@ -6,17 +6,12 @@ import inputs from '../inputs.module.css';
 import css from './index.module.css';
 
 const Title = (): ReactElement => {
-  const dispatch = useDispatch();
-  // const value = useSelector(getTitle);
+    const dispatch = useDispatch();
+    // const value = useSelector(getTitle);
 
-  return (
-    <input
-      type="text"
-      name="title"
-      className={clsx(inputs.input, inputs.empty, css.input)}
-      placeholder="Title"
-    />
-  );
+    return (
+        <input type="text" name="title" className={clsx(inputs.input, inputs.empty, css.input)} placeholder="Title" />
+    );
 };
 
 export default Title;

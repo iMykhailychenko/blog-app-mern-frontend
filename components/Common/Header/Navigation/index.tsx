@@ -13,11 +13,11 @@ import DesktopNav from './DesktopNav';
 import styles from './index.module.css';
 
 const Navigation = (): ReactElement => {
-  const token = useSelector<IState, string | null>(state => state.auth.token);
+    const token = useSelector<IState, string | null>(state => state.auth.token);
 
-  return (
-    <nav className={styles.nav}>
-      {/* {mobile ? (
+    return (
+        <nav className={styles.nav}>
+            {/* {mobile ? (
           <>
               <button className={styles.mobileMenu} type="button" onClick={toggleM}>
                   <span />
@@ -34,33 +34,33 @@ const Navigation = (): ReactElement => {
           </>
       ) : (
       )} */}
-      <DesktopNav className={clsx(styles.list, styles.open)} />
+            <DesktopNav className={clsx(styles.list, styles.open)} />
 
-      {token ? (
-        <Profile />
-      ) : (
-        <div className={styles.btn_wrp}>
-          <Link href={routes.search}>
-            <a className={styles.btn}>
-              <FontAwesomeIcon icon={faSearch} />
-            </a>
-          </Link>
+            {token ? (
+                <Profile />
+            ) : (
+                <div className={styles.btn_wrp}>
+                    <Link href={routes.search}>
+                        <a className={styles.btn}>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </a>
+                    </Link>
 
-          <Link href={routes.auth.login}>
-            <a className="btn btn--gray" style={{ marginLeft: '1rem' }}>
-              Login
-            </a>
-          </Link>
+                    <Link href={routes.auth.login}>
+                        <a className="btn btn--gray" style={{ marginLeft: '1rem' }}>
+                            Login
+                        </a>
+                    </Link>
 
-          <Link href={routes.auth.login}>
-            <a className="btn btn--blue" style={{ marginLeft: '1rem' }}>
-              Sign up
-            </a>
-          </Link>
-        </div>
-      )}
-    </nav>
-  );
+                    <Link href={routes.auth.login}>
+                        <a className="btn btn--blue" style={{ marginLeft: '1rem' }}>
+                            Sign up
+                        </a>
+                    </Link>
+                </div>
+            )}
+        </nav>
+    );
 };
 
 export default Navigation;

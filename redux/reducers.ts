@@ -7,15 +7,15 @@ import auth from './auth/reducer';
 import posts from './posts/reducer';
 
 const rootReducer = combineReducers({
-  auth,
-  posts,
+    auth,
+    posts,
 });
 
 const config = {
-  storage,
-  key: 'blog_auth',
-  white: ['token'],
-  transforms: [encryptor],
+    storage,
+    key: 'blog_auth',
+    white: ['token'],
+    transforms: [encryptor],
 };
 
 export default persistReducer(config, rootReducer);

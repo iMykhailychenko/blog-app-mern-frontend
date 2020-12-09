@@ -6,12 +6,12 @@ import React, { ReactElement } from 'react';
 import styles from './index.module.css';
 
 const AsideProfile = (): ReactElement => {
-  // const auth = useSelector(getAuth);
-  // const params = useParams();
+    // const auth = useSelector(getAuth);
+    // const params = useParams();
 
-  return (
-    <div className={styles.inner}>
-      {/* <img className={styles.img} src={avatar} alt={user.name} />
+    return (
+        <div className={styles.inner}>
+            {/* <img className={styles.img} src={avatar} alt={user.name} />
 
             <Link className={styles.link} to={routes.User.path[0](user.id)}>
                 <p className={styles.name}>{user.name}</p>
@@ -20,14 +20,14 @@ const AsideProfile = (): ReactElement => {
 
             <p className={styles.text}>{`total posts: ${user.posts}`}</p> */}
 
-      {/* <Link to={router.post.new}> */}
-      <>
-        <button className="add" type="button" />
-        <p className={styles.text}>Add new post</p>
-      </>
-      {/* </Link> */}
-    </div>
-  );
+            {/* <Link to={router.post.new}> */}
+            <>
+                <button className="add" type="button" />
+                <p className={styles.text}>Add new post</p>
+            </>
+            {/* </Link> */}
+        </div>
+    );
 };
 
 export default AsideProfile;

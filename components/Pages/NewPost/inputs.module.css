@@ -1,29 +1,29 @@
 .input {
-  display: block;
-  width: 55%;
-  min-width: 80rem;
-  margin: 0 auto 3rem;
-  padding: 1.6rem 1rem;
-  background: none;
-  outline: none;
-  border: none;
-  border-radius: 1rem;
-  background: #fbfbfb;
-  transition: 0.3s ease-in-out;
+    display: block;
+    width: 55%;
+    min-width: 80rem;
+    margin: 0 auto 3rem;
+    padding: 1.6rem 1rem;
+    background: none;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    background: #fbfbfb;
+    transition: 0.3s ease-in-out;
 }
 
 .input.empty {
-  background: #eeeeee;
+    background: #eeeeee;
 }
 
 .input:hover,
 .input:focus {
-  background: #dedede;
+    background: #dedede;
 }
 
 @media (max-width: 1000px) {
-  .input {
-    width: 90%;
-    min-width: unset;
-  }
+    .input {
+        width: 90%;
+        min-width: unset;
+    }
 }

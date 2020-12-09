@@ -1,35 +1,28 @@
-import Quill from 'quill';
+import EditorJS from '@editorjs/editorjs';
+import Header from '@editorjs/header';
+import List from '@editorjs/list';
 import React, { ReactElement, useEffect, useRef } from 'react';
 
-const instance = {
-  editor: null,
-};
-
-const options = {
-  debug: 'info',
-  // modules: {
-  //   toolbar: '#toolbar',
-  // },
-  placeholder: 'Compose an epic...',
-  readOnly: true,
-  theme: 'snow',
-};
+const instance: { editor?: null | unknown } = {};
 
 const ContentEditor = (): ReactElement | null => {
-  const editorRef = useRef(null);
-  console.log(process.browser);
+    const editorRef = useRef(null);
 
-  useEffect(() => {
-    if (editorRef?.current && process.browser) {
-      instance.editor = new Quill(editorRef.current, options);
+    useEffect(() => {
+        if (editorRef?.current) {
+            delete instance.editor;
 
-      return () => {
-        delete instance.editor;
-      };
-    }
-  }, [editorRef]);
+            instance.editor = new EditorJS({
+                holder: editorRef.current,
+                tools: {
+                    header: Header,
+                    list: List,
+                },
+            });
+        }
+    }, [editorRef]);
 
-  return <div ref={editorRef} />;
+    return <div ref={editorRef} />;
 };
 
 export default ContentEditor;

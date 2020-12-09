@@ -16,40 +16,40 @@ import css from './index.module.css';
 const POST_PER_PAGE = 20;
 
 const Home = (): ReactElement => {
-  const dispatch = useDispatch();
-  const posts = useSelector<IState, IPostList>(state => state.posts.list);
-  const token = useSelector<IState, string | null>(state => state.auth.token);
+    const dispatch = useDispatch();
+    const posts = useSelector<IState, IPostList>(state => state.posts.list);
+    const token = useSelector<IState, string | null>(state => state.auth.token);
 
-  useEffect(() => {
-    dispatch({
-      type: types.GET_POSTS_START,
-      payload: { page: 1, limit: POST_PER_PAGE },
-    });
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch({
+            type: types.GET_POSTS_START,
+            payload: { page: 1, limit: POST_PER_PAGE },
+        });
+    }, [dispatch]);
 
-  return (
-    <main className={clsx(css.main, 'container')}>
-      {!token && (
-        <Aside>
-          <FormLogin />
-        </Aside>
-      )}
+    return (
+        <main className={clsx(css.main, 'container')}>
+            {!token && (
+                <Aside>
+                    <FormLogin />
+                </Aside>
+            )}
 
-      <div className={clsx(css.content, !!token && css.auth)}>
-        <h2 className={css.title}>Popular posts</h2>
-        {posts.loading ? (
-          <PostsLoader />
-        ) : (
-          <>
-            <Posts content={posts.data?.posts} />
-            <LoadMore />
-          </>
-        )}
-      </div>
+            <div className={clsx(css.content, !!token && css.auth)}>
+                <h2 className={css.title}>Popular posts</h2>
+                {posts.loading ? (
+                    <PostsLoader />
+                ) : (
+                    <>
+                        <Posts content={posts.data?.posts} />
+                        <LoadMore />
+                    </>
+                )}
+            </div>
 
-      <ScrollTop />
-    </main>
-  );
+            <ScrollTop />
+        </main>
+    );
 };
 
 export default Home;

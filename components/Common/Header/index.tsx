@@ -6,19 +6,19 @@ import css from './index.module.css';
 import Navigation from './Navigation';
 
 const Header = (): ReactElement => {
-  return (
-    <>
-      <button className={css.btn}>
-        <FontAwesomeIcon icon={faChevronDown} />
-      </button>
+    return (
+        <>
+            <button className={css.btn}>
+                <FontAwesomeIcon icon={faChevronDown} />
+            </button>
 
-      <header className={css.header}>
-        <div className="container">
-          <Navigation />
-        </div>
-      </header>
-    </>
-  );
+            <header className={css.header}>
+                <div className="container">
+                    <Navigation />
+                </div>
+            </header>
+        </>
+    );
 };
 
 export default Header;

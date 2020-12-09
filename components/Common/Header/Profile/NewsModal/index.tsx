@@ -5,17 +5,13 @@ import React, { ReactElement } from 'react';
 import styles from '../index.module.css';
 
 interface IProps {
-  onClick: () => void;
+    onClick: () => void;
 }
 
 const NewxModal = ({ onClick }: IProps): ReactElement => {
-  return (
-    <div
-      className={`${styles.modal} ${styles.news}`}
-      onClick={onClick}
-      aria-hidden
-    >
-      {/* {!notification.length ? (
+    return (
+        <div className={`${styles.modal} ${styles.news}`} onClick={onClick} aria-hidden>
+            {/* {!notification.length ? (
                 <p className={styles.nothing}>Nothing to show</p>
             ) : (
                 <ul className={styles.list}>
@@ -24,8 +20,8 @@ const NewxModal = ({ onClick }: IProps): ReactElement => {
                     )}
                 </ul>
             )} */}
-    </div>
-  );
+        </div>
+    );
 };
 
 export default NewxModal;
