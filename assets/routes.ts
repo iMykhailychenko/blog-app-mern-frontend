@@ -9,8 +9,8 @@ const routes = {
     search: '/search',
     user: [(id: string): string => `/user/${id}`, '/user/:id'] as IDynamic,
 
-    post: {
-        single: [(id: string): string => `/post/${id}`, '/post/:id'] as IDynamic,
+    posts: {
+        single: [(id: string): string => `/posts/${id}`, '/posts/:id'] as IDynamic,
         tag: [(tag: string): string => `/tags/${tag}`, '/tags/:tag'] as IDynamic,
         new: '/new_post',
     },

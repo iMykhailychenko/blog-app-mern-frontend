@@ -16,7 +16,7 @@ const Profile = (): ReactElement => {
                 </Link>
             </li>
             <li>
-                <Link href={routes.post.new}>
+                <Link href={routes.posts.new}>
                     <a>Create new post</a>
                 </Link>
             </li>

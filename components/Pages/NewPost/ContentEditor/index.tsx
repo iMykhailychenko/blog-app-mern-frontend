@@ -1,28 +1,46 @@
-import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header';
-import List from '@editorjs/list';
-import React, { ReactElement, useEffect, useRef } from 'react';
+import React, { ReactElement } from 'react';
+import ReactQuill from 'react-quill';
+import { useDispatch, useSelector } from 'react-redux';
 
-const instance: { editor?: null | unknown } = {};
+import { IState } from '../../../../interfaces';
+import types from '../../../../redux/types';
 
-const ContentEditor = (): ReactElement | null => {
-    const editorRef = useRef(null);
+const modules = {
+    toolbar: [
+        [{ header: [2, 3, 4, false] }],
+        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
+        ['link', 'image'],
+        ['code-block'],
+        ['clean'],
+    ],
+};
 
-    useEffect(() => {
-        if (editorRef?.current) {
-            delete instance.editor;
+const formats = [
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'indent',
+    'code',
+    'link',
+    'image',
+    'code-block',
+];
 
-            instance.editor = new EditorJS({
-                holder: editorRef.current,
-                tools: {
-                    header: Header,
-                    list: List,
-                },
-            });
-        }
-    }, [editorRef]);
+const ContentEditor = (): ReactElement => {
+    const dispatch = useDispatch();
+    const content = useSelector<IState, string>(state => state.posts.newPost.content);
 
-    return <div ref={editorRef} />;
+    const handleChange = (payload: string) => {
+        dispatch({ type: types.NEW_POST_CONTENT, payload });
+    };
+
+    return <ReactQuill value={content} theme="snow" onChange={handleChange} modules={modules} formats={formats} />;
 };
 
 export default ContentEditor;

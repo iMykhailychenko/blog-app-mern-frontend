@@ -1,17 +1,24 @@
 import clsx from 'clsx';
-import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { ChangeEvent, ReactElement } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { IState } from '../../../../interfaces';
+import types from '../../../../redux/types';
 import inputs from '../inputs.module.css';
 import styles from './index.module.css';
 
 const Desc = (): ReactElement => {
     const dispatch = useDispatch();
-    console.log(dispatch);
-    // const value = useSelector(getDesc);
+    const desc = useSelector<IState, string>(state => state.posts.newPost.desc);
+
+    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+        dispatch({ type: types.NEW_POST_DESC, payload: event.target.value });
+    };
 
     return (
         <textarea
+            value={desc}
+            onChange={handleChange}
             name="desc"
             cols={30}
             rows={40}

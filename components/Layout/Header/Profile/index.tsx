@@ -1,4 +1,4 @@
-import { faBell, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faChevronDown, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
 import { IState, IUser } from '../../../../interfaces';
-import UserAvatar from '../../UserAvatar';
+import UserAvatar from '../../../Common/UserAvatar';
 import css from './index.module.css';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
@@ -31,6 +31,12 @@ const Profile = (): ReactElement => {
                 <Link href={routes.search}>
                     <a className={css.btn}>
                         <FontAwesomeIcon icon={faSearch} />
+                    </a>
+                </Link>
+
+                <Link href={routes.posts.new}>
+                    <a className={css.btn}>
+                        <FontAwesomeIcon icon={faPlus} />
                     </a>
                 </Link>
 

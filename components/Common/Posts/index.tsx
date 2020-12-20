@@ -4,7 +4,8 @@ import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 
-import { formateDate } from '../../../assets/helpers';
+import config from '../../../assets/config';
+import { formatDate } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
 import { IPost, IState } from '../../../interfaces';
 import Likes from '../Likes';
@@ -30,6 +31,8 @@ const mediaAuth = (col: number): Media => ({
     580: 1,
 });
 
+const DESC_LIMIT = 180;
+
 const Posts = ({ content, col = 2 }: IProps): ReactElement => {
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
@@ -41,13 +44,17 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
         >
             {content?.map(items => (
                 <li className={clsx(css.card, !items.banner && css.grid)} key={items._id}>
-                    <Link href={routes.post.single[0](items._id)}>
+                    <Link href={routes.posts.single[0](items._id)}>
                         <a className={css.postLink}>
-                            {items.banner && <img className={css.img} src={items.banner} alt={items.title} />}
+                            {items.banner && (
+                                <img className={css.img} src={config.img + items.banner} alt={items.title} />
+                            )}
                             <div className={css.inner}>
                                 <h4 className={css.title}>{items.title}</h4>
-                                <p className={css.text}>{items.desc}</p>
-                                <p className={css.date}>{formateDate(items.date)}</p>
+                                <p className={css.text}>
+                                    {items.desc.length > DESC_LIMIT ? `${items.desc.slice(0, DESC_LIMIT)}...` : items.desc}
+                                </p>
+                                <p className={css.date}>{formatDate(items.date)}</p>
                             </div>
                         </a>
                     </Link>
@@ -59,7 +66,7 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
                     {!!items.tags.length && (
                         <div className={css.tags}>
                             {items.tags.map(tag => (
-                                <Link href={routes.post.tag[0](tag)} key={tag}>
+                                <Link href={routes.posts.tag[0](tag)} key={tag}>
                                     <a className={css.tag}>{`#${tag}`}</a>
                                 </Link>
                             ))}

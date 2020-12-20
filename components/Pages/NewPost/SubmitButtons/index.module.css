@@ -1,0 +1,8 @@
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 55%;
+    min-width: 80rem;
+    margin: 6rem auto 2rem;
+}

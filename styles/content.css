@@ -1,0 +1,50 @@
+.ready.quill {
+    overflow: hidden;
+}
+
+.ready.quill .ql-container.ql-snow .ql-post {
+    padding: 0;
+}
+
+.ready.quill .ql-container.ql-post-container.ql-snow {
+    background: none;
+}
+
+.ready.quill .ql-container.ql-post-container.ql-snow:hover {
+    background: none;
+}
+
+.ready .ql-snow .ql-post a:hover {
+    background: #eee;
+}
+
+@media (max-width: 690px) {
+    .ready.quill .ql-container.ql-snow .ql-editor p {
+        font-size: 1.6rem;
+    }
+
+    .ready.quill .ql-container.ql-snow .ql-editor h2 {
+        margin: 1.4rem 0 1rem;
+        font-size: 3rem;
+    }
+
+    .ready.quill .ql-container.ql-snow .ql-editor h3 {
+        margin-top: 1rem;
+        font-size: 2.4rem;
+    }
+
+    .ready.quill .ql-container.ql-snow .ql-editor h4 {
+        font-size: 2rem;
+    }
+
+    .ready.quill .ql-container.ql-snow .ql-editor h5 {
+        font-size: 1.6rem;
+    }
+
+    .ready.quill .ql-container.ql-snow .ql-editor pre,
+    .ready.quill .ql-container.ql-snow .ql-editor li,
+    .ready.quill .ql-container.ql-snow .ql-editor p {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+}

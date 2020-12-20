@@ -9,8 +9,8 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import interceptors from '../assets/interceptors';
-import Footer from '../components/Common/Footer';
-import Header from '../components/Common/Header';
+import Footer from '../components/Layout/Footer';
+import Header from '../components/Layout/Header';
 import ModalComponent from '../components/Common/Modal';
 import AuthInterceptor from '../components/HOC/AuthInterceptor';
 import { wrapper } from '../redux/store';
@@ -18,9 +18,7 @@ import { wrapper } from '../redux/store';
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
     const store = useStore();
     const history = useRouter();
-    const persist = persistStore(store, {}, () => {
-        persist.persist();
-    });
+    const persist = persistStore(store, {});
 
     interceptors({ history });
 
@@ -36,11 +34,11 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
                 <link rel="apple-touch-icon" href="/favicon.ico" />
                 <meta
                     name="description"
-                    content="This is my blog app createtd with react / next.s / redux / typescript / node.js"
+                    content="This is my blog app created with react / next.s / redux / typescript / node.js"
                 />
                 <meta
                     name="keywords"
-                    content="This is my blog app createtd with react / next.js / redux / typescript / node.js"
+                    content="This is my blog app created with react / next.js / redux / typescript / node.js"
                 />
                 <meta property="og:url" content="/" />
                 <meta
@@ -61,11 +59,11 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
                 />
                 <meta
                     name="twitter:description"
-                    content="This is my blog app createtd with react / next.s / redux / typescript / node.js"
+                    content="This is my blog app created with react / next.s / redux / typescript / node.js"
                 />
                 <meta
                     name="twitter:title"
-                    content="This is my blog app createtd with react / next.s / redux / typescript / node.js"
+                    content="This is my blog app created with react / next.s / redux / typescript / node.js"
                 />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@ihor_mykhailychenko" />

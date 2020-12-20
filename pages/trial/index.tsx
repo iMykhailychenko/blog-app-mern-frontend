@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
 import routes from '../../assets/routes';
-import PageTitle from '../../components/Common/PageTitle';
+import PageTitle from '../../components/Layout/PageTitle';
 import css from './index.module.css';
 
 const Trial = (): ReactElement => {

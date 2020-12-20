@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import QuestionForm from '../../components/Common/Forms/Question';
-import PageTitle from '../../components/Common/PageTitle';
+import PageTitle from '../../components/Layout/PageTitle';
 import styles from './index.module.css';
 
 const Question = (): ReactElement => {

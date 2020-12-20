@@ -50,7 +50,7 @@ export interface IPost {
     author: [IUser];
 }
 
-export interface IPostPaggination {
+export interface IPostPagination {
     _id: null;
     total: number;
     posts: IPost[];
@@ -58,7 +58,20 @@ export interface IPostPaggination {
 
 export interface IPostList {
     loading: boolean;
-    data: IPostPaggination | null;
+    data: IPostPagination | null;
+}
+
+export interface ISinglePost {
+    loading: boolean;
+    data: IPost | null;
+}
+
+export interface INewPost {
+    title: string;
+    tags: string;
+    banner: null | File;
+    desc: string;
+    content: string;
 }
 
 /**
@@ -68,5 +81,7 @@ export interface IState {
     auth: IAuth;
     posts: {
         list: IPostList;
+        newPost: INewPost;
+        single: ISinglePost;
     };
 }

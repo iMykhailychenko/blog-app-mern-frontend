@@ -1,6 +1,6 @@
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { IPost, IPostList, IState } from '../../../interfaces';
+import { IPostList, IPostPagination, IState } from '../../../interfaces';
 import types from '../../types';
 import { IAction } from './saga';
 
@@ -18,7 +18,7 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
             return INIT;
 
         case types.GET_POSTS_SUCCESS:
-            return { data: action.payload as IPost[], loading: false };
+            return { data: action.payload as IPostPagination, loading: false };
 
         case types.GET_POSTS_ERROR:
             return { data: null, loading: false };

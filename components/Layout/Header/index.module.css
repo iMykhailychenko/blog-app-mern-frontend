@@ -1,0 +1,18 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    transition: 0.3s ease-in-out;
+}
+
+.transform {
+    transform: translateY(-100%);
+    transition: 0.3s ease-in-out;
+}
+
+.scrolled {
+    background: rgba(252, 252, 252, 0.98);
+}

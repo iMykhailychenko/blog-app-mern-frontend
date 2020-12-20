@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import PageTitle from '../../components/Common/PageTitle';
+import PageTitle from '../../components/Layout/PageTitle';
 import Slider from '../../components/Pages/About/Slider';
 import css from './index.module.css';
 
