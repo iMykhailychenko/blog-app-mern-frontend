@@ -1,3 +1,4 @@
+import { Delta } from 'quill';
 import React, { ReactElement } from 'react';
 import ReactQuill from 'react-quill';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +37,10 @@ const ContentEditor = (): ReactElement => {
     const dispatch = useDispatch();
     const content = useSelector<IState, string>(state => state.posts.newPost.content);
 
-    const handleChange = (payload: string) => {
+    const handleChange = (payload: string, ignore1, ignore2, editor): void => {
+        const content: Delta = editor.getContents();
+        const media = content.ops.flat(1).filter(item => item?.insert?.image);
+        console.log(media);
         dispatch({ type: types.NEW_POST_CONTENT, payload });
     };
 

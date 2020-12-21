@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -13,7 +14,7 @@ const SubmitButtons = (): ReactElement => {
 
     return (
         <div className={css.flex}>
-            <button onClick={handleSubmit} className="btn btn--blue" type="button">
+            <button onClick={handleSubmit} className={clsx('btn btn--blue', css.btn)} type="button">
                 Опубликовать
             </button>
         </div>

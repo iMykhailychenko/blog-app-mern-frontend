@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { IState } from '../../../../interfaces';
@@ -24,7 +24,7 @@ const Banner = (): ReactElement => {
 
     return value ? (
         <div aria-hidden className={styles.wrp} onClick={handleDelete}>
-            <img className={styles.img} src={window.URL.createObjectURL(value)} alt="Post banner" />
+            <img className={styles.img} src={value ? window.URL.createObjectURL(value) : ''} alt="Post banner" />
             <span>Click to delete img</span>
         </div>
     ) : (

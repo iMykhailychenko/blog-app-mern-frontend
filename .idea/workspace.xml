@@ -2,86 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout/Header/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Layout/Header/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Socials/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Socials/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/posts/[postId].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/posts/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/posts/new/reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/posts/new/saga.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/posts/single/reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/posts/single/saga.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/content.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/editor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/encryptor.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Aside/AsideForm/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/AsideForm/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Aside/AsideForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/AsideForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Aside/AsideProfile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/AsideProfile/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Aside/AsideProfile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/AsideProfile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Aside/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Aside/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/Login/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Login/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/Nav/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Nav/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/Nav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Nav/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/Profile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Profile/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Navigation/DesktopNav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/DesktopNav/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Navigation/MobileNav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Navigation/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/NewsModal/Comment/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Comment/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/NewsModal/Comment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Comment/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/NewsModal/Like/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Like/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/NewsModal/Like/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Like/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/NewsModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/ProfileModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/ProfileModal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/index.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Header/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/PageTitle/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/PageTitle/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/PageTitle/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/PageTitle/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/ScrollTopBtn/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/ScrollTopBtn/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/ScrollTopBtn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/ScrollTopBtn/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/ContentEditor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/ContentEditor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/DateText/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/DateText/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Desc/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Desc/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Desc/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Desc/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Title/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Title/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/new_post/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/new_post/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/question/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/question/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/trial/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/trial/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/auth/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/posts/list/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/list/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/posts/list/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/list/saga.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/posts/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/posts/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/saga.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/posts/new/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/new/reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/editor.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +81,8 @@
       <workItem from="1607551101500" duration="4346000" />
       <workItem from="1607648315542" duration="277000" />
       <workItem from="1607796023856" duration="173000" />
-      <workItem from="1608367576988" duration="24882000" />
+      <workItem from="1608367576988" duration="24981000" />
+      <workItem from="1608573853525" duration="3842000" />
     </task>
     <servers />
   </component>

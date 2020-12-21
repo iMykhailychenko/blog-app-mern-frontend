@@ -1,4 +1,5 @@
 .quill {
+    position: relative;
     width: 55%;
     min-width: 80rem;
     margin: 0 auto;
@@ -24,7 +25,19 @@
 }
 
 .quill .ql-toolbar.ql-snow {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #fbfbfb;
+    padding: 1.7rem 0.8rem;
     border: none;
+}
+
+@media (max-width: 1500px) {
+    .quill .ql-toolbar.ql-snow {
+        padding: 5rem 0.8rem 0.8rem 0.8rem;
+    }
 }
 
 .quill .ql-container.ql-snow {
