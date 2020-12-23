@@ -4,11 +4,11 @@ import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
-import Aside from '../components/Layout/Aside';
 import FormLogin from '../components/Common/Forms/Login';
 import PostsLoader from '../components/Common/Loader/PostsLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Posts from '../components/Common/Posts';
+import Aside from '../components/Layout/Aside';
 import ScrollTop from '../components/Layout/ScrollTopBtn';
 import { IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';

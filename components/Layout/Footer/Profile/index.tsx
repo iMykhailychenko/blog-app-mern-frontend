@@ -1,13 +1,10 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
 
 import routes from '../../../../assets/routes';
 import styles from './index.module.css';
 
 const Profile = (): ReactElement => {
-    const dispatch = useDispatch();
-
     return (
         <ul className={styles.list}>
             <li>

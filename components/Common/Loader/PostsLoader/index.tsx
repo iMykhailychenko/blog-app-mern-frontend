@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';

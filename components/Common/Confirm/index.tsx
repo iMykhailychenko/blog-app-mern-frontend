@@ -8,7 +8,7 @@ interface IProps {
     onSubmit: () => void;
 }
 
-const Confirm = ({ title, onSubmit }: IProps): ReactElement => {
+const Confirm = ({ title }: IProps): ReactElement => {
     return (
         <div className={styles.wrp}>
             <h2 className={styles.title}>{title}</h2>

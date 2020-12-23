@@ -52,7 +52,9 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
                             <div className={css.inner}>
                                 <h4 className={css.title}>{items.title}</h4>
                                 <p className={css.text}>
-                                    {items.desc.length > DESC_LIMIT ? `${items.desc.slice(0, DESC_LIMIT)}...` : items.desc}
+                                    {items.desc.length > DESC_LIMIT
+                                        ? `${items.desc.slice(0, DESC_LIMIT)}...`
+                                        : items.desc}
                                 </p>
                                 <p className={css.date}>{formatDate(items.date)}</p>
                             </div>

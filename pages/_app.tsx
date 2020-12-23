@@ -9,10 +9,10 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import interceptors from '../assets/interceptors';
-import Footer from '../components/Layout/Footer';
-import Header from '../components/Layout/Header';
 import ModalComponent from '../components/Common/Modal';
 import AuthInterceptor from '../components/HOC/AuthInterceptor';
+import Footer from '../components/Layout/Footer';
+import Header from '../components/Layout/Header';
 import { wrapper } from '../redux/store';
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {

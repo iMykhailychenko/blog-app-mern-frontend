@@ -1,9 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
-// import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import routes from '../../../../routes';
+import routes from '../../../../assets/routes';
+// import { useDispatch } from 'react-redux';
 import styles from './index.module.css';
 
 interface Values {
@@ -25,6 +25,7 @@ const ForgotPass = (): ReactElement => {
             initialValues={initialValues}
             validate={(values: Values): Errors => {
                 const errors: Errors = {};
+                console.log(values);
                 return errors;
             }}
             onSubmit={(values, actions) => {
@@ -38,8 +39,8 @@ const ForgotPass = (): ReactElement => {
                     <Field className={styles.input} type="email" name="email" placeholder="email" />
                     <ErrorMessage name="email" render={msg => <span className={styles.errors}>{msg}</span>} />
 
-                    <Link className={styles.link} to={routes.Auth.Login.path}>
-                        Go to login page
+                    <Link href={routes.auth.login}>
+                        <a className={styles.link}>Go to login page</a>
                     </Link>
 
                     <button className="btn btn--gray" type="submit">

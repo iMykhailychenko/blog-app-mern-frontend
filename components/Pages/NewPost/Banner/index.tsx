@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactElement, useEffect } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { IState } from '../../../../interfaces';
@@ -10,12 +10,7 @@ const Banner = (): ReactElement => {
     const value = useSelector<IState, File | null>(state => state.posts.newPost.banner);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        if (!event.target.files?.length) {
-            dispatch({ type: types.NEW_POST_BANNER, payload: null });
-            return;
-        }
-
-        dispatch({ type: types.NEW_POST_BANNER, payload: event.target.files[0] });
+        dispatch({ type: types.NEW_POST_BANNER, payload: event.target.files[0] || null });
     };
 
     const handleDelete = (): void => {
@@ -39,7 +34,7 @@ const Banner = (): ReactElement => {
                 className={styles.input}
                 onChange={handleChange}
                 name="img"
-                accept=".jpg, .jpeg, .png, .webp"
+                accept=".jpg, .jpeg, .pngs"
             />
         </div>
     );

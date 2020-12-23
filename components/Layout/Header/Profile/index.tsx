@@ -1,4 +1,4 @@
-import { faBell, faChevronDown, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faChevronDown, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
