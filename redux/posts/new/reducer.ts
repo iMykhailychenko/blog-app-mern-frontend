@@ -10,15 +10,17 @@ interface IAction {
         | typeof types.NEW_POST_TAGS
         | typeof types.NEW_POST_DESC
         | typeof types.NEW_POST_BANNER
-        | typeof types.NEW_POST_CONTENT
-        | typeof types.NEW_POST_MEDIA;
-    payload: string | File | string[] | null;
+        | typeof types.NEW_POST_CONTENT;
+    payload: string | File | null;
 }
 
 const title = (state = '', action: IAction): string => {
     switch (action.type) {
         case types.NEW_POST_TITLE:
             return action.payload as string;
+
+        case types.PUBLISH_POSTS_SUCCESS:
+            return '';
 
         default:
             return state;
@@ -30,6 +32,9 @@ const tags = (state = '', action: IAction): string => {
         case types.NEW_POST_TAGS:
             return action.payload as string;
 
+        case types.PUBLISH_POSTS_SUCCESS:
+            return '';
+
         default:
             return state;
     }
@@ -39,6 +44,9 @@ const banner = (state = null, action: IAction): File => {
     switch (action.type) {
         case types.NEW_POST_BANNER:
             return action.payload as File;
+
+        case types.BANNER_POSTS_SUCCESS:
+            return null;
 
         default:
             return state;
@@ -50,6 +58,9 @@ const desc = (state = '', action: IAction): string => {
         case types.NEW_POST_DESC:
             return action.payload as string;
 
+        case types.PUBLISH_POSTS_SUCCESS:
+            return '';
+
         default:
             return state;
     }
@@ -60,15 +71,8 @@ const content = (state = '', action: IAction): string => {
         case types.NEW_POST_CONTENT:
             return action.payload as string;
 
-        default:
-            return state;
-    }
-};
-
-const media = (state: string[] = [], action: IAction): string[] => {
-    switch (action.type) {
-        case types.NEW_POST_MEDIA:
-            return action.payload as string[];
+        case types.PUBLISH_POSTS_SUCCESS:
+            return '';
 
         default:
             return state;
@@ -81,7 +85,6 @@ const newPost = combineReducers({
     desc,
     content,
     banner,
-    media,
 });
 
 const config = {

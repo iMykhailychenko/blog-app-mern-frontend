@@ -1,14 +1,14 @@
-.tetx {
+.text {
     margin-top: 1rem;
     font-size: 1.4rem;
     color: #444;
 }
 
-.tetx a {
+.text a {
     color: #999;
     font-weight: 600;
 }
 
-.tetx a:hover {
+.text a:hover {
     text-decoration: underline;
 }

@@ -31,6 +31,7 @@ function* uploadBanner({ payload }: IAction) {
         const banner = yield select((state: IState): File => state.posts.newPost.banner);
         if (!banner) {
             yield put({ type: types.BANNER_POSTS_SUCCESS });
+            notifications('success', 'Success');
             return;
         }
 
@@ -40,6 +41,7 @@ function* uploadBanner({ payload }: IAction) {
         const { status } = yield call(api.posts.uploadBanner, { id: payload, form });
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
         yield put({ type: types.BANNER_POSTS_SUCCESS });
+        notifications('success', 'Success');
     } catch (error) {
         yield put({ type: types.BANNER_POSTS_ERROR });
         if (error?.response?.status === 401) return;

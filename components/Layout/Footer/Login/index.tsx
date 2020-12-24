@@ -1,15 +1,17 @@
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
 
-import routes from '../../../../routes';
-import styles from './index.module.css';
+import routes from '../../../../assets/routes';
+import css from './index.module.css';
 
 const Login = (): ReactElement => {
     return (
-        <p className={styles.tetx}>
-            <Link to={routes.Auth.Login.path}>Login</Link>
+        <p className={css.text}>
+            <Link href={routes.auth.login}>
+                <a>Login</a>
+            </Link>
             {' or '}
-            {/* <Link to={routes.Auth.Si}>Singup</Link> */}
+            {/* <Link to={routes.Auth.Si}>Signup</Link> */}
             {' to get more'}
         </p>
     );

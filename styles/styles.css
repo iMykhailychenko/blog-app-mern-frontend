@@ -24,7 +24,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,16 +48,6 @@
 
 .slick-list {
     overflow: hidden;
-}
-
-/* TEXT EDITOR */
-.ce-block__content {
-    /*width: 55%;*/
-    /*min-width: 80rem;*/
-    /*max-width: unset;*/
-    /*padding: 1.6rem 1rem;*/
-    /*background: #eee;*/
-    /*border-radius: 1rem;*/
 }
 
 @media (max-width: 1000px) {

@@ -3,21 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Confirm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Confirm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Forms/ForgotPass/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Forms/ForgotPass/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Forms/Question/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Forms/Question/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Loader/PostsLoader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Loader/PostsLoader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Footer/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Footer/Login/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Login/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Footer/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/ContentEditor/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/ContentEditor/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/editor.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/posts/new/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/new/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/posts/new/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/new/saga.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +86,7 @@
       <workItem from="1608367576988" duration="24981000" />
       <workItem from="1608573853525" duration="3998000" />
       <workItem from="1608746034002" duration="17000" />
-      <workItem from="1608746080893" duration="8014000" />
+      <workItem from="1608746080893" duration="13804000" />
     </task>
     <servers />
   </component>
