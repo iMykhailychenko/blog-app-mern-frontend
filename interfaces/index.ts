@@ -79,6 +79,7 @@ export interface INewPost {
  */
 export interface IState {
     auth: IAuth;
+    picture: string | null;
     posts: {
         list: IPostList;
         newPost: INewPost;

@@ -1,21 +1,29 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { IParams, IPost } from '../interfaces';
+import { IParams, IPost, IUser } from '../interfaces';
 
 axios.defaults.baseURL = 'http://localhost:4000/api';
 
 const api = {
+    picture: (): Promise<AxiosResponse<void>> => axios.get('/pictures/random'),
     auth: {
-        login: (body: Body): Promise<AxiosResponse<IPost[]>> => axios.post('/auth/login', body),
+        login: (body: Body): Promise<AxiosResponse<IUser>> => axios.post('/auth/login', body),
+        signup: (body: Body): Promise<AxiosResponse<void>> => axios.post('/auth/register', body),
         logout: (): Promise<AxiosResponse<void>> => axios.post('/auth/logout'),
+        getUser: (): Promise<AxiosResponse<void>> => axios.get('/users/profile'),
     },
     posts: {
         getPosts: (params: IParams): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
-        getSinglePost: (id: string): Promise<AxiosResponse<IPost>> => axios.get(`/posts/${id}`),
+        getSinglePost: (id: string, params?: { [key: string]: string | null }): Promise<AxiosResponse<IPost>> =>
+            axios.get(`/posts/${id}`, { params }),
         newPost: (body: { [key: string]: string | string[] }): Promise<AxiosResponse<void>> =>
             axios.post('/posts', body),
         uploadBanner: ({ id, form }: { id: string; form: FormData }): Promise<AxiosResponse<void>> =>
             axios.post(`/posts/${id}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
+    },
+    feedback: {
+        like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}`),
+        dislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}`),
     },
 };
 

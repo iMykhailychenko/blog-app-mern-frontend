@@ -11,11 +11,12 @@ export interface IAction {
         | typeof types.GET_SINGLE_POST_SUCCESS
         | typeof types.GET_SINGLE_POST_ERROR;
     payload: IPost | IState | string | null;
+    user?: string | null;
 }
 
-function* getSinglePost({ payload }: IAction) {
+function* getSinglePost({ payload, user }: IAction) {
     try {
-        const { status, data } = yield call(api.posts.getSinglePost, payload as string);
+        const { status, data } = yield call(api.posts.getSinglePost, payload as string, { user });
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
         yield put({ type: types.GET_SINGLE_POST_SUCCESS, payload: data });
     } catch (error) {
@@ -25,6 +26,6 @@ function* getSinglePost({ payload }: IAction) {
     }
 }
 
-export default function* list(): Generator {
+export default function* single(): Generator {
     yield takeLatest(types.GET_SINGLE_POST_START, getSinglePost);
 }

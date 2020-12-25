@@ -6,6 +6,7 @@ const initState: IState = {
         token: null,
         user: null,
     },
+    picture: null,
     posts: {
         list: {
             loading: true,

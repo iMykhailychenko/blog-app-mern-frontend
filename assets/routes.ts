@@ -16,10 +16,10 @@ const routes = {
     },
 
     auth: {
-        signup: '/signup',
-        login: '/login',
-        forgotPass: '/forgot_pass',
-        resetPass: '/reset_pass',
+        signup: '/auth/signup',
+        login: '/auth/login',
+        forgotPass: '/auth/forgot_pass',
+        resetPass: '/auth/reset_pass',
     },
 };
 

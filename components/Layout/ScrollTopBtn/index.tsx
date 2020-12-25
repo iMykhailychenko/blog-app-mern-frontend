@@ -1,18 +1,17 @@
-import React, { createRef, ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import pop from '../../../transitions/pop.module.css';
 import styles from './index.module.css';
 
 const ScrollTop = (): ReactElement => {
-    const buttonRef = createRef<HTMLButtonElement>();
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
 
     const [top, setTop] = useState(false);
 
     useEffect(() => {
         const handleScroll = (): void => {
-            const scrollTop = window.scrollY < 150 ? false : true;
-            setTop(scrollTop);
+            setTop(window.scrollY >= 150);
         };
 
         window.addEventListener('scroll', handleScroll);

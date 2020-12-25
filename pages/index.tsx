@@ -9,7 +9,6 @@ import PostsLoader from '../components/Common/Loader/PostsLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
-import ScrollTop from '../components/Layout/ScrollTopBtn';
 import { IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';
 import types from '../redux/types';
@@ -34,8 +33,6 @@ const Home = (): ReactElement => {
                 {posts.loading ? <PostsLoader /> : <Posts content={posts.data?.posts} />}
                 <LoadMore />
             </div>
-
-            <ScrollTop />
         </main>
     );
 };

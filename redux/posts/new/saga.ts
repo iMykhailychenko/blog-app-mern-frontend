@@ -15,8 +15,8 @@ function* writePost() {
         yield put({ type: types.PUBLISH_POSTS_SUCCESS, payload: data });
         yield put({ type: types.BANNER_POSTS_START, payload: data._id });
     } catch (error) {
-        yield put({ type: types.PUBLISH_POSTS_ERROR });
         if (error?.response?.status === 401) return;
+        yield put({ type: types.PUBLISH_POSTS_ERROR });
         notifications('error', 'Something went wrong');
     }
 }
@@ -43,8 +43,8 @@ function* uploadBanner({ payload }: IAction) {
         yield put({ type: types.BANNER_POSTS_SUCCESS });
         notifications('success', 'Success');
     } catch (error) {
-        yield put({ type: types.BANNER_POSTS_ERROR });
         if (error?.response?.status === 401) return;
+        yield put({ type: types.BANNER_POSTS_ERROR });
         notifications('error', 'Something went wrong');
     }
 }

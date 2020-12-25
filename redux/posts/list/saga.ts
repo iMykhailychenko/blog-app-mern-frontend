@@ -2,12 +2,12 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
 import notifications from '../../../components/Common/Notifications';
-import { IParams, IPostPagination, IState } from '../../../interfaces';
+import { IParams, IPost, IPostPagination, IState } from '../../../interfaces';
 import types from '../../types';
 
 export interface IAction {
     type: typeof types.GET_POSTS_START | typeof types.GET_POSTS_SUCCESS | typeof types.GET_POSTS_ERROR;
-    payload: IPostPagination | IState | IParams | null;
+    payload: IPostPagination | IState | IPost | IParams | null;
 }
 
 function* getPosts({ payload }: IAction) {

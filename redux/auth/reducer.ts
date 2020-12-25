@@ -2,9 +2,9 @@ import Cookies from 'js-cookie';
 import { persistReducer } from 'redux-persist';
 import { CookieStorage } from 'redux-persist-cookie-storage';
 
-import { IAuth } from '../../interfaces';
+import { IAuth, IUser } from '../../interfaces';
 import types from '../types';
-import { IAction, IResponce } from './saga';
+import { IAction, IResponse } from './saga';
 
 const INIT: IAuth = {
     loading: false,
@@ -17,15 +17,17 @@ const auth = (state: IAuth = INIT, action: IAction): IAuth => {
         case types.LOGIN_START:
             return INIT;
 
-        case types.LOGIN_SUCCESS:
-            return { ...(action.payload as IResponce), loading: false };
+        case types.GET_USER_INFO_SUCCESS:
+            return { ...state, user: action.payload as IUser };
 
-        case types.LOGOUT_SUCCESS:
-        case types.LOGOUT_ERROR:
-            return INIT;
+        case types.LOGIN_SUCCESS:
+            return { ...(action.payload as IResponse), loading: false };
 
         case types.LOGIN_ERROR:
-            return { user: null, token: null, loading: false };
+        case types.LOGOUT_ERROR:
+        case types.LOGOUT_SUCCESS:
+        case types.GET_USER_INFO_ERROR:
+            return INIT;
 
         default:
             return state;

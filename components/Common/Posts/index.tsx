@@ -8,6 +8,7 @@ import config from '../../../assets/config';
 import { formatDate } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
 import { IPost, IState } from '../../../interfaces';
+import types from '../../../redux/types';
 import Likes from '../Likes';
 import User from '../User';
 import css from './index.module.css';
@@ -62,7 +63,14 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
                     </Link>
 
                     <div className={css.likes}>
-                        <Likes like={items.feedback.like} dislike={items.feedback.dislike} view={items.feedback.view} />
+                        <Likes
+                            id={items._id}
+                            typeLike={types.LIKE_POPULAR_POSTS_START}
+                            typeDislike={types.DISLIKE_POPULAR_POSTS_START}
+                            like={items.feedback.like}
+                            dislike={items.feedback.dislike}
+                            view={items.feedback.view}
+                        />
                     </div>
 
                     {!!items.tags.length && (

@@ -52,7 +52,7 @@ const Navigation = (): ReactElement => {
                         </a>
                     </Link>
 
-                    <Link href={routes.auth.login}>
+                    <Link href={routes.auth.signup}>
                         <a className="btn btn--blue" style={{ marginLeft: '1rem' }}>
                             Sign up
                         </a>

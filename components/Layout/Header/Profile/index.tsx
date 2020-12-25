@@ -47,7 +47,7 @@ const Profile = (): ReactElement => {
                 </button>
 
                 <button className={css.wrp} type="button" onClick={handleDrop('profile')}>
-                    <UserAvatar avatar={user.avatar} name={(user.name[0] + user.surname[0]).toUpperCase()} />
+                    {user && <UserAvatar avatar={user.avatar} name={(user.name[0] + user.surname[0]).toUpperCase()} />}
 
                     <FontAwesomeIcon icon={faChevronDown} />
                 </button>

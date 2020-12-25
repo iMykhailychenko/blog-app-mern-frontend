@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
+import { formatDate, getUserId } from "../../assets/helpers";
 import routes from '../../assets/routes';
 import Likes from '../../components/Common/Likes';
 import Socials from '../../components/Pages/SinglePost/Socials';
@@ -30,21 +31,23 @@ const SinglePost = (): ReactElement => {
                             <p className={css.subtext}>User feedbacks:</p>
                             <div className={css.likes}>
                                 <Likes
+                                    id={post._id}
+                                    typeLike={types.LIKE_POST_START}
+                                    typeDislike={types.DISLIKE_POST_START}
                                     like={post.feedback.like}
                                     dislike={post.feedback.dislike}
                                     view={post.feedback.view}
-                                    click
                                 />
                             </div>
                         </div>
                     </div>
 
-                    <p className={css.subtext}>{'Publication date: ' + post.date}</p>
+                    <p className={css.subtext}>{'Publication date: ' + formatDate(post.date)}</p>
 
                     <h1 className={css.title}>{post.title}</h1>
 
                     <div className={css.tags}>
-                        {post.tags.map(tag => (
+                        {post?.tags?.map(tag => (
                             <Link href={routes.posts.tag[0](tag)} key={tag}>
                                 <a className={css.tag}>{`#${tag}`}</a>
                             </Link>
@@ -67,10 +70,12 @@ const SinglePost = (): ReactElement => {
                     <p className={css.subtext}>User feedbacks:</p>
                     <div className={css.likes}>
                         <Likes
+                            id={post._id}
+                            typeLike={types.LIKE_POST_START}
+                            typeDislike={types.DISLIKE_POST_START}
                             like={post.feedback.like}
                             dislike={post.feedback.dislike}
                             view={post.feedback.view}
-                            click
                         />
                     </div>
                 </div>
@@ -83,7 +88,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
     async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
         if (!ctx.query?.postId) return;
 
-        store.dispatch({ type: types.GET_SINGLE_POST_START, payload: ctx.query.postId });
+        store.dispatch({
+            type: types.GET_SINGLE_POST_START,
+            payload: ctx.query.postId,
+            user: getUserId(ctx.req.headers.cookie),
+        });
         store.dispatch(END);
         await store.sagaTask.toPromise();
     },

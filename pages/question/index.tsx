@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
 
 import QuestionForm from '../../components/Common/Forms/Question';
+import Picture from '../../components/Common/Picture';
 import PageTitle from '../../components/Layout/PageTitle';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const Question = (): ReactElement => {
     return (
@@ -14,13 +15,13 @@ const Question = (): ReactElement => {
                 </span>
             </PageTitle>
 
-            <div className={styles.content}>
-                <img className={styles.img} src="question.jpg" alt="" />
+            <div className={css.content}>
+                <Picture className={css.img} />
 
-                <div className={styles.inner}>
-                    <h2 className={styles.title}>Feel free to ask whatever you want</h2>
+                <div className={css.inner}>
+                    <h2 className={css.title}>Feel free to ask whatever you want</h2>
 
-                    <p className={styles.text}>
+                    <p className={css.text}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque asperiores assumenda in
                         exercitationem, cum minima non repudiandae veniam ut, harum alias praesentium ipsa adipisci
                         quibusdam sequi. Mollitia expedita vero dolorum.

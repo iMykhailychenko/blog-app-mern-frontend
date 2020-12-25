@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { NextRouter } from 'next/router';
 
+import { makeStore } from '../redux/store';
+import types from '../redux/types';
+import routes from './routes';
+
 const interceptors = ({ history }: { history: NextRouter }): void => {
     axios.interceptors.request.use(
         config => config,
@@ -13,14 +17,18 @@ const interceptors = ({ history }: { history: NextRouter }): void => {
                 if (bearerToken) {
                     axios.defaults.headers.common.Authorization = `Bearer ${bearerToken}`;
                 }
-                history.replace('/');
+                history.replace(routes.home);
             }
             return response;
         },
         error => {
             if (error?.response?.status === 401) {
-                delete axios.defaults.headers.common.Authorization;
-                history.replace('/login');
+                const store = makeStore();
+                if (!store.getState()?.auth?.token) {
+                    delete axios.defaults.headers.common.Authorization;
+                    return;
+                }
+                store.dispatch({ type: types.LOGOUT_START });
             }
             return Promise.reject(error);
         },

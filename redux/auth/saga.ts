@@ -6,14 +6,14 @@ import notifications from '../../components/Common/Notifications';
 import { IUser } from '../../interfaces';
 import types from '../types';
 
-export interface IResponce {
+export interface IResponse {
     token: null;
     user: IUser;
 }
 
 export interface IAction {
     type: typeof types.LOGIN_START | typeof types.LOGIN_SUCCESS | typeof types.LOGIN_ERROR;
-    payload: IResponce | Body | null;
+    payload: IResponse | Body | null | IUser;
 }
 
 function* login({ payload }: IAction) {
@@ -23,6 +23,19 @@ function* login({ payload }: IAction) {
         yield put({ type: types.LOGIN_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.LOGIN_ERROR });
+        if (error?.response?.status === 401) return;
+        notifications('error', 'Something went wrong');
+    }
+}
+
+function* signup({ payload }: IAction) {
+    try {
+        const { status } = yield call(api.auth.signup, payload as Body);
+        if (status < 200 || status >= 300) throw new Error('Something went wrong');
+        yield put({ type: types.SIGNUP_SUCCESS });
+        notifications('success', 'Success');
+    } catch (error) {
+        yield put({ type: types.SIGNUP_ERROR });
         if (error?.response?.status === 401) return;
         notifications('error', 'Something went wrong');
     }
@@ -40,6 +53,21 @@ function* logout() {
     }
 }
 
+function* getUser() {
+    try {
+        const { status, data } = yield call(api.auth.getUser);
+        if (status < 200 || status >= 300) throw new Error('Something went wrong');
+        yield put({ type: types.GET_USER_INFO_SUCCESS, payload: data });
+    } catch (error) {
+        yield put({ type: types.GET_USER_INFO_ERROR });
+    }
+}
+
 export default function* auth(): Generator {
-    yield all([yield takeLatest(types.LOGIN_START, login), yield takeLatest(types.LOGOUT_START, logout)]);
+    yield all([
+        yield takeLatest(types.LOGIN_START, login),
+        yield takeLatest(types.SIGNUP_START, signup),
+        yield takeLatest(types.LOGOUT_START, logout),
+        yield takeLatest(types.GET_USER_INFO_START, getUser),
+    ]);
 }

@@ -44,7 +44,15 @@ export const decode = (cookie = ''): string => decodeURI(cookie).replace(/\\"/gi
 // get auth token from cookie
 export const getToken = (cookie = '"token":""'): string =>
     decode(cookie)
-        .split('%2C')
-        .find(item => item.includes('"token"'))
-        .replace('"token":"', '')
-        .replace('"', '') || null;
+        ?.split('%2C')
+        ?.find(item => item.includes('"token"'))
+        ?.replace('"token":"', '')
+        ?.replace(/"/gi, '')
+        ?.replace(/null/gi, '') || null;
+
+// get auth token from cookie
+export const getUserId = (cookie = '"user":"{_id:'): string =>
+    decode(cookie)
+        ?.split('%2C')
+        ?.find(item => item.includes('_id'))
+        ?.replace('"user":"{_id:', '') || null;

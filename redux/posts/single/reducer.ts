@@ -17,6 +17,10 @@ const single = (state: ISinglePost = INIT, action: IAction): ISinglePost => {
         case types.GET_SINGLE_POST_START:
             return INIT;
 
+        case types.LIKE_POST_SUCCESS:
+        case types.DISLIKE_POST_SUCCESS:
+            return { data: { ...state.data, feedback: (action.payload as IPost)?.feedback }, loading: false };
+
         case types.GET_SINGLE_POST_SUCCESS:
             return { data: action.payload as IPost, loading: false };
 

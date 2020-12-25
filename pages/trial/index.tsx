@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
 import routes from '../../assets/routes';
+import Picture from '../../components/Common/Picture';
 import PageTitle from '../../components/Layout/PageTitle';
 import css from './index.module.css';
 
@@ -16,7 +17,7 @@ const Trial = (): ReactElement => {
             </PageTitle>
 
             <div className={css.content}>
-                <img className={css.img} src="trial.jpg" alt="" />
+                <Picture className={css.img} />
 
                 <div className={css.inner}>
                     <h2 className={css.title}>You are lucky, I signed up for you</h2>
