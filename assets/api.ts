@@ -2,7 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 
 import { IParams, IPost, IUser } from '../interfaces';
 
-axios.defaults.baseURL = 'http://localhost:4000/api';
+axios.defaults.baseURL =
+    process.env.NODE_ENV !== 'production' ? 'http://localhost:6000/api' : 'https://ihor-blog.herokuapp.com/api';
 
 const api = {
     picture: (): Promise<AxiosResponse<void>> => axios.get('/pictures/random'),
