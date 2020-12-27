@@ -75,11 +75,25 @@ export interface INewPost {
 }
 
 /**
+ * COMMENTS
+ */
+export interface IComment {
+    id: string;
+    date: string;
+    text: string;
+    user: IUser;
+    feedback: {
+        like: string[];
+        dislike: string[];
+    };
+    answers?: IComment[];
+}
+
+/**
  * APP STATE
  */
 export interface IState {
     auth: IAuth;
-    picture: string | null;
     posts: {
         list: IPostList;
         newPost: INewPost;

@@ -30,7 +30,7 @@ const Trial = (): ReactElement => {
                     </p>
                     <kbd>example@mail.com</kbd>
                     <br />
-                    <kbd>Asdf1234</kbd>
+                    <kbd>Asdf1234@</kbd>
                     <p className={css.text}>
                         After login you will get access to the test account. will be able to create / delete / modify
                         posts and much more

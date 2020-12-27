@@ -23,7 +23,6 @@ function* login({ payload }: IAction) {
         yield put({ type: types.LOGIN_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.LOGIN_ERROR });
-        if (error?.response?.status === 401) return;
         notifications('error', 'Something went wrong');
     }
 }
@@ -36,7 +35,6 @@ function* signup({ payload }: IAction) {
         notifications('success', 'Success');
     } catch (error) {
         yield put({ type: types.SIGNUP_ERROR });
-        if (error?.response?.status === 401) return;
         notifications('error', 'Something went wrong');
     }
 }

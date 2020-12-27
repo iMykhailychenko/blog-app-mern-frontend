@@ -3,10 +3,9 @@ import axios, { AxiosResponse } from 'axios';
 import { IParams, IPost, IUser } from '../interfaces';
 
 axios.defaults.baseURL =
-    process.env.NODE_ENV !== 'production' ? 'http://localhost:6000/api' : 'https://ihor-blog.herokuapp.com/api';
+    process.env.NODE_ENV !== 'production' ? 'http://localhost:7000/api' : 'https://ihor-blog.herokuapp.com/api';
 
 const api = {
-    picture: (): Promise<AxiosResponse<void>> => axios.get('/pictures/random'),
     auth: {
         login: (body: Body): Promise<AxiosResponse<IUser>> => axios.post('/auth/login', body),
         signup: (body: Body): Promise<AxiosResponse<void>> => axios.post('/auth/register', body),

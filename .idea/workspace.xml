@@ -2,8 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg/index.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/CommentButton/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment/index.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Picture/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Picture/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Footer/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/DateText/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/DateText/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Socials/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Socials/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/inputs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/inputs.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Socials/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Socials/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/posts/[postId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[postId].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/trial/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/trial/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/app.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/blog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/question.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/trial.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/auth/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/auth/saga.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/picture/reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/picture/saga.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/sagas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/sagas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/editor.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,28 +78,52 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="javascript.karma.karma_node_package_dir" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg" />
+      <recent name="$PROJECT_DIR$/components/Pages/SinglePost/Comments" />
+      <recent name="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList" />
       <recent name="$PROJECT_DIR$/redux/picture" />
       <recent name="$PROJECT_DIR$/pages/auth/signup" />
-      <recent name="$PROJECT_DIR$/pages/auth/forgot_pass" />
-      <recent name="$PROJECT_DIR$/components/Common/Forms" />
-      <recent name="$PROJECT_DIR$/redux/posts/single" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment" />
       <recent name="$PROJECT_DIR$/components/Common/Auth" />
       <recent name="$PROJECT_DIR$/components/Pages/SinglePost/Socials" />
       <recent name="$PROJECT_DIR$/components/Layout" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="yarn run dev" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -81,7 +146,10 @@
       <workItem from="1608573853525" duration="3998000" />
       <workItem from="1608746034002" duration="17000" />
       <workItem from="1608746080893" duration="30825000" />
-      <workItem from="1608974952902" duration="149000" />
+      <workItem from="1608974952902" duration="610000" />
+      <workItem from="1609097077271" duration="204000" />
+      <workItem from="1609097349146" duration="117000" />
+      <workItem from="1609097500232" duration="7263000" />
     </task>
     <servers />
   </component>

@@ -9,15 +9,6 @@ export const debounce = <M extends [], S extends (...args: M) => void>(func: S, 
     }) as S;
 };
 
-export const addZero = (value: number): string => String(value).padStart(2, '0');
-
-export const formatDate = (str: string | number): string => {
-    const date = new Date(str);
-    return `${addZero(date.getDate())}.${addZero(
-        date.getMonth() + 1,
-    )}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
-};
-
 type IFunction = (...args) => void;
 export const throttle = (func: IFunction, time: number): IFunction => {
     let timeout = true;
@@ -30,6 +21,15 @@ export const throttle = (func: IFunction, time: number): IFunction => {
             }, time);
         }
     };
+};
+
+export const addZero = (value: number): string => String(value).padStart(2, '0');
+
+export const formatDate = (str: string | number): string => {
+    const date = new Date(str);
+    return `${addZero(date.getDate())}.${addZero(
+        date.getMonth() + 1,
+    )}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
 };
 
 export const generateTags = (str: string): string[] => {

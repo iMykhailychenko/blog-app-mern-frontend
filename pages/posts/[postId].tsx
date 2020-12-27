@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import { formatDate, getUserId } from "../../assets/helpers";
+import { formatDate, getUserId } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import Likes from '../../components/Common/Likes';
+import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
 import { IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
@@ -79,6 +80,8 @@ const SinglePost = (): ReactElement => {
                         />
                     </div>
                 </div>
+
+                <Comments />
             </div>
         )
     );

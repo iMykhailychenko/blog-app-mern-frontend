@@ -58,6 +58,7 @@
 }
 
 .tag {
+    display: inline-block;
     font-size: 1.4rem;
     margin-right: 0.8rem;
     color: #3273dc;

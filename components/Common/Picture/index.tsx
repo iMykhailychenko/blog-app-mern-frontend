@@ -1,28 +1,17 @@
 import clsx from 'clsx';
-import React, { ReactElement, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { ReactElement } from 'react';
 
-import { IState } from '../../../interfaces';
-import types from '../../../redux/types';
 import css from './index.module.css';
 
 interface IProps {
     className?: string;
 }
 
+const picture: string[] = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'];
+
 const Picture = ({ className }: IProps): ReactElement => {
-    const dispatch = useDispatch();
-    const picture = useSelector<IState, string | null>(state => state.picture);
-
-    useEffect(() => {
-        dispatch({ type: types.GET_PICTURE_START });
-    }, []);
-
-    return picture ? (
-        <img className={clsx(css.banner, className)} src={picture} alt="" />
-    ) : (
-        <div className={clsx(css.banner, className)} />
-    );
+    const random = Math.round(Math.random() * 10);
+    return <img className={clsx(css.banner, className)} src={`/img/banners/${picture[random]}`} alt="" />;
 };
 
 export default Picture;

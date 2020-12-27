@@ -2,46 +2,52 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 
 import routes from '../../../../assets/routes';
 import { IState } from '../../../../interfaces';
 import Profile from '../Profile';
-// import Profile from '../Profile';
 import DesktopNav from './DesktopNav';
-import styles from './index.module.css';
+import css from './index.module.css';
+import MobileNav from './MobileNav';
 
 const Navigation = (): ReactElement => {
+    const [menu, setMenu] = useState<boolean>(false);
+    const isMobile = useMediaQuery({
+        query: '(max-width: 768px)',
+    });
+
+    const handleClose = (): void => {
+        setMenu(false);
+    };
+    const handleToggle = (): void => {
+        setMenu(!menu);
+    };
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
     return (
-        <nav className={styles.nav}>
-            {/* {mobile ? (
-          <>
-              <button className={styles.mobileMenu} type="button" onClick={toggleM}>
-                  <span />
-                  <span />
-              </button>
+        <nav className={css.nav}>
+            {isMobile ? (
+                <>
+                    <button className={css.mobileMenu} type="button" onClick={handleToggle}>
+                        <span />
+                        <span />
+                    </button>
 
-              {menu && (
-                  <>
-                      <div className={styles.backdrop} onClick={closeM} aria-hidden />
-
-                      <MobileNav onClick={toggleM} className={clsx(styles.list, menu && styles.open)} />
-                  </>
-              )}
-          </>
-      ) : (
-      )} */}
-            <DesktopNav className={clsx(styles.list, styles.open)} />
+                    {menu && <MobileNav onClick={handleClose} className={clsx(css.list, menu && css.open)} />}
+                </>
+            ) : (
+                <DesktopNav className={clsx(css.list, css.open)} />
+            )}
 
             {token ? (
                 <Profile />
             ) : (
-                <div className={styles.btn_wrp}>
+                <div className={css.btn_wrp}>
                     <Link href={routes.search}>
-                        <a className={styles.btn}>
+                        <a className={css.btn}>
                             <FontAwesomeIcon icon={faSearch} />
                         </a>
                     </Link>

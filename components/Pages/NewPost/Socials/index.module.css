@@ -2,14 +2,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 55%;
+    width: 50%;
     min-width: 80rem;
     margin: 0 auto;
     padding-left: 1rem;
 }
 
 .text {
-    width: 55%;
+    width: 50%;
     min-width: 80rem;
     margin: 4rem auto 1rem;
     padding-left: 1rem;

@@ -1,46 +1,60 @@
 import Link from 'next/link';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import { useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
+import { IState } from '../../../../../interfaces';
 import styles from '../index.module.css';
+import css from '../index.module.css';
 
 interface IProps {
     className?: string;
+    onClick: () => void;
 }
 
-const MobileNav = ({ className }: IProps): ReactElement => {
-    // const { isAuth } = useSelector(getAuth);
+const MobileNav = ({ className, onClick }: IProps): ReactElement => {
+    const token = useSelector<IState, string | null>(state => state.auth.token);
+    const rootElemRef = React.useRef(document.createElement('div'));
 
-    return (
-        <ul className={className}>
-            <li>
-                <Link href={routes.home}>
-                    <a className={styles.link}>Home</a>
-                </Link>
-            </li>
-            <li>
-                <Link href={routes.about}>
-                    <a className={styles.link}>About</a>
-                </Link>
-            </li>
-            <li>
-                <Link href={routes.question}>
-                    <a className={styles.link}>Question</a>
-                </Link>
-            </li>
-            {/* {!isAuth && (
+    useEffect(() => {
+        const parentElem = document.querySelector('body');
+        parentElem.appendChild(rootElemRef.current);
+        return function removeElement() {
+            rootElemRef.current.remove();
+        };
+    }, []);
+
+    return ReactDOM.createPortal(
+        <>
+            <div className={css.backdrop} onClick={onClick} aria-hidden />
+            <ul className={className}>
                 <li>
-                    <Link
-                        href={routes.Trial.path}
-                        className={styles.link}
-                        activeClassName={styles.active}
-                        onClick={onClick}
-                    >
-                        Get trial account
+                    <Link href={routes.home}>
+                        <a className={styles.link}>Home</a>
                     </Link>
                 </li>
-            )} */}
-        </ul>
+                <li>
+                    <Link href={routes.about}>
+                        <a className={styles.link}>About</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href={routes.question}>
+                        <a className={styles.link}>Question</a>
+                    </Link>
+                </li>
+
+                {!token && (
+                    <li>
+                        <Link href={routes.trial}>
+                            <a className={styles.link}>Get trial account</a>
+                        </Link>
+                    </li>
+                )}
+            </ul>
+        </>,
+        rootElemRef.current,
     );
 };
 
