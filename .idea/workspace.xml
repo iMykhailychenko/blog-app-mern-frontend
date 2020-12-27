@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/CommentButton/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Picture/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Picture/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Footer/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Banner/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/DateText/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/DateText/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Socials/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Socials/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/SubmitButtons/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/Tags/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/NewPost/inputs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/NewPost/inputs.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Socials/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Socials/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/[postId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[postId].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/trial/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/trial/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/app.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/blog.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/question.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/trial.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/auth/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/auth/saga.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/picture/reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/picture/saga.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/sagas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/sagas.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/editor.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +105,7 @@
       <workItem from="1608974952902" duration="610000" />
       <workItem from="1609097077271" duration="204000" />
       <workItem from="1609097349146" duration="117000" />
-      <workItem from="1609097500232" duration="7263000" />
+      <workItem from="1609097500232" duration="7562000" />
     </task>
     <servers />
   </component>
