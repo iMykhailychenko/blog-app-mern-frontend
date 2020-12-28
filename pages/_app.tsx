@@ -10,6 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import interceptors from '../assets/interceptors';
 import AuthInterceptor from '../components/Common/Auth/AuthInterceptor';
+import BigLoader from '../components/Common/Loader/BigLoader';
 import ModalComponent from '../components/Common/Modal';
 import Footer from '../components/Layout/Footer';
 import Header from '../components/Layout/Header';
@@ -75,6 +76,7 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
                 <title>Blog Application</title>
             </Head>
             <AuthInterceptor />
+            <BigLoader />
             <ModalComponent />
             <Header />
             <Component {...pageProps} />

@@ -18,8 +18,8 @@ const NewComment = (): ReactElement => {
     ) : (
         <div className={css.container}>
             <p className={css.auth}>
-                <Link href={routes.auth.login}>Login</Link> or
-                <Link href={routes.auth.signup}>Signup</Link> to leave the comment
+                <Link href={routes.auth.login}>Login</Link> or <Link href={routes.auth.signup}>Signup</Link> to leave
+                the comment
             </p>
         </div>
     );

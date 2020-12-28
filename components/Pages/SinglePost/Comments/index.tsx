@@ -6,8 +6,8 @@ import NewComment from './NewComment';
 const Comments = (): ReactElement => {
     return (
         <>
-            <CommentsList />
             <NewComment />
+            <CommentsList />
         </>
     );
 };

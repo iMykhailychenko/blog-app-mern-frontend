@@ -79,9 +79,8 @@ const SinglePost = (): ReactElement => {
                             view={post.feedback.view}
                         />
                     </div>
+                    <Comments />
                 </div>
-
-                <Comments />
             </div>
         )
     );
