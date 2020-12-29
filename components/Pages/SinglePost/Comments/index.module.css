@@ -1,0 +1,13 @@
+.container {
+    width: 50%;
+    min-width: 80rem;
+    margin: 4rem auto 3rem;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 90%;
+        min-width: unset;
+    }
+}

@@ -61,6 +61,7 @@
 
 .quill .ql-container.ql-snow .ql-editor pre,
 .quill .ql-container.ql-snow .ql-editor li,
+.quill .ql-container.ql-snow .ql-editor blockquote,
 .quill .ql-container.ql-snow .ql-editor p {
     font-size: 2rem;
 }
@@ -126,6 +127,7 @@
 
     .quill .ql-container.ql-snow .ql-editor pre,
     .quill .ql-container.ql-snow .ql-editor li,
+    .quill .ql-container.ql-snow .ql-editor blockquote,
     .quill .ql-container.ql-snow .ql-editor p {
         font-size: 1.4rem;
         line-height: 1.4;

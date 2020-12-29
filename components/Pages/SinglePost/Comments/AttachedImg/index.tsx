@@ -4,17 +4,20 @@ import React, { ChangeEvent, ReactElement, useState } from 'react';
 
 import css from './index.module.css';
 
-const AttachedImg = (): ReactElement => {
-    const [file, setFile] = useState<File | null>();
+interface IProps {
+    file: File | null;
+    onChange: (value: File | null) => void;
+}
 
+const AttachedImg = ({ file, onChange }: IProps): ReactElement => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         const { files } = event.target;
         if (!files || !files.length) return;
-        setFile(files[0]);
+        onChange(files[0]);
     };
 
     const handleRemove = (): void => {
-        setFile(null);
+        onChange(null);
     };
 
     return file ? (

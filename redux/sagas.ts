@@ -1,9 +1,10 @@
 import { all, fork } from 'redux-saga/effects';
 
 import auth from './auth/saga';
+import comments from './comments/saga';
 import feedback from './feedback/saga';
 import posts from './posts/saga';
 
 export default function* sagas(): Generator {
-    yield all([fork(auth), fork(posts), fork(feedback)]);
+    yield all([fork(auth), fork(posts), fork(feedback), fork(comments)]);
 }

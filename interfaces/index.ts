@@ -78,15 +78,27 @@ export interface INewPost {
  * COMMENTS
  */
 export interface IComment {
-    id: string;
+    _id: string;
     date: string;
     text: string;
-    user: IUser;
+    attachment: null | string;
+    author: [IUser];
     feedback: {
         like: string[];
         dislike: string[];
     };
     answers?: IComment[];
+}
+
+export interface ICommentPagination {
+    _id: null;
+    total: number;
+    comments: IComment[];
+}
+
+export interface ICommentList {
+    loading: boolean;
+    data: ICommentPagination | null;
 }
 
 /**
@@ -99,4 +111,5 @@ export interface IState {
         newPost: INewPost;
         single: ISinglePost;
     };
+    comments: ICommentList;
 }

@@ -23,6 +23,10 @@ const initState: IState = {
             data: null,
         },
     },
+    comments: {
+        loading: true,
+        data: null,
+    },
 };
 
 export default initState;

@@ -88,8 +88,12 @@ const SinglePost = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-        if (!ctx.query?.postId) return;
+        if (!ctx.query?.postId) return null;
 
+        store.dispatch({
+            type: types.GET_COMMENTS_START,
+            payload: ctx.query.postId,
+        });
         store.dispatch({
             type: types.GET_SINGLE_POST_START,
             payload: ctx.query.postId,
