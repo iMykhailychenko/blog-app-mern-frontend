@@ -1,7 +1,8 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import api from '../../assets/api';
 import notifications from '../../components/Common/Notifications';
+import { IState, IUser } from '../../interfaces';
 import types from '../types';
 
 interface IPOSTComment {
@@ -45,8 +46,11 @@ function* postComment({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.comments.postComment, payload as IPOSTComment);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
-        console.log(data);
-        yield put({ type: types.POST_COMMENT_SUCCESS, payload: data });
+
+        const user = yield select((state: IState): IUser => state.auth.user);
+        const comment = { ...data, author: [user], answers: [] };
+
+        yield put({ type: types.POST_COMMENT_SUCCESS, payload: comment });
         notifications('success', 'Success');
     } catch (error) {
         yield put({ type: types.POST_COMMENT_ERROR });

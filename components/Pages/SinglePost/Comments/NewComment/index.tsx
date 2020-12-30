@@ -13,7 +13,7 @@ const NewComment = (): ReactElement => {
     return token ? (
         <div className={css.container}>
             <h3 className={css.title}>Leave the comment:</h3>
-            <CommentForm onChange={console.log} />
+            <CommentForm />
         </div>
     ) : (
         <div className={css.container}>

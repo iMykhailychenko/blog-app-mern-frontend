@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/comments/reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/comments/saga.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/interceptors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/interceptors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/UserAvatar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/UserAvatar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/AttachedImg/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/CommentButton/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/CommentButton/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/[postId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[postId].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/sagas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/sagas.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/editor.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/NewComment/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/comments/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/comments/saga.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +113,8 @@
       <workItem from="1609097500232" duration="7762000" />
       <workItem from="1609180643212" duration="3306000" />
       <workItem from="1609193651086" duration="254000" />
-      <workItem from="1609263093311" duration="11162000" />
+      <workItem from="1609263093311" duration="11593000" />
+      <workItem from="1609317586133" duration="384000" />
     </task>
     <servers />
   </component>
