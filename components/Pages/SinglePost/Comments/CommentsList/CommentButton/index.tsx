@@ -6,6 +6,7 @@ import types from '../../../../../../redux/types';
 import Likes from '../../../../../Common/Likes';
 import { modal } from '../../../../../Common/Modal';
 import Answer from '../../Modals/Answer';
+import Edit from '../../Modals/Edit';
 import css from '../index.module.css';
 
 interface IProps {
@@ -25,6 +26,9 @@ const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => 
     const handleAnswer = () => {
         modal.open(<Answer comment={comment} />);
     };
+    const handleEdit = () => {
+        modal.open(<Edit comment={comment} />);
+    };
 
     return (
         <div className={css.likes}>
@@ -37,7 +41,7 @@ const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => 
 
             {token && comment.author[0]._id === user._id && (
                 <>
-                    <button type="button" className={css.link}>
+                    <button type="button" className={css.link} onClick={handleEdit}>
                         Edit
                     </button>
                     <button type="button" className={css.link} onClick={handleDelete}>

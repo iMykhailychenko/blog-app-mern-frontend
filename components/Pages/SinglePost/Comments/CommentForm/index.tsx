@@ -5,12 +5,14 @@ import AttachedImg from '../AttachedImg';
 import css from './index.module.css';
 
 interface IProps {
+    value?: string;
+    hasAttachment?: boolean;
     onSubmit: (value: { id: string | string[]; form: FormData }) => void;
 }
 
-const CommentForm = ({ onSubmit }: IProps): ReactElement => {
+const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): ReactElement => {
     const { query } = useRouter();
-    const [text, setText] = useState<string>('');
+    const [text, setText] = useState<string>(value);
     const [file, setFile] = useState<File | null>(null);
 
     const handleChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
@@ -40,7 +42,7 @@ const CommentForm = ({ onSubmit }: IProps): ReactElement => {
                 onChange={handleChange}
             />
 
-            <AttachedImg file={file} onChange={setFile} />
+            {hasAttachment && <AttachedImg file={file} onChange={setFile} />}
 
             <button className="btn btn--blue" type="submit" onClick={handleSubmit}>
                 Comment

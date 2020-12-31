@@ -17,6 +17,10 @@
     border: none;
 }
 
+.divider {
+    margin-bottom: 2rem;
+}
+
 .container {
     width: 50%;
     min-width: 80rem;

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { formatDate } from '../../../../../../assets/helpers';
 import { IComment } from '../../../../../../interfaces';
 import types from '../../../../../../redux/types';
 import { modal } from '../../../../../Common/Modal';
@@ -15,11 +14,11 @@ interface IProps {
     comment: IComment;
 }
 
-const Answer = ({ comment }: IProps): ReactElement => {
+const Edit = ({ comment }: IProps): ReactElement => {
     const dispatch = useDispatch();
 
-    const handleSubmit = (value: { id: string | string[]; form: FormData }): void => {
-        dispatch({ type: types.POST_ANSWER_START, payload: { ...value, comment: comment._id } });
+    const handleSubmit = (value: { form: FormData }): void => {
+        dispatch({ type: types.EDIT_COMMENT_START, payload: { comment: comment._id, ...value } });
         modal.close();
     };
 
@@ -31,19 +30,11 @@ const Answer = ({ comment }: IProps): ReactElement => {
 
             <User user={comment.author[0]} />
 
-            <p className={css.text}>{comment.text}</p>
+            <div className={css.divider} />
 
-            {comment.attachment && (
-                <button className={css.imgBtn}>
-                    <img className={css.img} src={comment.attachment} alt="" />
-                </button>
-            )}
-
-            <p className={css.date}>{formatDate(comment.date)}</p>
-
-            <CommentForm onSubmit={handleSubmit} />
+            <CommentForm value={comment.text} onSubmit={handleSubmit} hasAttachment={false} />
         </div>
     );
 };
 
-export default Answer;
+export default Edit;

@@ -1,12 +1,17 @@
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../assets/api';
 import notifications from '../../components/Common/Notifications';
-import { IState, IUser } from '../../interfaces';
 import types from '../types';
 
 interface IPOSTComment {
     id: string;
+    form: FormData;
+}
+
+interface IPUTComment {
+    id: string;
+    comment: string;
     form: FormData;
 }
 
@@ -34,6 +39,7 @@ function* getComments({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.comments.getComment, payload as string);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
+
         yield put({ type: types.GET_COMMENTS_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.GET_COMMENTS_ERROR });
@@ -75,13 +81,28 @@ function* postAnswer({ payload }: IAction) {
 function* deleteComment({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.comments.deleteComment, payload as string);
-        console.log(data);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
+
         yield put({ type: types.DELETE_COMMENT_SUCCESS });
         yield put({ type: types.GET_COMMENTS_START, payload: data.post });
         notifications('success', 'Success');
     } catch (error) {
         yield put({ type: types.DELETE_COMMENT_ERROR });
+        if (error?.response?.status === 401) return;
+        notifications('error', 'Something went wrong');
+    }
+}
+
+function* editComment({ payload }: IAction) {
+    try {
+        const { status } = yield call(api.comments.editComment, payload as IPUTComment);
+        if (status < 200 || status >= 300) throw new Error('Something went wrong');
+
+        yield put({ type: types.EDIT_COMMENT_SUCCESS });
+        yield put({ type: types.GET_COMMENTS_START, payload: (payload as IPUTComment).id });
+        notifications('success', 'Success');
+    } catch (error) {
+        yield put({ type: types.EDIT_COMMENT_ERROR });
         if (error?.response?.status === 401) return;
         notifications('error', 'Something went wrong');
     }
@@ -93,5 +114,6 @@ export default function* comments(): Generator {
         yield takeLatest(types.POST_COMMENT_START, postComment),
         yield takeLatest(types.POST_ANSWER_START, postAnswer),
         yield takeLatest(types.DELETE_COMMENT_START, deleteComment),
+        yield takeLatest(types.EDIT_COMMENT_START, editComment),
     ]);
 }

@@ -35,6 +35,13 @@ const api = {
         postComment: ({ id, form }: { id: string; form: FormData }): Promise<AxiosResponse<void>> =>
             axios.post(`/comments/${id}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
         deleteComment: (id: string): Promise<AxiosResponse<[ICommentPagination]>> => axios.delete(`/comments/${id}`),
+        editComment: ({
+            comment,
+            form,
+        }: {
+            comment: string;
+            form: FormData;
+        }): Promise<AxiosResponse<[ICommentPagination]>> => axios.put(`/comments/${comment}`, form),
         postAnswer: ({ id, comment, form }: IAnswer): Promise<AxiosResponse<void>> =>
             axios.post(`/comments/${id}/${comment}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
     },
