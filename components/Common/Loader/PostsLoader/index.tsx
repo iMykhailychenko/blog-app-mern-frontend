@@ -39,16 +39,16 @@ const PostsLoader = ({ col = 2 }: IProps): ReactElement => {
                     <div className={css.img} />
 
                     <div className={css.text}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span />
+                        <span />
+                        <span />
                     </div>
 
                     <div className={css.user}>
                         <div className={css.avatar} />
                         <div className={css.text}>
-                            <span></span>
-                            <span></span>
+                            <span />
+                            <span />
                         </div>
                     </div>
                 </li>

@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ICommentList, IState } from '../../../../interfaces';
+import CommentsLoader from '../../../Common/Loader/CommentsLoader';
 import CommentsList from './CommentsList';
-import css from './index.module.css';
 import NewComment from './NewComment';
 
 const Comments = (): ReactElement => {
@@ -11,11 +11,9 @@ const Comments = (): ReactElement => {
     return (
         <>
             <NewComment />
-            {comments?.data?.comments?.length ? (
+            <CommentsLoader loading={comments.loading} isEmpty={!comments?.data?.comments?.length}>
                 <CommentsList />
-            ) : (
-                <p className={css.container}>No comments yet. You can be first who live the comment</p>
-            )}
+            </CommentsLoader>
         </>
     );
 };

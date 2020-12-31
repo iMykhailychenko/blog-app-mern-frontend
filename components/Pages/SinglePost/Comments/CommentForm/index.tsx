@@ -1,18 +1,19 @@
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
-import types from '../../../../../redux/types';
 import AttachedImg from '../AttachedImg';
 import css from './index.module.css';
 
-const CommentForm = (): ReactElement => {
-    const dispatch = useDispatch();
+interface IProps {
+    onSubmit: (value: { id: string | string[]; form: FormData }) => void;
+}
+
+const CommentForm = ({ onSubmit }: IProps): ReactElement => {
     const { query } = useRouter();
     const [text, setText] = useState<string>('');
     const [file, setFile] = useState<File | null>(null);
 
-    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    const handleChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
         setText(event.target.value);
     };
 
@@ -21,7 +22,10 @@ const CommentForm = (): ReactElement => {
         const form = new FormData();
         file && form.append('attachment', file);
         form.append('text', text);
-        dispatch({ type: types.POST_COMMENT_START, payload: { id: query.postId, form } });
+
+        onSubmit({ id: query.postId, form });
+        setText('');
+        setFile(null);
     };
 
     return (

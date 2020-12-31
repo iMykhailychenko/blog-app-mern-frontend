@@ -1,14 +1,21 @@
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { formatDate } from '../../../../../assets/helpers';
 import { ICommentList, IState } from '../../../../../interfaces';
+import types from '../../../../../redux/types';
 import User from '../../../../Common/User';
+import CommentForm from '../CommentForm';
 import CommentButton from './CommentButton';
 import css from './index.module.css';
 
 const CommentsList = (): ReactElement => {
+    const dispatch = useDispatch();
     const comments = useSelector<IState, ICommentList>(state => state.comments);
+
+    const handleSubmit = (comment: string) => (value: { id: string | string[]; form: FormData }): void => {
+        dispatch({ type: types.POST_ANSWER_START, payload: { ...value, comment } });
+    };
 
     return (
         <div className={css.container}>
@@ -29,7 +36,7 @@ const CommentsList = (): ReactElement => {
 
                         <p className={css.date}>{formatDate(comment.date)}</p>
 
-                        <CommentButton comment={comment} />
+                        <CommentButton comment={comment} hasAnswer />
 
                         {!!comment.answers?.length && (
                             <ul className={css.subList}>
@@ -50,6 +57,10 @@ const CommentsList = (): ReactElement => {
                                         <CommentButton comment={answer} />
                                     </li>
                                 ))}
+
+                                <li className={css.item}>
+                                    <CommentForm onSubmit={handleSubmit(comment._id)} />
+                                </li>
                             </ul>
                         )}
                     </li>

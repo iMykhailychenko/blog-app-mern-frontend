@@ -44,16 +44,29 @@ function* getComments({ payload }: IAction) {
 
 function* postComment({ payload }: IAction) {
     try {
-        const { status, data } = yield call(api.comments.postComment, payload as IPOSTComment);
+        const { status } = yield call(api.comments.postComment, payload as IPOSTComment);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
 
-        const user = yield select((state: IState): IUser => state.auth.user);
-        const comment = { ...data, author: [user], answers: [] };
-
-        yield put({ type: types.POST_COMMENT_SUCCESS, payload: comment });
+        yield put({ type: types.POST_COMMENT_SUCCESS });
+        yield put({ type: types.GET_COMMENTS_START, payload: (payload as IPOSTComment).id });
         notifications('success', 'Success');
     } catch (error) {
         yield put({ type: types.POST_COMMENT_ERROR });
+        if (error?.response?.status === 401) return;
+        notifications('error', 'Something went wrong');
+    }
+}
+
+function* postAnswer({ payload }: IAction) {
+    try {
+        const { status } = yield call(api.comments.postAnswer, payload as IPOSTAnswer);
+        if (status < 200 || status >= 300) throw new Error('Something went wrong');
+
+        yield put({ type: types.POST_ANSWER_SUCCESS });
+        yield put({ type: types.GET_COMMENTS_START, payload: (payload as IPOSTComment).id });
+        notifications('success', 'Success');
+    } catch (error) {
+        yield put({ type: types.POST_ANSWER_ERROR });
         if (error?.response?.status === 401) return;
         notifications('error', 'Something went wrong');
     }
@@ -78,6 +91,7 @@ export default function* comments(): Generator {
     yield all([
         yield takeLatest(types.GET_COMMENTS_START, getComments),
         yield takeLatest(types.POST_COMMENT_START, postComment),
+        yield takeLatest(types.POST_ANSWER_START, postAnswer),
         yield takeLatest(types.DELETE_COMMENT_START, deleteComment),
     ]);
 }

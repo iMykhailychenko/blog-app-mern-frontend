@@ -34,12 +34,6 @@ const comments = (state: ICommentList = INIT, action: IAction): ICommentList => 
         case types.GET_COMMENTS_SUCCESS:
             return { loading: false, data: (action.payload as [ICommentPagination])?.[0] || null };
 
-        case types.POST_COMMENT_SUCCESS:
-            return {
-                loading: false,
-                data: { ...state.data, comments: [action.payload as IComment, ...state.data.comments] },
-            };
-
         // ERROR
         case types.GET_COMMENTS_ERROR:
             return { loading: false, data: null };

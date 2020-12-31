@@ -1,3 +1,22 @@
+.inner {
+    position: relative;
+    width: 90%;
+    max-width: 70rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1rem;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+}
+
 .container {
     width: 50%;
     min-width: 80rem;
@@ -8,8 +27,13 @@
     margin: 2rem 0 6rem;
 }
 
+.title {
+    font-size: 2.5rem;
+}
+
 .text {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .img {
@@ -20,6 +44,7 @@
 
 .imgBtn {
     position: relative;
+    margin-left: 8rem;
     margin-top: 1rem;
     background: none;
     border: none;
@@ -43,57 +68,11 @@
     opacity: 1;
 }
 
-.likes {
-    display: flex;
-    align-items: center;
-}
-
-.link {
-    padding: 0 0.5rem;
-    margin-right: 0.5rem;
-    background: none;
-    border: none;
-    font-size: 1.4rem;
-    color: #3273dc;
-}
-
-.link:hover {
-    text-decoration: underline;
-}
-
 .date {
     font-size: 1.2rem;
     font-weight: 600;
     color: #999;
     margin: 1rem 0;
-}
-
-.text {
-    font-size: 1.6rem;
-}
-
-.subList .item {
-    margin: 3rem 0 0 2rem;
-    position: relative;
-}
-
-.subList .item::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -2rem;
-    transform: translateY(-50%);
-    height: 100%;
-    width: 0.2rem;
-    background-color: rgb(236, 236, 236);
-}
-
-.subList .text {
-    font-size: 1.6rem;
-}
-
-.title {
-    font-size: 2.5rem;
 }
 
 @media (max-width: 1000px) {
@@ -104,17 +83,6 @@
 }
 
 @media (max-width: 650px) {
-    .text {
-        padding-top: 2rem;
-        padding-left: 1rem;
-    }
-
-    .date,
-    .subList,
-    .likes {
-        padding-left: 1rem;
-    }
-
     .imgBtn {
         margin-left: 1rem;
     }

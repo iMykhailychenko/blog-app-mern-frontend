@@ -14,14 +14,12 @@ class ModalManagement extends EventEmitter {
         this.close = this.close.bind(this);
     }
 
-    open(dom: Element, callback?: <T extends []>(...args: T) => void): void {
-        if (typeof callback === 'function') callback();
+    open(dom: Element): void {
         this.dom = dom;
         this.emitChange();
     }
 
-    close(callback?: <T extends []>(...args: T) => void): void {
-        if (typeof callback === 'function') callback();
+    close(): void {
         this.dom = null;
         this.emitChange();
     }
@@ -44,25 +42,25 @@ export default class ModalComponent extends Component<unknown, IState> {
 
     componentDidMount(): void {
         modal.addListener('modal', this.handleModal);
-        window.addEventListener('keydown', this.hendleKeyClose);
+        window.addEventListener('keydown', this.handleKeyClose);
     }
 
     componentWillUnmount(): void {
         modal.removeListener('modal', this.handleModal);
-        window.removeEventListener('keydown', this.hendleKeyClose);
+        window.removeEventListener('keydown', this.handleKeyClose);
     }
 
     handleModal = (dom: Element): void => {
         this.setState({ dom });
     };
 
-    hendleKeyClose = (e: KeyboardEvent): void => {
-        if (e.code !== 'Escape') return;
+    handleKeyClose = (event: KeyboardEvent): void => {
+        if (event.code !== 'Escape') return;
         modal.close();
     };
 
-    hendleClickClose = (e: MouseEvent<HTMLDivElement>): void => {
-        if (e.target !== e.currentTarget) return;
+    handleClickClose = (event: MouseEvent<HTMLDivElement>): void => {
+        if (event.target !== event.currentTarget) return;
         modal.close();
     };
 
@@ -70,8 +68,8 @@ export default class ModalComponent extends Component<unknown, IState> {
         const { dom } = this.state;
         return (
             !!dom && (
-                <div className="react-modal-backdrop" onClick={this.hendleClickClose} aria-hidden>
-                    <div className="react-modal-scroll" onClick={this.hendleClickClose} aria-hidden>
+                <div className="react-modal-backdrop" onClick={this.handleClickClose} aria-hidden>
+                    <div className="react-modal-scroll" onClick={this.handleClickClose} aria-hidden>
                         {dom}
                     </div>
                 </div>
