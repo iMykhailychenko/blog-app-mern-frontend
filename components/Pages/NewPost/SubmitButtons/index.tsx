@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -7,9 +8,14 @@ import css from './index.module.css';
 
 const SubmitButtons = (): ReactElement => {
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const handleSubmit = (): void => {
-        dispatch({ type: types.PUBLISH_POSTS_START });
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+        dispatch({ type: types.PUBLISH_POSTS_START, router });
     };
 
     return (

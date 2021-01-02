@@ -14,8 +14,16 @@
     color: #007bff;
 }
 
+.dislike:hover {
+    color: #d61f1f;
+}
+
 .active {
     color: #007bff;
+}
+
+.dislike.active {
+    color: #d61f1f;
 }
 
 .num {

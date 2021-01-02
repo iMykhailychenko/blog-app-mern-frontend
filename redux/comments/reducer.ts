@@ -26,9 +26,6 @@ const comments = (state: ICommentList = INIT, action: IAction): ICommentList => 
     switch (action.type) {
         case HYDRATE:
             return (action.payload as IState).comments as ICommentList;
-        // START
-        case types.GET_COMMENTS_START:
-            return INIT;
 
         // SUCCESS
         case types.GET_COMMENTS_SUCCESS:

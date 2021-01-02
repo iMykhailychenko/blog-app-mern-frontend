@@ -80,6 +80,7 @@ export interface INewPost {
 export interface IComment {
     _id: string;
     date: string;
+    edited: string | null;
     text: string;
     attachment: null | string;
     author: [IUser];

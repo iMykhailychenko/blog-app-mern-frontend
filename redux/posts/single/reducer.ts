@@ -14,9 +14,6 @@ const single = (state: ISinglePost = INIT, action: IAction): ISinglePost => {
         case HYDRATE:
             return (action.payload as IState).posts.single as ISinglePost;
 
-        case types.GET_SINGLE_POST_START:
-            return INIT;
-
         case types.LIKE_POST_SUCCESS:
         case types.DISLIKE_POST_SUCCESS:
             return { data: { ...state.data, feedback: (action.payload as IPost)?.feedback }, loading: false };

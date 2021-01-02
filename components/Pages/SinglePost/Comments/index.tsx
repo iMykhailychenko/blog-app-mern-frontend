@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { memo, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ICommentList, IState } from '../../../../interfaces';
@@ -18,4 +18,4 @@ const Comments = (): ReactElement => {
     );
 };
 
-export default Comments;
+export default memo(Comments);

@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events';
+import { Router } from 'next/router';
 import React, { Component, MouseEvent, ReactElement } from 'react';
 
 type Element = JSX.Element[] | JSX.Element | null;
@@ -43,11 +44,15 @@ export default class ModalComponent extends Component<unknown, IState> {
     componentDidMount(): void {
         modal.addListener('modal', this.handleModal);
         window.addEventListener('keydown', this.handleKeyClose);
+
+        Router.events.on('routeChangeComplete', modal.close);
     }
 
     componentWillUnmount(): void {
         modal.removeListener('modal', this.handleModal);
         window.removeEventListener('keydown', this.handleKeyClose);
+
+        Router.events.off('routeChangeComplete', modal.close);
     }
 
     handleModal = (dom: Element): void => {

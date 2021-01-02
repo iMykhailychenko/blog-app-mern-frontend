@@ -13,12 +13,12 @@ export interface IAction {
 function* getPosts({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.posts.getPosts, payload as IParams);
-        if (status < 200 || status >= 300) throw new Error('Something went wrong');
+        if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_POSTS_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.GET_POSTS_ERROR });
         if (error?.response?.status === 401) return;
-        notifications('error', 'Something went wrong');
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }
 

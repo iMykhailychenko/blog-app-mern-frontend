@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { memo, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { formatDate } from '../../../../../assets/helpers';
@@ -34,7 +34,10 @@ const CommentsList = (): ReactElement => {
                             </button>
                         )}
 
-                        <p className={css.date}>{formatDate(comment.date)}</p>
+                        <p className={css.date}>
+                            <span>Created: {formatDate(comment.date)}</span>
+                            {comment.edited && <span>Edited: {formatDate(comment.edited)}</span>}
+                        </p>
 
                         <CommentButton comment={comment} hasAnswer />
 
@@ -52,7 +55,10 @@ const CommentsList = (): ReactElement => {
                                             </button>
                                         )}
 
-                                        <p className={css.date}>{formatDate(answer.date)}</p>
+                                        <p className={css.date}>
+                                            <span>Created: {formatDate(answer.date)}</span>
+                                            {answer.edited && <span>Edited: {formatDate(answer.edited)}</span>}
+                                        </p>
 
                                         <CommentButton comment={answer} />
                                     </li>
@@ -70,4 +76,4 @@ const CommentsList = (): ReactElement => {
     );
 };
 
-export default CommentsList;
+export default memo(CommentsList);

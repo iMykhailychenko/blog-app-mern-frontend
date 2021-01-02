@@ -9,6 +9,7 @@ import css from './index.module.css';
 
 interface IProps {
     id?: string;
+    postId?: string | string[];
     typeLike?: string;
     typeDislike?: string;
     like: string[];
@@ -16,18 +17,18 @@ interface IProps {
     view?: string[];
 }
 
-const Likes = ({ id, typeLike, typeDislike, like, dislike, view }: IProps): ReactElement => {
+const Likes = ({ id, postId, typeLike, typeDislike, like, dislike, view }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const user = useSelector<IState, IUser>(state => state.auth.user);
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
     const handleLike = (): void => {
         if (!id || !typeLike) return;
-        dispatch({ type: typeLike, payload: id });
+        dispatch({ type: typeLike, payload: id, postId });
     };
     const handleDislike = (): void => {
         if (!id || !typeDislike) return;
-        dispatch({ type: typeDislike, payload: id });
+        dispatch({ type: typeDislike, payload: id, postId });
     };
 
     return (
@@ -41,7 +42,7 @@ const Likes = ({ id, typeLike, typeDislike, like, dislike, view }: IProps): Reac
                 <span className={css.num}>{like?.length || 0}</span>
             </li>
             <li
-                className={clsx(css.item, dislike?.includes(user?._id || null) && css.active)}
+                className={clsx(css.item, css.dislike, dislike?.includes(user?._id || null) && css.active)}
                 onClick={handleDislike}
                 aria-hidden
             >

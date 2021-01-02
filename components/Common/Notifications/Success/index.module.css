@@ -1,7 +1,38 @@
 .modal {
+    position: relative;
     width: 100%;
-    max-width: 400px;
-    padding: 20px;
+    max-width: 40rem;
+    padding: 3rem;
     border-radius: 1rem;
     background: #fff;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 4rem;
+    padding: 1rem 1.3rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+}
+
+.modal svg {
+    display: block;
+    width: 6rem;
+    margin: 0 auto 2rem;
+    fill: #26c36c;
+}
+
+.modal h3 {
+    color: #26c36c;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.modal p {
+    margin-top: 1rem;
+    font-size: 1.4rem;
 }

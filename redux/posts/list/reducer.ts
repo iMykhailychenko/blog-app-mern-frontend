@@ -14,9 +14,6 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
         case HYDRATE:
             return (action.payload as IState).posts.list as IPostList;
 
-        case types.GET_POSTS_START:
-            return INIT;
-
         case types.GET_POSTS_SUCCESS:
             return { data: action.payload as IPostPagination, loading: false };
 

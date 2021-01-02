@@ -9,19 +9,19 @@ interface IProps {
     text: string;
 }
 
-const NotificationError = ({ text }: IProps): ReactElement => {
+const Confirm = ({ text }: IProps): ReactElement => {
     return (
         <div className={css.modal}>
             <button className={css.close} type="button" onClick={modal.close}>
                 <FontAwesomeIcon icon={faTimes} />
             </button>
 
-            <img src="/img/emoji/error.png" alt="" />
+            <img src="/img/emoji/confirm.png" alt="" />
 
-            <h4>Opsss</h4>
+            <h4>Are you sure?</h4>
             <p>{text}</p>
         </div>
     );
 };
 
-export default NotificationError;
+export default Confirm;

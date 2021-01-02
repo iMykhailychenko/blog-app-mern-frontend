@@ -1,13 +1,16 @@
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import config from '../../../assets/config';
 import { formatDate } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
-import { IPost, IState } from '../../../interfaces';
+import { IPost, IState, IUser } from '../../../interfaces';
 import types from '../../../redux/types';
 import Likes from '../Likes';
 import User from '../User';
@@ -35,7 +38,19 @@ const mediaAuth = (col: number): Media => ({
 const DESC_LIMIT = 180;
 
 const Posts = ({ content, col = 2 }: IProps): ReactElement => {
+    const dispatch = useDispatch();
+    const { query } = useRouter();
+
+    const user = useSelector<IState, IUser>(state => state.auth.user);
     const token = useSelector<IState, string | null>(state => state.auth.token);
+
+    const handleDelete = (payload: string): (() => void) => (): void => {
+        dispatch({
+            type: types.DELETE_POST_START,
+            payload,
+            config: { page: query?.page || 1, limit: config.postPerPage },
+        });
+    };
 
     return (
         <Masonry
@@ -43,39 +58,35 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
             className={css.list}
             columnClassName={css.column}
         >
-            {content?.map(items => (
-                <li className={clsx(css.card, !items.banner && css.grid)} key={items._id}>
-                    <Link href={routes.posts.single[0](items._id)}>
+            {content?.map(item => (
+                <li className={clsx(css.card, !item.banner && css.grid)} key={item._id}>
+                    <Link href={routes.posts.single[0](item._id)}>
                         <a className={css.postLink}>
-                            {items.banner && (
-                                <img className={css.img} src={config.img + items.banner} alt={items.title} />
-                            )}
+                            {item.banner && <img className={css.img} src={config.img + item.banner} alt={item.title} />}
                             <div className={css.inner}>
-                                <h4 className={css.title}>{items.title}</h4>
+                                <h4 className={css.title}>{item.title}</h4>
                                 <p className={css.text}>
-                                    {items.desc.length > DESC_LIMIT
-                                        ? `${items.desc.slice(0, DESC_LIMIT)}...`
-                                        : items.desc}
+                                    {item.desc.length > DESC_LIMIT ? `${item.desc.slice(0, DESC_LIMIT)}...` : item.desc}
                                 </p>
-                                <p className={css.date}>{formatDate(items.date)}</p>
+                                <p className={css.date}>{formatDate(item.date)}</p>
                             </div>
                         </a>
                     </Link>
 
                     <div className={css.likes}>
                         <Likes
-                            id={items._id}
+                            id={item._id}
                             typeLike={types.LIKE_POPULAR_POSTS_START}
                             typeDislike={types.DISLIKE_POPULAR_POSTS_START}
-                            like={items.feedback.like}
-                            dislike={items.feedback.dislike}
-                            view={items.feedback.view}
+                            like={item.feedback.like}
+                            dislike={item.feedback.dislike}
+                            view={item.feedback.view}
                         />
                     </div>
 
-                    {!!items.tags.length && (
+                    {!!item.tags.length && (
                         <div className={css.tags}>
-                            {items.tags.map(tag => (
+                            {item.tags.map(tag => (
                                 <Link href={routes.posts.tag[0](tag)} key={tag}>
                                     <a className={css.tag}>{`#${tag}`}</a>
                                 </Link>
@@ -84,8 +95,23 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
                     )}
 
                     <div className={css.inner}>
-                        <User user={items.author[0]} />
+                        <User user={item.author[0]} />
                     </div>
+
+                    {token && item.author[0]._id === user._id && (
+                        <div className={css.management}>
+                            <button className={css.managementBtn} type="button">
+                                <FontAwesomeIcon icon={faSlidersH} />
+                            </button>
+
+                            <div className={css.managementInner}>
+                                <button type="button">Edit post</button>
+                                <button type="button" onClick={handleDelete(item._id)}>
+                                    Delete post
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </li>
             ))}
         </Masonry>

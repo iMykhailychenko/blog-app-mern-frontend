@@ -10,6 +10,7 @@
 }
 
 .card {
+    position: relative;
     list-style: none;
     margin-bottom: 5rem;
     background-color: #ffffff;
@@ -27,8 +28,53 @@
 }
 
 .tags {
-    padding: 3rem;
-    padding-bottom: 0;
+    padding: 3rem 3rem 0;
+}
+
+.management {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.managementBtn {
+    padding: 1.4rem 2rem 1.4rem 10rem;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #6d7279;
+}
+
+.managementInner {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    min-width: 15rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 1rem;
+    border: 0.1rem solid #b6b6b6;
+}
+
+.managementInner button,
+.managementInner a {
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: left;
+    background: none;
+    border-radius: 1rem;
+    border: none;
+}
+
+.managementInner button:hover,
+.managementInner a:hover {
+    background: #eee;
+}
+
+.management:hover .managementInner {
+    display: flex;
 }
 
 .inner:nth-of-type(1) {

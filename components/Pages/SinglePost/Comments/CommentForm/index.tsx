@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
 
@@ -44,7 +45,12 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
 
             {hasAttachment && <AttachedImg file={file} onChange={setFile} />}
 
-            <button className="btn btn--blue" type="submit" onClick={handleSubmit}>
+            <button
+                className={clsx('btn', !text ? 'btn-gray' : 'btn--blue')}
+                disabled={!text}
+                type="submit"
+                onClick={handleSubmit}
+            >
                 Comment
             </button>
         </form>

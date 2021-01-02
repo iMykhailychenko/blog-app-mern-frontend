@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,6 +17,8 @@ interface IProps {
 
 const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => {
     const dispatch = useDispatch();
+    const { query } = useRouter();
+
     const token = useSelector<IState, string | null>(state => state.auth.token);
     const user = useSelector<IState, IUser>(state => state.auth.user);
 
@@ -32,7 +35,14 @@ const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => 
 
     return (
         <div className={css.likes}>
-            <Likes like={comment.feedback.like} dislike={comment.feedback.dislike} />
+            <Likes
+                postId={query.postId}
+                id={comment._id}
+                typeLike={types.POST_COMMENT_LIKE_START}
+                typeDislike={types.POST_COMMENT_DISLIKE_START}
+                like={comment.feedback.like}
+                dislike={comment.feedback.dislike}
+            />
             {token && hasAnswer && (
                 <button type="button" className={css.link} onClick={handleAnswer}>
                     Answer
