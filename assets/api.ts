@@ -24,6 +24,8 @@ const api = {
             axios.get(`/posts/${id}`, { params }),
         newPost: (form: FormData): Promise<AxiosResponse<void>> => axios.post('/posts', form),
         deletePost: (id: string): Promise<AxiosResponse<void>> => axios.delete(`/posts/${id}`),
+        editPost: ({ id, form }: { id: string; form: IPost }): Promise<AxiosResponse<void>> =>
+            axios.put(`/posts/${id}`, form),
     },
     feedback: {
         like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}`),

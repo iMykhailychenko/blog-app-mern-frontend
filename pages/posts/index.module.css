@@ -71,6 +71,12 @@
     background: rgb(206, 233, 255);
 }
 
+.flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+}
+
 .banner {
     position: relative;
     max-height: 90vh;

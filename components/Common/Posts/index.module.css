@@ -33,7 +33,7 @@
 
 .management {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
 }
 
@@ -47,8 +47,8 @@
 
 .managementInner {
     position: absolute;
-    bottom: 100%;
-    right: 0;
+    bottom: 90%;
+    right: 1rem;
     display: none;
     flex-direction: column;
     min-width: 15rem;

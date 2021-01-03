@@ -1,6 +1,7 @@
 import React, { memo, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import config from '../../../../../assets/config';
 import { formatDate } from '../../../../../assets/helpers';
 import { ICommentList, IState } from '../../../../../interfaces';
 import types from '../../../../../redux/types';
@@ -30,7 +31,7 @@ const CommentsList = (): ReactElement => {
 
                         {comment.attachment && (
                             <button className={css.imgBtn}>
-                                <img className={css.img} src={comment.attachment} alt="" />
+                                <img className={css.img} src={config.img + comment.attachment} alt="" />
                             </button>
                         )}
 

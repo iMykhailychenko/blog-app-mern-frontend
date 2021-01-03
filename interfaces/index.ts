@@ -40,6 +40,7 @@ export interface IPost {
         like: string[];
         dislike: string[];
     };
+    edited: string | null;
     banner: string;
     tags: string[];
     title: string;

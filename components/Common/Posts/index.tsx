@@ -47,8 +47,8 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
     const handleDelete = (payload: string): (() => void) => (): void => {
         dispatch({
             type: types.DELETE_POST_START,
-            payload,
             config: { page: query?.page || 1, limit: config.postPerPage },
+            payload,
         });
     };
 
@@ -105,7 +105,9 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
                             </button>
 
                             <div className={css.managementInner}>
-                                <button type="button">Edit post</button>
+                                <Link href={routes.posts.edit[0](item._id)}>
+                                    <a>Edit post</a>
+                                </Link>
                                 <button type="button" onClick={handleDelete(item._id)}>
                                     Delete post
                                 </button>

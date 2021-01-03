@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { IPost } from '../../../interfaces';
 import types from '../../types';
 
 interface IAction {
@@ -11,7 +12,7 @@ interface IAction {
         | typeof types.NEW_POST_DESC
         | typeof types.NEW_POST_BANNER
         | typeof types.NEW_POST_CONTENT;
-    payload: string | File | null;
+    payload: string | File | null | IPost;
 }
 
 const title = (state = '', action: IAction): string => {
@@ -19,7 +20,11 @@ const title = (state = '', action: IAction): string => {
         case types.NEW_POST_TITLE:
             return action.payload as string;
 
+        case types.GET_EDIT_POST_SUCCESS:
+            return (action.payload as IPost).title;
+
         case types.PUBLISH_POSTS_SUCCESS:
+        case types.RESET_POST_FORM:
             return '';
 
         default:
@@ -32,7 +37,11 @@ const tags = (state = '', action: IAction): string => {
         case types.NEW_POST_TAGS:
             return action.payload as string;
 
+        case types.GET_EDIT_POST_SUCCESS:
+            return (action.payload as IPost).tags.join(' ');
+
         case types.PUBLISH_POSTS_SUCCESS:
+        case types.RESET_POST_FORM:
             return '';
 
         default:
@@ -45,7 +54,8 @@ const banner = (state = null, action: IAction): File => {
         case types.NEW_POST_BANNER:
             return action.payload as File;
 
-        case types.BANNER_POSTS_SUCCESS:
+        case types.PUBLISH_POSTS_SUCCESS:
+        case types.RESET_POST_FORM:
             return null;
 
         default:
@@ -58,7 +68,11 @@ const desc = (state = '', action: IAction): string => {
         case types.NEW_POST_DESC:
             return action.payload as string;
 
+        case types.GET_EDIT_POST_SUCCESS:
+            return (action.payload as IPost).desc;
+
         case types.PUBLISH_POSTS_SUCCESS:
+        case types.RESET_POST_FORM:
             return '';
 
         default:
@@ -71,7 +85,11 @@ const content = (state = '', action: IAction): string => {
         case types.NEW_POST_CONTENT:
             return action.payload as string;
 
+        case types.GET_EDIT_POST_SUCCESS:
+            return (action.payload as IPost).content;
+
         case types.PUBLISH_POSTS_SUCCESS:
+        case types.RESET_POST_FORM:
             return '';
 
         default:

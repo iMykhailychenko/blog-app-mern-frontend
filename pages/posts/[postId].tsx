@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
@@ -43,7 +44,10 @@ const SinglePost = (): ReactElement => {
                         </div>
                     </div>
 
-                    <p className={css.subtext}>{'Publication date: ' + formatDate(post.date)}</p>
+                    <p className={clsx(css.subtext, css.flex)}>
+                        <span>{`Publication date: ${formatDate(post.date)} `}</span>
+                        <span>{`Edited: ${formatDate(post.edited)}`}</span>
+                    </p>
 
                     <h1 className={css.title}>{post.title}</h1>
 
@@ -55,7 +59,7 @@ const SinglePost = (): ReactElement => {
                         ))}
                     </div>
 
-                    {post.banner && <img className={config.img + post.banner} src={post.banner} alt={post.title} />}
+                    {post.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
 
                     <div className="ready quill">
                         <div className="ql-container ql-post-container ql-snow">
