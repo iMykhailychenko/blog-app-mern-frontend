@@ -20,6 +20,7 @@ const MobileNav = ({ className, onClick }: IProps): ReactElement => {
     useEffect(() => {
         const parentElem = document.querySelector('body');
         parentElem.appendChild(rootElemRef.current);
+
         return function removeElement() {
             rootElemRef.current.remove();
         };

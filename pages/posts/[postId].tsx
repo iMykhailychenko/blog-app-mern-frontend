@@ -11,18 +11,33 @@ import routes from '../../assets/routes';
 import Likes from '../../components/Common/Likes';
 import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
-import { IPost, IState, IStore } from '../../interfaces';
+import { IPost, IState, IStore, IUser } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
 
 const SinglePost = (): ReactElement => {
+    const user = useSelector<IState, IUser>(state => state.auth.user);
     const post = useSelector<IState, IPost>(state => state.posts.single.data);
 
     return (
         post && (
             <div className={css.container}>
                 <div className={css.content}>
+                    {user._id === post?.user && (
+                        <>
+                            <div className={css.subtext}>
+                                <Link href={routes.posts.edit[0](post._id)}>
+                                    <a className={css.manage}>Edit post</a>
+                                </Link>
+                                <button className={css.manage} type="button">
+                                    Delete post
+                                </button>
+                            </div>
+                            <hr className={css.subtext} />
+                        </>
+                    )}
+
                     <div className={css.likesHead}>
                         <div>
                             <p className={css.subtext}>Share this post in social media:</p>

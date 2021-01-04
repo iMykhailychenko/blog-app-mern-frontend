@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { END } from 'redux-saga';
 
 import config from '../assets/config';
@@ -16,12 +17,16 @@ import types from '../redux/types';
 import css from './index.module.css';
 
 const Home = (): ReactElement => {
+    const isMobile = useMediaQuery({
+        query: '(min-width: 900px)',
+    });
+
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
     return (
         <main className={clsx(css.main, 'container')}>
-            {!token && (
+            {!token && isMobile && (
                 <Aside>
                     <FormLogin />
                 </Aside>

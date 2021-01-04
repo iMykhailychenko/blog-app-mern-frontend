@@ -19,6 +19,20 @@
     margin: 0 auto 3rem;
 }
 
+.manage {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.manage:hover {
+    text-decoration: underline;
+}
+
 .subtext {
     margin: 4rem auto 1rem;
     font-size: 1.2rem;
@@ -77,6 +91,10 @@
     margin-bottom: 6rem;
 }
 
+.flex span {
+    width: 50%;
+}
+
 .banner {
     position: relative;
     max-height: 90vh;
@@ -99,6 +117,14 @@
 @media (max-width: 690px) {
     .content {
         padding-top: 3rem;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .flex span {
+        width: 100%;
     }
 
     .likesHead {

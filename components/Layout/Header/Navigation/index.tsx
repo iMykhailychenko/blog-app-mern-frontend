@@ -2,7 +2,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
-import React, { ReactElement, useState } from 'react';
+import { Router } from 'next/router';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 
@@ -25,6 +26,18 @@ const Navigation = (): ReactElement => {
     const handleToggle = (): void => {
         setMenu(!menu);
     };
+
+    useEffect(() => {
+        const handleClose = (): void => {
+            setMenu(false);
+        };
+        Router.events.on('routeChangeStart', handleClose);
+
+        return () => {
+            Router.events.off('routeChangeStart', handleClose);
+        };
+    }, []);
+
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
     return (

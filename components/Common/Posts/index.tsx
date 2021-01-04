@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 
 import config from '../../../assets/config';
 import { formatDate } from '../../../assets/helpers';
@@ -41,6 +42,10 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const { query } = useRouter();
 
+    const isMobile = useMediaQuery({
+        query: '(min-width: 768px)',
+    });
+
     const user = useSelector<IState, IUser>(state => state.auth.user);
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
@@ -54,7 +59,7 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
 
     return (
         <Masonry
-            breakpointCols={token ? mediaAuth(col) : mediaNotAuth(col)}
+            breakpointCols={token && isMobile ? mediaAuth(col) : mediaNotAuth(col)}
             className={css.list}
             columnClassName={css.column}
         >

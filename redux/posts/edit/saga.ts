@@ -2,6 +2,7 @@ import { NextRouter } from 'next/router';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
+import { generateTags } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
 import notifications from '../../../components/Common/Notifications';
 import { INewPost, IParams, IPost, IState } from '../../../interfaces';
@@ -34,9 +35,12 @@ function* getEditPost({ payload, user }: IAction) {
 }
 
 function* updatePost({ payload, router }: IAction) {
-    const form = yield select((state: IState): INewPost => state.posts.newPost);
+    const post = yield select((state: IState): INewPost => state.posts.newPost);
     try {
-        const { status, data } = yield call(api.posts.editPost, { id: payload as string, form });
+        const { status, data } = yield call(api.posts.editPost, {
+            id: payload as string,
+            form: { ...post, tags: generateTags(post.tags) },
+        });
         if (status < 200 || status >= 300) throw new Error();
 
         yield put({ type: types.UPDATE_POST_SUCCESS });
