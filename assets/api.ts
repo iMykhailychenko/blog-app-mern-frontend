@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
 import { ICommentPagination, IParams, IPost, IUser } from '../interfaces';
+import config from './config';
 
-axios.defaults.baseURL =
-    process.env.NODE_ENV !== 'production' ? 'http://localhost:7000/api' : 'https://ihor-blog.herokuapp.com/api';
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? config.api.prod : config.api.dev;
 
 interface IAnswer {
     id?: string;

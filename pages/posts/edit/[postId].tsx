@@ -8,6 +8,7 @@ import { END } from 'redux-saga';
 import config from '../../../assets/config';
 import { getUserId } from '../../../assets/helpers';
 import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
+import Meta from '../../../components/Common/Meta';
 import serverRedirect from '../../../components/HOC/ServerRedirect';
 import DateText from '../../../components/Pages/NewPost/DateText';
 import Desc from '../../../components/Pages/NewPost/Desc';
@@ -39,6 +40,12 @@ const EditPost = (): ReactElement => {
     return (
         <>
             <AuthRedirect />
+            <Meta
+                title={`Edit post: ${post.title}`}
+                description={post.desc}
+                keywords={post.tags.join(' ')}
+                icon={post.banner}
+            />
             <div className={css.container}>
                 <div className={css.content}>
                     {/*elements*/}

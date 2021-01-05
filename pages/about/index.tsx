@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 
+import Meta from '../../components/Common/Meta';
 import PageTitle from '../../components/Layout/PageTitle';
 import Slider from '../../components/Pages/About/Slider';
 import css from './index.module.css';
@@ -7,6 +8,7 @@ import css from './index.module.css';
 const About = (): ReactElement => {
     return (
         <>
+            <Meta title="#Hello world" />
             <PageTitle>
                 #Hello world{' '}
                 <span role="img" aria-label="img">

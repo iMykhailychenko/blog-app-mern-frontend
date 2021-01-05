@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import React, { ReactElement } from 'react';
 
 import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
+import Meta from '../../../components/Common/Meta';
 import serverRedirect from '../../../components/HOC/ServerRedirect';
 import Banner from '../../../components/Pages/NewPost/Banner';
 import DateText from '../../../components/Pages/NewPost/DateText';
@@ -18,6 +19,7 @@ const NewPost = (): ReactElement => {
     return (
         <>
             <AuthRedirect />
+            <Meta title="Create new post" />
             <div className={css.container}>
                 <div className={css.content}>
                     {/*elements*/}

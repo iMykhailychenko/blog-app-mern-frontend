@@ -2,12 +2,14 @@ import React, { ReactElement } from 'react';
 
 import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import FormLogin from '../../../components/Common/Forms/Login';
+import Meta from '../../../components/Common/Meta';
 import Picture from '../../../components/Common/Picture';
 import css from './index.module.css';
 
-const Login = (): ReactElement => {
+const ForgotPass = (): ReactElement => {
     return (
         <>
+            <Meta title="Blog app | reset pass" />
             <AuthRedirect reverse />
             <div className={css.wrp}>
                 <Picture className={css.banner} />
@@ -19,4 +21,4 @@ const Login = (): ReactElement => {
     );
 };
 
-export default Login;
+export default ForgotPass;

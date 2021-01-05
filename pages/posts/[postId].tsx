@@ -9,6 +9,7 @@ import config from '../../assets/config';
 import { formatDate, getUserId } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import Likes from '../../components/Common/Likes';
+import Meta from '../../components/Common/Meta';
 import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
 import { IPost, IState, IStore, IUser } from '../../interfaces';
@@ -21,87 +22,90 @@ const SinglePost = (): ReactElement => {
     const post = useSelector<IState, IPost>(state => state.posts.single.data);
 
     return (
-        post && (
-            <div className={css.container}>
-                <div className={css.content}>
-                    {user._id === post?.user && (
-                        <>
-                            <div className={css.subtext}>
-                                <Link href={routes.posts.edit[0](post._id)}>
-                                    <a className={css.manage}>Edit post</a>
-                                </Link>
-                                <button className={css.manage} type="button">
-                                    Delete post
-                                </button>
-                            </div>
-                            <hr className={css.subtext} />
-                        </>
-                    )}
+        <>
+            <Meta title={post?.title} description={post?.desc} keywords={post?.tags?.join(' ')} icon={post?.banner} />
+            {post && (
+                <div className={css.container}>
+                    <div className={css.content}>
+                        {user?._id === post?.user && (
+                            <>
+                                <div className={css.subtext}>
+                                    <Link href={routes.posts.edit[0](post._id)}>
+                                        <a className={css.manage}>Edit post</a>
+                                    </Link>
+                                    <button className={css.manage} type="button">
+                                        Delete post
+                                    </button>
+                                </div>
+                                <hr className={css.subtext} />
+                            </>
+                        )}
 
-                    <div className={css.likesHead}>
-                        <div>
-                            <p className={css.subtext}>Share this post in social media:</p>
+                        <div className={css.likesHead}>
+                            <div>
+                                <p className={css.subtext}>Share this post in social media:</p>
+                                <Socials title={post.title} />
+                            </div>
+
+                            <div>
+                                <p className={css.subtext}>User feedbacks:</p>
+                                <div className={css.likes}>
+                                    <Likes
+                                        id={post._id}
+                                        typeLike={types.LIKE_POST_START}
+                                        typeDislike={types.DISLIKE_POST_START}
+                                        like={post.feedback.like}
+                                        dislike={post.feedback.dislike}
+                                        view={post.feedback.view}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <p className={clsx(css.subtext, css.flex)}>
+                            <span>{`Publication date: ${formatDate(post.date)} `}</span>
+                            <span>{`Edited: ${formatDate(post.edited)}`}</span>
+                        </p>
+
+                        <h1 className={css.title}>{post.title}</h1>
+
+                        <div className={css.tags}>
+                            {post?.tags?.map(tag => (
+                                <Link href={routes.posts.tag[0](tag)} key={tag}>
+                                    <a className={css.tag}>{`#${tag}`}</a>
+                                </Link>
+                            ))}
+                        </div>
+
+                        {post.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
+
+                        <div className="ready quill">
+                            <div className="ql-container ql-post-container ql-snow">
+                                <div className="ql-editor ql-post" dangerouslySetInnerHTML={{ __html: post.content }} />
+                            </div>
+                        </div>
+
+                        <p className={css.subtext}>Share this post in social media:</p>
+                        <div className={css.likes}>
                             <Socials title={post.title} />
                         </div>
 
-                        <div>
-                            <p className={css.subtext}>User feedbacks:</p>
-                            <div className={css.likes}>
-                                <Likes
-                                    id={post._id}
-                                    typeLike={types.LIKE_POST_START}
-                                    typeDislike={types.DISLIKE_POST_START}
-                                    like={post.feedback.like}
-                                    dislike={post.feedback.dislike}
-                                    view={post.feedback.view}
-                                />
-                            </div>
+                        <p className={css.subtext}>User feedbacks:</p>
+                        <div className={css.likes}>
+                            <Likes
+                                id={post._id}
+                                typeLike={types.LIKE_POST_START}
+                                typeDislike={types.DISLIKE_POST_START}
+                                like={post.feedback.like}
+                                dislike={post.feedback.dislike}
+                                view={post.feedback.view}
+                            />
                         </div>
+                        <Comments />
                     </div>
-
-                    <p className={clsx(css.subtext, css.flex)}>
-                        <span>{`Publication date: ${formatDate(post.date)} `}</span>
-                        <span>{`Edited: ${formatDate(post.edited)}`}</span>
-                    </p>
-
-                    <h1 className={css.title}>{post.title}</h1>
-
-                    <div className={css.tags}>
-                        {post?.tags?.map(tag => (
-                            <Link href={routes.posts.tag[0](tag)} key={tag}>
-                                <a className={css.tag}>{`#${tag}`}</a>
-                            </Link>
-                        ))}
-                    </div>
-
-                    {post.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
-
-                    <div className="ready quill">
-                        <div className="ql-container ql-post-container ql-snow">
-                            <div className="ql-editor ql-post" dangerouslySetInnerHTML={{ __html: post.content }} />
-                        </div>
-                    </div>
-
-                    <p className={css.subtext}>Share this post in social media:</p>
-                    <div className={css.likes}>
-                        <Socials title={post.title} />
-                    </div>
-
-                    <p className={css.subtext}>User feedbacks:</p>
-                    <div className={css.likes}>
-                        <Likes
-                            id={post._id}
-                            typeLike={types.LIKE_POST_START}
-                            typeDislike={types.DISLIKE_POST_START}
-                            like={post.feedback.like}
-                            dislike={post.feedback.dislike}
-                            view={post.feedback.view}
-                        />
-                    </div>
-                    <Comments />
                 </div>
-            </div>
-        )
+            )}
+        </>
     );
 };
 
