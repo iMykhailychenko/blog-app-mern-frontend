@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/users/[userId].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/users/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/profile/reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redux/profile/saga.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Loader/PostsLoader/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Loader/PostsLoader/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Loader/PostsLoader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Loader/PostsLoader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/User/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/User/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/HOC/ServerRedirect/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/HOC/ServerRedirect/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Footer/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Footer/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/ProfileModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/ProfileModal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/auth/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/auth/saga.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/posts/list/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/list/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/posts/list/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/list/saga.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/reducers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/sagas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/sagas.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +118,7 @@
       <workItem from="1609263093311" duration="11593000" />
       <workItem from="1609317586133" duration="1137000" />
       <workItem from="1609408585912" duration="38231000" />
-      <workItem from="1609782537858" duration="9663000" />
+      <workItem from="1609782537858" duration="10596000" />
     </task>
     <servers />
   </component>
