@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useMediaQuery } from 'react-responsive';
 
 import config from '../../../assets/config';
 import { formatDate } from '../../../assets/helpers';
@@ -19,6 +18,8 @@ import css from './index.module.css';
 
 interface IProps {
     content: IPost[];
+    wide?: boolean;
+    author?: boolean;
     col?: number;
 }
 
@@ -28,25 +29,22 @@ const mediaNotAuth = (col: number): Media => ({
     default: col,
     1100: 1,
     900: 2,
-    580: 1,
+    610: 1,
 });
 
 const mediaAuth = (col: number): Media => ({
     default: col,
-    580: 1,
+    610: 1,
 });
 
 const DESC_LIMIT = 180;
 
-const Posts = ({ content, col = 2 }: IProps): ReactElement => {
+const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const { query } = useRouter();
 
-    const isMobile = useMediaQuery({
-        query: '(min-width: 768px)',
-    });
-
     const user = useSelector<IState, IUser>(state => state.auth.user);
+    const profile = useSelector<IState, IUser>(state => state.profile);
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
     const handleDelete = (payload: string): (() => void) => (): void => {
@@ -59,7 +57,7 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
 
     return (
         <Masonry
-            breakpointCols={token && isMobile ? mediaAuth(col) : mediaNotAuth(col)}
+            breakpointCols={wide ? mediaNotAuth(col) : mediaAuth(col)}
             className={css.list}
             columnClassName={css.column}
         >
@@ -100,10 +98,10 @@ const Posts = ({ content, col = 2 }: IProps): ReactElement => {
                     )}
 
                     <div className={css.inner}>
-                        <User user={item.author[0]} />
+                        <User user={author ? profile : item?.author?.[0]} />
                     </div>
 
-                    {token && item.author[0]._id === user._id && (
+                    {token && (author ? profile?._id : item?.author?.[0]?._id) === user._id && (
                         <div className={css.management}>
                             <button className={css.managementBtn} type="button">
                                 <FontAwesomeIcon icon={faSlidersH} />

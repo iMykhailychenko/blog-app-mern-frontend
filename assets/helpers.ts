@@ -41,14 +41,21 @@ export const generateTags = (str: string): string[] => {
 // decode data from cookie
 export const decode = (cookie = ''): string => decodeURI(cookie).replace(/\\"/gi, '');
 
-// get auth token from cookie
-export const getToken = (cookie = '"token":""'): string =>
-    decode(cookie)
-        ?.split('%2C')
-        ?.find(item => item.includes('"token"'))
-        ?.replace('"token":"', '')
-        ?.replace(/"/gi, '')
-        ?.replace(/null/gi, '') || null;
+// parse cookie on server
+export const parseCookie = (cookie = '', key = 'blog_auth='): { [key: string]: string } | null => {
+    try {
+        return JSON.parse(decode(cookie).replace(/\+/g, ' ').replace(/%2C/gi, ',').split(key)[1]);
+    } catch (error) {
+        return null;
+    }
+};
+
+// parse nested obj in cookie
+export const parseObjStr = (value = '', key = ''): string | null =>
+    value
+        ?.split(',')
+        ?.find(item => item.includes(key))
+        ?.split(key + ':')[1] || null;
 
 // get auth token from cookie
 export const getUserId = (cookie = '"user":"{_id:'): string =>

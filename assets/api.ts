@@ -12,6 +12,7 @@ interface IAnswer {
 }
 
 const api = {
+    profile: (id: string): Promise<AxiosResponse<[IUser]>> => axios.get(`/users/profile/${id}`),
     auth: {
         login: (body: Body): Promise<AxiosResponse<IUser>> => axios.post('/auth/login', body),
         signup: (body: Body): Promise<AxiosResponse<void>> => axios.post('/auth/register', body),
@@ -20,6 +21,7 @@ const api = {
     },
     posts: {
         getPosts: (params: IParams): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
+        getUserPosts: (id: string): Promise<AxiosResponse<IPost[]>> => axios.get(`/posts/user/${id}`),
         getSinglePost: (id: string, params?: { [key: string]: string | null }): Promise<AxiosResponse<IPost>> =>
             axios.get(`/posts/${id}`, { params }),
         newPost: (form: FormData): Promise<AxiosResponse<void>> => axios.post('/posts', form),

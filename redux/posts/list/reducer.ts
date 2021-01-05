@@ -15,6 +15,7 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
             return (action.payload as IState).posts.list as IPostList;
 
         case types.GET_POSTS_SUCCESS:
+        case types.GET_USER_POSTS_SUCCESS:
             return { data: action.payload as IPostPagination, loading: false };
 
         case types.LIKE_POPULAR_POSTS_SUCCESS:
@@ -32,6 +33,7 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
             };
 
         case types.GET_POSTS_ERROR:
+        case types.GET_USER_POSTS_ERROR:
             return { data: null, loading: false };
 
         default:

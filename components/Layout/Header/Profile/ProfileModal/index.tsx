@@ -31,7 +31,7 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
             <h4 className={styles.name}>{`${user.name} ${user.surname}`}</h4>
             <p className={styles.nick}>{'@' + user.nick}</p>
 
-            <Link href={routes.user[0](user._id)}>
+            <Link href={routes.users[0](user._id)}>
                 <a className={styles.link}>Your profile</a>
             </Link>
             <Link href={routes.posts.new}>

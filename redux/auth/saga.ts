@@ -19,7 +19,7 @@ export interface IAction {
 function* login({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.auth.login, payload as Body);
-        if (status < 200 || status >= 300) throw new Error('Something went wrong');
+        if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.LOGIN_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.LOGIN_ERROR });

@@ -19,7 +19,7 @@ const User = ({ user }: IProps): ReactElement | null =>
                 avatar={user.avatar}
                 name={(user.name[0] + user.surname[0]).toUpperCase()}
             />
-            <Link href={routes.user[0](user._id)}>
+            <Link href={routes.users[0](user._id)}>
                 <a className={css.userInfo}>
                     <p className={css.name}>{user.name + ' ' + user.surname}</p>
                     <p className={css.nick}>{`@${user?.nick}`}</p>

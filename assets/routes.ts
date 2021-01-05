@@ -7,7 +7,7 @@ const routes = {
     about: '/about',
     question: '/question',
     search: '/search',
-    user: [(id: string): string => `/user/${id}`, '/user/:id'] as IDynamic,
+    users: [(id: string): string => `/users/${id}`, '/users/:id'] as IDynamic,
 
     posts: {
         single: [(id: string): string => `/posts/${id}`, '/posts/:postId'] as IDynamic,

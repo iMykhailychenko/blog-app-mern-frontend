@@ -108,6 +108,7 @@ export interface ICommentList {
  */
 export interface IState {
     auth: IAuth;
+    profile: IUser | null;
     posts: {
         list: IPostList;
         newPost: INewPost;

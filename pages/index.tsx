@@ -17,10 +17,7 @@ import types from '../redux/types';
 import css from './index.module.css';
 
 const Home = (): ReactElement => {
-    const isMobile = useMediaQuery({
-        query: '(min-width: 900px)',
-    });
-
+    const isMobile = useMediaQuery({ query: '(min-width: 900px)' });
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
@@ -34,7 +31,7 @@ const Home = (): ReactElement => {
 
             <div className={clsx(css.content, !!token && css.auth)}>
                 <h2 className={css.title}>Popular posts</h2>
-                {posts.loading ? <PostsLoader /> : <Posts content={posts.data?.posts} />}
+                {posts.loading ? <PostsLoader wide /> : <Posts content={posts.data?.posts} wide={!token && isMobile} />}
                 <LoadMore />
             </div>
         </main>

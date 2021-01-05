@@ -8,7 +8,7 @@ const Profile = (): ReactElement => {
     return (
         <ul className={styles.list}>
             <li>
-                <Link href={routes.user[0]('1')}>
+                <Link href={routes.users[0]('1')}>
                     <a>Your profile</a>
                 </Link>
             </li>

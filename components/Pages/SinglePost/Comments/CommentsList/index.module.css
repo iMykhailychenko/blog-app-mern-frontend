@@ -9,7 +9,7 @@
 }
 
 .text {
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .img {
@@ -74,16 +74,27 @@
     font-size: 1.6rem;
 }
 
-.subList .item {
-    margin: 3rem 0 0 2rem;
-    position: relative;
+.subList {
+    margin-top: 2rem;
 }
+
+.subList .item {
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+.subList .item:hover {
+    background: #efefef;
+}
+
 
 .subList .item::before {
     content: '';
     position: absolute;
     top: 50%;
-    left: -2rem;
+    left: 0;
     transform: translateY(-50%);
     height: 100%;
     width: 0.2rem;
