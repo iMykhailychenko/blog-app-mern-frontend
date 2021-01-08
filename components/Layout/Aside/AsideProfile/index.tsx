@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
 import { IState, IUser } from '../../../../interfaces';
@@ -39,8 +40,15 @@ const COLORS: { [key: string]: string } = {
 };
 
 const AsideProfile = (): ReactElement => {
+    const { query } = useRouter();
+    const dispatch = useDispatch();
+
     const user = useSelector<IState, IUser>(state => state.auth.user);
     const profile = useSelector<IState, IUser>(state => state.profile);
+
+    const handleSubscribe = (): void => {
+        dispatch({ type: types.FOLLOW_USER_START, payload: query.userId });
+    };
 
     return (
         profile && (
@@ -58,26 +66,29 @@ const AsideProfile = (): ReactElement => {
 
                 <div className={css.likes}>
                     <Likes
-                        targetId={user?._id}
-                        dislike={profile?.feedback?.dislike}
-                        like={profile?.feedback?.like}
+                        targetId={profile._id}
+                        dislike={profile.feedback.dislike}
+                        like={profile.feedback.like}
                         typeLike={types.LIKE_PROFILE_START}
                         typeDislike={types.DISLIKE_PROFILE_START}
                     />
                 </div>
 
-                <button className={css.follow} type="button">
-                    Subscribe on updates
-                </button>
-
-                {user?._id === profile._id && (
-                    <Link href={routes.posts.new}>
-                        <a className={css.add}>
-                            <button className="add" type="button" />
-                            <p className={css.text}>Add new post</p>
-                        </a>
-                    </Link>
-                )}
+                {user ? (
+                    user?._id === profile._id ? (
+                        <Link href={routes.posts.new}>
+                            <a className={css.add}>
+                                <button className="add" type="button" />
+                                <p className={clsx(css.text, css.addText)}>Add new post</p>
+                            </a>
+                        </Link>
+                    ) : (
+                        <button className={css.add} type="button" onClick={handleSubscribe}>
+                            <div className="add" />
+                            <p className={clsx(css.text, css.addText)}>Subscribe</p>
+                        </button>
+                    )
+                ) : null}
             </div>
         )
     );

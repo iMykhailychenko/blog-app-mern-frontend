@@ -5,8 +5,10 @@ import config from '../../../../../assets/config';
 import { formatDate } from '../../../../../assets/helpers';
 import { ICommentList, IState } from '../../../../../interfaces';
 import types from '../../../../../redux/types';
+import { modal } from '../../../../Common/Modal';
 import User from '../../../../Common/User';
 import CommentForm from '../CommentForm';
+import Photo from '../Modals/Photo';
 import CommentButton from './CommentButton';
 import css from './index.module.css';
 
@@ -16,6 +18,10 @@ const CommentsList = (): ReactElement => {
 
     const handleSubmit = (comment: string) => (value: { id: string | string[]; form: FormData }): void => {
         dispatch({ type: types.POST_ANSWER_START, payload: { ...value, comment } });
+    };
+
+    const handleModal = (src: string): (() => void) => (): void => {
+        modal.open(<Photo src={src} />);
     };
 
     return (
@@ -30,7 +36,11 @@ const CommentsList = (): ReactElement => {
                         <p className={css.text}>{comment.text}</p>
 
                         {comment.attachment && (
-                            <button className={css.imgBtn}>
+                            <button
+                                className={css.imgBtn}
+                                type="button"
+                                onClick={handleModal(config.img + comment.attachment)}
+                            >
                                 <img className={css.img} src={config.img + comment.attachment} alt="" />
                             </button>
                         )}
@@ -51,7 +61,11 @@ const CommentsList = (): ReactElement => {
                                         <p className={css.text}>{answer.text}</p>
 
                                         {answer.attachment && (
-                                            <button className={css.imgBtn}>
+                                            <button
+                                                className={css.imgBtn}
+                                                type="button"
+                                                onClick={handleModal(config.img + answer.attachment)}
+                                            >
                                                 <img className={css.img} src={config.img + answer.attachment} alt="" />
                                             </button>
                                         )}

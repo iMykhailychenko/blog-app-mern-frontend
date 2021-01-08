@@ -1,0 +1,23 @@
+.inner {
+    position: relative;
+    width: auto;
+    height: auto;
+    background: #fff;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+}

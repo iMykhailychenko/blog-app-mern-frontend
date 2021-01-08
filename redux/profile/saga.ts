@@ -20,7 +20,10 @@ export interface IAction {
         | typeof types.LIKE_PROFILE_ERROR
         | typeof types.DISLIKE_PROFILE_START
         | typeof types.DISLIKE_PROFILE_SUCCESS
-        | typeof types.DISLIKE_PROFILE_ERROR;
+        | typeof types.DISLIKE_PROFILE_ERROR
+        | typeof types.FOLLOW_USER_START
+        | typeof types.FOLLOW_USER_SUCCESS
+        | typeof types.FOLLOW_USER_ERROR;
     payload: IUser | IState | string | null | IFeedback;
 }
 
@@ -57,10 +60,22 @@ function* dislikeProfile({ payload }: IAction) {
     }
 }
 
+function* putFollowers({ payload }: IAction) {
+    try {
+        const { status, data } = yield call(api.profile.putFollowers, payload as string);
+        if (status < 200 || status >= 300) throw new Error();
+        yield put({ type: types.FOLLOW_USER_SUCCESS, payload: data });
+    } catch (error) {
+        yield put({ type: types.FOLLOW_USER_ERROR });
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+    }
+}
+
 export default function* profile(): Generator {
     yield all([
         yield takeLatest(types.GET_PROFILE_START, getProfile),
         yield takeLatest(types.LIKE_PROFILE_START, likeProfile),
         yield takeLatest(types.DISLIKE_PROFILE_START, dislikeProfile),
+        yield takeLatest(types.FOLLOW_USER_START, putFollowers),
     ]);
 }

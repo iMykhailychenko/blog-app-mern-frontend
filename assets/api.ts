@@ -13,6 +13,7 @@ interface IAnswer {
 
 const api = {
     profile: {
+        putFollowers: (id: string): Promise<AxiosResponse<[IUser]>> => axios.put(`/users/followers/${id}`),
         getProfile: (id: string): Promise<AxiosResponse<[IUser]>> => axios.get(`/users/profile/${id}`),
         like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/users`),
         dislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/users`),

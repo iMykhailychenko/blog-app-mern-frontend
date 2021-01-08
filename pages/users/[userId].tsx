@@ -25,6 +25,32 @@ const UserProfile = (): ReactElement => {
             </Aside>
 
             <div className={css.content}>
+                <img
+                    className={css.banner}
+                    src="https://images.unsplash.com/photo-1610053012491-24cf866090c5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2301&q=80"
+                    alt=""
+                />
+                <h2 className={css.title}>Profile info</h2>
+                <div className={css.flex}>
+                    <div className={css.inner}>
+                        <h3 className={css.subtitle}>Followers:</h3>
+                    </div>
+                    <div className={css.inner}>
+                        <h3 className={css.subtitle}>Following:</h3>
+                    </div>
+                </div>
+                <div className={css.flex}>
+                    <div className={css.inner}>
+                        <h3 className={css.subtitle}>Short description:</h3>
+                        <p>
+                            Для того чтобы начать непосредственное предоставление файлов, необходимо передать имя
+                            каталога, в котором находятся статические ресурсы, в функцию промежуточной обработки
+                            express.static. Например, воспользуйтесь приведенным ниже кодом для предоставления
+                            изображений, файлов CSS и JavaScript, расположенных в каталоге public
+                        </p>
+                    </div>
+                </div>
+
                 <h2 className={css.title}>{`${profile?.name} ${profile?.surname}'s posts`}</h2>
                 {posts.loading ? <PostsLoader /> : <Posts content={posts.data?.posts} author wide />}
                 <LoadMore />

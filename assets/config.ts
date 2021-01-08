@@ -1,6 +1,6 @@
 const config = {
-    img: 'http://localhost:7000/',
     postPerPage: 15,
+    img: process.env.NODE_ENV === 'production' ? 'https://ihor-blog.herokuapp.com/' : 'http://localhost:7000/',
     api: {
         dev: 'http://localhost:7000/api',
         prod: 'https://ihor-blog.herokuapp.com/api',

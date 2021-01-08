@@ -12,6 +12,29 @@
     background: rgb(250, 250, 250);
 }
 
+.banner {
+    height: 40rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.subtitle {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner {
+    width: 46%;
+    margin-bottom: 6rem;
+    font-size: 1.6rem;
+}
+
 .auth {
     padding: 5rem 15%;
 }
