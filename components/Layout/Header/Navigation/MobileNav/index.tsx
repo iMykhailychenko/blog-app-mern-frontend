@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 
@@ -15,16 +15,7 @@ interface IProps {
 
 const MobileNav = ({ className, onClick }: IProps): ReactElement => {
     const token = useSelector<IState, string | null>(state => state.auth.token);
-    const rootElemRef = React.useRef(document.createElement('div'));
-
-    useEffect(() => {
-        const parentElem = document.querySelector('body');
-        parentElem.appendChild(rootElemRef.current);
-
-        return function removeElement() {
-            rootElemRef.current.remove();
-        };
-    }, []);
+    const body = document.querySelector('body');
 
     return ReactDOM.createPortal(
         <>
@@ -55,7 +46,7 @@ const MobileNav = ({ className, onClick }: IProps): ReactElement => {
                 )}
             </ul>
         </>,
-        rootElemRef.current,
+        body,
     );
 };
 

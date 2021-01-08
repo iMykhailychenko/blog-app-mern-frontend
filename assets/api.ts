@@ -12,7 +12,11 @@ interface IAnswer {
 }
 
 const api = {
-    profile: (id: string): Promise<AxiosResponse<[IUser]>> => axios.get(`/users/profile/${id}`),
+    profile: {
+        getProfile: (id: string): Promise<AxiosResponse<[IUser]>> => axios.get(`/users/profile/${id}`),
+        like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/users`),
+        dislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/users`),
+    },
     auth: {
         login: (body: Body): Promise<AxiosResponse<IUser>> => axios.post('/auth/login', body),
         signup: (body: Body): Promise<AxiosResponse<void>> => axios.post('/auth/register', body),

@@ -19,6 +19,10 @@ export interface IUser {
     _id: string;
     avatar: string | null;
     name: string;
+    feedback: {
+        like: string[];
+        dislike: string[];
+    };
     surname: string;
     email: string;
     nick: string;

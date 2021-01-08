@@ -22,6 +22,8 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
 
     const handleSubmit = (event: FormEvent): void => {
         event.preventDefault();
+        if (!text) return;
+
         const form = new FormData();
         file && form.append('attachment', file);
         form.append('text', text);
@@ -45,12 +47,7 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
 
             {hasAttachment && <AttachedImg file={file} onChange={setFile} />}
 
-            <button
-                className={clsx('btn', !text ? 'btn-gray' : 'btn--blue')}
-                disabled={!text}
-                type="submit"
-                onClick={handleSubmit}
-            >
+            <button className={clsx('btn btn--blue', !text && 'btn--disabled')} type="submit" onClick={handleSubmit}>
                 Comment
             </button>
         </form>

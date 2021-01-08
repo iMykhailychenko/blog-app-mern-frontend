@@ -4,7 +4,8 @@
     left: 0;
     z-index: 7;
     width: 100%;
-    background: rgb(255, 255, 255);
+    background: hsla(0, 0%, 100%, 0.4);
+    backdrop-filter: blur(3px);
     transition: 0.3s ease-in-out;
 }
 
@@ -14,5 +15,6 @@
 }
 
 .scrolled {
-    background: rgba(252, 252, 252, 0.98);
+    background: hsla(0, 0%, 100%, 0.4);
+    backdrop-filter: blur(3px);
 }

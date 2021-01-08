@@ -8,8 +8,8 @@ import { IState, IUser } from '../../../interfaces';
 import css from './index.module.css';
 
 interface IProps {
-    id?: string;
     postId?: string | string[];
+    targetId?: string | string[];
     typeLike?: string;
     typeDislike?: string;
     like: string[];
@@ -17,18 +17,18 @@ interface IProps {
     view?: string[];
 }
 
-const Likes = ({ id, postId, typeLike, typeDislike, like, dislike, view }: IProps): ReactElement => {
+const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const user = useSelector<IState, IUser>(state => state.auth.user);
     const token = useSelector<IState, string | null>(state => state.auth.token);
 
     const handleLike = (): void => {
-        if (!id || !typeLike) return;
-        dispatch({ type: typeLike, payload: id, postId });
+        if (!targetId || !typeLike) return;
+        dispatch({ type: typeLike, payload: targetId, postId });
     };
     const handleDislike = (): void => {
-        if (!id || !typeDislike) return;
-        dispatch({ type: typeDislike, payload: id, postId });
+        if (!targetId || !typeDislike) return;
+        dispatch({ type: typeDislike, payload: targetId, postId });
     };
 
     return (

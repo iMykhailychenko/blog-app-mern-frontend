@@ -24,9 +24,6 @@ const Profile = (): ReactElement => {
 
     return (
         <>
-            {dropdown.profile && <div className={css.backdrop} onClick={handleDrop('profile')} aria-hidden />}
-            {dropdown.news && <div className={css.backdrop} onClick={handleDrop('news')} aria-hidden />}
-
             <div className={css.container}>
                 <Link href={routes.search}>
                     <a className={css.btn}>

@@ -48,6 +48,17 @@
     box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
 }
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: hsla(0, 0%, 100%, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 8;
+}
+
 .mobileMenu {
     display: none;
 }
@@ -57,16 +68,6 @@
     .nav {
         position: relative;
         height: 8rem;
-    }
-
-    .backdrop {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 8;
     }
 
     .list {
@@ -86,7 +87,6 @@
     .link {
         display: block;
         padding: 0;
-        margin: 0;
         margin: 1.4rem 0;
         font-size: 1.4rem;
         line-height: 1.4;

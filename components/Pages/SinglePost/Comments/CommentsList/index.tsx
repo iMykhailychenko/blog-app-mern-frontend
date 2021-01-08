@@ -52,7 +52,7 @@ const CommentsList = (): ReactElement => {
 
                                         {answer.attachment && (
                                             <button className={css.imgBtn}>
-                                                <img className={css.img} src={answer.attachment} alt="" />
+                                                <img className={css.img} src={config.img + answer.attachment} alt="" />
                                             </button>
                                         )}
 

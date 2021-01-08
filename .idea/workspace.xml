@@ -3,7 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/assets/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Likes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Likes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Loader/BigLoader/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Loader/BigLoader/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Loader/BigLoader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Loader/BigLoader/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/User/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/User/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Aside/AsideForm/index.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Aside/AsideForm/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Aside/AsideProfile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/AsideProfile/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Aside/AsideProfile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Aside/AsideProfile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/MobileNav/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Navigation/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/ProfileModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/ProfileModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Layout/Header/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/CommentButton/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/CommentButton/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/forgot_pass/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/forgot_pass/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/login/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/signup/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/signup/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/posts/[postId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[postId].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/posts/edit/[postId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/edit/[postId].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/trial/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/trial/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/posts/single/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/posts/single/saga.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/profile/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/profile/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/profile/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/profile/saga.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/btn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/editor.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/editor.custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +154,8 @@
       <workItem from="1609263093311" duration="11593000" />
       <workItem from="1609317586133" duration="1137000" />
       <workItem from="1609408585912" duration="38231000" />
-      <workItem from="1609782537858" duration="10596000" />
+      <workItem from="1609782537858" duration="10931000" />
+      <workItem from="1610031216941" duration="14958000" />
     </task>
     <servers />
   </component>

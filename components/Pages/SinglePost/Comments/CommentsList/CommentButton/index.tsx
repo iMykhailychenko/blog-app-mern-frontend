@@ -37,7 +37,7 @@ const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => 
         <div className={css.likes}>
             <Likes
                 postId={query.postId}
-                id={comment._id}
+                targetId={comment._id}
                 typeLike={types.POST_COMMENT_LIKE_START}
                 typeDislike={types.POST_COMMENT_DISLIKE_START}
                 like={comment.feedback.like}

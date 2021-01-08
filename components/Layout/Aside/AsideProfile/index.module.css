@@ -1,33 +1,48 @@
-.img {
-    height: 18rem;
-    width: 18rem;
-    margin: 0 auto 3rem;
-    border-radius: 50%;
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    width: 10rem;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    font-size: 5rem;
+    font-weight: 800;
+    background: #eee;
     object-fit: cover;
-}
-
-.name,
-.nick {
-    font-size: 1.4rem;
-    text-align: center;
-}
-
-.nick {
-    color: #3273dc;
-}
-
-.name:hover,
-.nick:hover {
-    text-decoration: underline;
+    pointer-events: none;
 }
 
 .text {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    font-size: 1.6rem;
     text-align: center;
 }
 
-.text:nth-last-of-type(1) {
-    margin-top: 1rem;
+.email {
+    color: #999;
     font-size: 1.4rem;
+}
+
+.likes {
+    display: flex;
+    justify-content: center;
+    margin-left: 1.6rem;
+    margin-top: 1rem;
+}
+
+.follow {
+    display: block;
+    width: 80%;
+    margin: 1rem auto 0;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.add {
+    display: block;
+    margin-top: 2rem;
 }

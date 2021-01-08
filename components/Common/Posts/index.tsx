@@ -78,7 +78,7 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
 
                     <div className={css.likes}>
                         <Likes
-                            id={item._id}
+                            targetId={item._id}
                             typeLike={types.LIKE_POPULAR_POSTS_START}
                             typeDislike={types.DISLIKE_POPULAR_POSTS_START}
                             like={item.feedback.like}

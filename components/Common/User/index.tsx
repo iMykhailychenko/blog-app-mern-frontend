@@ -12,20 +12,20 @@ interface IProps {
 
 const User = ({ user }: IProps): ReactElement | null =>
     user ? (
-        <div className={css.user}>
-            <UserAvatar
-                width={5}
-                height={5}
-                avatar={user.avatar}
-                name={(user.name[0] + user.surname[0]).toUpperCase()}
-            />
-            <Link href={routes.users[0](user._id)}>
-                <a className={css.userInfo}>
+        <Link href={routes.users[0](user._id)}>
+            <a className={css.user}>
+                <UserAvatar
+                    width={5}
+                    height={5}
+                    avatar={user.avatar}
+                    name={(user.name[0] + user.surname[0]).toUpperCase()}
+                />
+                <div className={css.userInfo}>
                     <p className={css.name}>{user.name + ' ' + user.surname}</p>
                     <p className={css.nick}>{`@${user?.nick}`}</p>
-                </a>
-            </Link>
-        </div>
+                </div>
+            </a>
+        </Link>
     ) : null;
 
 export default User;

@@ -12,6 +12,10 @@
     border-radius: 1rem;
 }
 
+.ql-snow .ql-editor pre.ql-syntax {
+    padding: 2rem;
+}
+
 .ql-snow .ql-editor a {
     padding: 0.2rem 0.3rem;
     border-radius: 1rem;

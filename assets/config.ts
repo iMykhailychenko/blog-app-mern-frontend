@@ -1,5 +1,5 @@
 const config = {
-    img: '/',
+    img: 'http://localhost:7000/',
     postPerPage: 15,
     api: {
         dev: 'http://localhost:7000/api',

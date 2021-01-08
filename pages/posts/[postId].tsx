@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
@@ -18,8 +19,19 @@ import types from '../../redux/types';
 import css from './index.module.css';
 
 const SinglePost = (): ReactElement => {
+    const router = useRouter();
+    const dispatch = useDispatch();
+
     const user = useSelector<IState, IUser>(state => state.auth.user);
     const post = useSelector<IState, IPost>(state => state.posts.single.data);
+
+    const handleDelete = (): void => {
+        dispatch({
+            type: types.DELETE_POST_START,
+            payload: post._id,
+        });
+        router.replace(routes.home);
+    };
 
     return (
         <>
@@ -33,11 +45,10 @@ const SinglePost = (): ReactElement => {
                                     <Link href={routes.posts.edit[0](post._id)}>
                                         <a className={css.manage}>Edit post</a>
                                     </Link>
-                                    <button className={css.manage} type="button">
+                                    <button className={css.manage} type="button" onClick={handleDelete}>
                                         Delete post
                                     </button>
                                 </div>
-                                <hr className={css.subtext} />
                             </>
                         )}
 
@@ -51,7 +62,7 @@ const SinglePost = (): ReactElement => {
                                 <p className={css.subtext}>User feedbacks:</p>
                                 <div className={css.likes}>
                                     <Likes
-                                        id={post._id}
+                                        targetId={post._id}
                                         typeLike={types.LIKE_POST_START}
                                         typeDislike={types.DISLIKE_POST_START}
                                         like={post.feedback.like}
@@ -93,7 +104,7 @@ const SinglePost = (): ReactElement => {
                         <p className={css.subtext}>User feedbacks:</p>
                         <div className={css.likes}>
                             <Likes
-                                id={post._id}
+                                targetId={post._id}
                                 typeLike={types.LIKE_POST_START}
                                 typeDislike={types.DISLIKE_POST_START}
                                 like={post.feedback.like}

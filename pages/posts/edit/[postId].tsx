@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext } from 'next';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import React, { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
@@ -37,32 +37,45 @@ const EditPost = (): ReactElement => {
         });
     }, [dispatch]);
 
-    return (
-        <>
-            <AuthRedirect />
-            <Meta
-                title={`Edit post: ${post.title}`}
-                description={post.desc}
-                keywords={post.tags.join(' ')}
-                icon={post.banner}
-            />
-            <div className={css.container}>
-                <div className={css.content}>
-                    {/*elements*/}
-                    <Socials />
-                    <DateText />
-                    <Title />
-                    <Tags />
-                    {post?.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
-                    <Desc />
-                    <ContentEditor />
-                    <Socials />
+    useEffect(() => {
+        const handleReset = () => {
+            dispatch({ type: types.RESET_POST_FORM });
+        };
+        Router.events.on('routeChangeStart', handleReset);
 
-                    {/*submit*/}
-                    <EditButtons />
+        return () => {
+            Router.events.off('routeChangeStart', handleReset);
+        };
+    }, [dispatch]);
+
+    return (
+        post && (
+            <>
+                <AuthRedirect />
+                <Meta
+                    title={`Edit post: ${post.title}`}
+                    description={post.desc}
+                    keywords={post.tags.join(' ')}
+                    icon={post.banner}
+                />
+                <div className={css.container}>
+                    <div className={css.content}>
+                        {/*elements*/}
+                        <Socials />
+                        <DateText />
+                        <Title />
+                        <Tags />
+                        {post?.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
+                        <Desc />
+                        <ContentEditor />
+                        <Socials />
+
+                        {/*submit*/}
+                        <EditButtons />
+                    </div>
                 </div>
-            </div>
-        </>
+            </>
+        )
     );
 };
 
