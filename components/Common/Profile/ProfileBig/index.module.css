@@ -1,0 +1,27 @@
+.user {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.userInfo {
+    display: block;
+    margin-left: 1rem;
+}
+
+.nick,
+.name {
+    width: 12rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nick {
+    color: #3273dc;
+}
+
+.name:hover,
+.nick:hover {
+    text-decoration: underline;
+}

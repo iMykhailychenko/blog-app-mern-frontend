@@ -11,6 +11,7 @@ import { formatDate, getUserId } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
+import ProfileBig from '../../components/Common/Profile/ProfileBig';
 import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
 import { IPost, IState, IStore, IUser } from '../../interfaces';
@@ -39,7 +40,7 @@ const SinglePost = (): ReactElement => {
             {post && (
                 <div className={css.container}>
                     <div className={css.content}>
-                        {user?._id === post?.user && (
+                        {user?._id === post?.user?._id && (
                             <>
                                 <div className={css.subtext}>
                                     <Link href={routes.posts.edit[0](post._id)}>
@@ -96,6 +97,24 @@ const SinglePost = (): ReactElement => {
                             </div>
                         </div>
 
+                        <div className={css.subtext}>
+                            <h4 className={css.author}>Post author:</h4>
+                            <ProfileBig user={post?.user} />
+                        </div>
+
+                        {user?._id === post?.user?._id && (
+                            <>
+                                <div className={css.subtext}>
+                                    <Link href={routes.posts.edit[0](post._id)}>
+                                        <a className={css.manage}>Edit post</a>
+                                    </Link>
+                                    <button className={css.manage} type="button" onClick={handleDelete}>
+                                        Delete post
+                                    </button>
+                                </div>
+                            </>
+                        )}
+
                         <p className={css.subtext}>Share this post in social media:</p>
                         <div className={css.likes}>
                             <Socials title={post.title} />
@@ -112,6 +131,7 @@ const SinglePost = (): ReactElement => {
                                 view={post.feedback.view}
                             />
                         </div>
+
                         <Comments />
                     </div>
                 </div>

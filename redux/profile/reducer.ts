@@ -17,7 +17,7 @@ const profile = (state: IUser = null, action: IAction): IUser => {
             return null;
 
         case types.GET_PROFILE_SUCCESS:
-            return action.payload as IUser;
+            return action.payload[0] as IUser;
 
         default:
             return state;

@@ -19,6 +19,7 @@ export interface IUser {
     _id: string;
     avatar: string | null;
     name: string;
+    desc?: null;
     feedback: {
         like: string[];
         dislike: string[];
@@ -26,6 +27,8 @@ export interface IUser {
     surname: string;
     email: string;
     nick: string;
+    followers?: IUser[];
+    following?: IUser[];
 }
 
 export interface IAuth {
@@ -50,7 +53,7 @@ export interface IPost {
     title: string;
     desc: string;
     content: string;
-    user: string;
+    user: IUser;
     date: string;
     author: [IUser];
 }

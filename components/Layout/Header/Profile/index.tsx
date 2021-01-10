@@ -45,8 +45,7 @@ const Profile = (): ReactElement => {
 
                 <button className={css.wrp} type="button" onClick={handleDrop('profile')}>
                     {user && <UserAvatar avatar={user.avatar} name={(user.name[0] + user.surname[0]).toUpperCase()} />}
-
-                    <FontAwesomeIcon icon={faChevronDown} />
+                    <FontAwesomeIcon className={css.icon} icon={faChevronDown} />
                 </button>
 
                 {dropdown.profile && <ProfileModal onClick={handleDrop('profile')} />}

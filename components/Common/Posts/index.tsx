@@ -13,7 +13,7 @@ import routes from '../../../assets/routes';
 import { IPost, IState, IUser } from '../../../interfaces';
 import types from '../../../redux/types';
 import Likes from '../Likes';
-import User from '../User';
+import ProfileBig from '../Profile/ProfileBig';
 import css from './index.module.css';
 
 interface IProps {
@@ -98,7 +98,7 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
                     )}
 
                     <div className={css.inner}>
-                        <User user={author ? profile : item?.author?.[0]} />
+                        <ProfileBig user={author ? profile : item?.author?.[0]} />
                     </div>
 
                     {token && (author ? profile?._id : item?.author?.[0]?._id) === user._id && (

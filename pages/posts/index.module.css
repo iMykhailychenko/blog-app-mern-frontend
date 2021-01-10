@@ -8,6 +8,11 @@
     padding: 8rem 0;
 }
 
+.author {
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
 .subtext,
 .likes,
 .likesHead,

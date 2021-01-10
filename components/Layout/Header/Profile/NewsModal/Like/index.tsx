@@ -20,7 +20,7 @@ const Like = (): ReactElement => (
         </div>
 
         <div className={styles.wrp}>
-            {/* <Link className={styles.user} to={routes.User.path[0](user.id)}>
+            {/* <Link className={styles.user} to={routes.ProfileBig.path[0](user.id)}>
                 {user.name}
             </Link>
             <span>{text[target]}</span>

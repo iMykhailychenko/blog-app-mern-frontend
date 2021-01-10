@@ -7,7 +7,7 @@ import { formatDate } from '../../../../../../assets/helpers';
 import { IComment } from '../../../../../../interfaces';
 import types from '../../../../../../redux/types';
 import { modal } from '../../../../../Common/Modal';
-import User from '../../../../../Common/User';
+import ProfileBig from '../../../../../Common/Profile/ProfileBig';
 import CommentForm from '../../CommentForm';
 import css from '../index.module.css';
 
@@ -29,7 +29,7 @@ const Answer = ({ comment }: IProps): ReactElement => {
                 <FontAwesomeIcon icon={faTimes} />
             </button>
 
-            <User user={comment.author[0]} />
+            <ProfileBig user={comment.author[0]} />
 
             <p className={css.text}>{comment.text}</p>
 

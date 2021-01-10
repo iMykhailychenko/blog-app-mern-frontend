@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { IComment } from '../../../../../../interfaces';
 import types from '../../../../../../redux/types';
 import { modal } from '../../../../../Common/Modal';
-import User from '../../../../../Common/User';
+import ProfileBig from '../../../../../Common/Profile/ProfileBig';
 import CommentForm from '../../CommentForm';
 import css from '../index.module.css';
 
@@ -28,7 +28,7 @@ const Edit = ({ comment }: IProps): ReactElement => {
                 <FontAwesomeIcon icon={faTimes} />
             </button>
 
-            <User user={comment.author[0]} />
+            <ProfileBig user={comment.author[0]} />
 
             <div className={css.divider} />
 

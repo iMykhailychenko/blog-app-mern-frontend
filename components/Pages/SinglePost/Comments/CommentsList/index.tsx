@@ -6,7 +6,7 @@ import { formatDate } from '../../../../../assets/helpers';
 import { ICommentList, IState } from '../../../../../interfaces';
 import types from '../../../../../redux/types';
 import { modal } from '../../../../Common/Modal';
-import User from '../../../../Common/User';
+import ProfileBig from '../../../../Common/Profile/ProfileBig';
 import CommentForm from '../CommentForm';
 import Photo from '../Modals/Photo';
 import CommentButton from './CommentButton';
@@ -31,7 +31,7 @@ const CommentsList = (): ReactElement => {
             <ul className={css.list}>
                 {comments?.data?.comments?.map(comment => (
                     <li className={css.item} key={comment._id}>
-                        <User user={comment.author[0]} />
+                        <ProfileBig user={comment.author[0]} />
 
                         <p className={css.text}>{comment.text}</p>
 
@@ -56,7 +56,7 @@ const CommentsList = (): ReactElement => {
                             <ul className={css.subList}>
                                 {comment.answers.map(answer => (
                                     <li className={css.item} key={answer._id}>
-                                        <User user={answer.author[0]} />
+                                        <ProfileBig user={answer.author[0]} />
 
                                         <p className={css.text}>{answer.text}</p>
 

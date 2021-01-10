@@ -1,0 +1,19 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.userInfo {
+    display: block;
+    margin: 1rem 0;
+}
+
+.name {
+    width: 5.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

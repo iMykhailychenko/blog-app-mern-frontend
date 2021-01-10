@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
-import routes from '../../../assets/routes';
-import { IUser } from '../../../interfaces';
-import UserAvatar from '../UserAvatar';
+import routes from '../../../../assets/routes';
+import { IUser } from '../../../../interfaces';
+import UserAvatar from '../../UserAvatar';
 import css from './index.module.css';
 
 interface IProps {
     user: IUser;
 }
 
-const User = ({ user }: IProps): ReactElement | null =>
+const ProfileBig = ({ user }: IProps): ReactElement | null =>
     user ? (
         <Link href={routes.users[0](user._id)}>
             <a className={css.user}>
@@ -28,4 +28,4 @@ const User = ({ user }: IProps): ReactElement | null =>
         </Link>
     ) : null;
 
-export default User;
+export default ProfileBig;

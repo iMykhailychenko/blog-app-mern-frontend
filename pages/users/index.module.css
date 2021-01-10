@@ -26,12 +26,41 @@
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.profiles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.empty {
+    display: flex;
+    width: 100%;
+    padding: 2rem;
+    background: #eee;
+    border-radius: 1rem;
+}
+
+.btn {
+    height: 5rem;
+    width: 5rem;
+    margin-left: 0.4rem;
+    border-radius: 1rem;
+    background: #eee;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
 }
 
 .inner {
     width: 46%;
-    margin-bottom: 6rem;
     font-size: 1.6rem;
 }
 
@@ -48,6 +77,15 @@
 @media (max-width: 1200px) {
     .auth {
         padding: 5rem 10%;
+    }
+
+    .flex {
+        margin: 0;
+    }
+
+    .inner {
+        width: 100%;
+        margin-bottom: 4rem;
     }
 }
 
