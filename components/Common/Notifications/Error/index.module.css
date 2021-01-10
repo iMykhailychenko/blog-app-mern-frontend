@@ -20,6 +20,11 @@
     font-size: 1.6rem;
 }
 
+.close:hover,
+.close:focus {
+    box-shadow: none;
+}
+
 .modal h4 {
     font-size: 2rem;
     font-weight: 600;

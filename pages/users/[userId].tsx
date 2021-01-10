@@ -1,11 +1,14 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
+import config from '../../assets/config';
+import routes from '../../assets/routes';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import { modal } from '../../components/Common/Modal';
@@ -19,9 +22,12 @@ import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
 
+const img = '/img/user/banner.jpg';
+
 const UserProfile = (): ReactElement => {
-    const posts = useSelector<IState, IPostList>(state => state.posts.list);
+    const user = useSelector<IState, IUser>(state => state.auth.user);
     const profile = useSelector<IState, IUser>(state => state.profile);
+    const posts = useSelector<IState, IPostList>(state => state.posts.list);
 
     const handleFollowersModal = (): void => {
         modal.open(<FollowersModal type="followers" />);
@@ -39,12 +45,20 @@ const UserProfile = (): ReactElement => {
                 </Aside>
 
                 <div className={css.content}>
-                    <img
-                        className={css.banner}
-                        src="https://images.unsplash.com/photo-1610053012491-24cf866090c5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2301&q=80"
-                        alt=""
-                    />
-                    <h2 className={css.title}>Profile info</h2>
+                    <img className={css.banner} src={profile?.banner ? config.img + profile.banner : img} alt="" />
+
+                    <div className={css.flex}>
+                        <h2 className={css.title}>Profile info</h2>
+
+                        {profile?._id === user?._id && (
+                            <Link href={routes.settings[0](profile?._id)}>
+                                <a className={css.link}>
+                                    <FontAwesomeIcon icon={faEdit} /> Edit your profile
+                                </a>
+                            </Link>
+                        )}
+                    </div>
+
                     <div className={css.flex}>
                         <div className={css.inner}>
                             <h3 className={css.subtitle}>Followers:</h3>
@@ -64,13 +78,13 @@ const UserProfile = (): ReactElement => {
                                         <span role="img" aria-label="img">
                                             🙈
                                         </span>{' '}
-                                        There is no followers
+                                        <span>There is no followers</span>
                                     </p>
                                 )}
                             </div>
                         </div>
                         <div className={css.inner}>
-                            <h3 className={css.subtitle}>{`${profile?.name} follows:`}</h3>
+                            <h3 className={css.subtitle}>{`${profile?.name}'s follows:`}</h3>
 
                             <div className={css.profiles}>
                                 {profile?.following?.length ? (
@@ -87,7 +101,7 @@ const UserProfile = (): ReactElement => {
                                         <span role="img" aria-label="img">
                                             🙈
                                         </span>{' '}
-                                        There is no following profile here
+                                        <span>There is no following profile here</span>
                                     </p>
                                 )}
                             </div>
@@ -103,15 +117,21 @@ const UserProfile = (): ReactElement => {
                                     <span role="img" aria-label="img">
                                         🙈
                                     </span>{' '}
-                                    There is empty profile description
+                                    <span>There is empty profile description</span>
                                 </p>
                             )}
                         </div>
                     </div>
 
-                    <h2 className={css.title}>{`${profile?.name} ${profile?.surname}'s posts`}</h2>
-                    {posts.loading ? <PostsLoader /> : <Posts content={posts.data?.posts} author wide />}
-                    <LoadMore />
+                    {posts.data?.posts?.length ? (
+                        <>
+                            <h2 className={css.postTitle}>{`${profile?.name} ${profile?.surname}'s posts`}</h2>
+                            {posts.loading ? <PostsLoader /> : <Posts content={posts.data?.posts} author wide />}
+                            <LoadMore />
+                        </>
+                    ) : (
+                        <h2 className={css.empty}>{`${profile?.name} ${profile?.surname} dont have posts yet`}</h2>
+                    )}
                 </div>
             </main>
         )

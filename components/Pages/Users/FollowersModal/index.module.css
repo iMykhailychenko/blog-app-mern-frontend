@@ -1,7 +1,7 @@
 .modal {
     position: relative;
     width: 90%;
-    max-width: 120rem;
+    max-width: 90rem;
     max-height: 95vh;
     padding: 3rem 0;
     border-radius: 1rem;
@@ -21,39 +21,70 @@
     font-size: 1.6rem;
 }
 
+.close:hover,
+.close:focus {
+    box-shadow: none;
+}
+
 .list {
     margin-left: 3rem;
+    margin-bottom: 3rem;
+    padding: 0.3rem;
     overflow: auto;
-    height: 100%;
+    height: calc(100% - 9.2rem);
 }
 
 .scroll {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 2rem;
+    display: flex;
+    grid-gap: 3rem;
+    flex-wrap: wrap;
+    padding-bottom: 3rem;
     text-align: left;
 }
 
-@media (max-width: 1300px) {
-    .scroll {
-        grid-template-columns: repeat(4, 1fr);
-    }
+/*search*/
+.search {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem 0 4rem;
+}
+.wrp {
+    position: relative;
+    max-width: 60rem;
+    width: 100%;
 }
 
-@media (max-width: 1000px) {
-    .scroll {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.input {
+    width: 100%;
+    margin-right: 1rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    border: none;
+    background: #eee;
 }
 
-@media (max-width: 760px) {
-    .scroll {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.reset {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95%;
+    padding: 0 2rem;
+    font-size: 1rem;
+    background: none;
+    border: none;
 }
 
-@media (max-width: 490px) {
-    .scroll {
-        grid-template-columns: 1fr;
-    }
+.btn {
+    height: 100%;
+    padding: 1.4rem 3rem;
+    margin-left: 1rem;
+    border-radius: 1rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
 }

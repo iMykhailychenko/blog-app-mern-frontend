@@ -68,6 +68,22 @@ a {
     color: inherit;
 }
 
+button,
+input,
+textarea {
+    border-radius: 1rem;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover,
+button:focus,
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
+}
+
 @media (max-width: 400px) {
     html {
         font-size: 9px;

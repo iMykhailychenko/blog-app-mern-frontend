@@ -20,6 +20,11 @@
     font-size: 1.6rem;
 }
 
+.close:hover,
+.close:focus {
+    box-shadow: none;
+}
+
 .modal svg {
     display: block;
     width: 6rem;

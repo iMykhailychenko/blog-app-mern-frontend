@@ -46,13 +46,18 @@
     outline: none;
 }
 
+.managementBtn:hover,
+.managementBtn:focus {
+    box-shadow: unset;
+}
+
 .managementInner {
     position: absolute;
     bottom: 90%;
     right: 1rem;
     display: none;
     flex-direction: column;
-    min-width: 15rem;
+    min-width: 25rem;
     padding: 1rem;
     background: #fff;
     border-radius: 1rem;
@@ -61,6 +66,7 @@
 
 .managementInner button,
 .managementInner a {
+    margin: 0.3rem 0;
     padding: 1rem;
     font-size: 1.2rem;
     text-align: left;
@@ -70,8 +76,11 @@
 }
 
 .managementInner button:hover,
-.managementInner a:hover {
+.managementInner a:hover,
+.managementInner button:focus,
+.managementInner a:focus {
     background: #eee;
+    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
 }
 
 .management:hover .managementInner {

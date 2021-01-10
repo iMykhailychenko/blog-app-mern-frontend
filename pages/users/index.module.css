@@ -6,16 +6,34 @@
     margin-top: 1rem;
 }
 
+.banner {
+    height: 40rem;
+    width: 100%;
+    margin-bottom: 6rem;
+    border-radius: 1rem;
+}
+
+.postTitle {
+    margin-bottom: 5rem;
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.title {
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.link {
+    display: block;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
 .content {
     width: 100%;
     padding: 5rem;
     background: rgb(250, 250, 250);
-}
-
-.banner {
-    height: 40rem;
-    width: 100%;
-    border-radius: 1rem;
 }
 
 .subtitle {
@@ -54,11 +72,6 @@
     transition: 0.3s ease-in-out;
 }
 
-.btn:hover,
-.btn:focus {
-    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
-}
-
 .inner {
     width: 46%;
     font-size: 1.6rem;
@@ -66,12 +79,6 @@
 
 .auth {
     padding: 5rem 15%;
-}
-
-.title {
-    margin: 2rem 0 4rem;
-    font-size: 4rem;
-    line-height: 1;
 }
 
 @media (max-width: 1200px) {

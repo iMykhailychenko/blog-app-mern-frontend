@@ -3,10 +3,10 @@ type IDynamic = [(id: string) => string, string];
 const routes = {
     home: '/',
     trial: '/trial',
-    settings: '/settings',
     about: '/about',
     question: '/question',
     search: '/search',
+    settings: [(id: string): string => `/settings/${id}`, '/settings/:id'] as IDynamic,
     users: [(id: string): string => `/users/${id}`, '/users/:id'] as IDynamic,
 
     posts: {

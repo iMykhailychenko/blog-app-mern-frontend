@@ -54,7 +54,7 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
                 <Link href={routes.posts.new}>
                     <a className={styles.link}>New post</a>
                 </Link>
-                <Link href={routes.settings}>
+                <Link href={routes.settings[0](user?._id)}>
                     <a className={styles.link}>Settings</a>
                 </Link>
                 <button className={styles.link} type="button" onClick={handleLogout}>

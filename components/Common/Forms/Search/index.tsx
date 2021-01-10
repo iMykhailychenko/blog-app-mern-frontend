@@ -1,3 +1,5 @@
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React, { ChangeEvent, FormEvent, ReactElement } from 'react';
 
@@ -33,7 +35,9 @@ const SearchForm = ({ value, onChange, onSubmit }: IProps): ReactElement => {
                             className={css.input}
                             placeholder="Start typing"
                         />
-                        <input type="reset" className={css.reset} value="&#10005;" />
+                        <button type="reset" className={css.reset}>
+                            <FontAwesomeIcon icon={faTimes} />
+                        </button>
                     </div>
                 </label>
                 <button type="submit" className={clsx('btn btn--blue', css.submit)}>

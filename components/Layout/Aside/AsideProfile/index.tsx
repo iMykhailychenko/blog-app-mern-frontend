@@ -1,3 +1,5 @@
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -76,10 +78,12 @@ const AsideProfile = (): ReactElement => {
 
                 {user ? (
                     user?._id === profile._id ? (
-                        <Link href={routes.posts.new}>
+                        <Link href={routes.settings[0](user?._id)}>
                             <a className={css.add}>
-                                <button className="add" type="button" />
-                                <p className={clsx(css.text, css.addText)}>Add new post</p>
+                                <button className={css.addBtn} type="button">
+                                    <FontAwesomeIcon icon={faPen} />
+                                </button>
+                                <p className={clsx(css.text, css.addText)}>Edit profile</p>
                             </a>
                         </Link>
                     ) : (

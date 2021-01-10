@@ -1,4 +1,4 @@
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
@@ -20,6 +20,18 @@ const FollowersModal = ({ type = 'followers' }: IProps): ReactElement => {
             <button className={css.close} type="button" onClick={modal.close}>
                 <FontAwesomeIcon icon={faTimes} />
             </button>
+
+            <form action="#" method="post" className={css.search}>
+                <div className={css.wrp}>
+                    <input type="text" className={css.input} />
+                    <button type="reset" className={css.reset}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                </div>
+                <button type="submit" className={css.btn}>
+                    <FontAwesomeIcon icon={faSearch} />
+                </button>
+            </form>
 
             <div className={css.list}>
                 <div className={css.scroll}>

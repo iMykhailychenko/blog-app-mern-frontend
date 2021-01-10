@@ -41,3 +41,21 @@
     background: none;
     border: none;
 }
+
+.addBtn {
+    display: block;
+    height: 5rem;
+    width: 5rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: #000;
+    color: #fff;
+    font-size: 1.6rem;
+    transition: 0.2s ease-in-out;
+}
+.addBtn:hover,
+.addBtn:focus {
+    box-shadow: 0 0 0 0.4rem rgba(31, 31, 31, 0.3);
+}
