@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b044d64-d518-4f42-a4b4-7b95faa5e35e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Common/Profile/ProfileSmall/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Common/Profile/ProfileSmall/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/Users/FollowersModal/index.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Pages/Users/FollowersModal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Notifications/Confirm/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Notifications/Confirm/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Notifications/Error/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Notifications/Error/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Notifications/Success/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Notifications/Success/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/Posts/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Posts/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/User/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Profile/ProfileBig/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/User/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Profile/ProfileBig/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Common/UserAvatar/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/UserAvatar/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Comment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Comment/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Like/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/NewsModal/Like/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Layout/Header/Profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/CommentsList/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/Modals/Answer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/Modals/Answer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/Modals/Edit/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/SinglePost/Comments/Modals/Edit/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/[postId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/[postId].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/posts/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/posts/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Profile/ProfileBig/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Profile/ProfileBig/index.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Common/Profile/ProfileBig/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Common/Profile/ProfileBig/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/Users/FollowersModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pages/Users/FollowersModal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/users/[userId].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/users/[userId].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/users/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/users/index.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/profile/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/profile/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redux/profile/saga.ts" beforeDir="false" afterPath="$PROJECT_DIR$/redux/profile/saga.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +123,7 @@
       <workItem from="1609317586133" duration="1137000" />
       <workItem from="1609408585912" duration="38231000" />
       <workItem from="1609782537858" duration="10931000" />
-      <workItem from="1610031216941" duration="32798000" />
+      <workItem from="1610031216941" duration="33815000" />
     </task>
     <servers />
   </component>

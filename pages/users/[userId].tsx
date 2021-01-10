@@ -23,8 +23,12 @@ const UserProfile = (): ReactElement => {
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
     const profile = useSelector<IState, IUser>(state => state.profile);
 
-    const handleModal = (): void => {
-        modal.open(<FollowersModal />);
+    const handleFollowersModal = (): void => {
+        modal.open(<FollowersModal type="followers" />);
+    };
+
+    const handleFollowingModal = (): void => {
+        modal.open(<FollowersModal type="following" />);
     };
 
     return (
@@ -51,7 +55,7 @@ const UserProfile = (): ReactElement => {
                                         {profile?.followers?.map(followers => (
                                             <ProfileSmall key={followers._id} user={followers} />
                                         ))}
-                                        <button className={css.btn} type="button" onClick={handleModal}>
+                                        <button className={css.btn} type="button" onClick={handleFollowersModal}>
                                             <FontAwesomeIcon icon={faSearch} />
                                         </button>
                                     </>
@@ -74,7 +78,7 @@ const UserProfile = (): ReactElement => {
                                         {profile?.following?.map(following => (
                                             <ProfileSmall key={following._id} user={following} />
                                         ))}
-                                        <button className={css.btn} type="button" onClick={handleModal}>
+                                        <button className={css.btn} type="button" onClick={handleFollowingModal}>
                                             <FontAwesomeIcon icon={faSearch} />
                                         </button>
                                     </>

@@ -24,7 +24,7 @@ const FollowersModal = ({ type = 'followers' }: IProps): ReactElement => {
             <div className={css.list}>
                 <div className={css.scroll}>
                     {profile?.[type]?.length
-                        ? profile?.[type]?.map(item => <ProfileBig key={item._id} user={item} />)
+                        ? profile?.[type]?.map(item => <ProfileBig width={12} key={item._id} user={item} />)
                         : null}
                 </div>
             </div>
