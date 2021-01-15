@@ -51,6 +51,11 @@
     border: none;
 }
 
+.show svg {
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
 .text {
     font-size: 1.4rem;
     margin: 2rem 0 1rem;

@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import { ICommentPagination, IParams, IPost, IUser } from '../interfaces';
 import config from './config';
 
-axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? config.api.prod : config.api.dev;
+axios.defaults.baseURL = config.api;
 
 interface IAnswer {
     id?: string;

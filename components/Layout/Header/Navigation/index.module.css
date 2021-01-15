@@ -43,6 +43,16 @@
     transition: 0.3s ease-in-out;
 }
 
+.btn:hover,
+.btn:focus {
+    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
+}
+
+.btn svg {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
 .backdrop {
     position: fixed;
     top: 0;

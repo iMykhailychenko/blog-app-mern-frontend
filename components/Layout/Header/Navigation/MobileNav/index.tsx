@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
-import { useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
-import { IState } from '../../../../../interfaces';
+import useAuth from '../../../../Common/Auth/AuthContext';
 import styles from '../index.module.css';
 import css from '../index.module.css';
 
@@ -14,7 +13,7 @@ interface IProps {
 }
 
 const MobileNav = ({ className, onClick }: IProps): ReactElement => {
-    const token = useSelector<IState, string | null>(state => state.auth.token);
+    const auth = useAuth();
     const body = document.querySelector('body');
 
     return ReactDOM.createPortal(
@@ -37,7 +36,7 @@ const MobileNav = ({ className, onClick }: IProps): ReactElement => {
                     </Link>
                 </li>
 
-                {!token && (
+                {!auth && (
                     <li>
                         <Link href={routes.trial}>
                             <a className={styles.link}>Get trial account</a>

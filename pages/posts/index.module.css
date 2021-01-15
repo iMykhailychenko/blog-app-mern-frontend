@@ -34,7 +34,9 @@
     cursor: pointer;
 }
 
+.manage:focus,
 .manage:hover {
+    box-shadow: none;
     text-decoration: underline;
 }
 

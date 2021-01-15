@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import routes from '../../../../assets/routes';
 import { IState, IUser } from '../../../../interfaces';
 import types from '../../../../redux/types';
+import useAuth from '../../../Common/Auth/AuthContext';
 import Likes from '../../../Common/Likes';
 import css from './index.module.css';
 
@@ -42,10 +43,10 @@ const COLORS: { [key: string]: string } = {
 };
 
 const AsideProfile = (): ReactElement => {
+    const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
 
-    const user = useSelector<IState, IUser>(state => state.auth.user);
     const profile = useSelector<IState, IUser>(state => state.profile);
 
     const handleSubscribe = (): void => {
@@ -76,9 +77,9 @@ const AsideProfile = (): ReactElement => {
                     />
                 </div>
 
-                {user ? (
-                    user?._id === profile._id ? (
-                        <Link href={routes.settings[0](user?._id)}>
+                {auth?.user ? (
+                    auth?.user?._id === profile._id ? (
+                        <Link href={routes.settings[0](auth?.user?._id)}>
                             <a className={css.add}>
                                 <button className={css.addBtn} type="button">
                                     <FontAwesomeIcon icon={faPen} />

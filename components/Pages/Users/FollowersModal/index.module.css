@@ -21,6 +21,11 @@
     font-size: 1.6rem;
 }
 
+.close svg {
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
 .close:hover,
 .close:focus {
     box-shadow: none;
@@ -87,4 +92,10 @@
     background: #007bff;
     color: #fff;
     border: none;
+}
+
+.btn svg,
+.reset svg {
+    height: 1.2rem;
+    width: 1.2rem;
 }

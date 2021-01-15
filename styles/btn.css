@@ -1,4 +1,6 @@
 .btn {
+    display: flex;
+    align-items: center;
     height: 3.5rem;
     padding: 0.6rem 3rem;
     background-color: #ffffff;
@@ -8,6 +10,11 @@
     font-size: 1.4rem;
     transition: 0.2s ease-in-out;
     outline: none;
+}
+
+.btn:hover,
+.btn:focus {
+    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
 }
 
 .btn--blue {

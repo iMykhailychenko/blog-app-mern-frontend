@@ -2,9 +2,9 @@ import { faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { IState, IUser } from '../../../interfaces';
+import useAuth from '../Auth/AuthContext';
 import css from './index.module.css';
 
 interface IProps {
@@ -19,8 +19,7 @@ interface IProps {
 
 const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }: IProps): ReactElement => {
     const dispatch = useDispatch();
-    const user = useSelector<IState, IUser>(state => state.auth.user);
-    const token = useSelector<IState, string | null>(state => state.auth.token);
+    const auth = useAuth();
 
     const handleLike = (): void => {
         if (!targetId || !typeLike) return;
@@ -32,9 +31,9 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }:
     };
 
     return (
-        <ul className={css.list} style={token ? {} : { pointerEvents: 'none' }}>
+        <ul className={css.list} style={auth ? {} : { pointerEvents: 'none' }}>
             <li
-                className={clsx(css.item, like?.includes(user?._id || null) && css.active)}
+                className={clsx(css.item, like?.includes(auth?.user?._id || null) && css.active)}
                 onClick={handleLike}
                 aria-hidden
             >
@@ -42,7 +41,7 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }:
                 <span className={css.num}>{like?.length || 0}</span>
             </li>
             <li
-                className={clsx(css.item, css.dislike, dislike?.includes(user?._id || null) && css.active)}
+                className={clsx(css.item, css.dislike, dislike?.includes(auth?.user?._id || null) && css.active)}
                 onClick={handleDislike}
                 aria-hidden
             >
@@ -51,7 +50,7 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }:
             </li>
             {view && (
                 <li
-                    className={clsx(css.item, view?.includes(user?._id || null) && css.active)}
+                    className={clsx(css.item, view?.includes(auth?.user?._id || null) && css.active)}
                     style={{ pointerEvents: 'none' }}
                 >
                     <FontAwesomeIcon icon={faEye} />

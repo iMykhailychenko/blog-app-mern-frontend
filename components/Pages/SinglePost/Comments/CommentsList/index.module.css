@@ -57,7 +57,9 @@
     color: #3273dc;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
+    box-shadow: none;
     text-decoration: underline;
 }
 

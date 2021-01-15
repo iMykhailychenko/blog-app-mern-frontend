@@ -9,6 +9,7 @@ import { END } from 'redux-saga';
 
 import config from '../../assets/config';
 import routes from '../../assets/routes';
+import useAuth from '../../components/Common/Auth/AuthContext';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import { modal } from '../../components/Common/Modal';
@@ -25,7 +26,8 @@ import css from './index.module.css';
 const img = '/img/user/banner.jpg';
 
 const UserProfile = (): ReactElement => {
-    const user = useSelector<IState, IUser>(state => state.auth.user);
+    const auth = useAuth();
+
     const profile = useSelector<IState, IUser>(state => state.profile);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
 
@@ -50,7 +52,7 @@ const UserProfile = (): ReactElement => {
                     <div className={css.flex}>
                         <h2 className={css.title}>Profile info</h2>
 
-                        {profile?._id === user?._id && (
+                        {profile?._id === auth?.user?._id && (
                             <Link href={routes.settings[0](profile?._id)}>
                                 <a className={css.link}>
                                     <FontAwesomeIcon icon={faEdit} /> Edit your profile

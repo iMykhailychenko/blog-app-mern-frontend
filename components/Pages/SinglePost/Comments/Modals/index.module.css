@@ -5,6 +5,7 @@
     padding: 2rem;
     background: #fff;
     border-radius: 1rem;
+    border: 0.1rem solid #999;
 }
 
 .close {
@@ -15,6 +16,11 @@
     font-size: 1.4rem;
     background: none;
     border: none;
+}
+
+.close svg {
+    height: 1.6rem;
+    width: 1.6rem;
 }
 
 .divider {

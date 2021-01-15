@@ -1,16 +1,17 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
-import { IState } from '../../../../../interfaces';
+import useAuth from '../../../../Common/Auth/AuthContext';
 import styles from '../index.module.css';
+import css from '../index.module.css';
 
-const DesktopNav = ({ className }: { className?: string }): ReactElement => {
-    const token = useSelector<IState, string | null>(state => state.auth.token);
+const DesktopNav = (): ReactElement => {
+    const auth = useAuth();
 
     return (
-        <ul className={className}>
+        <ul className={clsx(css.list, css.open)}>
             <li>
                 <Link href={routes.home}>
                     <a className={styles.link}>Home</a>
@@ -26,10 +27,10 @@ const DesktopNav = ({ className }: { className?: string }): ReactElement => {
                     <a className={styles.link}>Question</a>
                 </Link>
             </li>
-            {!token && (
+            {!auth && (
                 <li>
                     <Link href={routes.trial}>
-                        <a className={styles.link}>Get trial accaunt</a>
+                        <a className={styles.link}>Get trial account</a>
                     </Link>
                 </li>
             )}

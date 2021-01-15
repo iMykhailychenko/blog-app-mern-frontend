@@ -2,10 +2,9 @@ import { faBell, faChevronDown, faPlus, faSearch } from '@fortawesome/free-solid
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
-import { IState, IUser } from '../../../../interfaces';
+import useAuth from '../../../Common/Auth/AuthContext';
 import UserAvatar from '../../../Common/UserAvatar';
 import css from './index.module.css';
 import NewsModal from './NewsModal';
@@ -15,7 +14,7 @@ type Dropdown = 'profile' | 'news';
 type Handler = () => void;
 
 const Profile = (): ReactElement => {
-    const user = useSelector<IState, IUser>(state => state.auth.user);
+    const auth = useAuth();
 
     const [dropdown, setDropdown] = useState({ profile: false, news: false });
     const handleDrop = (name: Dropdown): Handler => (): void => {
@@ -44,7 +43,12 @@ const Profile = (): ReactElement => {
                 </button>
 
                 <button className={css.wrp} type="button" onClick={handleDrop('profile')}>
-                    {user && <UserAvatar avatar={user.avatar} name={(user.name[0] + user.surname[0]).toUpperCase()} />}
+                    {auth && (
+                        <UserAvatar
+                            avatar={auth?.user.avatar}
+                            name={(auth?.user.name[0] + auth?.user.surname[0]).toUpperCase()}
+                        />
+                    )}
                     <FontAwesomeIcon className={css.icon} icon={faChevronDown} />
                 </button>
 

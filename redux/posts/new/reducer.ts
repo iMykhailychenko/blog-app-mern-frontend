@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 import { IPost } from '../../../interfaces';
 import types from '../../types';
@@ -97,18 +95,10 @@ const content = (state = '', action: IAction): string => {
     }
 };
 
-const newPost = combineReducers({
+export default combineReducers({
     title,
     tags,
     desc,
     content,
     banner,
 });
-
-const config = {
-    key: 'blog_new_post',
-    blacklist: ['banner'],
-    storage,
-};
-
-export default persistReducer(config, newPost);

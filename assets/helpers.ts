@@ -42,24 +42,10 @@ export const generateTags = (str: string): string[] => {
 export const decode = (cookie = ''): string => decodeURI(cookie).replace(/\\"/gi, '');
 
 // parse cookie on server
-export const parseCookie = (cookie = '', key = 'blog_auth='): { [key: string]: string } | null => {
+export const parseCookie = <T>(cookie = '', key = 'blog_auth='): T | null => {
     try {
         return JSON.parse(decode(cookie).replace(/\+/g, ' ').replace(/%2C/gi, ',').split(key)[1]);
     } catch (error) {
         return null;
     }
 };
-
-// parse nested obj in cookie
-export const parseObjStr = (value = '', key = ''): string | null =>
-    value
-        ?.split(',')
-        ?.find(item => item.includes(key))
-        ?.split(key + ':')[1] || null;
-
-// get auth token from cookie
-export const getUserId = (cookie = '"user":"{_id:'): string =>
-    decode(cookie)
-        ?.split('%2C')
-        ?.find(item => item.includes('_id'))
-        ?.replace('"user":"{_id:', '') || null;

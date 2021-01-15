@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import { formatDate, getUserId } from '../../assets/helpers';
+import { formatDate, parseCookie } from '../../assets/helpers';
 import routes from '../../assets/routes';
+import useAuth from '../../components/Common/Auth/AuthContext';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
 import ProfileBig from '../../components/Common/Profile/ProfileBig';
@@ -22,8 +23,8 @@ import css from './index.module.css';
 const SinglePost = (): ReactElement => {
     const router = useRouter();
     const dispatch = useDispatch();
+    const auth = useAuth();
 
-    const user = useSelector<IState, IUser>(state => state.auth.user);
     const post = useSelector<IState, IPost>(state => state.posts.single.data);
 
     const handleDelete = (): void => {
@@ -40,9 +41,9 @@ const SinglePost = (): ReactElement => {
             {post && (
                 <div className={css.container}>
                     <div className={css.content}>
-                        {user?._id === post?.user?._id && (
+                        {auth?.user?._id === post?.user?._id && (
                             <>
-                                <div className={css.subtext}>
+                                <div key="subtext1" className={css.subtext}>
                                     <Link href={routes.posts.edit[0](post._id)}>
                                         <a className={css.manage}>Edit post</a>
                                     </Link>
@@ -55,14 +56,19 @@ const SinglePost = (): ReactElement => {
 
                         <div className={css.likesHead}>
                             <div>
-                                <p className={css.subtext}>Share this post in social media:</p>
-                                <Socials title={post.title} />
+                                <p key="subtext2" className={css.subtext}>
+                                    Share this post in social media:
+                                </p>
+                                <Socials key="socials1" title={post.title} />
                             </div>
 
                             <div>
-                                <p className={css.subtext}>User feedbacks:</p>
+                                <p key="subtext3" className={css.subtext}>
+                                    User feedbacks:
+                                </p>
                                 <div className={css.likes}>
                                     <Likes
+                                        key="likes1"
                                         targetId={post._id}
                                         typeLike={types.LIKE_POST_START}
                                         typeDislike={types.DISLIKE_POST_START}
@@ -97,14 +103,14 @@ const SinglePost = (): ReactElement => {
                             </div>
                         </div>
 
-                        <div className={css.subtext}>
+                        <div key="subtext4" className={css.subtext}>
                             <h4 className={css.author}>Post author:</h4>
                             <ProfileBig user={post?.user} />
                         </div>
 
-                        {user?._id === post?.user?._id && (
+                        {auth?.user?._id === post?.user?._id && (
                             <>
-                                <div className={css.subtext}>
+                                <div key="subtext5" className={css.subtext}>
                                     <Link href={routes.posts.edit[0](post._id)}>
                                         <a className={css.manage}>Edit post</a>
                                     </Link>
@@ -115,14 +121,19 @@ const SinglePost = (): ReactElement => {
                             </>
                         )}
 
-                        <p className={css.subtext}>Share this post in social media:</p>
+                        <p key="subtext6" className={css.subtext}>
+                            Share this post in social media:
+                        </p>
                         <div className={css.likes}>
-                            <Socials title={post.title} />
+                            <Socials key="socials2" title={post.title} />
                         </div>
 
-                        <p className={css.subtext}>User feedbacks:</p>
+                        <p key="subtext7" className={css.subtext}>
+                            User feedbacks:
+                        </p>
                         <div className={css.likes}>
                             <Likes
+                                key="likes2"
                                 targetId={post._id}
                                 typeLike={types.LIKE_POST_START}
                                 typeDislike={types.DISLIKE_POST_START}
@@ -140,6 +151,11 @@ const SinglePost = (): ReactElement => {
     );
 };
 
+interface ICookiesData {
+    token: string | null;
+    user: IUser | null;
+}
+
 export const getServerSideProps = wrapper.getServerSideProps(
     async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
         if (!ctx.query?.postId) return null;
@@ -148,10 +164,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
             type: types.GET_COMMENTS_START,
             payload: ctx.query.postId,
         });
+
         store.dispatch({
             type: types.GET_SINGLE_POST_START,
             payload: ctx.query.postId,
-            user: getUserId(ctx.req.headers.cookie),
+            user: parseCookie<ICookiesData>(ctx.req.headers.cookie)?.user?._id,
         });
         store.dispatch(END);
         await store.sagaTask.toPromise();

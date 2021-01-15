@@ -115,7 +115,7 @@ export interface ICommentList {
  * APP STATE
  */
 export interface IState {
-    auth: IAuth;
+    auth: IAuth | null;
     profile: IUser | null;
     posts: {
         list: IPostList;

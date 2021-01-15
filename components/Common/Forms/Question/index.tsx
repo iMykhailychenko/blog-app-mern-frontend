@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
 
-import { IState, IUser } from '../../../../interfaces';
+import useAuth from '../../Auth/AuthContext';
 import styles from './index.module.css';
 
 interface Values {
@@ -25,11 +24,15 @@ const initialValues: Values = {
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const Question = (): ReactElement => {
-    const user = useSelector<IState, IUser>(state => state.auth.user);
+    const auth = useAuth();
 
     return (
         <Formik
-            initialValues={user ? { name: `${user.name} ${user.surname}`, email: user.email, text: '' } : initialValues}
+            initialValues={
+                auth
+                    ? { name: `${auth?.user.name} ${auth?.user.surname}`, email: auth?.user.email, text: '' }
+                    : initialValues
+            }
             validate={(values: Values): Errors => {
                 const errors: Errors = {};
                 console.log(values);

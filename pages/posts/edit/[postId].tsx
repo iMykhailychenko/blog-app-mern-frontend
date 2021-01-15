@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../../assets/config';
-import { getUserId } from '../../../assets/helpers';
+import { parseCookie } from '../../../assets/helpers';
+import useAuth from '../../../components/Common/Auth/AuthContext';
 import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import Meta from '../../../components/Common/Meta';
 import serverRedirect from '../../../components/HOC/ServerRedirect';
@@ -16,7 +17,7 @@ import EditButtons from '../../../components/Pages/NewPost/EditButtons';
 import Socials from '../../../components/Pages/NewPost/Socials';
 import Tags from '../../../components/Pages/NewPost/Tags';
 import Title from '../../../components/Pages/NewPost/Title';
-import { IPost, IState, IStore, IUser } from '../../../interfaces';
+import { IAuth, IPost, IState, IStore } from '../../../interfaces';
 import { wrapper } from '../../../redux/store';
 import types from '../../../redux/types';
 import css from '../new_post/index.module.css';
@@ -25,15 +26,15 @@ const ContentEditor = dynamic(() => import('../../../components/Pages/NewPost/Co
 const EditPost = (): ReactElement => {
     const { query } = useRouter();
     const dispatch = useDispatch();
+    const auth = useAuth();
 
-    const user = useSelector<IState, IUser>(state => state.auth.user);
     const post = useSelector<IState, IPost | null>(state => state.posts.single.data);
 
     useEffect(() => {
         dispatch({
             type: types.GET_EDIT_POST_START,
             payload: query.postId,
-            user: user._id,
+            user: auth?.user?._id,
         });
     }, [dispatch]);
 
@@ -86,7 +87,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
             store.dispatch({
                 type: types.GET_SINGLE_POST_START,
                 payload: ctx.query.postId,
-                user: getUserId(ctx.req.headers.cookie),
+                user: parseCookie<IAuth>(ctx.req.headers.cookie)?.user?._id,
             });
             store.dispatch(END);
             await store.sagaTask.toPromise();

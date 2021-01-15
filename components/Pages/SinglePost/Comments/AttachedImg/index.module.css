@@ -9,6 +9,11 @@
     color: #007bff;
 }
 
+.container svg {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
 .text {
     padding-left: 1rem;
 }

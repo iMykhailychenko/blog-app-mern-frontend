@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 
+import config from '../../../../assets/config';
 import css from './index.module.css';
 
 const Socials = ({ title }: { title: string }): ReactElement => {
@@ -8,7 +9,7 @@ const Socials = ({ title }: { title: string }): ReactElement => {
             <li className={css.item}>
                 <a
                     className={css.link}
-                    href={`http://www.facebook.com/sharer.php?u=${window.location.href}/`}
+                    href={`http://www.facebook.com/sharer.php?u=${config.host}/`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -24,7 +25,7 @@ const Socials = ({ title }: { title: string }): ReactElement => {
             <li className={css.item}>
                 <a
                     className={css.link}
-                    href={`https://telegram.me/share/url?url=${window.location.href}`}
+                    href={`https://telegram.me/share/url?url=${config.host}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -39,7 +40,7 @@ const Socials = ({ title }: { title: string }): ReactElement => {
             <li className={css.item}>
                 <a
                     className={css.link}
-                    href={`viber://forward?text=${window.location.href}/%0D%0A%0D%0A${title}`}
+                    href={`viber://forward?text=${config.host}/%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -55,7 +56,7 @@ const Socials = ({ title }: { title: string }): ReactElement => {
             <li className={css.item}>
                 <a
                     className={css.link}
-                    href={`whatsapp://send?text=${window.location.href}%0D%0A%0D%0A${title}`}
+                    href={`whatsapp://send?text=${config.host}%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -85,7 +86,7 @@ const Socials = ({ title }: { title: string }): ReactElement => {
             <li className={css.item}>
                 <a
                     className={css.link}
-                    href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${title}`}
+                    href={`https://twitter.com/intent/tweet?url=${config.host}&text=${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >

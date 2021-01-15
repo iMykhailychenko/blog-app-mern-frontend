@@ -26,8 +26,15 @@
 
 .link {
     display: block;
-    font-size: 1.2rem;
+    margin-top: 2rem;
+    font-size: 1.4rem;
     color: #007bff;
+}
+
+.link svg {
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-bottom: 0.4rem;
 }
 
 .content {
@@ -70,6 +77,11 @@
     background: #eee;
     border: none;
     transition: 0.3s ease-in-out;
+}
+
+.btn svg {
+    height: 1.4rem;
+    width: 1.4rem;
 }
 
 .inner {

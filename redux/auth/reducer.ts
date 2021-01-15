@@ -1,7 +1,3 @@
-import Cookies from 'js-cookie';
-import { persistReducer } from 'redux-persist';
-import { CookieStorage } from 'redux-persist-cookie-storage';
-
 import { IAuth, IUser } from '../../interfaces';
 import types from '../types';
 import { IAction, IResponse } from './saga';
@@ -34,9 +30,4 @@ const auth = (state: IAuth = INIT, action: IAction): IAuth => {
     }
 };
 
-const config = {
-    key: 'blog_auth',
-    storage: new CookieStorage(Cookies, {}),
-};
-
-export default persistReducer(config, auth);
+export default auth;

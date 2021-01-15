@@ -4,21 +4,20 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { Router } from 'next/router';
 import React, { ReactElement, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useMediaQuery } from 'react-responsive';
 
 import routes from '../../../../assets/routes';
-import { IState } from '../../../../interfaces';
+import useMedia from '../../../../hooks/media.hook';
+import useAuth from '../../../Common/Auth/AuthContext';
 import Profile from '../Profile';
 import DesktopNav from './DesktopNav';
 import css from './index.module.css';
 import MobileNav from './MobileNav';
 
 const Navigation = (): ReactElement => {
+    const mobile = useMedia();
+    const auth = useAuth();
+
     const [menu, setMenu] = useState<boolean>(false);
-    const isMobile = useMediaQuery({
-        query: '(max-width: 768px)',
-    });
 
     const handleClose = (): void => {
         setMenu(false);
@@ -38,11 +37,11 @@ const Navigation = (): ReactElement => {
         };
     }, []);
 
-    const token = useSelector<IState, string | null>(state => state.auth.token);
-
     return (
         <nav className={css.nav}>
-            {isMobile ? (
+            {mobile ? (
+                <DesktopNav />
+            ) : (
                 <>
                     <button className={css.mobileMenu} type="button" onClick={handleToggle}>
                         <span />
@@ -51,11 +50,9 @@ const Navigation = (): ReactElement => {
 
                     {menu && <MobileNav onClick={handleClose} className={clsx(css.list, menu && css.open)} />}
                 </>
-            ) : (
-                <DesktopNav className={clsx(css.list, css.open)} />
             )}
 
-            {token ? (
+            {auth ? (
                 <Profile />
             ) : (
                 <div className={css.btn_wrp}>
