@@ -25,7 +25,7 @@ const Home = (): ReactElement => {
 
     return (
         <main className={clsx(css.main, 'container')}>
-            {!auth && mobile && (
+            {!auth?.token && mobile && (
                 <Aside>
                     <FormLogin />
                 </Aside>

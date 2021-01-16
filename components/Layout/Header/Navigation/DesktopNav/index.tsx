@@ -27,7 +27,7 @@ const DesktopNav = (): ReactElement => {
                     <a className={styles.link}>Question</a>
                 </Link>
             </li>
-            {!auth && (
+            {!auth?.token && (
                 <li>
                     <Link href={routes.trial}>
                         <a className={styles.link}>Get trial account</a>

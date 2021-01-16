@@ -36,7 +36,7 @@ const MobileNav = ({ className, onClick }: IProps): ReactElement => {
                     </Link>
                 </li>
 
-                {!auth && (
+                {!auth?.token && (
                     <li>
                         <Link href={routes.trial}>
                             <a className={styles.link}>Get trial account</a>
