@@ -31,9 +31,13 @@ const Home = (): ReactElement => {
                 </Aside>
             )}
 
-            <div className={clsx(css.content, !!auth && css.auth)}>
+            <div className={clsx(css.content, !!auth?.token && css.auth)}>
                 <h2 className={css.title}>Popular posts</h2>
-                {posts.loading ? <PostsLoader wide /> : <Posts content={posts.data?.posts} wide={!auth && mobile} />}
+                {posts.loading ? (
+                    <PostsLoader wide />
+                ) : (
+                    <Posts content={posts.data?.posts} wide={!auth?.token && mobile} />
+                )}
                 <LoadMore />
             </div>
         </main>
