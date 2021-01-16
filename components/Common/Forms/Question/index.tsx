@@ -29,7 +29,7 @@ const Question = (): ReactElement => {
     return (
         <Formik
             initialValues={
-                auth
+                auth?.user
                     ? { name: `${auth?.user.name} ${auth?.user.surname}`, email: auth?.user.email, text: '' }
                     : initialValues
             }

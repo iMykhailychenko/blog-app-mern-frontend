@@ -31,7 +31,7 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }:
     };
 
     return (
-        <ul className={css.list} style={auth ? {} : { pointerEvents: 'none' }}>
+        <ul className={css.list} style={auth?.token ? {} : { pointerEvents: 'none' }}>
             <li
                 className={clsx(css.item, like?.includes(auth?.user?._id || null) && css.active)}
                 onClick={handleLike}

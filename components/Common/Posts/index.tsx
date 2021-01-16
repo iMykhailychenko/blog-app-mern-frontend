@@ -106,7 +106,7 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
                             <ProfileBig user={author ? profile : item?.author?.[0]} />
                         </div>
 
-                        {auth && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
+                        {auth?.token && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
                             <div className={css.management}>
                                 <button className={css.managementBtn} type="button">
                                     <FontAwesomeIcon icon={faSlidersH} />

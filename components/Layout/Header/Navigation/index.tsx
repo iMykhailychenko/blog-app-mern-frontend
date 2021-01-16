@@ -52,7 +52,7 @@ const Navigation = (): ReactElement => {
                 </>
             )}
 
-            {auth ? (
+            {auth?.token ? (
                 <Profile />
             ) : (
                 <div className={css.btn_wrp}>

@@ -43,10 +43,10 @@ const Profile = (): ReactElement => {
                 </button>
 
                 <button className={css.wrp} type="button" onClick={handleDrop('profile')}>
-                    {auth && (
+                    {auth?.user && (
                         <UserAvatar
-                            avatar={auth?.user.avatar}
-                            name={(auth?.user.name[0] + auth?.user.surname[0]).toUpperCase()}
+                            avatar={auth?.user?.avatar}
+                            name={(auth?.user?.name[0] + auth?.user?.surname[0]).toUpperCase()}
                         />
                     )}
                     <FontAwesomeIcon className={css.icon} icon={faChevronDown} />

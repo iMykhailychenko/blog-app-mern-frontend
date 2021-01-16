@@ -44,7 +44,7 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
     return ReactDOM.createPortal(
         <>
             <div className={css.backdrop} onClick={onClick} aria-hidden />
-            {auth && (
+            {auth?.user && (
                 <div className={styles.modal} onClick={handleClick} aria-hidden>
                     <h4 className={styles.name}>{`${auth?.user.name} ${auth?.user.surname}`}</h4>
                     <p className={styles.nick}>{'@' + auth?.user.nick}</p>

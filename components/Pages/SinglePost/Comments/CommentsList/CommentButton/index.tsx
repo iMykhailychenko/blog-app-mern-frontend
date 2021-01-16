@@ -42,13 +42,13 @@ const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => 
                 like={comment.feedback.like}
                 dislike={comment.feedback.dislike}
             />
-            {auth && hasAnswer && (
+            {auth?.user && hasAnswer && (
                 <button type="button" className={css.link} onClick={handleAnswer}>
                     Answer
                 </button>
             )}
 
-            {auth && comment.author[0]._id === auth?.user._id && (
+            {auth?.user && comment.author[0]._id === auth?.user._id && (
                 <>
                     <button type="button" className={css.link} onClick={handleEdit}>
                         Edit
