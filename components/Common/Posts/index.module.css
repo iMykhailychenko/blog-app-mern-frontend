@@ -13,10 +13,8 @@
     position: relative;
     list-style: none;
     margin-bottom: 5rem;
-    background-color: #ffffff;
     transition: 0.3s ease-in-out;
     border-radius: 0.5rem;
-    box-shadow: 0 0.1rem 0.3rem rgba(54, 39, 39, 0.02), 0 1rem 2rem rgba(0, 0, 0, 0.05);
 }
 
 .postLink:hover .title {
@@ -24,72 +22,7 @@
 }
 
 .inner {
-    padding: 3rem;
-}
-
-.tags {
-    padding: 3rem 3rem 0;
-}
-
-.management {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.managementBtn {
-    padding: 1.4rem 2rem 1.4rem 10rem;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: #6d7279;
-    outline: none;
-}
-
-.managementBtn {
-    height: 1.8rem;
-    width: 1.8rem;
-}
-
-.managementBtn:hover,
-.managementBtn:focus {
-    box-shadow: unset;
-}
-
-.managementInner {
-    position: absolute;
-    bottom: 90%;
-    right: 1rem;
-    display: none;
-    flex-direction: column;
-    min-width: 25rem;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 1rem;
-    border: 0.1rem solid #b6b6b6;
-}
-
-.managementInner button,
-.managementInner a {
-    margin: 0.3rem 0;
-    padding: 1rem;
-    font-size: 1.2rem;
-    text-align: left;
-    background: none;
-    border-radius: 1rem;
-    border: none;
-}
-
-.managementInner button:hover,
-.managementInner a:hover,
-.managementInner button:focus,
-.managementInner a:focus {
-    background: #eee;
-    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
-}
-
-.management:hover .managementInner {
-    display: flex;
+    padding: 1.5rem 0;
 }
 
 .inner:nth-of-type(1) {
@@ -108,14 +41,17 @@
 
 .title {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
 }
 
 .text {
     width: 100%;
-    margin-bottom: 2rem;
     font-size: 1.4rem;
+}
+
+.tags {
+    padding: 1rem 0 0;
 }
 
 .tag {
@@ -131,13 +67,36 @@
 
 .date {
     width: 100%;
+    margin-top: 0.5rem;
     font-size: 1.4rem;
     font-style: italic;
     color: #646464;
 }
 
-.likes {
-    padding: 2rem 3rem 0;
+.manage {
+    margin: 1rem 0;
+}
+
+.manage svg {
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-right: 1rem;
+}
+
+.manage a,
+.manage button {
+    margin-right: 2rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.manage a:hover,
+.manage a:focus,
+.manage button:hover,
+.manage button:focus {
+    box-shadow: none;
+    text-decoration: underline;
 }
 
 /* media rules */

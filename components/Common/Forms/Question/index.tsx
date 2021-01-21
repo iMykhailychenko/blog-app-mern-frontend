@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { ReactElement } from 'react';
 
-import useAuth from '../../Auth/AuthContext';
-import styles from './index.module.css';
+import useAuth from '../../../../hooks/auth.hook';
+import css from './index.module.css';
 
 interface Values {
     name: string;
@@ -44,22 +44,22 @@ const Question = (): ReactElement => {
         >
             {() => (
                 <Form>
-                    <h2 className={styles.title}>How can I help you?</h2>
+                    <p className={css.text}>How can I help you?</p>
 
-                    <Field className={styles.input} type="text" name="name" placeholder="name" />
-                    <ErrorMessage name="name" render={msg => <span className={styles.errors}>{msg}</span>} />
+                    <Field className={css.input} type="text" name="name" placeholder="name" />
+                    <ErrorMessage name="name" render={msg => <span className={css.errors}>{msg}</span>} />
 
-                    <Field className={styles.input} type="email" name="email" placeholder="email" />
-                    <ErrorMessage name="email" render={msg => <span className={styles.errors}>{msg}</span>} />
+                    <Field className={css.input} type="email" name="email" placeholder="email" />
+                    <ErrorMessage name="email" render={msg => <span className={css.errors}>{msg}</span>} />
 
                     <Field
-                        className={clsx(styles.input, styles.textarea)}
+                        className={clsx(css.input, css.textarea)}
                         as="textarea"
                         type="email"
                         name="text"
                         placeholder="text"
                     />
-                    <ErrorMessage name="text" render={msg => <span className={styles.errors}>{msg}</span>} />
+                    <ErrorMessage name="text" render={msg => <span className={css.errors}>{msg}</span>} />
 
                     <button className="btn btn--info" type="submit">
                         Send question

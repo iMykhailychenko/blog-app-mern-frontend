@@ -9,6 +9,10 @@
     margin-bottom: 1rem;
 }
 
+.sep {
+    height: 2rem;
+}
+
 .auth {
     padding: 2rem 3rem;
     border-radius: 1rem;

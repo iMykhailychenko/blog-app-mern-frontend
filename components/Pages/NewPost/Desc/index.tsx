@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IState } from '../../../../interfaces';
 import types from '../../../../redux/types';
 import inputs from '../inputs.module.css';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const Desc = (): ReactElement => {
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Desc = (): ReactElement => {
             cols={30}
             rows={40}
             placeholder="Short description for the post preview"
-            className={clsx(inputs.input, inputs.empty, styles.input)}
+            className={clsx(inputs.input, inputs.empty, css.input)}
         />
     );
 };

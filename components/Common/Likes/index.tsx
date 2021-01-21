@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
-import useAuth from '../Auth/AuthContext';
+import useAuth from '../../../hooks/auth.hook';
 import css from './index.module.css';
 
 interface IProps {

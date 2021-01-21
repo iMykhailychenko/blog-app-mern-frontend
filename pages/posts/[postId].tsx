@@ -9,13 +9,14 @@ import { END } from 'redux-saga';
 import config from '../../assets/config';
 import { formatDate, parseCookie } from '../../assets/helpers';
 import routes from '../../assets/routes';
-import useAuth from '../../components/Common/Auth/AuthContext';
+import useAuth from '../../components/../hooks/auth.hook';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
 import ProfileBig from '../../components/Common/Profile/ProfileBig';
+import serverCookie from '../../components/HOC/ServerCookie';
 import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
-import { IPost, IState, IStore, IUser } from '../../interfaces';
+import { IAuth, IPost, IState, IStore, IUser } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
@@ -151,28 +152,25 @@ const SinglePost = (): ReactElement => {
     );
 };
 
-interface ICookiesData {
-    token: string | null;
-    user: IUser | null;
-}
-
 export const getServerSideProps = wrapper.getServerSideProps(
-    async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-        if (!ctx.query?.postId) return null;
+    serverCookie(
+        async (ctx: GetServerSidePropsContext & { store: IStore; auth: IAuth }): Promise<void> => {
+            if (!ctx.query?.postId) return null;
 
-        store.dispatch({
-            type: types.GET_COMMENTS_START,
-            payload: ctx.query.postId,
-        });
+            ctx.store.dispatch({
+                type: types.GET_COMMENTS_START,
+                payload: ctx.query.postId,
+            });
 
-        store.dispatch({
-            type: types.GET_SINGLE_POST_START,
-            payload: ctx.query.postId,
-            user: parseCookie<ICookiesData>(ctx.req.headers.cookie)?.user?._id,
-        });
-        store.dispatch(END);
-        await store.sagaTask.toPromise();
-    },
+            ctx.store.dispatch({
+                type: types.GET_SINGLE_POST_START,
+                payload: ctx.query.postId,
+                user: ctx.auth?.user?._id,
+            });
+            ctx.store.dispatch(END);
+            await ctx.store.sagaTask.toPromise();
+        },
+    ),
 );
 
 export default SinglePost;

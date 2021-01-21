@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import routes from '../../../../assets/routes';
 import types from '../../../../redux/types';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 interface Values {
     email: string;
@@ -47,14 +47,14 @@ const FormLogin = (): ReactElement => {
         >
             {() => (
                 <Form>
-                    <h2 className={styles.title}>Login to get more</h2>
+                    <h2 className={css.title}>Login to get more</h2>
 
-                    <Field className={styles.input} type="email" name="email" placeholder="email" />
-                    <ErrorMessage name="email" render={msg => <span className={styles.errors}>{msg}</span>} />
+                    <Field className={css.input} type="email" name="email" placeholder="email" />
+                    <ErrorMessage name="email" render={msg => <span className={css.errors}>{msg}</span>} />
 
-                    <div className={styles.wrp}>
+                    <div className={css.wrp}>
                         <button
-                            className={styles.show}
+                            className={css.show}
                             type="button"
                             onClick={() => {
                                 setShow(!show);
@@ -63,27 +63,27 @@ const FormLogin = (): ReactElement => {
                             {show ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />}
                         </button>
                         <Field
-                            className={styles.input}
+                            className={css.input}
                             type={show ? 'text' : 'password'}
                             name="password"
                             placeholder="password"
                         />
-                        <ErrorMessage name="password" render={msg => <span className={styles.errors}>{msg}</span>} />
+                        <ErrorMessage name="password" render={msg => <span className={css.errors}>{msg}</span>} />
                     </div>
 
                     <Link href={routes.auth.forgotPass}>
-                        <a className={styles.link}>Forgot your password?</a>
+                        <a className={css.link}>Forgot your password?</a>
                     </Link>
 
                     <button className="btn btn--gray" type="submit">
                         Log in
                     </button>
 
-                    <p className={styles.text}>or login with:</p>
+                    <p className={css.text}>or login with:</p>
 
-                    <ul className={styles.list}>
+                    <ul className={css.list}>
                         <li>
-                            <button type="button" style={{ background: '#385C8E' }} className={styles.icon}>
+                            <button type="button" style={{ background: '#385C8E' }} className={css.icon}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -102,7 +102,7 @@ const FormLogin = (): ReactElement => {
                             </button>
                         </li>
                         <li>
-                            <button type="button" className={styles.icon}>
+                            <button type="button" className={css.icon}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     enableBackground="new 0 0 512 512"

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { IState } from '../../../../interfaces';
 import types from '../../../../redux/types';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const Banner = (): ReactElement => {
     const dispatch = useDispatch();
@@ -18,24 +18,18 @@ const Banner = (): ReactElement => {
     };
 
     return value ? (
-        <div aria-hidden className={styles.wrp} onClick={handleDelete}>
-            <img className={styles.img} src={value ? window.URL.createObjectURL(value) : ''} alt="Post banner" />
+        <div aria-hidden className={css.wrp} onClick={handleDelete}>
+            <img className={css.img} src={value ? window.URL.createObjectURL(value) : ''} alt="Post banner" />
             <span>Click to delete img</span>
         </div>
     ) : (
-        <div className={styles.add}>
+        <div className={css.add}>
             <div>
                 <span className="add" />
-                <p className={styles.text}>Click to add post banner</p>
+                <p className={css.text}>Click to add post banner</p>
             </div>
 
-            <input
-                type="file"
-                className={styles.input}
-                onChange={handleChange}
-                name="img"
-                accept=".jpg, .jpeg, .pngs"
-            />
+            <input type="file" className={css.input} onChange={handleChange} name="img" accept=".jpg, .jpeg, .pngs" />
         </div>
     );
 };

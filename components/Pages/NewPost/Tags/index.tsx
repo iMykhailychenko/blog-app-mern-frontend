@@ -6,7 +6,7 @@ import { generateTags } from '../../../../assets/helpers';
 import { IState } from '../../../../interfaces';
 import types from '../../../../redux/types';
 import inputs from '../inputs.module.css';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const Tags = (): ReactElement => {
     const dispatch = useDispatch();
@@ -18,11 +18,11 @@ const Tags = (): ReactElement => {
 
     return (
         <>
-            <p className={styles.text}>Provide tags for your post:</p>
+            <p className={css.text}>Provide tags for your post:</p>
 
-            <ul className={styles.list}>
+            <ul className={css.list}>
                 {generateTags(tags).map((tag, index) => (
-                    <li className={styles.item} key={tag + index}>{`#${tag}`}</li>
+                    <li className={css.item} key={tag + index}>{`#${tag}`}</li>
                 ))}
             </ul>
 
@@ -31,7 +31,7 @@ const Tags = (): ReactElement => {
                 onChange={handleChange}
                 type="text"
                 name="tags"
-                className={clsx(inputs.input, inputs.empty, styles.input)}
+                className={clsx(inputs.input, inputs.empty, css.input)}
                 placeholder="javascript react redux..."
             />
         </>

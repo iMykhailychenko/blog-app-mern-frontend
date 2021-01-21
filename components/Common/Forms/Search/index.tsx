@@ -8,13 +8,18 @@ import css from './index.module.css';
 interface IProps {
     value: string;
     onChange: (value: string) => void;
+    onReset: () => void;
     onSubmit: () => void;
 }
 
-const SearchForm = ({ value, onChange, onSubmit }: IProps): ReactElement => {
+const SearchForm = ({ value, onReset, onChange, onSubmit }: IProps): ReactElement => {
     const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
         onSubmit();
+    };
+
+    const handleReset = (): void => {
+        onReset();
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -35,7 +40,7 @@ const SearchForm = ({ value, onChange, onSubmit }: IProps): ReactElement => {
                             className={css.input}
                             placeholder="Start typing"
                         />
-                        <button type="reset" className={css.reset}>
+                        <button type="reset" onClick={handleReset} className={css.reset}>
                             <FontAwesomeIcon icon={faTimes} />
                         </button>
                     </div>

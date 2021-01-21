@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import Slider from 'react-slick';
 
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const slider: { id: number; text: string; banner: string }[] = [
     {
@@ -38,7 +38,7 @@ const slider: { id: number; text: string; banner: string }[] = [
 
 const SliderComponent = ({ className = undefined }: { className?: string | undefined }): ReactElement => (
     <div className={className}>
-        <div className={styles.wrp}>
+        <div className={css.wrp}>
             <Slider
                 dots={true}
                 slidesToShow={1}
@@ -49,12 +49,12 @@ const SliderComponent = ({ className = undefined }: { className?: string | undef
                 infinite
                 draggable
                 autoplaySpeed={5500}
-                dotsClass={styles.dotsList}
+                dotsClass={css.dotsList}
                 appendDots={(dots: ReactElement): ReactElement => <ul> {dots} </ul>}
             >
                 {slider.map(({ id, text, banner }) => (
-                    <div className={styles.slide} key={id}>
-                        <img className={styles.img} draggable={false} src={banner} alt="" />
+                    <div className={css.slide} key={id}>
+                        <img className={css.img} draggable={false} src={banner} alt="" />
                         <p>{text}</p>
                     </div>
                 ))}

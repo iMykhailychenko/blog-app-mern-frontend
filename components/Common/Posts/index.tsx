@@ -1,4 +1,4 @@
-import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -10,9 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import config from '../../../assets/config';
 import { formatDate } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
+import useAuth from '../../../hooks/auth.hook';
 import { IPost, IState, IUser } from '../../../interfaces';
 import types from '../../../redux/types';
-import useAuth from '../Auth/AuthContext';
 import Likes from '../Likes';
 import ProfileBig from '../Profile/ProfileBig';
 import css from './index.module.css';
@@ -64,6 +64,20 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
             {content?.length &&
                 content?.map(item => (
                     <li className={clsx(css.card, !item.banner && css.grid)} key={item?._id}>
+                        {auth?.token && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
+                            <div className={css.manage}>
+                                <Link href={routes.posts.edit[0](item._id)}>
+                                    <a>
+                                        <FontAwesomeIcon icon={faPen} />
+                                        <span>Edit post</span>
+                                    </a>
+                                </Link>
+                                <button type="button" onClick={handleDelete(item._id)}>
+                                    <FontAwesomeIcon icon={faTrash} />
+                                    <span>Delete post</span>
+                                </button>
+                            </div>
+                        )}
                         <Link href={routes.posts.single[0](item?._id)}>
                             <a className={css.postLink}>
                                 {item.banner && (
@@ -76,10 +90,23 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
                                             ? `${item.desc.slice(0, DESC_LIMIT)}...`
                                             : item.desc}
                                     </p>
-                                    <p className={css.date}>{formatDate(item.date)}</p>
                                 </div>
                             </a>
                         </Link>
+                        {!!item.tags.length && (
+                            <div className={css.tags}>
+                                {item.tags.map(tag => (
+                                    <Link href={routes.posts.tag[0](tag)} key={tag}>
+                                        <a className={css.tag}>{`#${tag}`}</a>
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                        <p className={css.date}>{formatDate(item.date)}</p>
+
+                        <div className={css.inner}>
+                            <ProfileBig user={author ? profile : item?.author?.[0]} />
+                        </div>
 
                         <div className={css.likes}>
                             <Likes
@@ -91,37 +118,6 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
                                 view={item.feedback.view}
                             />
                         </div>
-
-                        {!!item.tags.length && (
-                            <div className={css.tags}>
-                                {item.tags.map(tag => (
-                                    <Link href={routes.posts.tag[0](tag)} key={tag}>
-                                        <a className={css.tag}>{`#${tag}`}</a>
-                                    </Link>
-                                ))}
-                            </div>
-                        )}
-
-                        <div className={css.inner}>
-                            <ProfileBig user={author ? profile : item?.author?.[0]} />
-                        </div>
-
-                        {auth?.token && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
-                            <div className={css.management}>
-                                <button className={css.managementBtn} type="button">
-                                    <FontAwesomeIcon icon={faSlidersH} />
-                                </button>
-
-                                <div className={css.managementInner}>
-                                    <Link href={routes.posts.edit[0](item._id)}>
-                                        <a>Edit post</a>
-                                    </Link>
-                                    <button type="button" onClick={handleDelete(item._id)}>
-                                        Delete post
-                                    </button>
-                                </div>
-                            </div>
-                        )}
                     </li>
                 ))}
         </Masonry>

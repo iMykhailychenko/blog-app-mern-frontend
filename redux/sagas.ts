@@ -7,5 +7,5 @@ import posts from './posts/saga';
 import profile from './profile/saga';
 
 export default function* sagas(): Generator {
-    yield all([fork(auth), fork(posts), fork(feedback), fork(comments), fork(profile)]);
+    yield all([yield fork(auth), yield fork(posts), yield fork(feedback), yield fork(comments), yield fork(profile)]);
 }

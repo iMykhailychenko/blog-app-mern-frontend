@@ -1,4 +1,6 @@
-import { IAuth, IUser } from '../../interfaces';
+import { HYDRATE } from 'next-redux-wrapper';
+
+import { IAuth, IState, IUser } from '../../interfaces';
 import types from '../types';
 import { IAction, IResponse } from './saga';
 
@@ -10,6 +12,9 @@ const INIT: IAuth = {
 
 const auth = (state: IAuth = INIT, action: IAction): IAuth => {
     switch (action.type) {
+        case HYDRATE:
+            return (action.payload as IState).auth;
+
         case types.LOGIN_START:
             return INIT;
 

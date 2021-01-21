@@ -3,8 +3,9 @@ import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
+import useAuth from '../../../../../hooks/auth.hook';
 import types from '../../../../../redux/types';
-import useAuth from '../../../../Common/Auth/AuthContext';
+import ProfileBig from '../../../../Common/Profile/ProfileBig';
 import CommentForm from '../CommentForm';
 import css from './index.module.css';
 
@@ -16,9 +17,11 @@ const NewComment = (): ReactElement => {
         dispatch({ type: types.POST_COMMENT_START, payload });
     };
 
-    return auth ? (
+    return auth.token ? (
         <div className={css.container}>
             <h3 className={css.title}>Leave the comment:</h3>
+            <ProfileBig user={auth.user} />
+            <div className={css.sep} />
             <CommentForm onSubmit={handleSubmit} />
         </div>
     ) : (

@@ -3,7 +3,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../assets/api';
 import notifications from '../../components/Common/Notifications';
-import { IUser } from '../../interfaces';
+import { IState, IUser } from '../../interfaces';
 import types from '../types';
 
 export interface IResponse {
@@ -13,7 +13,7 @@ export interface IResponse {
 
 export interface IAction {
     type: typeof types.LOGIN_START | typeof types.LOGIN_SUCCESS | typeof types.LOGIN_ERROR;
-    payload: IResponse | Body | null | IUser;
+    payload: IResponse | Body | IState | null | IUser;
 }
 
 function* login({ payload }: IAction) {

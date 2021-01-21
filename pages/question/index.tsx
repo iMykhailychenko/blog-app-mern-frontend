@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import QuestionForm from '../../components/Common/Forms/Question';
+import Meta from '../../components/Common/Meta';
 import Picture from '../../components/Common/Picture';
 import PageTitle from '../../components/Layout/PageTitle';
 import css from './index.module.css';
@@ -8,6 +9,10 @@ import css from './index.module.css';
 const Question = (): ReactElement => {
     return (
         <>
+            <Meta
+                title="Have a question?"
+                description="Have a question? Feel free to ask whatever you want | Read and share ideas"
+            />
             <PageTitle>
                 Have a question?{' '}
                 <span role="img" aria-label="img">
@@ -20,13 +25,6 @@ const Question = (): ReactElement => {
 
                 <div className={css.inner}>
                     <h2 className={css.title}>Feel free to ask whatever you want</h2>
-
-                    <p className={css.text}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque asperiores assumenda in
-                        exercitationem, cum minima non repudiandae veniam ut, harum alias praesentium ipsa adipisci
-                        quibusdam sequi. Mollitia expedita vero dolorum.
-                    </p>
-
                     <QuestionForm />
                 </div>
             </div>

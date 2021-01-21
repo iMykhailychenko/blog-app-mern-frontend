@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import pop from '../../../transitions/pop.module.css';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const ScrollTop = (): ReactElement => {
     const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -30,7 +30,7 @@ const ScrollTop = (): ReactElement => {
 
     return (
         <CSSTransition in={top} timeout={600} classNames={pop} unmountOnExit>
-            <button className={styles.btn} ref={buttonRef} onClick={handleClick} type="button" />
+            <button className={css.btn} ref={buttonRef} onClick={handleClick} type="button" />
         </CSSTransition>
     );
 };

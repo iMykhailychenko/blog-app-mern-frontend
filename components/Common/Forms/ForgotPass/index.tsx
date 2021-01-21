@@ -4,7 +4,7 @@ import React, { ReactElement } from 'react';
 
 import routes from '../../../../assets/routes';
 // import { useDispatch } from 'react-redux';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 interface Values {
     email: string;
@@ -34,13 +34,13 @@ const ForgotPass = (): ReactElement => {
         >
             {() => (
                 <Form>
-                    <h2 className={styles.title}>Enter your mail</h2>
+                    <h2 className={css.title}>Enter your mail</h2>
 
-                    <Field className={styles.input} type="email" name="email" placeholder="email" />
-                    <ErrorMessage name="email" render={msg => <span className={styles.errors}>{msg}</span>} />
+                    <Field className={css.input} type="email" name="email" placeholder="email" />
+                    <ErrorMessage name="email" render={msg => <span className={css.errors}>{msg}</span>} />
 
                     <Link href={routes.auth.login}>
-                        <a className={styles.link}>Go to login page</a>
+                        <a className={css.link}>Go to login page</a>
                     </Link>
 
                     <button className="btn btn--gray" type="submit">

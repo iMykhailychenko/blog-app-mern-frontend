@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const LoadMore = (): ReactElement => (
-    <div className={styles.container}>
-        <button className={clsx('btn', 'btn--blue', styles.btn)} type="button">
+    <div className={css.container}>
+        <button className={clsx('btn', 'btn--blue', css.btn)} type="button">
             Load more
         </button>
     </div>

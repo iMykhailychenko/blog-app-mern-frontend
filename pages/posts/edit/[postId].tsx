@@ -7,7 +7,7 @@ import { END } from 'redux-saga';
 
 import config from '../../../assets/config';
 import { parseCookie } from '../../../assets/helpers';
-import useAuth from '../../../components/Common/Auth/AuthContext';
+import useAuth from '../../../components/../hooks/auth.hook';
 import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import Meta from '../../../components/Common/Meta';
 import serverRedirect from '../../../components/HOC/ServerRedirect';
@@ -49,48 +49,46 @@ const EditPost = (): ReactElement => {
         };
     }, [dispatch]);
 
-    return (
-        post && (
-            <>
-                <AuthRedirect />
-                <Meta
-                    title={`Edit post: ${post.title}`}
-                    description={post.desc}
-                    keywords={post.tags.join(' ')}
-                    icon={post.banner}
-                />
-                <div className={css.container}>
-                    <div className={css.content}>
-                        {/*elements*/}
-                        <Socials />
-                        <DateText />
-                        <Title />
-                        <Tags />
-                        {post?.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
-                        <Desc />
-                        <ContentEditor />
-                        <Socials />
+    return post ? (
+        <>
+            <Meta
+                title={`Edit post: ${post.title}`}
+                description={post.desc}
+                keywords={post.tags.join(' ')}
+                icon={post.banner}
+            />
+            <AuthRedirect />
+            <div className={css.container}>
+                <div className={css.content}>
+                    {/*elements*/}
+                    <Socials />
+                    <DateText />
+                    <Title />
+                    <Tags />
+                    {post?.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
+                    <Desc />
+                    <ContentEditor />
+                    <Socials />
 
-                        {/*submit*/}
-                        <EditButtons />
-                    </div>
+                    {/*submit*/}
+                    <EditButtons />
                 </div>
-            </>
-        )
-    );
+            </div>
+        </>
+    ) : null;
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
     serverRedirect(
-        async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
+        async (ctx: GetServerSidePropsContext & { store: IStore; auth: IAuth }): Promise<void> => {
             if (!ctx.query?.postId) return null;
-            store.dispatch({
+            ctx.store.dispatch({
                 type: types.GET_SINGLE_POST_START,
                 payload: ctx.query.postId,
-                user: parseCookie<IAuth>(ctx.req.headers.cookie)?.user?._id,
+                user: ctx.auth?.user?._id,
             });
-            store.dispatch(END);
-            await store.sagaTask.toPromise();
+            ctx.store.dispatch(END);
+            await ctx.store.sagaTask.toPromise();
         },
     ),
 );

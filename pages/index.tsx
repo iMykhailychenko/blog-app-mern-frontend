@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../assets/config';
-import useAuth from '../components/Common/Auth/AuthContext';
+import useAuth from '../components/../hooks/auth.hook';
 import FormLogin from '../components/Common/Forms/Login';
 import PostsLoader from '../components/Common/Loader/PostsLoader';
 import LoadMore from '../components/Common/LoadMore';
+import Meta from '../components/Common/Meta';
 import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
 import useMedia from '../hooks/media.hook';
@@ -24,23 +25,26 @@ const Home = (): ReactElement => {
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
 
     return (
-        <main className={clsx(css.main, 'container')}>
-            {!auth?.token && mobile && (
-                <Aside>
-                    <FormLogin />
-                </Aside>
-            )}
-
-            <div className={clsx(css.content, !!auth?.token && css.auth)}>
-                <h2 className={css.title}>Popular posts</h2>
-                {posts.loading ? (
-                    <PostsLoader wide />
-                ) : (
-                    <Posts content={posts.data?.posts} wide={!auth?.token && mobile} />
+        <>
+            <Meta />
+            <main className={clsx(css.main, 'container')}>
+                {!auth?.token && mobile && (
+                    <Aside>
+                        <FormLogin />
+                    </Aside>
                 )}
-                <LoadMore />
-            </div>
-        </main>
+
+                <div className={clsx(css.content, !!auth?.token && css.auth)}>
+                    <h2 className={css.title}>Popular posts</h2>
+                    {posts.loading ? (
+                        <PostsLoader wide />
+                    ) : (
+                        <Posts content={posts.data?.posts} wide={!auth?.token && mobile} />
+                    )}
+                    <LoadMore />
+                </div>
+            </main>
+        </>
     );
 };
 

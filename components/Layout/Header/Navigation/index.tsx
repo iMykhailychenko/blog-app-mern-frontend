@@ -6,16 +6,16 @@ import { Router } from 'next/router';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import routes from '../../../../assets/routes';
+import useAuth from '../../../../hooks/auth.hook';
 import useMedia from '../../../../hooks/media.hook';
-import useAuth from '../../../Common/Auth/AuthContext';
 import Profile from '../Profile';
 import DesktopNav from './DesktopNav';
 import css from './index.module.css';
 import MobileNav from './MobileNav';
 
 const Navigation = (): ReactElement => {
-    const mobile = useMedia();
     const auth = useAuth();
+    const mobile = useMedia(768);
 
     const [menu, setMenu] = useState<boolean>(false);
 

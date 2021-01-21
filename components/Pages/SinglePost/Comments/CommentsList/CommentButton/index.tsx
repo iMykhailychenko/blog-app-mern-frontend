@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
+import useAuth from '../../../../../../hooks/auth.hook';
 import { IComment } from '../../../../../../interfaces';
 import types from '../../../../../../redux/types';
-import useAuth from '../../../../../Common/Auth/AuthContext';
 import Likes from '../../../../../Common/Likes';
 import { modal } from '../../../../../Common/Modal';
 import Answer from '../../Modals/Answer';

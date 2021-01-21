@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import types from '../../../../redux/types';
 import css from './index.module.css';
 
-const SubmitButtons = (): ReactElement => {
+const EditButton = (): ReactElement => {
     const router = useRouter();
     const dispatch = useDispatch();
 
@@ -40,4 +40,4 @@ const SubmitButtons = (): ReactElement => {
     );
 };
 
-export default SubmitButtons;
+export default EditButton;

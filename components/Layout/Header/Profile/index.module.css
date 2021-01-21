@@ -86,7 +86,9 @@
     outline: none;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
+    box-shadow: none;
     text-decoration: underline;
 }
 

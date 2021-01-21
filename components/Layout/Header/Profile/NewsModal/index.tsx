@@ -1,16 +1,15 @@
 import React, { ReactElement } from 'react';
+import ReactDOM from 'react-dom';
 
-// import Like from './Like';
-// import Comment from './Comment';
-import styles from '../index.module.css';
+import css from '../index.module.css';
 
 interface IProps {
     onClick: () => void;
 }
 
-const NewxModal = ({ onClick }: IProps): ReactElement => {
-    return (
-        <div className={`${styles.modal} ${styles.news}`} onClick={onClick} aria-hidden>
+const NewsModal = ({ onClick }: IProps): ReactElement => {
+    return ReactDOM.createPortal(
+        <div className={`${css.modal} ${css.news}`} onClick={onClick} aria-hidden>
             {/* {!notification.length ? (
                 <p className={styles.nothing}>Nothing to show</p>
             ) : (
@@ -20,8 +19,9 @@ const NewxModal = ({ onClick }: IProps): ReactElement => {
                     )}
                 </ul>
             )} */}
-        </div>
+        </div>,
+        document.querySelector('body'),
     );
 };
 
-export default NewxModal;
+export default NewsModal;

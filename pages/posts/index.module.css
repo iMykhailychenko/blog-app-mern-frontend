@@ -106,8 +106,9 @@
     position: relative;
     max-height: 70rem;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     margin: 8rem auto;
+    background: #eee;
 }
 
 @media (max-width: 1000px) {

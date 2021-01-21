@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
 
 import routes from '../../../../assets/routes';
-import useAuth from '../../../Common/Auth/AuthContext';
+import useAuth from '../../../../hooks/auth.hook';
 import UserAvatar from '../../../Common/UserAvatar';
 import css from './index.module.css';
 import NewsModal from './NewsModal';

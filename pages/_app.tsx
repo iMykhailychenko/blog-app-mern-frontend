@@ -1,41 +1,38 @@
 import '../styles/styles.css';
 
 import App, { AppProps } from 'next/app';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 
 import { parseCookie } from '../assets/helpers';
 import interceptors from '../assets/interceptors';
-import { AuthProvider } from '../components/Common/Auth/AuthContext';
+import AuthProvider from '../components/HOC/AuthContext';
+import MediaProvider from '../components/HOC/Media';
 import Layout from '../components/Layout/Layout';
 import { IAuth } from '../interfaces';
 import { wrapper } from '../redux/store';
 
-const MyApp = ({ Component, pageProps, auth }: AppProps & { auth: IAuth }): ReactElement => {
+const MyApp = ({ Component, pageProps, width, auth }: AppProps & { width: number; auth: IAuth }): ReactElement => {
     const history = useRouter();
     interceptors({ history });
 
     return (
-        <>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-                <meta name="theme-color" content="#ffffff" />
-                <link rel="apple-touch-icon" href="/about.jpg" />
-                <title>Blog Application</title>
-            </Head>
-            <AuthProvider authServer={auth}>
+        <AuthProvider authServer={auth}>
+            <MediaProvider width={width}>
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
-            </AuthProvider>
-        </>
+            </MediaProvider>
+        </AuthProvider>
     );
 };
 
 MyApp.getInitialProps = async appContext => {
+    const toMatch = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i;
+    const isMobile = toMatch.test(appContext?.ctx?.req?.headers?.['user-agent']);
+
     const props = await App.getInitialProps(appContext);
-    return { ...props, token: parseCookie<IAuth>(appContext?.ctx?.req?.headers?.cookie) };
+    return { ...props, width: isMobile ? 500 : 1400, token: parseCookie<IAuth>(appContext?.ctx?.req?.headers?.cookie) };
 };
 
 export default wrapper.withRedux(MyApp);

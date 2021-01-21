@@ -2,11 +2,11 @@ import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
 import routes from '../../../../assets/routes';
-import styles from './index.module.css';
+import css from './index.module.css';
 
 const Nav = (): ReactElement => {
     return (
-        <ul className={styles.list}>
+        <ul className={css.list}>
             <li>
                 <Link href={routes.home}>Home</Link>
             </li>

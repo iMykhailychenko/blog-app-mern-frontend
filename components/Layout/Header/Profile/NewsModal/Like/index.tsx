@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactElement } from 'react';
 
 // import { INotification } from '../../../../../../interfaces';
-import styles from './index.module.css';
+import css from './index.module.css';
 // import routes from '../../../../../../routes';
 
 // const text: { [key: string]: string } = {
@@ -14,17 +14,17 @@ import styles from './index.module.css';
 
 // const Like = ({ user, target, post }: INotification): ReactElement => (
 const Like = (): ReactElement => (
-    <li className={styles.notif}>
-        <div className={styles.icon}>
+    <li className={css.notif}>
+        <div className={css.icon}>
             <FontAwesomeIcon icon={faHeart} />
         </div>
 
-        <div className={styles.wrp}>
-            {/* <Link className={styles.user} to={routes.ProfileBig.path[0](user.id)}>
+        <div className={css.wrp}>
+            {/* <Link className={css.user} to={routes.ProfileBig.path[0](user.id)}>
                 {user.name}
             </Link>
             <span>{text[target]}</span>
-            <Link className={styles.title} to={routes.Post.Single.path[0](post.items.id)}>
+            <Link className={css.title} to={routes.Post.Single.path[0](post.items.id)}>
                 {post.items.title}
             </Link> */}
         </div>
