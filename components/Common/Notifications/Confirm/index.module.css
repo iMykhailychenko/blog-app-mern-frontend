@@ -25,6 +25,11 @@
     box-shadow: none;
 }
 
+.modal .close svg {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
 .modal h4 {
     font-size: 2rem;
     font-weight: 600;

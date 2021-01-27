@@ -8,7 +8,6 @@ import { END } from 'redux-saga';
 import config from '../../assets/config';
 import routes from '../../assets/routes';
 import SearchForm from '../../components/Common/Forms/Search';
-import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import Meta from '../../components/Common/Meta';
 import Posts from '../../components/Common/Posts';
 import useAuth from '../../hooks/auth.hook';

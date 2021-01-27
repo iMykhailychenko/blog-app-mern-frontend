@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import { formatDate, parseCookie } from '../../assets/helpers';
+import { formatDate } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import useAuth from '../../components/../hooks/auth.hook';
 import Likes from '../../components/Common/Likes';
@@ -16,7 +16,7 @@ import ProfileBig from '../../components/Common/Profile/ProfileBig';
 import serverCookie from '../../components/HOC/ServerCookie';
 import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
-import { IAuth, IPost, IState, IStore, IUser } from '../../interfaces';
+import { IAuth, IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';

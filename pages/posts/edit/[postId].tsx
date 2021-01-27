@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../../assets/config';
-import { parseCookie } from '../../../assets/helpers';
 import useAuth from '../../../components/../hooks/auth.hook';
 import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import Meta from '../../../components/Common/Meta';

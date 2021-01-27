@@ -63,9 +63,6 @@
 .empty {
     display: flex;
     width: 100%;
-    padding: 3.5rem 2rem;
-    background: #eee;
-    border-radius: 1rem;
 }
 
 .btn {

@@ -25,6 +25,10 @@
     box-shadow: none;
 }
 
+.modal .close svg {
+    width: 1.6rem;
+    height: 1.6rem;
+}
 .modal svg {
     display: block;
     width: 6rem;

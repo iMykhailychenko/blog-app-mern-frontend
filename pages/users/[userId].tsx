@@ -17,7 +17,7 @@ import { modal } from '../../components/Common/Modal';
 import Posts from '../../components/Common/Posts';
 import ProfileSmall from '../../components/Common/Profile/ProfileSmall';
 import Aside from '../../components/Layout/Aside';
-import AsideProfile from '../../components/Layout/Aside/AsideProfile';
+import AsideProfile from '../../components/Pages/Users/AsideProfile';
 import FollowersModal from '../../components/Pages/Users/FollowersModal';
 import { IPostList, IState, IStore, IUser } from '../../interfaces';
 import { wrapper } from '../../redux/store';
@@ -82,12 +82,7 @@ const UserProfile = (): ReactElement => {
                                             </button>
                                         </>
                                     ) : (
-                                        <p className={css.empty}>
-                                            <span role="img" aria-label="img">
-                                                🙈
-                                            </span>{' '}
-                                            <span>There is no followers</span>
-                                        </p>
+                                        <p className={css.empty}>There is no followers</p>
                                     )}
                                 </div>
                             </div>
@@ -105,28 +100,19 @@ const UserProfile = (): ReactElement => {
                                             </button>
                                         </>
                                     ) : (
-                                        <p className={css.empty}>
-                                            <span role="img" aria-label="img">
-                                                🙈
-                                            </span>{' '}
-                                            <span>There is no following profile here</span>
-                                        </p>
+                                        <p className={css.empty}>There is no following profile here</p>
                                     )}
                                 </div>
                             </div>
                         </div>
+
                         <div className={css.flex}>
                             <div className={css.inner}>
                                 <h3 className={css.subtitle}>Short description:</h3>
                                 {profile?.desc ? (
                                     <p>{profile?.desc}</p>
                                 ) : (
-                                    <p className={css.empty}>
-                                        <span role="img" aria-label="img">
-                                            🙈
-                                        </span>{' '}
-                                        <span>There is empty profile description</span>
-                                    </p>
+                                    <p className={css.empty}>There is empty profile description</p>
                                 )}
                             </div>
                         </div>
