@@ -68,20 +68,21 @@
 
 .quill .ql-container.ql-snow .ql-editor pre {
     position: relative;
-    padding: 6rem 3rem 4rem;
+    padding: 4.5rem 3rem 4rem;
     background: rgb(40, 44, 52);
     font-size: 1.6rem;
     font-family: Monaco, monospace !important;
     font-weight: 300 !important;
+    border-radius: 0.6rem;
 }
 
 .quill .ql-container.ql-snow .ql-editor pre::before {
     content: '';
     position: absolute;
-    top: 2rem;
-    left: 3rem;
-    height: 1rem;
-    width: 10rem;
+    top: 1rem;
+    left: 1.2rem;
+    height: 1.3rem;
+    width: 15rem;
     background: url('/img/post/close.svg') no-repeat;
 }
 

@@ -3,6 +3,7 @@ import 'highlight.js/styles/atom-one-dark-reasonable.css';
 import clsx from 'clsx';
 import hljs from 'highlight.js/lib/core';
 import xml from 'highlight.js/lib/languages/xml';
+import javascript from 'highlight.js/lib/languages/javascript';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -36,6 +37,7 @@ const SinglePost = (): ReactElement => {
     useEffect(() => {
         if (ref.current) {
             hljs.registerLanguage('xml', xml);
+            hljs.registerLanguage('javascript', javascript);
             document.querySelectorAll('pre.ql-syntax').forEach((block: HTMLElement) => {
                 hljs.highlightBlock(block);
             });
