@@ -1,14 +1,10 @@
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
-import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import routes from '../../assets/routes';
 import AuthRedirect from '../../components/Common/Auth/AuthRedirect';
 import Meta from '../../components/Common/Meta';
 import serverRedirect from '../../components/HOC/ServerRedirect';

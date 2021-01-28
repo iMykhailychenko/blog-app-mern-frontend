@@ -6,13 +6,13 @@ import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import config from '../../../../assets/config';
 import routes from '../../../../assets/routes';
 import useAuth from '../../../../hooks/auth.hook';
 import { IState, IUser } from '../../../../interfaces';
 import types from '../../../../redux/types';
 import Likes from '../../../Common/Likes';
 import css from './index.module.css';
-import config from "../../../../assets/config";
 
 const AsideProfile = (): ReactElement => {
     const auth = useAuth();

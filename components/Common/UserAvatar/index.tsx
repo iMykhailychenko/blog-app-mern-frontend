@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
+import config from '../../../assets/config';
 import css from './index.module.css';
-import config from "../../../assets/config";
 
 interface IProps {
     avatar: string | null | undefined;

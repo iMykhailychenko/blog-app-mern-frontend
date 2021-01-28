@@ -12,10 +12,6 @@
     border-radius: 1rem;
 }
 
-.ql-snow .ql-editor pre.ql-syntax {
-    padding: 2rem;
-}
-
 .ql-snow .ql-editor a {
     padding: 0.2rem 0.3rem;
     border-radius: 1rem;
@@ -68,6 +64,25 @@
 .quill .ql-container.ql-snow .ql-editor blockquote,
 .quill .ql-container.ql-snow .ql-editor p {
     font-size: 2rem;
+}
+
+.quill .ql-container.ql-snow .ql-editor pre {
+    position: relative;
+    padding: 6rem 3rem 4rem;
+    background: rgb(40, 44, 52);
+    font-size: 1.6rem;
+    font-family: Monaco, monospace !important;
+    font-weight: 300 !important;
+}
+
+.quill .ql-container.ql-snow .ql-editor pre::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 3rem;
+    height: 1rem;
+    width: 10rem;
+    background: url('/img/post/close.svg') no-repeat;
 }
 
 .quill .ql-container.ql-snow .ql-editor p {

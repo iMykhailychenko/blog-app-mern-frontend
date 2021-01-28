@@ -17,7 +17,7 @@ const NewComment = (): ReactElement => {
         dispatch({ type: types.POST_COMMENT_START, payload });
     };
 
-    return auth.token ? (
+    return auth?.token ? (
         <div className={css.container}>
             <h3 className={css.title}>Leave the comment:</h3>
             <ProfileBig user={auth.user} />
