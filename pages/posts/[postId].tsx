@@ -2,8 +2,8 @@ import 'highlight.js/styles/atom-one-dark-reasonable.css';
 
 import clsx from 'clsx';
 import hljs from 'highlight.js/lib/core';
-import xml from 'highlight.js/lib/languages/xml';
 import javascript from 'highlight.js/lib/languages/javascript';
+import xml from 'highlight.js/lib/languages/xml';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
