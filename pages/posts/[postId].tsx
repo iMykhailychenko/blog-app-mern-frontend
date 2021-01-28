@@ -27,7 +27,7 @@ import types from '../../redux/types';
 import css from './index.module.css';
 
 const SinglePost = (): ReactElement => {
-    const ref = useRef();
+    const ref = useRef<HTMLDivElement>(null);
     const auth = useAuth();
     const router = useRouter();
     const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const SinglePost = (): ReactElement => {
         if (ref.current) {
             hljs.registerLanguage('xml', xml);
             hljs.registerLanguage('javascript', javascript);
-            document.querySelectorAll('pre.ql-syntax').forEach((block: HTMLElement) => {
+            ref.current.querySelectorAll('pre.ql-syntax').forEach((block: HTMLElement) => {
                 hljs.highlightBlock(block);
             });
         }
