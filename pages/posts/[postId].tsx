@@ -7,7 +7,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
@@ -27,6 +27,7 @@ import types from '../../redux/types';
 import css from './index.module.css';
 
 const SinglePost = (): ReactElement => {
+    const ref = useRef<HTMLDivElement>(null);
     const auth = useAuth();
     const router = useRouter();
     const dispatch = useDispatch();
@@ -34,12 +35,18 @@ const SinglePost = (): ReactElement => {
     const post = useSelector<IState, IPost>(state => state.posts.single.data);
 
     const start = (): void => {
-        hljs.registerLanguage('xml', xml);
-        hljs.registerLanguage('javascript', javascript);
         document.querySelectorAll('pre.ql-syntax').forEach((block: HTMLElement) => {
             hljs.highlightBlock(block);
         });
     };
+
+    useEffect(() => {
+        if (ref.current) {
+            hljs.registerLanguage('xml', xml);
+            hljs.registerLanguage('javascript', javascript);
+            start();
+        }
+    }, [ref, start]);
 
     const handleDelete = (): void => {
         dispatch({
