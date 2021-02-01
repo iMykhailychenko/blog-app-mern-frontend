@@ -107,10 +107,16 @@ const UserProfile = (): ReactElement => {
                         </div>
 
                         <div className={css.flex}>
-                            <div className={css.inner}>
+                            <div className={css.desc}>
                                 <h3 className={css.subtitle}>Short description:</h3>
                                 {profile?.desc ? (
-                                    <p>{profile?.desc}</p>
+                                    <p
+                                        dangerouslySetInnerHTML={{
+                                            __html: profile.desc
+                                                .replace(/\n\n/gi, '<div>')
+                                                .replace(/\n/gi, '<div class="separator">'),
+                                        }}
+                                    />
                                 ) : (
                                     <p className={css.empty}>There is empty profile description</p>
                                 )}

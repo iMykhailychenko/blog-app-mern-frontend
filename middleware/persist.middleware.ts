@@ -3,19 +3,21 @@ import { HYDRATE } from 'next-redux-wrapper';
 import { Middleware } from 'redux';
 
 import notifications from '../components/Common/Notifications';
+import { IState } from '../interfaces';
 import initState from '../redux/state';
 import types from '../redux/types';
 
-const Persist: Middleware = () => next => action => {
+const Persist: Middleware = store => next => action => {
     // console.dir(action);
 
     if (process.browser) {
         /**
          * SET DATA TO STORAGE
          * */
-        if (types.LOGIN_SUCCESS === action.type) {
+        if (types.LOGIN_SUCCESS === action.type || types.GET_USER_INFO_SUCCESS === action.type) {
             try {
-                Cookies.set('blog_auth', JSON.stringify(action.payload));
+                const state: IState = store.getState();
+                Cookies.set('phoqer_auth', JSON.stringify({ ...state.auth, ...action.payload }));
                 next(action);
                 return;
             } catch (error) {

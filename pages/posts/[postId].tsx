@@ -121,6 +121,7 @@ const SinglePost = (): ReactElement => {
                         <div className="ready quill">
                             <div className="ql-container ql-post-container ql-snow">
                                 <div
+                                    ref={ref}
                                     onLoad={start}
                                     className="ql-editor ql-post"
                                     dangerouslySetInnerHTML={{ __html: post.content }}
