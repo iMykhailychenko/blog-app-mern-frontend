@@ -6,5 +6,5 @@ import newPost from './new/saga';
 import single from './single/saga';
 
 export default function* posts(): Generator {
-    yield all([yield fork(list), yield fork(newPost), yield fork(single), yield fork(edit)]);
+    yield all([fork(list), fork(newPost), fork(single), fork(edit)]);
 }

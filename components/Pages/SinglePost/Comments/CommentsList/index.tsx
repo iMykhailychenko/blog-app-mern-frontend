@@ -33,7 +33,10 @@ const CommentsList = (): ReactElement => {
                     <li className={css.item} key={comment._id}>
                         <ProfileBig user={comment.author[0]} />
 
-                        <p className={css.text}>{comment.text}</p>
+                        <p
+                            className={css.text}
+                            dangerouslySetInnerHTML={{ __html: comment.text.replace(/\n/, '<br>') }}
+                        />
 
                         {comment.attachment && (
                             <button
@@ -58,7 +61,10 @@ const CommentsList = (): ReactElement => {
                                     <li className={css.item} key={answer._id}>
                                         <ProfileBig user={answer.author[0]} />
 
-                                        <p className={css.text}>{answer.text}</p>
+                                        <p
+                                            className={css.text}
+                                            dangerouslySetInnerHTML={{ __html: answer.text.replace(/\n/, '<br>') }}
+                                        />
 
                                         {answer.attachment && (
                                             <button

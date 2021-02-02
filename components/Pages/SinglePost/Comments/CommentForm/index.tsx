@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import AttachedImg from '../AttachedImg';
 import css from './index.module.css';
@@ -35,7 +36,7 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
 
     return (
         <form action="#" method="POST">
-            <textarea
+            <TextareaAutosize
                 className={css.comment}
                 name="comment"
                 cols={30}

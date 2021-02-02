@@ -105,11 +105,11 @@
 
 .banner {
     position: relative;
-    max-height: 70rem;
+    max-height: 66rem;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     margin: 8rem auto;
-    background: #eee;
+    background: #333;
 }
 
 @media (max-width: 1000px) {

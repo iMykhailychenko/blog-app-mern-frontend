@@ -13,6 +13,12 @@ const profile = (state: IUser = null, action: IAction): IUser => {
         case types.DISLIKE_PROFILE_SUCCESS:
             return { ...state, feedback: action.payload as IFeedback };
 
+        case types.UPDATE_AVATAR_SUCCESS:
+            return { ...state, avatar: action.payload as string | null };
+
+        case types.UPDATE_USER_BANNER_SUCCESS:
+            return { ...state, banner: action.payload as string | null };
+
         case types.GET_PROFILE_ERROR:
             return null;
 

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import { IState } from '../../../../interfaces';
 import types from '../../../../redux/types';
@@ -16,7 +17,7 @@ const Desc = (): ReactElement => {
     };
 
     return (
-        <textarea
+        <TextareaAutosize
             value={desc}
             onChange={handleChange}
             name="desc"

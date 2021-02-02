@@ -12,7 +12,12 @@ interface IProps {
 
 const UserAvatar = ({ avatar, name, height = 3.5, width = 3.5 }: IProps): ReactElement => {
     return avatar ? (
-        <img className={css.avatar} style={{ height: `${height}rem`, width: `${width}rem` }} src={avatar} alt={name} />
+        <img
+            className={css.avatar}
+            style={{ height: `${height}rem`, width: `${width}rem` }}
+            src={config.img + avatar}
+            alt={name}
+        />
     ) : (
         <div
             className={css.placeholder}

@@ -7,3 +7,82 @@
     margin: 0 auto;
     padding: 8rem 0;
 }
+
+.banner {
+    position: relative;
+    height: 66rem;
+    width: 100%;
+    margin: 8rem auto;
+    background: #eee;
+    object-fit: cover;
+}
+
+.file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.delete {
+    transform: translateY(6rem);
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+    width: max-content;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: #d61f1f;
+}
+
+.delete svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.add {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.add div {
+    background: #333;
+}
+
+.file:hover ~ .add {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.add p {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.file:hover ~ .add div,
+.file:focus ~ .add div {
+    box-shadow: 0 0 0 0.4rem rgba(31, 31, 31, 0.3);
+}
+
+@media (max-width: 690px) {
+    .banner {
+        margin: 3rem auto;
+    }
+}

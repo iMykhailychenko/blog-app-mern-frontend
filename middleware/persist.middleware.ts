@@ -17,7 +17,37 @@ const Persist: Middleware = store => next => action => {
         if (types.LOGIN_SUCCESS === action.type || types.GET_USER_INFO_SUCCESS === action.type) {
             try {
                 const state: IState = store.getState();
-                Cookies.set('phoqer_auth', JSON.stringify({ ...state.auth, ...action.payload }));
+                Cookies.set('blog_auth', JSON.stringify({ ...state.auth, ...action.payload }));
+                next(action);
+                return;
+            } catch (error) {
+                notifications('error', 'Oops, Something went wrong. Please, reload your browser and try again');
+                next(action);
+                return;
+            }
+        }
+
+        if (types.GET_USER_INFO_SUCCESS === action.type) {
+            try {
+                const state: IState = store.getState();
+                Cookies.set('blog_auth', JSON.stringify({ ...state.auth, user: action.payload }));
+                next(action);
+                return;
+            } catch (error) {
+                notifications('error', 'Oops, Something went wrong. Please, reload your browser and try again');
+                next(action);
+                return;
+            }
+        }
+
+        if (types.UPDATE_AVATAR_SUCCESS === action.type) {
+            try {
+                const state: IState = store.getState();
+                console.log(action.payload);
+                Cookies.set(
+                    'blog_auth',
+                    JSON.stringify({ ...state.auth, user: { ...state.auth.user, avatar: action.payload } }),
+                );
                 next(action);
                 return;
             } catch (error) {

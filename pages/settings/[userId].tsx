@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
-import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import React, { ChangeEvent, ReactElement } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
@@ -16,7 +16,12 @@ import types from '../../redux/types';
 import css from './index.module.css';
 
 const Settings = (): ReactElement => {
+    const dispatch = useDispatch();
     const profile = useSelector<IState, IUser>(state => state.profile);
+
+    const handleUserBanner = (event?: ChangeEvent<HTMLInputElement>): void => {
+        dispatch({ type: types.UPDATE_USER_BANNER_START, payload: event?.target?.files?.[0] || null });
+    };
 
     return (
         <>
@@ -36,7 +41,7 @@ const Settings = (): ReactElement => {
                     <div className={css.content}>
                         <div className={css.banner}>
                             {profile.banner && <img className={css.banner} src={config.img + profile.banner} alt="" />}
-                            <input type="file" className={css.file} />
+                            <input type="file" onChange={handleUserBanner} className={css.file} />
                             <div className={css.add}>
                                 <div className="add" />
                                 <p>Edit page banner</p>

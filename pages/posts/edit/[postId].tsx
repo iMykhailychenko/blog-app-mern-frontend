@@ -1,7 +1,9 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetServerSidePropsContext } from 'next';
 import dynamic from 'next/dynamic';
 import { Router, useRouter } from 'next/router';
-import React, { ReactElement, useEffect } from 'react';
+import React, { ChangeEvent, ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
@@ -23,11 +25,19 @@ import css from '../new_post/index.module.css';
 const ContentEditor = dynamic(() => import('../../../components/Pages/NewPost/ContentEditor'), { ssr: false });
 
 const EditPost = (): ReactElement => {
+    const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
-    const auth = useAuth();
 
     const post = useSelector<IState, IPost | null>(state => state.posts.single.data);
+
+    const handleBannerChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        dispatch({ type: types.EDIT_POSTS_BANNER_START, payload: { id: query.postId, banner: event.target.files[0] } });
+    };
+
+    const handleDeleteBanner = (): void => {
+        dispatch({ type: types.EDIT_POSTS_BANNER_START, payload: { id: query.postId } });
+    };
 
     useEffect(() => {
         dispatch({
@@ -64,7 +74,24 @@ const EditPost = (): ReactElement => {
                     <DateText />
                     <Title />
                     <Tags />
-                    {post?.banner && <img className={css.banner} src={config.img + post.banner} alt={post.title} />}
+
+                    {post.banner ? (
+                        <button className={css.delete} onClick={handleDeleteBanner} type="button">
+                            <FontAwesomeIcon icon={faTrash} />
+                            <span>Delete banner</span>
+                        </button>
+                    ) : null}
+
+                    <div className={css.banner}>
+                        {post.banner ? <img className={css.banner} src={config.img + post.banner} alt="" /> : null}
+
+                        <input type="file" onChange={handleBannerChange} className={css.file} />
+                        <div className={css.add}>
+                            <div className="add" />
+                            <p>Edit page banner</p>
+                        </div>
+                    </div>
+
                     <Desc />
                     <ContentEditor />
                     <Socials />

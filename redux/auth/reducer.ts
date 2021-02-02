@@ -21,6 +21,9 @@ const auth = (state: IAuth = INIT, action: IAction): IAuth => {
         case types.GET_USER_INFO_SUCCESS:
             return { ...state, user: action.payload as IUser };
 
+        case types.UPDATE_AVATAR_SUCCESS:
+            return { ...state, user: { ...state.user, avatar: action.payload as string | null } };
+
         case types.LOGIN_SUCCESS:
             return { ...(action.payload as IResponse), loading: false };
 

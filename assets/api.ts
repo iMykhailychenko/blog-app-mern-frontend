@@ -33,6 +33,8 @@ const api = {
         deletePost: (id: string): Promise<AxiosResponse<void>> => axios.delete(`/posts/${id}`),
         editPost: ({ id, form }: { id: string; form: IPost }): Promise<AxiosResponse<void>> =>
             axios.put(`/posts/${id}`, form),
+        editPostBanner: ({ id, form }: { id: string; form: FormData | null }): Promise<AxiosResponse<void>> =>
+            axios.put(`/posts/${id}/banner`, form || null),
     },
     feedback: {
         like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}`),
@@ -49,6 +51,13 @@ const api = {
             axios.post(`/comments/${id}/${comment}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
         commentLike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/comments/`),
         commentDislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/comments/`),
+    },
+    settings: {
+        updateAvatar: (form: FormData | null): Promise<AxiosResponse<void>> => axios.put('/settings/avatar/', form),
+        updateBanner: (form: FormData | null): Promise<AxiosResponse<void>> => axios.put('/settings/banner/', form),
+        updateUserInfo: (data: { name?: string; surname?: string; email?: string }): Promise<AxiosResponse<void>> =>
+            axios.put('/settings/user/', data),
+        updateBio: (data: { bio: string }): Promise<AxiosResponse<void>> => axios.put('/settings/bio/', data),
     },
 };
 

@@ -16,7 +16,7 @@ export interface IAction {
         | typeof types.UPDATE_POST_START
         | typeof types.UPDATE_POST_SUCCESS
         | typeof types.UPDATE_POST_ERROR;
-    payload: IPost | IState | string | null;
+    payload: IPost | IState | string | { id: string; banner: File };
     user?: string | null;
     config?: IParams;
     router?: NextRouter;
@@ -52,9 +52,28 @@ function* updatePost({ payload, router }: IAction) {
     }
 }
 
+function* updatePostBanner({ payload }: IAction) {
+    try {
+        const form = new FormData();
+        (payload as { banner: File }).banner && form.append('banner', (payload as { banner: File }).banner);
+
+        const { status, data } = yield call(api.posts.editPostBanner, {
+            id: (payload as { id: string }).id,
+            form: (payload as { banner: File }).banner ? form : null,
+        });
+        if (status < 200 || status >= 300) throw new Error();
+        yield put({ type: types.EDIT_POSTS_BANNER_SUCCESS, payload: data });
+    } catch (error) {
+        if (error?.response?.status === 401) return;
+        yield put({ type: types.EDIT_POSTS_BANNER_ERROR });
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+    }
+}
+
 export default function* edit(): Generator {
     yield all([
         yield takeLatest(types.GET_EDIT_POST_START, getEditPost),
         yield takeLatest(types.UPDATE_POST_START, updatePost),
+        yield takeLatest(types.EDIT_POSTS_BANNER_START, updatePostBanner),
     ]);
 }

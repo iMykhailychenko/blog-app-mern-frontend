@@ -13,6 +13,7 @@
     margin-bottom: 6rem;
     border-radius: 1rem;
     background: #eee;
+    object-fit: cover;
 }
 
 .file {
@@ -39,11 +40,21 @@
     width: 100%;
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.add div {
+    background: #333;
+}
+
+.file:hover ~ .add {
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .add p {
     margin-top: 1rem;
     font-size: 1.6rem;
+    color: #fff;
 }
 
 .file:hover ~ .add div,

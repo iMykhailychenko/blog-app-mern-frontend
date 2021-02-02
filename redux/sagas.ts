@@ -5,7 +5,8 @@ import comments from './comments/saga';
 import feedback from './feedback/saga';
 import posts from './posts/saga';
 import profile from './profile/saga';
+import settings from './settings/saga';
 
 export default function* sagas(): Generator {
-    yield all([yield fork(auth), yield fork(posts), yield fork(feedback), yield fork(comments), yield fork(profile)]);
+    yield all([fork(auth), fork(posts), fork(feedback), fork(comments), fork(profile), fork(settings)]);
 }

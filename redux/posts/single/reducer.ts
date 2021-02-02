@@ -21,6 +21,15 @@ const single = (state: ISinglePost = INIT, action: IAction): ISinglePost => {
         case types.GET_SINGLE_POST_SUCCESS:
             return { data: action.payload as IPost, loading: false };
 
+        case types.EDIT_POSTS_BANNER_START:
+            return { ...state, loading: true };
+
+        case types.EDIT_POSTS_BANNER_SUCCESS:
+            return { data: { ...state.data, banner: action.payload as string }, loading: false };
+
+        case types.EDIT_POSTS_BANNER_ERROR:
+            return { data: { ...state.data, banner: null }, loading: false };
+
         case types.GET_SINGLE_POST_ERROR:
             return { data: null, loading: false };
 

@@ -13,7 +13,7 @@ export interface IResponse {
 
 export interface IAction {
     type: typeof types.LOGIN_START | typeof types.LOGIN_SUCCESS | typeof types.LOGIN_ERROR;
-    payload: IResponse | Body | IState | null | IUser;
+    payload: IResponse | Body | IState | IUser | string | null;
 }
 
 function* login({ payload }: IAction) {

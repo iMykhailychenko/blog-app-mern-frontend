@@ -69,6 +69,24 @@
     width: 1.6rem;
 }
 
+.delete {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+    width: max-content;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: #d61f1f;
+}
+
+.delete svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+
 .file {
     position: absolute;
     top: 0;
