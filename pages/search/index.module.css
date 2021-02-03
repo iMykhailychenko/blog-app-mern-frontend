@@ -9,6 +9,10 @@
     font-size: 3rem;
 }
 
+.total {
+    font-size: 1.4rem;
+}
+
 .empty {
     display: flex;
     flex-direction: column;

@@ -10,6 +10,9 @@ export interface IAction {
         | typeof types.GET_POSTS_START
         | typeof types.GET_POSTS_SUCCESS
         | typeof types.GET_POSTS_ERROR
+        | typeof types.MORE_POSTS_START
+        | typeof types.MORE_POSTS_SUCCESS
+        | typeof types.MORE_POSTS_ERROR
         | typeof types.GET_USER_POSTS_START
         | typeof types.GET_USER_POSTS_SUCCESS
         | typeof types.GET_USER_POSTS_ERROR;
@@ -23,6 +26,18 @@ function* getPosts({ payload }: IAction) {
         yield put({ type: types.GET_POSTS_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.GET_POSTS_ERROR });
+        if (error?.response?.status === 401) return;
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+    }
+}
+
+function* morePosts({ payload }: IAction) {
+    try {
+        const { status, data } = yield call(api.posts.getPosts, payload as IParams);
+        if (status < 200 || status >= 300) throw new Error();
+        yield put({ type: types.MORE_POSTS_SUCCESS, payload: data });
+    } catch (error) {
+        yield put({ type: types.MORE_POSTS_ERROR });
         if (error?.response?.status === 401) return;
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -43,6 +58,7 @@ function* getUserPosts({ payload }: IAction) {
 export default function* list(): Generator {
     yield all([
         yield takeLatest(types.GET_POSTS_START, getPosts),
+        yield takeLatest(types.MORE_POSTS_START, morePosts),
         yield takeLatest(types.GET_USER_POSTS_START, getUserPosts),
     ]);
 }

@@ -22,7 +22,7 @@ const mediaAuth = (col: number): Media => ({
     610: 1,
 });
 
-const DEFAULT_ARRAY = [0, 1, 2, 3];
+const DEFAULT_ARRAY = [0, 1, 2];
 
 const PostsLoader = ({ col = 2, wide = false }: IProps): ReactElement => (
     <Masonry
@@ -32,8 +32,6 @@ const PostsLoader = ({ col = 2, wide = false }: IProps): ReactElement => (
     >
         {DEFAULT_ARRAY.map(items => (
             <li className={css.wrp} key={items}>
-                <div className={css.img} />
-
                 <div className={css.text}>
                     <span />
                     <span />

@@ -60,7 +60,6 @@ export interface IPost {
 }
 
 export interface IPostPagination {
-    _id: null;
     total: number;
     posts: IPost[];
 }

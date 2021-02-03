@@ -6,22 +6,22 @@ import css from './index.module.css';
 const BigLoader = (): ReactElement => {
     const [loader, setLoader] = useState(false);
 
-    useEffect(() => {
-        const handleOpen = () => {
-            setLoader(true);
-        };
-        const handleClose = () => {
-            setLoader(false);
-        };
-
-        Router.events.on('routeChangeStart', handleOpen);
-        Router.events.on('routeChangeComplete', handleClose);
-
-        return () => {
-            Router.events.off('routeChangeStart', handleOpen);
-            Router.events.off('routeChangeComplete', handleClose);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const handleOpen = () => {
+    //         setLoader(true);
+    //     };
+    //     const handleClose = () => {
+    //         setLoader(false);
+    //     };
+    //
+    //     Router.events.on('routeChangeStart', handleOpen);
+    //     Router.events.on('routeChangeComplete', handleClose);
+    //
+    //     return () => {
+    //         Router.events.off('routeChangeStart', handleOpen);
+    //         Router.events.off('routeChangeComplete', handleClose);
+    //     };
+    // }, []);
 
     return (
         loader && (

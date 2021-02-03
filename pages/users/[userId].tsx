@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
@@ -26,6 +26,7 @@ import css from './index.module.css';
 
 const UserProfile = (): ReactElement => {
     const auth = useAuth();
+    const dispatch = useDispatch();
 
     const profile = useSelector<IState, IUser>(state => state.profile);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
@@ -36,6 +37,10 @@ const UserProfile = (): ReactElement => {
 
     const handleFollowingModal = (): void => {
         modal.open(<FollowersModal type="following" />);
+    };
+
+    const handleMore = (page: number): void => {
+        dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
     };
 
     return (
@@ -126,8 +131,13 @@ const UserProfile = (): ReactElement => {
                         {posts.data?.posts?.length ? (
                             <>
                                 <h2 className={css.postTitle}>{`${profile?.name} ${profile?.surname}'s posts`}</h2>
-                                {posts.loading ? <PostsLoader /> : <Posts content={posts.data?.posts} author wide />}
-                                <LoadMore />
+                                <Posts content={posts.data?.posts} author wide />
+                                {posts.data?.posts?.length < posts.data?.total ? (
+                                    <>
+                                        <PostsLoader wide />
+                                        <LoadMore onSubmit={handleMore} loading={posts.loading} />
+                                    </>
+                                ) : null}
                             </>
                         ) : (
                             <h2 className={css.empty}>{`${profile?.name} ${profile?.surname} dont have posts yet`}</h2>
