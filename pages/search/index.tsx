@@ -1,5 +1,4 @@
 import { GetServerSidePropsContext } from 'next';
-import { useRouter } from 'next/router';
 import queryString from 'query-string';
 import React, { ReactElement, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,4 +1,4 @@
-import React, { createContext, ReactElement, useEffect, useState } from 'react';
+import React, { createContext, ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { IAuth, IState } from '../../../interfaces';
@@ -11,12 +11,8 @@ interface IProps {
 }
 
 const AuthProvider = ({ authServer = null, children }: IProps): ReactElement => {
-    const [value, setValue] = useState<IAuth | null>(null);
     const auth = useSelector<IState, IAuth>(state => state.auth);
-
-    useEffect(() => {
-        setValue(auth || authServer);
-    }, [auth, authServer]);
+    const [value, setValue] = useState<IAuth | null>(auth.token ? auth : authServer);
 
     return <Auth.Provider value={[value, setValue]}>{children}</Auth.Provider>;
 };

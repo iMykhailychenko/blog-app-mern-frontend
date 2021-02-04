@@ -26,6 +26,16 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
                 loading: false,
             };
 
+        case types.DELETE_POST_SUCCESS:
+            return {
+                data: {
+                    ...state.data,
+                    total: state.data.total - 1,
+                    posts: state.data.posts.filter(post => post._id !== (action.payload as string)),
+                },
+                loading: false,
+            };
+
         case types.GET_POSTS_SUCCESS:
         case types.GET_USER_POSTS_SUCCESS:
             return { data: action.payload as IPostPagination, loading: false };

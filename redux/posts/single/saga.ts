@@ -27,13 +27,11 @@ function* getSinglePost({ payload, user }: IAction) {
     }
 }
 
-function* deletePost({ payload, config }: IAction) {
+function* deletePost({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.posts.deletePost, payload as string);
-        console.log(data);
         if (status < 200 || status >= 300) throw new Error();
-        yield put({ type: types.DELETE_POST_SUCCESS });
-        if (config) yield put({ type: types.GET_POSTS_START, payload: config });
+        yield put({ type: types.DELETE_POST_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.DELETE_POST_ERROR });
         if (error?.response?.status === 401) return;

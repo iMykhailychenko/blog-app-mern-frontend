@@ -22,7 +22,7 @@ const mediaAuth = (col: number): Media => ({
     610: 1,
 });
 
-const DEFAULT_ARRAY = [0, 1, 2];
+const DEFAULT_ARRAY = [0, 1];
 
 const PostsLoader = ({ col = 2, wide = false }: IProps): ReactElement => (
     <Masonry

@@ -14,9 +14,7 @@ const interceptors = ({ history }: { history: NextRouter }): void => {
         response => {
             if (response?.config?.url === '/auth/login/') {
                 const bearerToken = response.data.token;
-                if (bearerToken) {
-                    axios.defaults.headers.common.Authorization = `Bearer ${bearerToken}`;
-                }
+                if (bearerToken) axios.defaults.headers.common.Authorization = `Bearer ${bearerToken}`;
                 history.replace(routes.home);
             }
             return response;

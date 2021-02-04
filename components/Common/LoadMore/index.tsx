@@ -9,23 +9,32 @@ interface IProps {
 }
 
 const LoadMore = ({ onSubmit, loading }: IProps): ReactElement => {
-    const [innerLoading, setInnerLoading] = useState<boolean>(false);
+    const [innerLoading, setInnerLoading] = useState<boolean>(true);
     const [page, setPage] = useState<number>(1);
     const { ref, inView } = useInView({
         threshold: 0,
         rootMargin: '400px',
     });
 
+    setTimeout(() => {
+        setInnerLoading(false);
+    }, 500);
+
     useEffect(() => {
+        let id = null;
         if (!loading && !innerLoading) {
             setInnerLoading(true);
 
-            setTimeout(() => {
+            id = setTimeout(() => {
+                setInnerLoading(false);
                 setPage(value => value + 1);
                 onSubmit(page + 1);
-                setInnerLoading(false);
-            }, 300);
+            }, 500);
         }
+
+        return () => {
+            if (id !== null) clearTimeout(id);
+        };
     }, [inView]);
 
     return <div ref={ref} className={css.container} />;
