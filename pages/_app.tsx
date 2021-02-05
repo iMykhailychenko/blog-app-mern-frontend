@@ -16,7 +16,6 @@ const MyApp = ({ Component, pageProps, width, auth }: AppProps & { width: number
     const history = useRouter();
     interceptors({ history });
 
-    // console.log(auth);
     return (
         <AuthProvider authServer={auth}>
             <MediaProvider width={width}>

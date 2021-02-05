@@ -1,7 +1,10 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
-import React, { ChangeEvent, ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import TextareaAutosize from 'react-textarea-autosize';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
@@ -18,9 +21,22 @@ import css from './index.module.css';
 const Settings = (): ReactElement => {
     const dispatch = useDispatch();
     const profile = useSelector<IState, IUser>(state => state.profile);
+    const [bio, setBio] = useState<string | null>(profile?.bio || null);
 
-    const handleUserBanner = (event?: ChangeEvent<HTMLInputElement>): void => {
+    // MEDIA
+    const handleUserBanner = (event: ChangeEvent<HTMLInputElement>): void => {
         dispatch({ type: types.UPDATE_USER_BANNER_START, payload: event?.target?.files?.[0] || null });
+    };
+    const handleDeleteBanner = (): void => {
+        dispatch({ type: types.UPDATE_USER_BANNER_START, payload: null });
+    };
+
+    // BIO
+    const handleBioChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+        setBio(event.target.value);
+    };
+    const handleSubmitBio = (): void => {
+        dispatch({ type: types.UPDATE_USER_BIO_START, payload: bio });
     };
 
     return (
@@ -39,7 +55,7 @@ const Settings = (): ReactElement => {
                     </Aside>
 
                     <div className={css.content}>
-                        <div className={css.banner}>
+                        <div className={clsx(css.banner, !profile.banner && css.empty)}>
                             {profile.banner && <img className={css.banner} src={config.img + profile.banner} alt="" />}
                             <input type="file" onChange={handleUserBanner} className={css.file} />
                             <div className={css.add}>
@@ -48,10 +64,33 @@ const Settings = (): ReactElement => {
                             </div>
                         </div>
 
+                        {profile.banner ? (
+                            <button className={css.delete} onClick={handleDeleteBanner} type="button">
+                                <FontAwesomeIcon icon={faTrash} />
+                                <span>Delete banner</span>
+                            </button>
+                        ) : null}
+
                         <h2 className={css.title}>General settings</h2>
                         <div className={css.flex}>
-                            <div className={css.inner}>
-                                <h3 className={css.subtitle}>User info</h3>
+                            <div className={css.desc}>
+                                <h3 className={css.subtitle}>Short description:</h3>
+                                <TextareaAutosize
+                                    className={css.comment}
+                                    name="comment"
+                                    cols={30}
+                                    rows={10}
+                                    value={bio}
+                                    placeholder="your comment"
+                                    onChange={handleBioChange}
+                                />
+                                <button
+                                    className={clsx('btn btn--blue', !bio && 'btn--disabled')}
+                                    type="submit"
+                                    onClick={handleSubmitBio}
+                                >
+                                    Save
+                                </button>
                             </div>
                         </div>
                     </div>

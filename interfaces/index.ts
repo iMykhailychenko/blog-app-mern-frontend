@@ -20,7 +20,7 @@ export interface IUser {
     avatar: string | null;
     name: string;
     banner: string;
-    desc?: null | string;
+    bio: null | string;
     feedback: {
         like: string[];
         dislike: string[];

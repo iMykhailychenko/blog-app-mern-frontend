@@ -43,11 +43,13 @@ const UserProfile = (): ReactElement => {
         dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
     };
 
+    const bio = profile?.bio ? profile.bio.replace(/\n/gi, '<br>') : 'There is empty profile description';
+
     return (
         <>
             <Meta
                 title={`${profile?.name || ''} ${profile?.surname || ''}`}
-                description={profile?.desc}
+                description={profile?.bio}
                 keywords={`${profile?.name || ''} ${profile?.surname || ''} ${profile?.nick || ''}`}
                 icon={profile?.avatar}
             />
@@ -114,16 +116,10 @@ const UserProfile = (): ReactElement => {
                         <div className={css.flex}>
                             <div className={css.desc}>
                                 <h3 className={css.subtitle}>Short description:</h3>
-                                {profile?.desc ? (
-                                    <p
-                                        dangerouslySetInnerHTML={{
-                                            __html: profile.desc
-                                                .replace(/\n\n/gi, '<div>')
-                                                .replace(/\n/gi, '<div class="separator">'),
-                                        }}
-                                    />
+                                {bio ? (
+                                    <div dangerouslySetInnerHTML={{ __html: bio }} />
                                 ) : (
-                                    <p className={css.empty}>There is empty profile description</p>
+                                    <div className={css.empty}>{bio}</div>
                                 )}
                             </div>
                         </div>

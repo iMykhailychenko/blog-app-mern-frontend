@@ -8,8 +8,6 @@ import initState from '../redux/state';
 import types from '../redux/types';
 
 const Persist: Middleware = store => next => action => {
-    // console.dir(action);
-
     if (process.browser) {
         /**
          * SET DATA TO STORAGE
@@ -43,10 +41,12 @@ const Persist: Middleware = store => next => action => {
         if (types.UPDATE_AVATAR_SUCCESS === action.type) {
             try {
                 const state: IState = store.getState();
-                console.log(action.payload);
                 Cookies.set(
                     'blog_auth',
-                    JSON.stringify({ ...state.auth, user: { ...state.auth.user, avatar: action.payload } }),
+                    JSON.stringify({
+                        ...state.auth,
+                        user: { ...state.auth.user, avatar: action.payload.trim() || null },
+                    }),
                 );
                 next(action);
                 return;

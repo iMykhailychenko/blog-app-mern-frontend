@@ -9,10 +9,13 @@ export interface IAction {
         | typeof types.UPDATE_AVATAR_START
         | typeof types.UPDATE_AVATAR_SUCCESS
         | typeof types.UPDATE_AVATAR_ERROR
+        | typeof types.UPDATE_USER_BIO_START
+        | typeof types.UPDATE_USER_BIO_SUCCESS
+        | typeof types.UPDATE_USER_BIO_ERROR
         | typeof types.UPDATE_USER_BANNER_START
         | typeof types.UPDATE_USER_BANNER_SUCCESS
         | typeof types.UPDATE_USER_BANNER_ERROR;
-    payload: File | null;
+    payload: File | string | null;
 }
 
 function* updateAvatar({ payload }: IAction) {
@@ -41,9 +44,22 @@ function* updateUserBanner({ payload }: IAction) {
     }
 }
 
+function* updateUserBio({ payload }: IAction) {
+    try {
+        const { status, data } = yield call(api.settings.updateBio, payload as string);
+        if (status < 200 || status >= 300) throw new Error();
+        yield put({ type: types.UPDATE_USER_BIO_SUCCESS, payload: data });
+        notifications('success', 'Your bio has been successfully saved');
+    } catch (error) {
+        yield put({ type: types.UPDATE_USER_BIO_ERROR });
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+    }
+}
+
 export default function* settings(): Generator {
     yield all([
         yield takeLatest(types.UPDATE_AVATAR_START, updateAvatar),
         yield takeLatest(types.UPDATE_USER_BANNER_START, updateUserBanner),
+        yield takeLatest(types.UPDATE_USER_BIO_START, updateUserBio),
     ]);
 }

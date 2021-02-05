@@ -21,9 +21,11 @@ const interceptors = ({ history }: { history: NextRouter }): void => {
         },
         error => {
             if (error?.response?.status === 401) {
+                console.log(error?.response?.status);
                 const store = makeStore();
                 if (!store.getState()?.auth?.token) {
                     delete axios.defaults.headers.common.Authorization;
+                    store.dispatch({ type: types.LOGOUT_SUCCESS });
                     return;
                 }
                 store.dispatch({ type: types.LOGOUT_START });

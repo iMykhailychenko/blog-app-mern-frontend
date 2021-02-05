@@ -20,15 +20,14 @@ import css from './index.module.css';
 
 const Search = (): ReactElement => {
     const auth = useAuth();
-    const mobile = useMedia(900);
     const dispatch = useDispatch();
+    const mobile = useMedia(900);
 
     const [search, setSearch] = useState<string>('');
     const [isPopular, setIsPopular] = useState<boolean>(true);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
 
     const handleSubmit = (): void => {
-        dispatch({ type: types.RESET_POSTS });
         dispatch({
             type: types.GET_POSTS_START,
             payload: { page: 1, limit: config.postPerPage, q: search || null },
@@ -48,7 +47,6 @@ const Search = (): ReactElement => {
     const handleReset = (): void => {
         setSearch('');
         setIsPopular(true);
-        dispatch({ type: types.RESET_POSTS });
         dispatch({
             type: types.GET_POSTS_START,
             payload: { page: 1, limit: config.postPerPage },

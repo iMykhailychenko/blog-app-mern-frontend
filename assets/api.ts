@@ -57,7 +57,7 @@ const api = {
         updateBanner: (form: FormData | null): Promise<AxiosResponse<void>> => axios.put('/settings/banner/', form),
         updateUserInfo: (data: { name?: string; surname?: string; email?: string }): Promise<AxiosResponse<void>> =>
             axios.put('/settings/user/', data),
-        updateBio: (data: { bio: string }): Promise<AxiosResponse<void>> => axios.put('/settings/bio/', data),
+        updateBio: (data: string): Promise<AxiosResponse<void>> => axios.put('/settings/bio/', { bio: data }),
     },
 };
 

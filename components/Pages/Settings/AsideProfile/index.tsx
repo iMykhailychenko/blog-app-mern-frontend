@@ -39,7 +39,7 @@ const AsideProfile = (): ReactElement => {
             {profile.avatar ? (
                 <button className={css.delete} onClick={handleDelete} type="button">
                     <FontAwesomeIcon icon={faTrash} />
-                    <span>Delete banner</span>
+                    <span>Delete avatar</span>
                 </button>
             ) : null}
         </div>

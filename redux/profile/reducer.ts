@@ -16,6 +16,9 @@ const profile = (state: IUser = null, action: IAction): IUser => {
         case types.UPDATE_AVATAR_SUCCESS:
             return { ...state, avatar: action.payload as string | null };
 
+        case types.UPDATE_USER_BIO_SUCCESS:
+            return { ...state, bio: action.payload as string | null };
+
         case types.UPDATE_USER_BANNER_SUCCESS:
             return { ...state, banner: action.payload as string | null };
 
