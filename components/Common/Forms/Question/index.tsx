@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { ReactElement } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import useAuth from '../../../../hooks/auth.hook';
 import css from './index.module.css';
@@ -52,16 +53,14 @@ const Question = (): ReactElement => {
                     <Field className={css.input} type="email" name="email" placeholder="email" />
                     <ErrorMessage name="email" render={msg => <span className={css.errors}>{msg}</span>} />
 
-                    <Field
+                    <TextareaAutosize
                         className={clsx(css.input, css.textarea)}
-                        as="textarea"
-                        type="email"
                         name="text"
-                        placeholder="text"
+                        placeholder="your question"
                     />
                     <ErrorMessage name="text" render={msg => <span className={css.errors}>{msg}</span>} />
 
-                    <button className="btn btn--info" type="submit">
+                    <button className="btn btn--blue" type="submit">
                         Send question
                     </button>
                 </Form>

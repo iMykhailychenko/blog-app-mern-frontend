@@ -10,7 +10,13 @@ interface IProps {
 const SmallLoader = ({ width = 38, height = 38, className = undefined }: IProps): ReactElement => {
     return (
         <div className={className}>
-            <svg width={width} height={height} viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+            <svg
+                width={width}
+                height={height}
+                viewBox="0 0 38 38"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="var(--white)"
+            >
                 <g fill="none" fillRule="evenodd">
                     <g transform="translate(1 1)" strokeWidth={2}>
                         <circle strokeOpacity=".5" cx={18} cy={18} r={18} />

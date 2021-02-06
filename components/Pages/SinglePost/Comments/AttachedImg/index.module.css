@@ -6,7 +6,7 @@
 }
 
 .container:hover {
-    color: #007bff;
+    color: var(--blue-01);
 }
 
 .container svg {
@@ -43,7 +43,7 @@
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     opacity: 0;
     transition: 0.3s ease-in-out;
     cursor: pointer;
@@ -77,7 +77,7 @@
     left: 50%;
     height: 100%;
     width: 0.2rem;
-    background: #fff;
+    background: var(--white);
 }
 
 .close::before {
@@ -91,5 +91,5 @@
 .wrp img {
     width: 100%;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
 }

@@ -57,7 +57,16 @@ const ContentEditor = (): ReactElement => {
         dispatch({ type: types.NEW_POST_CONTENT, payload });
     };
 
-    return <ReactQuill value={content} theme="snow" onChange={handleChange} modules={modules} formats={formats} />;
+    return (
+        <ReactQuill
+            value={content}
+            placeholder="Type your content here..."
+            theme="snow"
+            onChange={handleChange}
+            modules={modules}
+            formats={formats}
+        />
+    );
 };
 
 export default ContentEditor;

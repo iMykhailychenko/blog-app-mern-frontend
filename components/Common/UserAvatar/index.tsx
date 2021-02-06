@@ -24,7 +24,7 @@ const UserAvatar = ({ avatar, name, height = 3.5, width = 3.5 }: IProps): ReactE
             style={{
                 height: `${height}rem`,
                 width: `${width}rem`,
-                background: config.colors[name[0] || '#3273dc'],
+                background: config.colors[name[0] || 'var(--blue-01)'],
             }}
         >
             {name}

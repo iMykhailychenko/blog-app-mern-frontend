@@ -8,30 +8,30 @@
     align-items: center;
     margin-right: 2rem;
     cursor: pointer;
-    color: rgb(97, 97, 97);
+    color: var(--gray-03);
     transition: 0.3s ease-in-out;
 }
 
 .item svg {
     width: 1.4rem;
     height: 1.4rem;
-    fill: rgb(97, 97, 97);
+    fill: var(--gray-03);
 }
 
 .item:hover {
-    color: #007bff;
+    color: var(--blue-01);
 }
 
 .dislike:hover {
-    color: #d61f1f;
+    color: var(--red-01);
 }
 
 .active {
-    color: #007bff;
+    color: var(--blue-01);
 }
 
 .dislike.active {
-    color: #d61f1f;
+    color: var(--red-01);
 }
 
 .num {

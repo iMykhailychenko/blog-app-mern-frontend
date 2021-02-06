@@ -1,0 +1,22 @@
+:root {
+    --radius: 0.4rem;
+    --box-shadow: 0 0 0 0.3rem rgba(13, 110, 253, 0.25);
+    --box-shadow-01: 0 3rem 5rem rgba(54, 39, 39, 0.04), 0 3rem 5rem rgba(0, 0, 0, 0.06);
+
+    --white: rgb(255, 255, 255);
+    --black: rgb(45, 45, 45);
+
+    --gray-01: rgb(250, 250, 250);
+    --gray-02: rgb(238, 238, 238);
+    --gray-03: rgb(104, 104, 104);
+    --gray-input: rgb(162, 162, 162);
+
+    --blue-01: rgb(0, 102, 204);
+    --blue-02: rgb(234, 244, 253);
+
+    --red-01: rgb(239, 46, 46);
+    --red-02: rgb(255, 189, 189);
+    --red-03: rgb(252, 237, 237);
+
+    --green-01: rgb(38, 195, 108);
+}

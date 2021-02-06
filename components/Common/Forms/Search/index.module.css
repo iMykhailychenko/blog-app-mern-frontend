@@ -19,7 +19,7 @@
 }
 
 .submit {
-    height: 4.5rem;
+    height: 4.8rem;
 }
 
 .input_wrp {
@@ -36,7 +36,7 @@
     transform: translateY(-50%);
     background: none;
     font-weight: 600;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
@@ -54,15 +54,15 @@
     font-size: 1.4rem;
     background: none;
     outline: none;
-    border: none;
-    border-radius: 1rem;
-    background: #efefef;
+    border-radius: var(--radius);
+    background: var(--gray-02);
+    border: 0.1rem solid var(--gray-03);
     transition: 0.3s ease-in-out;
 }
 
 .input:hover,
 .input:focus {
-    background: #dedede;
+    background: var(--gray-01);
 }
 
 @media (max-width: 750px) {

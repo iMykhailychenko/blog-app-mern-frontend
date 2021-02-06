@@ -13,7 +13,7 @@ interface IProps {
 const Meta = ({ title, description, keywords, icon }: IProps): ReactElement => (
     <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="var(--white)" />
         <meta
             name="description"
             content={

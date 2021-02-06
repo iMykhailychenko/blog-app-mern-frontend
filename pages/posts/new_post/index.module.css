@@ -1,5 +1,5 @@
 .container {
-    background: #fbfbfb;
+    background: var(--gray-01);
 }
 
 .content {
@@ -13,7 +13,7 @@
     height: 66rem;
     width: 100%;
     margin: 8rem auto;
-    background: #eee;
+    background: var(--gray-02);
     object-fit: cover;
 }
 
@@ -38,7 +38,7 @@
     font-size: 1.6rem;
     background: none;
     border: none;
-    color: #d61f1f;
+    color: var(--red-01);
 }
 
 .delete svg {
@@ -63,7 +63,7 @@
 }
 
 .add div {
-    background: #333;
+    background: var(--black);
 }
 
 .file:hover ~ .add {
@@ -73,12 +73,12 @@
 .add p {
     margin-top: 1rem;
     font-size: 1.6rem;
-    color: #fff;
+    color: var(--white);
 }
 
 .file:hover ~ .add div,
 .file:focus ~ .add div {
-    box-shadow: 0 0 0 0.4rem rgba(31, 31, 31, 0.3);
+    box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 690px) {

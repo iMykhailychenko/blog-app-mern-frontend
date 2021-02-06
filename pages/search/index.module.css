@@ -1,7 +1,7 @@
 .content {
     width: 100%;
     padding: 5rem 15%;
-    background: rgb(250, 250, 250);
+    background: var(--gray-01);
 }
 
 .title {
@@ -19,8 +19,8 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background: #eee;
-    border-radius: 1rem;
+    background: var(--gray-02);
+    border-radius: var(--radius);
 }
 
 .empty img {

@@ -1,5 +1,5 @@
 .container {
-    background: #fbfbfb;
+    background: var(--gray-01);
 }
 
 .content {
@@ -28,7 +28,7 @@
 .manage {
     background: none;
     border: none;
-    color: #007bff;
+    color: var(--blue-01);
     font-weight: 400;
     font-size: 1.4rem;
     margin-right: 2rem;
@@ -44,7 +44,7 @@
 .subtext {
     margin: 2rem auto 1rem;
     font-size: 1.2rem;
-    color: #444;
+    color: var(--black);
 }
 
 .likesHead {
@@ -82,15 +82,15 @@
 .tag {
     margin-right: 0.5rem;
     padding: 0.3rem 1rem;
-    color: #007bff;
+    color: var(--blue-01);
     font-size: 1.5rem;
-    background: rgb(234, 244, 253);
-    border-radius: 0.5rem;
+    background: var(--blue-02);
+    border-radius: var(--radius);
     transition: 0.3s ease-in-out;
 }
 
 .tag:hover {
-    background: rgb(206, 233, 255);
+    background: var(--gray-01);
 }
 
 .flex {
@@ -109,7 +109,7 @@
     width: 100%;
     object-fit: cover;
     margin: 8rem auto;
-    background: #333;
+    background: var(--black);
 }
 
 @media (max-width: 1000px) {

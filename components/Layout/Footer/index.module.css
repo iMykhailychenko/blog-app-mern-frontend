@@ -1,7 +1,7 @@
 .footer {
     margin-top: 8rem;
     padding: 20rem 0 6rem;
-    background: #333;
+    background: var(--black);
 }
 
 .container {
@@ -22,7 +22,7 @@
 .text {
     margin-top: 1rem;
     font-size: 1.2rem;
-    color: #eee;
+    color: var(--gray-02);
 }
 
 @media (max-width: 768px) {

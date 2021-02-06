@@ -2,7 +2,7 @@
     height: 3.5rem;
     width: 3.5rem;
     object-fit: cover;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
@@ -16,13 +16,13 @@
     font-weight: 700;
     font-size: 1.5rem;
     object-fit: cover;
-    border-radius: 1rem;
-    color: #fff;
+    border-radius: var(--radius);
+    color: var(--white);
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .placeholder:hover,
 .placeholder:focus {
-    box-shadow: 0 0 0 0.3rem #c5c5c5;
+    box-shadow: var(--box-shadow);
 }

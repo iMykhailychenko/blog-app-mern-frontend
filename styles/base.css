@@ -18,7 +18,7 @@ body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
-    color: #414141;
+    color: var(--black);
     line-height: 1.5;
     margin-top: 7rem;
 }
@@ -71,17 +71,22 @@ a {
 button,
 input,
 textarea {
-    border-radius: 1rem;
+    border-radius: var(--radius);
     transition: 0.3s ease-in-out;
+    border: 0.1rem solid transparent;
 }
 
 button:hover,
-button:focus,
+button:focus {
+    box-shadow: var(--box-shadow);
+}
+
 input:hover,
 input:focus,
 textarea:hover,
 textarea:focus {
-    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
+    border: 0.1rem solid var(--blue-01);
+    box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 400px) {

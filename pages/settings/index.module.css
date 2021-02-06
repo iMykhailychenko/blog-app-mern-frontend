@@ -10,42 +10,50 @@
     position: relative;
     height: 40rem;
     width: 100%;
-    border-radius: 1rem;
-    background: #eee;
+    border-radius: var(--radius);
+    background: var(--gray-02);
     object-fit: cover;
+}
+
+.comment {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    background: none;
+    outline: none;
+    font-size: 1.4rem;
+    border-radius: var(--radius);
+    background: var(--gray-02);
+    border: 0.1rem solid var(--gray-03);
+    transition: none;
 }
 
 .delete {
     display: flex;
     align-items: center;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 1rem;
     width: max-content;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     background: none;
     border: none;
-    color: #d61f1f;
+    color: var(--red-01);
 }
 
-.comment {
-    display: block;
-    width: 100%;
-    height: 6rem;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: none;
-    outline: none;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1.4rem;
-    background: #efefef;
-    transition: none;
+.delete span {
+    margin-top: 0.2rem;
 }
 
 .delete svg {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.4rem;
+    width: 1.4rem;
     margin-right: 0.5rem;
+}
+
+.delete:focus,
+.delete:hover {
+    box-shadow: 0 0 0 0.2rem var(--red-02);
 }
 
 .empty {
@@ -74,13 +82,13 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     background: rgba(0, 0, 0, 0.1);
     transition: 0.3s ease-in-out;
 }
 
 .add div {
-    background: #333;
+    background: var(--black);
 }
 
 .file:hover ~ .add {
@@ -90,18 +98,18 @@
 .add p {
     margin-top: 1rem;
     font-size: 1.6rem;
-    color: #fff;
+    color: var(--white);
 }
 
 .file:hover ~ .add div,
 .file:focus ~ .add div {
-    box-shadow: 0 0 0 0.4rem rgba(31, 31, 31, 0.3);
+    box-shadow: var(--box-shadow);
 }
 
 .content {
     width: 100%;
     padding: 5rem;
-    background: rgb(250, 250, 250);
+    background: var(--gray-01);
 }
 
 .flex {
@@ -112,13 +120,15 @@
 }
 
 .title {
-    font-size: 4rem;
+    margin: 1.5rem 0;
+    font-size: 2rem;
     line-height: 1;
+    font-weight: 500;
 }
 
 .subtitle {
-    margin: 2rem 0 1rem;
-    font-size: 1.6rem;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.4rem;
     font-weight: 500;
 }
 
@@ -156,7 +166,7 @@
 @media (max-width: 768px) {
     .content {
         padding: 0;
-        background: #ffffff;
+        background: var(--white);
     }
 }
 

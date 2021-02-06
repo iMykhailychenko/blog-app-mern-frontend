@@ -1,4 +1,5 @@
-import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
@@ -62,22 +63,34 @@ const UserProfile = (): ReactElement => {
                     <div className={css.content}>
                         {profile.banner && <img className={css.banner} src={config.img + profile.banner} alt="" />}
 
-                        <div className={css.flex}>
+                        <div className={css.titleFlex}>
                             <h2 className={css.title}>Profile info</h2>
 
                             {profile?._id === auth?.user?._id && (
                                 <Link href={routes.settings[0](profile?._id)}>
                                     <a className={css.link}>
-                                        <FontAwesomeIcon icon={faEdit} /> Edit your profile
+                                        <FontAwesomeIcon icon={faKeyboard} /> edit your profile
                                     </a>
                                 </Link>
                             )}
                         </div>
 
                         <div className={css.flex}>
-                            <div className={css.inner}>
-                                <h3 className={css.subtitle}>Followers:</h3>
+                            <div className={css.desc}>
+                                <hr />
+                                <h3 className={css.subtitle}>Short description:</h3>
+                                {bio ? (
+                                    <div dangerouslySetInnerHTML={{ __html: bio }} />
+                                ) : (
+                                    <div className={css.empty}>{bio}</div>
+                                )}
+                            </div>
+                        </div>
 
+                        <hr />
+                        <div className={css.flex}>
+                            <div className={css.inner}>
+                                <h3 className={css.subtitle}>followers:</h3>
                                 <div className={css.profiles}>
                                     {profile?.followers?.length ? (
                                         <>
@@ -94,8 +107,7 @@ const UserProfile = (): ReactElement => {
                                 </div>
                             </div>
                             <div className={css.inner}>
-                                <h3 className={css.subtitle}>{`${profile?.name}'s follows:`}</h3>
-
+                                <h3 className={css.subtitle}>following:</h3>
                                 <div className={css.profiles}>
                                     {profile?.following?.length ? (
                                         <>
@@ -113,20 +125,21 @@ const UserProfile = (): ReactElement => {
                             </div>
                         </div>
 
-                        <div className={css.flex}>
-                            <div className={css.desc}>
-                                <h3 className={css.subtitle}>Short description:</h3>
-                                {bio ? (
-                                    <div dangerouslySetInnerHTML={{ __html: bio }} />
-                                ) : (
-                                    <div className={css.empty}>{bio}</div>
-                                )}
-                            </div>
-                        </div>
-
                         {posts.data?.posts?.length ? (
                             <>
-                                <h2 className={css.postTitle}>{`${profile?.name} ${profile?.surname}'s posts`}</h2>
+                                <div className={css.titleFlex}>
+                                    <h2 className={css.title}>{`${profile?.name} ${profile?.surname}'s posts:`}</h2>
+
+                                    {profile?._id === auth?.user?._id && (
+                                        <Link href={routes.posts.new}>
+                                            <a className={css.link}>
+                                                <FontAwesomeIcon icon={faPlusSquare} /> write new post
+                                            </a>
+                                        </Link>
+                                    )}
+                                </div>
+                                <hr />
+                                <div className={css.margin} />
                                 <Posts content={posts.data?.posts} author wide />
                                 {posts.data?.posts?.length < posts.data?.total ? (
                                     <>

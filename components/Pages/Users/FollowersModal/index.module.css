@@ -4,9 +4,9 @@
     max-width: 90rem;
     max-height: 95vh;
     padding: 3rem 0;
-    border-radius: 1rem;
-    background: #fff;
-    border: 0.1rem solid #999;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 0.1rem solid var(--gray-03);
     text-align: center;
 }
 
@@ -65,9 +65,9 @@
     margin-right: 1rem;
     padding: 1rem;
     font-size: 1.4rem;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     border: none;
-    background: #eee;
+    background: var(--gray-02);
 }
 
 .reset {
@@ -88,9 +88,9 @@
     height: 100%;
     padding: 1.4rem 3rem;
     margin-left: 1rem;
-    border-radius: 1rem;
-    background: #007bff;
-    color: #fff;
+    border-radius: var(--radius);
+    background: var(--blue-01);
+    color: var(--white);
     border: none;
 }
 

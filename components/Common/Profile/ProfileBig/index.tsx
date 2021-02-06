@@ -16,8 +16,8 @@ const ProfileBig = ({ user, width }: IProps): ReactElement | null =>
         <Link href={routes.users[0](user._id)}>
             <a className={css.user}>
                 <UserAvatar
-                    width={5}
-                    height={5}
+                    width={4}
+                    height={4}
                     avatar={user.avatar}
                     name={(user.name[0] + user.surname[0]).toUpperCase()}
                 />

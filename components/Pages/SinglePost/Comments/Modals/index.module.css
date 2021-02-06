@@ -3,9 +3,9 @@
     width: 90%;
     max-width: 70rem;
     padding: 2rem;
-    background: #fff;
-    border-radius: 1rem;
-    border: 0.1rem solid #999;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 0.1rem solid var(--gray-03);
 }
 
 .close {
@@ -49,7 +49,7 @@
 .img {
     display: block;
     width: 15rem;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
 }
 
 .imgBtn {
@@ -69,7 +69,7 @@
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     opacity: 0;
     transition: 0.3s ease-in-out;
 }
@@ -81,7 +81,7 @@
 .date {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #999;
+    color: var(--gray-03);
     margin: 1rem 0;
 }
 

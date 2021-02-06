@@ -11,7 +11,7 @@ const routes = {
 
     posts: {
         single: [(id: string): string => `/posts/${id}`, '/posts/:postId'] as IDynamic,
-        tag: [(tag: string): string => `/posts/tags/${tag}`, '/posts/tags/:tag'] as IDynamic,
+        tag: [(tag: string): string => `/search?q=${tag}`, '/search'] as IDynamic,
         edit: [(id: string): string => `/posts/edit/${id}`, '/posts/edit/:postId'] as IDynamic,
         new: '/posts/new_post',
     },

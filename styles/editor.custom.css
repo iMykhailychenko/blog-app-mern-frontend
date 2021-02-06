@@ -11,19 +11,19 @@
     max-width: 100%;
     max-height: 60rem;
     object-fit: contain;
-    border-radius: 1rem;
+    border-radius: var(--radius);
 }
 
 .ql-snow .ql-editor a {
     padding: 0.2rem 0.3rem;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     color: inherit;
     cursor: pointer;
 }
 
 .ql-snow .ql-editor a:hover {
     text-decoration: none;
-    background: #fff;
+    background: var(--white);
 }
 
 .quill .ql-toolbar.ql-snow {
@@ -31,7 +31,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    background: #fbfbfb;
+    background: var(--gray-01);
     padding: 2rem 0.8rem;
     border: none;
 }
@@ -45,8 +45,8 @@
 .quill .ql-container.ql-snow {
     margin-top: 1rem;
     padding-bottom: 2rem;
-    border-radius: 1rem;
-    background: #efefef;
+    border-radius: var(--radius);
+    background: var(--gray-02);
     font-family: inherit;
     border: none;
     transition: 0.3s ease-in-out;
@@ -54,11 +54,9 @@
 
 .ql-editor.ql-blank::before {
     font-style: normal;
-}
-
-.quill .ql-container.ql-snow:hover,
-.quill .ql-container.ql-snow:focus {
-    background: #dedede;
+    font-size: 1.8rem;
+    line-height: 2;
+    color: var(--gray-03);
 }
 
 .quill .ql-container.ql-snow .ql-editor pre,
@@ -75,7 +73,7 @@
     font-size: 1.6rem;
     font-family: Monaco, monospace !important;
     font-weight: 300 !important;
-    border-radius: 0.6rem;
+    border-radius: var(--radius);
 }
 
 .quill .ql-container.ql-snow .ql-editor pre::before {
@@ -114,7 +112,7 @@
 
 .ql-snow .ql-editor code,
 .ql-snow .ql-editor pre {
-    border-radius: 1rem;
+    border-radius: var(--radius);
 }
 
 @media (max-width: 1000px) {

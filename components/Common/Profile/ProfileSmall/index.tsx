@@ -13,17 +13,13 @@ interface IProps {
 const ProfileSmall = ({ user }: IProps): ReactElement | null =>
     user ? (
         <Link href={routes.users[0](user._id)}>
-            <a className={css.user}>
+            <a className={css.user} title={`${user.name} ${user.surname}`}>
                 <UserAvatar
-                    width={5}
-                    height={5}
+                    width={4}
+                    height={4}
                     avatar={user.avatar}
                     name={(user.name[0] + user.surname[0]).toUpperCase()}
                 />
-                <div className={css.userInfo}>
-                    <p className={css.name}>{user.name}</p>
-                    <p className={css.name}>{user.surname}</p>
-                </div>
             </a>
         </Link>
     ) : null;

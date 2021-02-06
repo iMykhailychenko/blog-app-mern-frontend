@@ -44,8 +44,12 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
             <div className={css.backdrop} onClick={onClick} aria-hidden />
             {auth?.user && (
                 <div className={css.modal} onClick={handleClick} aria-hidden>
-                    <h4 className={css.name}>{`${auth?.user.name} ${auth?.user.surname}`}</h4>
-                    <p className={css.nick}>{'@' + auth?.user.nick}</p>
+                    <Link href={routes.users[0](auth?.user._id)}>
+                        <a>
+                            <h4 className={css.name}>{`${auth?.user.name} ${auth?.user.surname}`}</h4>
+                            <p className={css.nick}>{'@' + auth?.user.nick}</p>
+                        </a>
+                    </Link>
 
                     <Link href={routes.users[0](auth?.user._id)}>
                         <a className={css.link}>Your profile</a>

@@ -129,11 +129,6 @@ const SinglePost = (): ReactElement => {
                             </div>
                         </div>
 
-                        <div key="subtext4" className={css.subtext}>
-                            <h4 className={css.author}>Post author:</h4>
-                            <ProfileBig user={post?.user} />
-                        </div>
-
                         {auth?.user?._id === post?.user?._id && (
                             <>
                                 <div key="subtext5" className={css.subtext}>
@@ -146,6 +141,11 @@ const SinglePost = (): ReactElement => {
                                 </div>
                             </>
                         )}
+
+                        <div key="subtext4" className={css.subtext}>
+                            <h4 className={css.author}>Post author:</h4>
+                            <ProfileBig user={post?.user} />
+                        </div>
 
                         <p key="subtext6" className={css.subtext}>
                             Share this post in social media:

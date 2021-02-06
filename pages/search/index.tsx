@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
+import { useRouter } from 'next/router';
 import queryString from 'query-string';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
@@ -21,11 +22,18 @@ import css from './index.module.css';
 const Search = (): ReactElement => {
     const auth = useAuth();
     const dispatch = useDispatch();
+    const { query } = useRouter();
     const mobile = useMedia(900);
 
-    const [search, setSearch] = useState<string>('');
+    const init = typeof query?.q === 'object' ? query.q[0] : query.q;
+    const [search, setSearch] = useState<string>(init || '');
     const [isPopular, setIsPopular] = useState<boolean>(true);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
+
+    useEffect(() => {
+        setSearch(init || '');
+        if (init) setIsPopular(false);
+    }, [init]);
 
     const handleSubmit = (): void => {
         dispatch({

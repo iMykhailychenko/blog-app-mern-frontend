@@ -15,26 +15,26 @@
     margin-right: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.3rem 1rem;
-    color: #007bff;
+    color: var(--blue-01);
     font-size: 1.8rem;
-    background: rgb(234, 244, 253);
-    border-radius: 1rem;
+    background: var(--blue-02);
+    border-radius: var(--radius);
     transition: 0.3s ease-in-out;
 }
 
 .item:hover {
-    background: rgb(206, 233, 255);
+    background: var(--blue-02);
 }
 
 .text {
     margin-bottom: 2rem;
     padding: 0 1rem;
     font-size: 1.2rem;
-    color: #444;
+    color: var(--black);
 }
 
 .input {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-top: 0;
 }
 

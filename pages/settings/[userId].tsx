@@ -1,8 +1,8 @@
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
-import React, { ChangeEvent, ReactElement, useState } from 'react';
+import React, { ChangeEvent, ReactElement, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
 import { END } from 'redux-saga';
@@ -21,7 +21,22 @@ import css from './index.module.css';
 const Settings = (): ReactElement => {
     const dispatch = useDispatch();
     const profile = useSelector<IState, IUser>(state => state.profile);
+
     const [bio, setBio] = useState<string | null>(profile?.bio || null);
+    const [info, setInfo] = useState<{ [key: string]: string | null }>({
+        name: profile?.name || '',
+        surname: profile?.surname || '',
+        email: profile?.email || '',
+    });
+
+    useEffect(() => {
+        setBio(profile?.bio || null);
+        setInfo({
+            name: profile?.name || '',
+            surname: profile?.surname || '',
+            email: profile?.email || '',
+        });
+    }, [profile]);
 
     // MEDIA
     const handleUserBanner = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -39,11 +54,16 @@ const Settings = (): ReactElement => {
         dispatch({ type: types.UPDATE_USER_BIO_START, payload: bio });
     };
 
+    // INFO
+    const handleInfoChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        setInfo({ [event.target.name]: event.target.value });
+    };
+
     return (
         <>
             <AuthRedirect />
             <Meta
-                title="Blog app | Demo account"
+                title={`Blog app | ${profile?.name} ${profile?.surname}`}
                 description="Do not want to register but interesting? You are lucky, I signed up for you"
                 keywords="login auth blog"
             />
@@ -66,20 +86,64 @@ const Settings = (): ReactElement => {
 
                         {profile.banner ? (
                             <button className={css.delete} onClick={handleDeleteBanner} type="button">
-                                <FontAwesomeIcon icon={faTrash} />
+                                <FontAwesomeIcon icon={faTrashAlt} />
                                 <span>Delete banner</span>
                             </button>
                         ) : null}
 
-                        <h2 className={css.title}>General settings</h2>
+                        <h2 className={css.title}>General account data</h2>
+                        <hr />
+                        <div className={css.flex}>
+                            <div className={css.inner}>
+                                <label>
+                                    <h3 className={css.subtitle}>Name:</h3>
+                                    <input
+                                        value={info.name}
+                                        onChange={handleInfoChange}
+                                        className={css.comment}
+                                        placeholder="name"
+                                        type="text"
+                                        name="name"
+                                    />
+                                </label>
+                                <label>
+                                    <h3 className={css.subtitle}>Surname:</h3>
+                                    <input
+                                        value={info.surname}
+                                        onChange={handleInfoChange}
+                                        className={css.comment}
+                                        placeholder="surname"
+                                        type="text"
+                                        name="name"
+                                    />
+                                </label>
+                            </div>
+                            <div className={css.inner}>
+                                <label>
+                                    <h3 className={css.subtitle}>Email:</h3>
+                                    <input
+                                        value={info.email}
+                                        onChange={handleInfoChange}
+                                        className={css.comment}
+                                        placeholder="email"
+                                        type="text"
+                                        name="name"
+                                    />
+                                </label>
+                                <button className={clsx('btn btn--blue', !bio && 'btn--disabled')} type="submit">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+
+                        <h2 className={css.title}>User profile</h2>
+                        <hr />
                         <div className={css.flex}>
                             <div className={css.desc}>
-                                <h3 className={css.subtitle}>Short description:</h3>
+                                <h3 className={css.subtitle}>Provide description for your account:</h3>
                                 <TextareaAutosize
                                     className={css.comment}
                                     name="comment"
-                                    cols={30}
-                                    rows={10}
                                     value={bio}
                                     placeholder="your comment"
                                     onChange={handleBioChange}

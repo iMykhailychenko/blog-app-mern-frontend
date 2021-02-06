@@ -14,7 +14,7 @@
     list-style: none;
     margin-bottom: 5rem;
     transition: 0.3s ease-in-out;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
 }
 
 .postLink:hover .title {
@@ -35,7 +35,7 @@
 /* === content === */
 .img {
     height: 32rem;
-    border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: var(--radius) var(--radius) 0 0;
     object-fit: cover;
 }
 
@@ -58,7 +58,7 @@
     display: inline-block;
     font-size: 1.4rem;
     margin-right: 0.8rem;
-    color: #3273dc;
+    color: var(--blue-01);
 }
 
 .tag:hover {
@@ -70,7 +70,7 @@
     margin-top: 0.5rem;
     font-size: 1.4rem;
     font-style: italic;
-    color: #646464;
+    color: var(--gray-03);
 }
 
 .manage {

@@ -15,14 +15,14 @@
 
 .auth {
     padding: 2rem 3rem;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     font-weight: 600;
     font-size: 1.6rem;
-    background: rgb(243, 243, 243);
+    background: var(--gray-01);
 }
 
 .auth a {
-    color: #6d7279;
+    color: var(--gray-03);
 }
 
 .auth a:hover,

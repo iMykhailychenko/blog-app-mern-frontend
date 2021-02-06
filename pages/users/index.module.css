@@ -14,25 +14,30 @@
     height: 40rem;
     width: 100%;
     margin-bottom: 6rem;
-    border-radius: 1rem;
-}
-
-.postTitle {
-    margin-bottom: 5rem;
-    font-size: 4rem;
-    line-height: 1;
+    border-radius: var(--radius);
 }
 
 .title {
-    font-size: 4rem;
+    font-size: 2rem;
     line-height: 1;
+    font-weight: 500;
+}
+
+.titleFlex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+}
+
+.margin {
+    margin-bottom: 4rem;
 }
 
 .link {
     display: block;
-    margin-top: 2rem;
     font-size: 1.4rem;
-    color: #007bff;
+    color: var(--blue-01);
 }
 
 .link svg {
@@ -40,28 +45,36 @@
     width: 1.6rem;
 }
 
+.link:hover {
+    text-decoration: underline;
+}
+
 .content {
     width: 100%;
     padding: 5rem;
-    background: rgb(250, 250, 250);
+    background: var(--gray-01);
 }
 
 .subtitle {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 
 .profiles {
     display: flex;
     flex-wrap: wrap;
+}
+
+.profiles a {
+    margin-right: 0.5rem;
 }
 
 .empty {
@@ -70,18 +83,17 @@
 }
 
 .btn {
-    height: 5rem;
-    width: 5rem;
-    margin-left: 0.4rem;
-    border-radius: 1rem;
-    background: #eee;
+    height: 4rem;
+    width: 4rem;
+    border-radius: var(--radius);
+    background: var(--gray-02);
     border: none;
     transition: 0.3s ease-in-out;
 }
 
 .btn svg {
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 1.2rem;
+    width: 1rem;
 }
 
 .inner {
@@ -130,7 +142,7 @@
 @media (max-width: 768px) {
     .content {
         padding: 0;
-        background: #ffffff;
+        background: var(--white);
     }
 }
 

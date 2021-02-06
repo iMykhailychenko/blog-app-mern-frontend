@@ -26,7 +26,7 @@
     transform: translate(-50%, -50%);
     font-size: 2rem;
     opacity: 0;
-    color: #fff;
+    color: var(--white);
     transition: 0.3s ease-in-out;
     z-index: 2;
 }
@@ -69,14 +69,16 @@
     min-width: 80rem;
     height: 30vh;
     margin: 3rem auto;
-    border-radius: 1rem;
-    background: #efefef;
+    border-radius: var(--radius);
+    background: var(--gray-02);
+    border: 0.1rem solid var(--gray-03);
     transition: 0.3s ease-in-out;
 }
 
 .add:hover,
 .add:focus {
-    background: #dedede;
+    border: 0.1rem solid var(--blue-01);
+    box-shadow: var(--box-shadow);
 }
 
 @media (max-width: 1000px) {

@@ -15,7 +15,7 @@
 .img {
     display: block;
     width: 15rem;
-    border-radius: 1rem;
+    border-radius: var(--radius);
 }
 
 .imgBtn {
@@ -34,7 +34,7 @@
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 1rem;
+    border-radius: var(--radius);
     opacity: 0;
     transition: 0.3s ease-in-out;
 }
@@ -54,7 +54,7 @@
     background: none;
     border: none;
     font-size: 1.4rem;
-    color: #3273dc;
+    color: var(--blue-01);
 }
 
 .link:hover,
@@ -68,7 +68,7 @@
     justify-content: space-between;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #999;
+    color: var(--gray-03);
     margin: 1rem 0;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .subList .item:hover {
-    background: #fff;
+    background: var(--white);
 }
 
 .subList .item::before {
@@ -99,7 +99,7 @@
     transform: translateY(-50%);
     height: 100%;
     width: 0.2rem;
-    background-color: rgb(236, 236, 236);
+    background-color: var(--gray-01);
 }
 
 .subList .text {

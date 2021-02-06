@@ -6,19 +6,25 @@
     padding: 1.6rem 1rem;
     background: none;
     outline: none;
-    border: none;
-    border-radius: 1rem;
-    background: #fbfbfb;
+    border-radius: var(--radius);
+    background: var(--gray-02);
     transition: 0.3s ease-in-out;
-}
-
-.input.empty {
-    background: #eeeeee;
+    border: 0.1rem solid var(--gray-03);
 }
 
 .input:hover,
 .input:focus {
-    background: #dedede;
+    border: 0.1rem solid var(--blue-01);
+    box-shadow: var(--box-shadow);
+}
+
+.input.empty {
+    background: var(--gray-02);
+}
+
+.input:hover,
+.input:focus {
+    background: var(--gray-02);
 }
 
 @media (max-width: 1000px) {

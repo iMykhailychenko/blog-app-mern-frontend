@@ -1,7 +1,7 @@
 .user {
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .userInfo {
@@ -18,7 +18,7 @@
 }
 
 .nick {
-    color: #3273dc;
+    color: var(--blue-01);
 }
 
 .name:hover,

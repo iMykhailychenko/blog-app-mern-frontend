@@ -1,11 +1,11 @@
 .text {
     margin-top: 1rem;
     font-size: 1.4rem;
-    color: #444;
+    color: var(--gray-03);
 }
 
 .text a {
-    color: #999;
+    color: var(--gray-03);
     font-weight: 600;
 }
 

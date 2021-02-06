@@ -11,7 +11,7 @@
     background: none;
     border: none;
     outline: none;
-    color: #999;
+    color: var(--gray-03);
 }
 
 .list button:hover,

@@ -20,7 +20,7 @@
 
 .slider {
     width: 80%;
-    background: #f9f9f9;
+    background: var(--gray-02);
     padding-top: 4rem;
 }
 

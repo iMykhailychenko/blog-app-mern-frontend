@@ -15,7 +15,7 @@ const Confirm = ({ title }: IProps): ReactElement => {
 
             <div className={css.btnWrp}>
                 <button className={css.btn + ' btn btn--gray'}>No</button>
-                <button className={css.btn + ' btn btn--info'}>Yes</button>
+                <button className={css.btn + ' btn btn--blue'}>Yes</button>
             </div>
         </div>
     );

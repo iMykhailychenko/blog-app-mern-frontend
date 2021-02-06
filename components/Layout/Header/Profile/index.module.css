@@ -21,7 +21,7 @@
 .wrp {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 0.3rem;
     font-size: 1.2rem;
     background: none;
     border: none;
@@ -30,12 +30,12 @@
 
 .btn:hover,
 .btn:focus {
-    box-shadow: 0 0 0 0.3rem rgba(115, 138, 156, 0.4);
+    box-shadow: var(--box-shadow);
 }
 
 .wrp:hover .avatar,
 .wrp:focus .avatar {
-    box-shadow: 0 0 0 0.3rem #add9ff;
+    box-shadow: var(--box-shadow);
 }
 
 .modal {
@@ -45,9 +45,9 @@
     z-index: 10000;
     min-width: 25rem;
     padding: 4rem;
-    background: rgb(255, 255, 255);
-    border: 0.1rem solid #b6b6b6;
-    border-radius: 1rem;
+    background: var(--white);
+    border: 0.1rem solid var(--gray-02);
+    border-radius: var(--radius);
 }
 
 .news {
@@ -70,7 +70,8 @@
     margin-bottom: 2rem;
     padding-bottom: 0.8rem;
     font-size: 1.4rem;
-    border-bottom: 0.1rem solid #b6b6b6;
+    border-bottom: 0.1rem solid var(--gray-02);
+    color: var(--blue-01);
 }
 
 .link {
@@ -81,7 +82,7 @@
     line-height: 1.4;
     background: none;
     border: none;
-    color: rgb(61, 61, 61);
+    color: var(--gray-03);
     outline: none;
 }
 
@@ -89,6 +90,7 @@
 .link:focus {
     box-shadow: none;
     text-decoration: underline;
+    color: var(--blue-01);
 }
 
 .btn {
@@ -99,11 +101,11 @@
     height: 3.5rem;
     width: 3.5rem;
     margin-right: 1rem;
-    background-color: #eeeeee;
+    background-color: var(--gray-02);
     border: none;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     font-size: 1.2rem;
-    color: rgb(104, 104, 104);
+    color: var(--gray-03);
     transition: 0.3s ease-in-out;
     outline: none;
 }
@@ -112,7 +114,7 @@
 .btn svg {
     height: 1.2rem;
     width: 1.2rem;
-    fill: rgb(104, 104, 104);
+    fill: var(--gray-03);
 }
 
 .num {
@@ -120,9 +122,9 @@
     top: -0.6rem;
     right: -0.6rem;
     padding: 0.1rem 0.4rem;
-    background: rgb(218, 95, 95);
-    border-radius: 1rem;
-    color: #fff;
+    background: var(--red-01);
+    border-radius: var(--radius);
+    color: var(--white);
     font-size: 1rem;
     font-weight: 600;
 }

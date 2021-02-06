@@ -9,7 +9,7 @@
     width: 3.5rem;
     height: 2.5rem;
     font-size: 1.8rem;
-    color: rgb(199, 86, 86);
+    color: var(--red-01);
 }
 
 .wrp {

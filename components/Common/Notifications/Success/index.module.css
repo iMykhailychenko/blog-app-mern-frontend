@@ -3,9 +3,9 @@
     width: 100%;
     max-width: 40rem;
     padding: 3rem;
-    border-radius: 1rem;
-    background: #fff;
-    border: 0.1rem solid #999;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 0.1rem solid var(--gray-03);
     text-align: center;
 }
 
@@ -33,11 +33,11 @@
     display: block;
     width: 6rem;
     margin: 0 auto 2rem;
-    fill: #26c36c;
+    fill: var(--green-01);
 }
 
 .modal h3 {
-    color: #26c36c;
+    color: var(--green-01);
     font-size: 2rem;
     font-weight: 600;
 }

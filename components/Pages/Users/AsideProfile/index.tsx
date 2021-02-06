@@ -30,7 +30,7 @@ const AsideProfile = (): ReactElement => {
             {profile.avatar ? (
                 <img className={css.avatar} src={config.img + profile.avatar} alt="" />
             ) : (
-                <p className={css.avatar} style={{ color: config.colors[profile.name[0]] || '#3273dc' }}>
+                <p className={css.avatar} style={{ color: config.colors[profile.name[0]] || 'var(--blue-01)' }}>
                     {profile.name[0] + profile.surname[0]}
                 </p>
             )}

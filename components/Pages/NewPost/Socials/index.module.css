@@ -24,12 +24,12 @@
     width: 1.6rem;
     height: 1.6rem;
     margin-right: 2rem;
-    fill: #666;
+    fill: var(--gray-03);
     transition: 0.3s ease-in-out;
 }
 
 .link svg:hover {
-    fill: #007bff;
+    fill: var(--blue-01);
 }
 
 @media (max-width: 1000px) {
