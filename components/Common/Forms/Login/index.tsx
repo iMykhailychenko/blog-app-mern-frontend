@@ -22,16 +22,16 @@ interface Errors {
 }
 
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const initialValues: Values = {
+    email: '',
+    password: '',
+    remember: false,
+};
 
 const FormLogin = (): ReactElement => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
 
-    const initialValues: Values = {
-        email: '',
-        password: '',
-        remember: false,
-    };
 
     return (
         <Formik

@@ -1,0 +1,101 @@
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.wrp {
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    height: calc(100% - 0.2rem);
+    width: 4.5rem;
+}
+
+.btn svg {
+    height: calc(100% - 0.2rem);
+    width: 1.5rem;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem 4.5rem 1rem 1.5rem;
+    background: none;
+    outline: none;
+    font-size: 1.4rem;
+    border-radius: var(--radius);
+    background: var(--gray-02);
+    border: 0.1rem solid var(--gray-03);
+    transition: none;
+}
+
+.passError {
+    position: relative;
+    top: -2rem;
+    font-size: 1.4rem;
+    color: var(--red-01);
+}
+
+.inputError {
+    border-color: var(--red-01);
+}
+
+.inputError:hover,
+.inputError:focus {
+    border-color: var(--red-01);
+    box-shadow: none;
+}
+
+.title {
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.subtitle {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.inner {
+    width: 46%;
+    font-size: 1.6rem;
+}
+
+.desc {
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 1200px) {
+    .flex {
+        margin: 0;
+    }
+
+    .inner {
+        width: 100%;
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .title {
+        font-size: 2rem;
+    }
+}

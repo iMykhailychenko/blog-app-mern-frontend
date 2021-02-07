@@ -86,7 +86,7 @@ const Search = (): ReactElement => {
                 ) : (
                     <div className={css.empty}>
                         <img src="/img/emoji/exploding.png" alt="" />
-                        <p>{`Yur search query break our mind. We didnt find something related to "${search}"`}</p>
+                        <p>{`Your search query has broke our mind. We didnt find something related to "${search}"`}</p>
                     </div>
                 )}
             </div>

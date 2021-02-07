@@ -1,6 +1,5 @@
-import { faEye, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faEye, faImages, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
 import Link from 'next/link';
 import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,18 +35,18 @@ const AsideProfile = (): ReactElement => {
                 </a>
             </Link>
 
-            <div className={css.add}>
-                <input onChange={handleAvatar} type="file" className={css.file} />
-                <div className={clsx('add', css.addBtn)} />
-                <p className={clsx(css.text, css.addText)}>Edit profile avatar</p>
-            </div>
-
             {profile.avatar ? (
                 <button className={css.delete} onClick={handleDelete} type="button">
                     <FontAwesomeIcon icon={faTrashAlt} />
                     <span>Delete avatar</span>
                 </button>
             ) : null}
+
+            <div className={css.edit}>
+                <input className={css.file} onChange={handleAvatar} type="file" />
+                <FontAwesomeIcon icon={faImages} />
+                <span>Change avatar</span>
+            </div>
 
             <Link href={routes.users[0](profile?._id)}>
                 <a className={css.view}>

@@ -106,6 +106,20 @@
     font-size: 1.6rem;
 }
 
+.desc a {
+    padding: 0.2rem 0.5rem;
+    text-decoration: underline;
+}
+
+.desc a:hover {
+    padding: 0.2rem 0.5rem;
+    background: var(--blue-01);
+    border-radius: var(--radius);
+    color: var(--white);
+    text-decoration: none;
+}
+
+
 .auth {
     padding: 5rem 15%;
 }

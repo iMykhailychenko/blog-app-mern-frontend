@@ -2,13 +2,16 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
-import React, { ChangeEvent, ReactElement, useEffect, useState } from 'react';
+import React, { ChangeEvent, ReactElement, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
 import AuthRedirect from '../../components/Common/Auth/AuthRedirect';
+import ChangePass from '../../components/Common/Forms/Settings/ChangePass';
+import UserBio from '../../components/Common/Forms/Settings/UserBio';
+import UserInfo from '../../components/Common/Forms/Settings/UserInfo';
 import Meta from '../../components/Common/Meta';
 import serverRedirect from '../../components/HOC/ServerRedirect';
 import Aside from '../../components/Layout/Aside';
@@ -22,41 +25,12 @@ const Settings = (): ReactElement => {
     const dispatch = useDispatch();
     const profile = useSelector<IState, IUser>(state => state.profile);
 
-    const [bio, setBio] = useState<string | null>(profile?.bio || null);
-    const [info, setInfo] = useState<{ [key: string]: string | null }>({
-        name: profile?.name || '',
-        surname: profile?.surname || '',
-        email: profile?.email || '',
-    });
-
-    useEffect(() => {
-        setBio(profile?.bio || null);
-        setInfo({
-            name: profile?.name || '',
-            surname: profile?.surname || '',
-            email: profile?.email || '',
-        });
-    }, [profile]);
-
     // MEDIA
     const handleUserBanner = (event: ChangeEvent<HTMLInputElement>): void => {
         dispatch({ type: types.UPDATE_USER_BANNER_START, payload: event?.target?.files?.[0] || null });
     };
     const handleDeleteBanner = (): void => {
         dispatch({ type: types.UPDATE_USER_BANNER_START, payload: null });
-    };
-
-    // BIO
-    const handleBioChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
-        setBio(event.target.value);
-    };
-    const handleSubmitBio = (): void => {
-        dispatch({ type: types.UPDATE_USER_BIO_START, payload: bio });
-    };
-
-    // INFO
-    const handleInfoChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        setInfo({ [event.target.name]: event.target.value });
     };
 
     return (
@@ -93,70 +67,15 @@ const Settings = (): ReactElement => {
 
                         <h2 className={css.title}>General account data</h2>
                         <hr />
-                        <div className={css.flex}>
-                            <div className={css.inner}>
-                                <label>
-                                    <h3 className={css.subtitle}>Name:</h3>
-                                    <input
-                                        value={info.name}
-                                        onChange={handleInfoChange}
-                                        className={css.comment}
-                                        placeholder="name"
-                                        type="text"
-                                        name="name"
-                                    />
-                                </label>
-                                <label>
-                                    <h3 className={css.subtitle}>Surname:</h3>
-                                    <input
-                                        value={info.surname}
-                                        onChange={handleInfoChange}
-                                        className={css.comment}
-                                        placeholder="surname"
-                                        type="text"
-                                        name="name"
-                                    />
-                                </label>
-                            </div>
-                            <div className={css.inner}>
-                                <label>
-                                    <h3 className={css.subtitle}>Email:</h3>
-                                    <input
-                                        value={info.email}
-                                        onChange={handleInfoChange}
-                                        className={css.comment}
-                                        placeholder="email"
-                                        type="text"
-                                        name="name"
-                                    />
-                                </label>
-                                <button className={clsx('btn btn--blue', !bio && 'btn--disabled')} type="submit">
-                                    Save
-                                </button>
-                            </div>
-                        </div>
+                        {profile && <UserInfo profile={profile} />}
 
                         <h2 className={css.title}>User profile</h2>
                         <hr />
-                        <div className={css.flex}>
-                            <div className={css.desc}>
-                                <h3 className={css.subtitle}>Provide description for your account:</h3>
-                                <TextareaAutosize
-                                    className={css.comment}
-                                    name="comment"
-                                    value={bio}
-                                    placeholder="your comment"
-                                    onChange={handleBioChange}
-                                />
-                                <button
-                                    className={clsx('btn btn--blue', !bio && 'btn--disabled')}
-                                    type="submit"
-                                    onClick={handleSubmitBio}
-                                >
-                                    Save
-                                </button>
-                            </div>
-                        </div>
+                        {profile && <UserBio profile={profile} />}
+
+                        <h2 className={css.title}>Change password</h2>
+                        <hr />
+                        <ChangePass />
                     </div>
                 </main>
             )}

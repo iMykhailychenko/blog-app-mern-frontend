@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
+import { bioHTML } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import useAuth from '../../components/../hooks/auth.hook';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
@@ -44,7 +45,7 @@ const UserProfile = (): ReactElement => {
         dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
     };
 
-    const bio = profile?.bio ? profile.bio.replace(/\n/gi, '<br>') : 'There is empty profile description';
+    const bio = profile?.bio ? bioHTML(profile.bio) : 'There is empty profile description';
 
     return (
         <>
