@@ -613,10 +613,12 @@
     text-decoration: underline;
 }
 .ql-snow .ql-editor blockquote {
-    border-left: 4px solid var(--gray-02);
     margin-bottom: 5px;
     margin-top: 5px;
-    padding-left: 16px;
+    padding: 20px 10px 20px 20px;
+    border-left: 4px solid var(--blue-01);
+    background: var(--blue-02);
+    color: var(--blue-01);
 }
 .ql-snow .ql-editor code,
 .ql-snow .ql-editor pre {

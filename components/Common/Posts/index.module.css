@@ -92,6 +92,7 @@
     border: none;
     font-size: 1.4rem;
     line-height: 1;
+    color: var(--blue-01);
 }
 
 .manage span {

@@ -1,4 +1,4 @@
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetServerSidePropsContext } from 'next';
 import dynamic from 'next/dynamic';
@@ -77,7 +77,7 @@ const EditPost = (): ReactElement => {
 
                     {post.banner ? (
                         <button className={css.delete} onClick={handleDeleteBanner} type="button">
-                            <FontAwesomeIcon icon={faTrashAlt} />
+                            <FontAwesomeIcon icon={faTimesCircle} />
                             <span>Delete banner</span>
                         </button>
                     ) : null}

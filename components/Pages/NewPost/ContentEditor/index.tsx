@@ -42,7 +42,7 @@ const ContentEditor = (): ReactElement => {
             toolbar: {
                 container: [
                     [{ header: [2, 3, 4, false] }],
-                    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                    ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code'],
                     [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
                     ['link', 'image'],
                     ['code-block'],
