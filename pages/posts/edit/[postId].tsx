@@ -69,7 +69,6 @@ const EditPost = (): ReactElement => {
             <AuthRedirect />
             <div className={css.container}>
                 <div className={css.content}>
-                    {/*elements*/}
                     <Socials />
                     <DateText />
                     <Title />
@@ -84,7 +83,6 @@ const EditPost = (): ReactElement => {
 
                     <div className={css.banner}>
                         {post.banner ? <img className={css.banner} src={config.img + post.banner} alt="" /> : null}
-
                         <input type="file" onChange={handleBannerChange} className={css.file} />
                         <div className={css.add}>
                             <div className="add" />
@@ -96,7 +94,6 @@ const EditPost = (): ReactElement => {
                     <ContentEditor />
                     <Socials />
 
-                    {/*submit*/}
                     <EditButtons />
                 </div>
             </div>
