@@ -1,5 +1,7 @@
 import 'highlight.js/styles/atom-one-dark-reasonable.css';
 
+import { faKeyboard, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -25,8 +27,6 @@ import { IAuth, IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
-import { faKeyboard, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SinglePost = (): ReactElement => {
     const ref = useRef<HTMLDivElement>(null);

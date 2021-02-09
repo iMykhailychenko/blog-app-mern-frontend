@@ -1,8 +1,8 @@
 const config = {
     postPerPage: 4,
-    img: process.env.NODE_ENV === 'production' ? 'https://ihor-blog.herokuapp.com/' : 'http://localhost:5000/',
     api: process.env.NODE_ENV === 'production' ? 'https://ihor-blog.herokuapp.com/api' : 'http://localhost:5000/api',
-    host: process.env.NODE_ENV === 'production' ? 'https://blog-eta-teal.vercel.app/' : 'http://localhost:5050',
+    img: 'https://ihor-blog.herokuapp.com/',
+    host: 'https://blog-eta-teal.vercel.app/',
     colors: {
         A: '#3273dc',
         B: '#32acdc',
