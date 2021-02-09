@@ -32,7 +32,6 @@ const FormLogin = (): ReactElement => {
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
 
-
     return (
         <Formik
             initialValues={initialValues}

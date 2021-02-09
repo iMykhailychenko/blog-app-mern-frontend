@@ -25,6 +25,8 @@ import { IAuth, IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
+import { faKeyboard, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SinglePost = (): ReactElement => {
     const ref = useRef<HTMLDivElement>(null);
@@ -64,12 +66,16 @@ const SinglePost = (): ReactElement => {
                     <div className={css.content}>
                         {auth?.user?._id === post?.user?._id && (
                             <>
-                                <div key="subtext1" className={css.subtext}>
+                                <div key="subtext5" className={clsx(css.subtext, css.manageFlex)}>
                                     <Link href={routes.posts.edit[0](post._id)}>
-                                        <a className={css.manage}>Edit post</a>
+                                        <a className={css.manage}>
+                                            <FontAwesomeIcon icon={faKeyboard} />
+                                            <span>Edit post</span>
+                                        </a>
                                     </Link>
                                     <button className={css.manage} type="button" onClick={handleDelete}>
-                                        Delete post
+                                        <FontAwesomeIcon icon={faTimesCircle} />
+                                        <span>Delete post</span>
                                     </button>
                                 </div>
                             </>
@@ -131,12 +137,16 @@ const SinglePost = (): ReactElement => {
 
                         {auth?.user?._id === post?.user?._id && (
                             <>
-                                <div key="subtext5" className={css.subtext}>
+                                <div key="subtext5" className={clsx(css.subtext, css.manageFlex)}>
                                     <Link href={routes.posts.edit[0](post._id)}>
-                                        <a className={css.manage}>Edit post</a>
+                                        <a className={css.manage}>
+                                            <FontAwesomeIcon icon={faKeyboard} />
+                                            <span>Edit post</span>
+                                        </a>
                                     </Link>
                                     <button className={css.manage} type="button" onClick={handleDelete}>
-                                        Delete post
+                                        <FontAwesomeIcon icon={faTimesCircle} />
+                                        <span>Delete post</span>
                                     </button>
                                 </div>
                             </>

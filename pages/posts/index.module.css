@@ -25,7 +25,12 @@
     margin: 0 auto 3rem;
 }
 
+.manageFlex {
+    display: flex;
+}
+
 .manage {
+    display: flex;
     background: none;
     border: none;
     color: var(--blue-01);
@@ -33,6 +38,29 @@
     font-size: 1.4rem;
     margin-right: 2rem;
     cursor: pointer;
+}
+
+.manage svg {
+    height: 1.6rem;
+    width: 1.8rem;
+    margin-right: 0.5rem;
+}
+
+.manage a,
+.manage button {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.manage span {
+    display: block;
+    line-height: 1;
+    margin-top: 0.2rem;
 }
 
 .manage:focus,

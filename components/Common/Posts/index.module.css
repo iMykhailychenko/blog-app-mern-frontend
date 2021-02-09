@@ -74,21 +74,29 @@
 }
 
 .manage {
+    display: flex;
     margin: 1rem 0;
 }
 
 .manage svg {
-    height: 1.4rem;
-    width: 1.4rem;
-    margin-right: 1rem;
+    height: 1.6rem;
+    width: 1.8rem;
+    margin-right: 0.5rem;
 }
 
 .manage a,
 .manage button {
+    display: flex;
     margin-right: 2rem;
     background: none;
     border: none;
     font-size: 1.4rem;
+    line-height: 1;
+}
+
+.manage span {
+    display: block;
+    margin-top: 0.2rem;
 }
 
 .manage a:hover,

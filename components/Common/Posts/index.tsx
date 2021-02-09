@@ -1,4 +1,4 @@
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -64,20 +64,6 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
             {content?.length &&
                 content?.map(item => (
                     <li className={clsx(css.card, !item.banner && css.grid)} key={item?._id}>
-                        {auth?.token && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
-                            <div className={css.manage}>
-                                <Link href={routes.posts.edit[0](item._id)}>
-                                    <a>
-                                        <FontAwesomeIcon icon={faPen} />
-                                        <span>Edit post</span>
-                                    </a>
-                                </Link>
-                                <button type="button" onClick={handleDelete(item._id)}>
-                                    <FontAwesomeIcon icon={faTrash} />
-                                    <span>Delete post</span>
-                                </button>
-                            </div>
-                        )}
                         <Link href={routes.posts.single[0](item?._id)}>
                             <a className={css.postLink}>
                                 {item.banner && (
@@ -103,6 +89,21 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
                             </div>
                         )}
                         <p className={css.date}>{formatDate(item.date)}</p>
+
+                        {auth?.token && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
+                            <div className={css.manage}>
+                                <Link href={routes.posts.edit[0](item._id)}>
+                                    <a>
+                                        <FontAwesomeIcon icon={faKeyboard} />
+                                        <span>Edit post</span>
+                                    </a>
+                                </Link>
+                                <button type="button" onClick={handleDelete(item._id)}>
+                                    <FontAwesomeIcon icon={faTimesCircle} />
+                                    <span>Delete post</span>
+                                </button>
+                            </div>
+                        )}
 
                         <div className={css.inner}>
                             <ProfileBig user={author ? profile : item?.author?.[0]} />

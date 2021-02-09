@@ -15,7 +15,7 @@
 }
 
 .ready .ql-snow .ql-post a:hover {
-    background: var(--gray-02);
+    background: var(--blue-01);
 }
 
 @media (max-width: 690px) {

@@ -620,7 +620,8 @@
 }
 .ql-snow .ql-editor code,
 .ql-snow .ql-editor pre {
-    background-color: var(--gray-01);
+    background-color: var(--blue-01);
+    color: var(--white);
     border-radius: 3px;
 }
 .ql-snow .ql-editor pre {

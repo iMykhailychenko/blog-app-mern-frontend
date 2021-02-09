@@ -23,7 +23,8 @@
 
 .ql-snow .ql-editor a:hover {
     text-decoration: none;
-    background: var(--white);
+    background: var(--blue-01);
+    color: var(--white);
 }
 
 .quill .ql-toolbar.ql-snow {

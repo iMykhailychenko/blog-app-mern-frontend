@@ -1,4 +1,3 @@
-import { ErrorMessage } from 'formik';
 import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
 
 import css from '../index.module.css';

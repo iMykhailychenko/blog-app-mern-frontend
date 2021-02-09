@@ -2,9 +2,8 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
-import React, { ChangeEvent, ReactElement, useState } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import TextareaAutosize from 'react-textarea-autosize';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
