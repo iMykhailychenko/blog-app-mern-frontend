@@ -12,6 +12,7 @@ const initState: IState = {
             loading: true,
             data: null,
         },
+        favorite: null,
         newPost: {
             title: '',
             tags: '',
