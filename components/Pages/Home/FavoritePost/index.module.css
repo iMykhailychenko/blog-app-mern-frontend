@@ -1,0 +1,72 @@
+.banner {
+    position: relative;
+    margin: 2rem 0 6rem;
+    padding: 3rem;
+    border-radius: var(--radius);
+    color: var(--white);
+    background: var(--blue-01);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shadow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--radius);
+    background: linear-gradient(to left, transparent 10%, var(--black)) 10%;
+}
+
+.link:hover .subtitle {
+    text-decoration: underline;
+}
+
+.post {
+    position: relative;
+    z-index: 2;
+    max-width: 60rem;
+}
+
+.title {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 4rem;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.subtitle {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.text {
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+.text br {
+    display: block;
+}
+
+.socials {
+    margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .subtitle {
+        font-size: 1.8rem;
+    }
+
+    .text {
+        font-size: 1.4rem;
+    }
+}

@@ -1,4 +1,4 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -44,8 +44,7 @@ const Navigation = (): ReactElement => {
             ) : (
                 <>
                     <button className={css.mobileMenu} type="button" onClick={handleToggle}>
-                        <span />
-                        <span />
+                        <FontAwesomeIcon icon={faBars} />
                     </button>
 
                     {menu && <MobileNav onClick={handleClose} className={clsx(css.list, menu && css.open)} />}

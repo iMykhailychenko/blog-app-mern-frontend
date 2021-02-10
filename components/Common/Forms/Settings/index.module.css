@@ -25,6 +25,7 @@
 .input {
     display: block;
     width: 100%;
+    min-height: 4.4rem;
     margin-bottom: 2rem;
     padding: 1rem 4.5rem 1rem 1.5rem;
     background: none;

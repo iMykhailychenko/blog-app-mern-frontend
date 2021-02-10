@@ -26,6 +26,7 @@ const api = {
     },
     posts: {
         getPosts: (params: IParams): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
+        getFavoritePosts: (): Promise<AxiosResponse<IPost[]>> => axios.get('/favorite/posts'),
         getUserPosts: (id: string): Promise<AxiosResponse<IPost[]>> => axios.get(`/posts/user/${id}`),
         getSinglePost: (id: string, params?: { [key: string]: string | null }): Promise<AxiosResponse<IPost>> =>
             axios.get(`/posts/${id}`, { params }),

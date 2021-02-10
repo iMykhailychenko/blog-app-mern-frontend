@@ -5,7 +5,6 @@
     padding: 0.6rem 3rem;
     background-color: var(--white);
     border-radius: var(--radius);
-    border: none;
     font-weight: 500;
     font-size: 1.4rem;
     transition: 0.2s ease-in-out;
@@ -29,6 +28,7 @@
 
 .btn--gray {
     background-color: var(--gray-02);
+    border: 0.1rem solid var(--gray-03);
 }
 
 .btn--light {

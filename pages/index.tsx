@@ -12,6 +12,7 @@ import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
 import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
+import FavoritePost from '../components/Pages/Home/FavoritePost';
 import useMedia from '../hooks/media.hook';
 import { IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';
@@ -32,18 +33,16 @@ const Home = (): ReactElement => {
         <>
             <Meta />
             <main className={clsx(css.main, 'container')}>
-                {!auth?.token && mobile && (
-                    <Aside>
-                        <FormLogin />
-                    </Aside>
-                )}
+                <Aside>{!auth?.token && mobile && <FormLogin />}</Aside>
 
-                <div className={clsx(css.content, !!auth?.token && css.auth)}>
+                <div className={css.content}>
+                    <FavoritePost />
+
                     <h2 className={css.title}>Popular posts</h2>
-                    <Posts content={posts.data?.posts} wide={!auth?.token && mobile} />
+                    <Posts content={posts.data?.posts} />
                     {posts.data?.posts?.length < posts.data?.total ? (
                         <>
-                            <PostsLoader wide />
+                            <PostsLoader />
                             <LoadMore onSubmit={handleMore} loading={posts.loading} />
                         </>
                     ) : null}
@@ -55,6 +54,7 @@ const Home = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async ({ store }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
+        store.dispatch({ type: types.GET_FAVORITE_POST_START });
         store.dispatch({
             type: types.GET_POSTS_START,
             payload: { page: 1, limit: config.postPerPage },

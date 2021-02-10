@@ -12,18 +12,14 @@ import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
 import Posts from '../../components/Common/Posts';
-import useAuth from '../../hooks/auth.hook';
-import useMedia from '../../hooks/media.hook';
 import { IPostList, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
 
 const Search = (): ReactElement => {
-    const auth = useAuth();
     const dispatch = useDispatch();
     const { query } = useRouter();
-    const mobile = useMedia(900);
 
     const init = typeof query?.q === 'object' ? query.q[0] : query.q;
     const [search, setSearch] = useState<string>(init || '');
@@ -75,10 +71,10 @@ const Search = (): ReactElement => {
                 <h2 className={css.title}>{isPopular ? 'Popular posts:' : 'Search result:'}</h2>
                 {posts?.data?.posts?.length ? (
                     <>
-                        <Posts content={posts.data?.posts} wide={!auth?.token && mobile} />
+                        <Posts content={posts.data?.posts} />
                         {posts.data?.posts?.length < posts.data?.total ? (
                             <>
-                                <PostsLoader wide />
+                                <PostsLoader />
                                 <LoadMore onSubmit={handleMore} loading={posts.loading} />
                             </>
                         ) : null}

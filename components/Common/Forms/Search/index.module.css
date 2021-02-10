@@ -49,8 +49,9 @@
 
 .input {
     display: block;
+    min-height: 4.4rem;
     width: 50rem;
-    padding: 1.2rem 1.6rem;
+    padding: 1rem 1.6rem;
     font-size: 1.4rem;
     background: none;
     outline: none;

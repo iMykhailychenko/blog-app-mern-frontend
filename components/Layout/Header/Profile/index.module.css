@@ -102,7 +102,7 @@
     width: 3.5rem;
     margin-right: 1rem;
     background-color: var(--gray-02);
-    border: none;
+    border: 0.1rem solid var(--gray-03);
     border-radius: var(--radius);
     font-size: 1.2rem;
     color: var(--gray-03);

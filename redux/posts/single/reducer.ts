@@ -12,7 +12,7 @@ const INIT: ISinglePost = {
 const single = (state: ISinglePost = INIT, action: IAction): ISinglePost => {
     switch (action.type) {
         case HYDRATE:
-            return (action.payload as IState).posts.single as ISinglePost;
+            return (action.payload as IState).posts.single;
 
         case types.LIKE_POST_SUCCESS:
         case types.DISLIKE_POST_SUCCESS:

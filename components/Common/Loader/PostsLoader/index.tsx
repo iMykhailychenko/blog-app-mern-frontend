@@ -5,31 +5,21 @@ import css from './index.module.css';
 
 interface IProps {
     col?: number;
-    wide?: boolean;
 }
 
 type Media = { [key: number]: number; default: number };
 
-const mediaNotAuth = (col: number): Media => ({
+const media = (col: number): Media => ({
     default: col,
     1100: 1,
     900: 2,
     610: 1,
 });
 
-const mediaAuth = (col: number): Media => ({
-    default: col,
-    610: 1,
-});
-
 const DEFAULT_ARRAY = [0, 1];
 
-const PostsLoader = ({ col = 2, wide = false }: IProps): ReactElement => (
-    <Masonry
-        breakpointCols={wide ? mediaNotAuth(col) : mediaAuth(col)}
-        className={css.list}
-        columnClassName={css.column}
-    >
+const PostsLoader = ({ col = 2 }: IProps): ReactElement => (
+    <Masonry breakpointCols={media(col)} className={css.list} columnClassName={css.column}>
         {DEFAULT_ARRAY.map(items => (
             <li className={css.wrp} key={items}>
                 <div className={css.text}>

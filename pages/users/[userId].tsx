@@ -141,10 +141,10 @@ const UserProfile = (): ReactElement => {
                                 </div>
                                 <hr />
                                 <div className={css.margin} />
-                                <Posts content={posts.data?.posts} author wide />
+                                <Posts content={posts.data?.posts} author />
                                 {posts.data?.posts?.length < posts.data?.total ? (
                                     <>
-                                        <PostsLoader wide />
+                                        <PostsLoader />
                                         <LoadMore onSubmit={handleMore} loading={posts.loading} />
                                     </>
                                 ) : null}

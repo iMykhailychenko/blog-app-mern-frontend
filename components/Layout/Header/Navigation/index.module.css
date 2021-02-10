@@ -41,7 +41,7 @@
     width: 3.5rem;
     background-color: var(--gray-02);
     color: var(--black);
-    border: none;
+    border: 0.1rem solid var(--gray-03);
     border-radius: var(--radius);
     font-size: 1.2rem;
     transition: 0.3s ease-in-out;
@@ -68,7 +68,17 @@
 }
 
 .mobileMenu {
-    display: none;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: var(--radius);
+    border: 0.1rem solid var(--gray-03);
+    background-color: var(--gray-02);
+    color: var(--gray-03);
+}
+
+.mobileMenu svg {
+    height: 1.2rem;
+    width: 1.2rem;
 }
 
 /* media rules */
@@ -102,40 +112,5 @@
         border: none;
         color: var(--gray-03);
         outline: none;
-    }
-
-    .mobileMenu {
-        display: block;
-        position: relative;
-        height: 7rem;
-        width: 8rem;
-        margin-left: -2.5rem;
-        border: none;
-        background-color: transparent;
-    }
-
-    .mobileMenu span {
-        position: absolute;
-        top: 2.9rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2.8rem;
-        height: 0.2rem;
-        background: var(--gray-02);
-        transition: 0.2s ease-in-out;
-    }
-
-    .mobileMenu span:nth-of-type(2) {
-        top: unset;
-        bottom: 2.9rem;
-    }
-
-    .mobileMenu:hover span {
-        top: 3.1rem;
-    }
-
-    .mobileMenu:hover span:nth-of-type(2) {
-        top: unset;
-        bottom: 3.1rem;
     }
 }

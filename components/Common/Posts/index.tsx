@@ -26,21 +26,16 @@ interface IProps {
 
 type Media = { [key: number]: number; default: number };
 
-const mediaNotAuth = (col: number): Media => ({
+const media = (col: number): Media => ({
     default: col,
     1100: 1,
     900: 2,
     610: 1,
 });
 
-const mediaAuth = (col: number): Media => ({
-    default: col,
-    610: 1,
-});
-
 const DESC_LIMIT = 180;
 
-const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement => {
+const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const auth = useAuth();
     const { query } = useRouter();
@@ -56,11 +51,7 @@ const Posts = ({ content, col = 2, wide = false, author }: IProps): ReactElement
     };
 
     return (
-        <Masonry
-            breakpointCols={wide ? mediaNotAuth(col) : mediaAuth(col)}
-            className={css.list}
-            columnClassName={css.column}
-        >
+        <Masonry breakpointCols={media(col)} className={css.list} columnClassName={css.column}>
             {content?.length &&
                 content?.map(item => (
                     <li className={clsx(css.card, !item.banner && css.grid)} key={item?._id}>

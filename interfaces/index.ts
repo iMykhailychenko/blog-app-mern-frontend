@@ -119,6 +119,7 @@ export interface IState {
     posts: {
         list: IPostList;
         newPost: INewPost;
+        favorite: IPost | null;
         single: ISinglePost;
     };
     comments: ICommentList;

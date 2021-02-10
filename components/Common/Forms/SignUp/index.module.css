@@ -5,6 +5,7 @@
 
 .input {
     display: block;
+    min-height: 4.4rem;
     width: 100%;
     margin: 2rem auto;
     padding: 1rem;

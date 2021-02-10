@@ -86,7 +86,7 @@ const SinglePost = (): ReactElement => {
                                 <p key="subtext2" className={css.subtext}>
                                     Share this post in social media:
                                 </p>
-                                <Socials key="socials1" title={post.title} />
+                                <Socials key="socials1" title={post.title} hover />
                             </div>
 
                             <div>
@@ -161,7 +161,7 @@ const SinglePost = (): ReactElement => {
                             Share this post in social media:
                         </p>
                         <div className={css.likes}>
-                            <Socials key="socials2" title={post.title} />
+                            <Socials key="socials2" title={post.title} hover />
                         </div>
 
                         <p key="subtext7" className={css.subtext}>

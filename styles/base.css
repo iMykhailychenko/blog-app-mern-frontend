@@ -89,6 +89,17 @@ textarea:focus {
     box-shadow: var(--box-shadow);
 }
 
+.hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    height: 1px;
+    width: 1px;
+    opacity: 0;
+    visibility: hidden;
+}
+
 @media (max-width: 400px) {
     html {
         font-size: 9px;
