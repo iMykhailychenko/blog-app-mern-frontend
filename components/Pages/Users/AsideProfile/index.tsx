@@ -41,10 +41,9 @@ const AsideProfile = (): ReactElement => {
             <div className={css.likes}>
                 <Likes
                     targetId={profile._id}
-                    dislike={profile.feedback.dislike}
-                    like={profile.feedback.like}
                     typeLike={types.LIKE_PROFILE_START}
                     typeDislike={types.DISLIKE_PROFILE_START}
+                    feedback={profile.feedback}
                 />
             </div>
 

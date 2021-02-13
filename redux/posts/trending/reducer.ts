@@ -6,10 +6,10 @@ import { IAction } from './saga';
 
 const INIT = null;
 
-const favorite = (state: IPost = INIT, action: IAction): IPost => {
+const trending = (state: IPost = INIT, action: IAction): IPost => {
     switch (action.type) {
         case HYDRATE:
-            return (action.payload as IState).posts.favorite;
+            return (action.payload as IState).posts.trending;
 
         case types.GET_FAVORITE_POST_SUCCESS:
             return action.payload as IPost;
@@ -23,4 +23,4 @@ const favorite = (state: IPost = INIT, action: IAction): IPost => {
     }
 };
 
-export default favorite;
+export default trending;

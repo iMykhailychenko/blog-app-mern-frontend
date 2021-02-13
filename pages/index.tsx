@@ -11,10 +11,11 @@ import PostsLoader from '../components/Common/Loader/PostsLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
 import Posts from '../components/Common/Posts';
+import serverCookie from '../components/HOC/ServerCookie';
 import Aside from '../components/Layout/Aside';
-import FavoritePost from '../components/Pages/Home/FavoritePost';
+import TrendingPost from '../components/Pages/Home/TrendingPost';
 import useMedia from '../hooks/media.hook';
-import { IPostList, IState, IStore } from '../interfaces';
+import { IAuth, IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';
 import types from '../redux/types';
 import css from './index.module.css';
@@ -36,7 +37,7 @@ const Home = (): ReactElement => {
                 <Aside>{!auth?.token && mobile && <FormLogin />}</Aside>
 
                 <div className={css.content}>
-                    <FavoritePost />
+                    <TrendingPost />
 
                     <h2 className={css.title}>Popular posts</h2>
                     <Posts content={posts.data?.posts} />
@@ -53,15 +54,17 @@ const Home = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    async ({ store }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-        store.dispatch({ type: types.GET_FAVORITE_POST_START });
-        store.dispatch({
-            type: types.GET_POSTS_START,
-            payload: { page: 1, limit: config.postPerPage },
-        });
-        store.dispatch(END);
-        await store.sagaTask.toPromise();
-    },
+    serverCookie(
+        async ({ store, auth }: GetServerSidePropsContext & { store: IStore; auth?: IAuth }): Promise<void> => {
+            store.dispatch({ type: types.GET_FAVORITE_POST_START });
+            store.dispatch({
+                type: types.GET_POSTS_START,
+                payload: { page: 1, limit: config.postPerPage, user: auth?.user?._id || null },
+            });
+            store.dispatch(END);
+            await store.sagaTask.toPromise();
+        },
+    ),
 );
 
 export default Home;

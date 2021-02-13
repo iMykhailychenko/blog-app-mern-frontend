@@ -99,9 +99,7 @@ const SinglePost = (): ReactElement => {
                                         targetId={post._id}
                                         typeLike={types.LIKE_POST_START}
                                         typeDislike={types.DISLIKE_POST_START}
-                                        like={post.feedback.like}
-                                        dislike={post.feedback.dislike}
-                                        view={post.feedback.view}
+                                        feedback={post.feedback}
                                     />
                                 </div>
                             </div>
@@ -173,9 +171,7 @@ const SinglePost = (): ReactElement => {
                                 targetId={post._id}
                                 typeLike={types.LIKE_POST_START}
                                 typeDislike={types.DISLIKE_POST_START}
-                                like={post.feedback.like}
-                                dislike={post.feedback.dislike}
-                                view={post.feedback.view}
+                                feedback={post.feedback}
                             />
                         </div>
 

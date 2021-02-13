@@ -63,14 +63,14 @@ const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
                                 <div className={css.inner}>
                                     <h4 className={css.title}>{item.title}</h4>
                                     <p className={css.text}>
-                                        {item.desc.length > DESC_LIMIT
-                                            ? `${item.desc.slice(0, DESC_LIMIT)}...`
-                                            : item.desc}
+                                        {item?.desc?.length > DESC_LIMIT
+                                            ? `${item?.desc?.slice(0, DESC_LIMIT)}...`
+                                            : item?.desc}
                                     </p>
                                 </div>
                             </a>
                         </Link>
-                        {!!item.tags.length && (
+                        {item.tags?.length ? (
                             <div className={css.tags}>
                                 {item.tags.map(tag => (
                                     <Link href={routes.posts.tag[0](tag)} key={tag}>
@@ -78,7 +78,7 @@ const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
                                     </Link>
                                 ))}
                             </div>
-                        )}
+                        ) : null}
                         <p className={css.date}>{formatDate(item.date)}</p>
 
                         {auth?.token && (author ? profile?._id : item?.author?.[0]?._id) === auth?.user?._id && (
@@ -105,9 +105,7 @@ const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
                                 targetId={item?._id}
                                 typeLike={types.LIKE_POPULAR_POSTS_START}
                                 typeDislike={types.DISLIKE_POPULAR_POSTS_START}
-                                like={item.feedback.like}
-                                dislike={item.feedback.dislike}
-                                view={item.feedback.view}
+                                feedback={item.feedback}
                             />
                         </div>
                     </li>

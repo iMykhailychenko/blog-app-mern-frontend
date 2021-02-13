@@ -22,8 +22,10 @@ export interface IUser {
     banner: string;
     bio: null | string;
     feedback: {
-        like: string[];
-        dislike: string[];
+        isLiked: 0 | 1;
+        isDisliked: 0 | 1;
+        like: number;
+        dislike: number;
     };
     surname: string;
     email: string;
@@ -44,9 +46,12 @@ export interface IAuth {
 export interface IPost {
     _id: string;
     feedback: {
-        view: string[];
-        like: string[];
-        dislike: string[];
+        isViewed: 0 | 1;
+        isLiked: 0 | 1;
+        isDisliked: 0 | 1;
+        view: number;
+        like: number;
+        dislike: number;
     };
     edited: string | null;
     banner: string;
@@ -93,8 +98,10 @@ export interface IComment {
     attachment: null | string;
     author: [IUser];
     feedback: {
-        like: string[];
-        dislike: string[];
+        isLiked: 0 | 1;
+        isDisliked: 0 | 1;
+        like: number;
+        dislike: number;
     };
     answers?: IComment[];
 }
@@ -119,7 +126,7 @@ export interface IState {
     posts: {
         list: IPostList;
         newPost: INewPost;
-        favorite: IPost | null;
+        trending: IPost | null;
         single: ISinglePost;
     };
     comments: ICommentList;

@@ -13,9 +13,9 @@ export interface IAction {
     payload: IState | IPost | null;
 }
 
-function* getFavoritePost() {
+function* getTrendingPosts() {
     try {
-        const { status, data } = yield call(api.posts.getFavoritePosts);
+        const { status, data } = yield call(api.posts.getTrendingPosts);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_FAVORITE_POST_SUCCESS, payload: data });
     } catch (error) {
@@ -25,6 +25,6 @@ function* getFavoritePost() {
     }
 }
 
-export default function* favorite(): Generator {
-    yield takeLatest(types.GET_FAVORITE_POST_START, getFavoritePost);
+export default function* trending(): Generator {
+    yield takeLatest(types.GET_FAVORITE_POST_START, getTrendingPosts);
 }

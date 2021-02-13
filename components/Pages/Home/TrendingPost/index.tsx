@@ -10,8 +10,8 @@ import Socials from '../../SinglePost/Socials';
 import css from './index.module.css';
 
 const MAX_LENGTH = 200;
-const FavoritePost = (): ReactElement => {
-    const post = useSelector<IState, IPost | null>(state => state.posts.favorite);
+const TrendingPost = (): ReactElement => {
+    const post = useSelector<IState, IPost | null>(state => state.posts.trending);
 
     const desc = post?.desc?.length > MAX_LENGTH ? post.desc.slice(0, MAX_LENGTH) + '...' : post?.desc;
     return post ? (
@@ -44,4 +44,4 @@ const FavoritePost = (): ReactElement => {
     ) : null;
 };
 
-export default FavoritePost;
+export default TrendingPost;

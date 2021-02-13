@@ -12,12 +12,17 @@ interface IProps {
     targetId?: string | string[];
     typeLike?: string;
     typeDislike?: string;
-    like: string[];
-    dislike: string[];
-    view?: string[];
+    feedback: {
+        dislike: number;
+        view?: number;
+        like: number;
+        isDisliked: 1 | 0;
+        isViewed?: 1 | 0;
+        isLiked: 1 | 0;
+    };
 }
 
-const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }: IProps): ReactElement => {
+const Likes = ({ targetId, postId, typeLike, typeDislike, feedback }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const auth = useAuth();
 
@@ -32,31 +37,24 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, like, dislike, view }:
 
     return (
         <ul className={css.list} style={auth?.token ? {} : { pointerEvents: 'none' }}>
-            <li
-                className={clsx(css.item, like?.includes(auth?.user?._id || null) && css.active)}
-                onClick={handleLike}
-                aria-hidden
-            >
+            <li className={clsx(css.item, feedback.isLiked && css.active)} onClick={handleLike} aria-hidden>
                 <FontAwesomeIcon icon={faThumbsUp} />
-                <span className={css.num}>{like?.length || 0}</span>
+                <span className={css.num}>{feedback.like}</span>
             </li>
             <li
-                className={clsx(css.item, css.dislike, dislike?.includes(auth?.user?._id || null) && css.active)}
+                className={clsx(css.item, css.dislike, feedback.isDisliked && css.active)}
                 onClick={handleDislike}
                 aria-hidden
             >
                 <FontAwesomeIcon icon={faThumbsDown} />
-                <span className={css.num}>{dislike?.length || 0}</span>
+                <span className={css.num}>{feedback.dislike}</span>
             </li>
-            {view && (
-                <li
-                    className={clsx(css.item, view?.includes(auth?.user?._id || null) && css.active)}
-                    style={{ pointerEvents: 'none' }}
-                >
+            {feedback.view !== undefined ? (
+                <li className={clsx(css.item, feedback.isViewed && css.active)} style={{ pointerEvents: 'none' }}>
                     <FontAwesomeIcon icon={faEye} />
-                    <span className={css.num}>{view?.length || 0}</span>
+                    <span className={css.num}>{feedback.view}</span>
                 </li>
-            )}
+            ) : null}
         </ul>
     );
 };

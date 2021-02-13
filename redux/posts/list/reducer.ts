@@ -1,6 +1,6 @@
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { IPost, IPostList, IPostPagination, IState } from '../../../interfaces';
+import { IPostList, IPostPagination, IState } from '../../../interfaces';
 import types from '../../types';
 import { IAction } from './saga';
 
@@ -42,17 +42,7 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
 
         case types.LIKE_POPULAR_POSTS_SUCCESS:
         case types.DISLIKE_POPULAR_POSTS_SUCCESS:
-            return {
-                data: {
-                    ...state.data,
-                    posts: state.data.posts.map(item =>
-                        item._id === (action.payload as IPost)._id
-                            ? { ...item, feedback: (action.payload as IPost).feedback }
-                            : item,
-                    ),
-                },
-                loading: false,
-            };
+            return state;
 
         case types.GET_POSTS_ERROR:
         case types.GET_USER_POSTS_ERROR:
