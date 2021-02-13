@@ -99,7 +99,7 @@
     transform: translateY(-50%);
     height: 100%;
     width: 0.2rem;
-    background-color: var(--gray-01);
+    background-color: var(--blue-01);
 }
 
 .subList .text {

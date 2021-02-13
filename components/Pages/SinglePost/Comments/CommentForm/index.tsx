@@ -1,3 +1,5 @@
+import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
@@ -36,21 +38,26 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
 
     return (
         <form action="#" method="POST">
-            <TextareaAutosize
-                className={css.comment}
-                name="comment"
-                cols={30}
-                rows={10}
-                value={text}
-                placeholder="your comment"
-                onChange={handleChange}
-            />
+            <div className={css.flex}>
+                <TextareaAutosize
+                    className={css.comment}
+                    name="comment"
+                    cols={30}
+                    rows={10}
+                    value={text}
+                    placeholder="your comment"
+                    onChange={handleChange}
+                />
+                <button
+                    className={clsx('btn btn--blue', css.btn, !text && 'btn--disabled')}
+                    type="submit"
+                    onClick={handleSubmit}
+                >
+                    <FontAwesomeIcon icon={faTelegramPlane} />
+                </button>
+            </div>
 
             {hasAttachment && <AttachedImg file={file} onChange={setFile} />}
-
-            <button className={clsx('btn btn--blue', !text && 'btn--disabled')} type="submit" onClick={handleSubmit}>
-                Comment
-            </button>
         </form>
     );
 };

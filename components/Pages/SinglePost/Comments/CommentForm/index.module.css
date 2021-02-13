@@ -6,7 +6,6 @@
     display: block;
     width: 100%;
     min-height: 4.4rem;
-    margin-bottom: 2rem;
     padding: 1rem 1.5rem;
     background: none;
     outline: none;
@@ -15,4 +14,20 @@
     background: var(--gray-02);
     border: 0.1rem solid var(--gray-03);
     transition: none;
+}
+
+.btn {
+    height: 4.5rem;
+    margin-left: 1rem;
+}
+
+.btn svg {
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.flex {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1rem;
 }

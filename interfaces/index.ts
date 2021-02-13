@@ -43,16 +43,18 @@ export interface IAuth {
 /**
  * POSTS
  */
+export interface IFeedback {
+    isViewed: 0 | 1;
+    isLiked: 0 | 1;
+    isDisliked: 0 | 1;
+    view: number;
+    like: number;
+    dislike: number;
+}
+
 export interface IPost {
     _id: string;
-    feedback: {
-        isViewed: 0 | 1;
-        isLiked: 0 | 1;
-        isDisliked: 0 | 1;
-        view: number;
-        like: number;
-        dislike: number;
-    };
+    feedback: IFeedback;
     edited: string | null;
     banner: string;
     tags: string[];
@@ -107,7 +109,6 @@ export interface IComment {
 }
 
 export interface ICommentPagination {
-    _id: null;
     total: number;
     comments: IComment[];
 }

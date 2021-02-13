@@ -35,7 +35,7 @@ const CommentsList = (): ReactElement => {
 
                         <p
                             className={css.text}
-                            dangerouslySetInnerHTML={{ __html: comment.text.replace(/\n/, '<br>') }}
+                            dangerouslySetInnerHTML={{ __html: comment.text?.replace(/\n/, '<br>') }}
                         />
 
                         {comment.attachment && (
@@ -57,13 +57,16 @@ const CommentsList = (): ReactElement => {
 
                         {!!comment.answers?.length && (
                             <ul className={css.subList}>
+                                <li className={css.item}>
+                                    <CommentForm onSubmit={handleSubmit(comment._id)} />
+                                </li>
                                 {comment.answers.map(answer => (
                                     <li className={css.item} key={answer._id}>
                                         <ProfileBig user={answer.author[0]} />
 
                                         <p
                                             className={css.text}
-                                            dangerouslySetInnerHTML={{ __html: answer.text.replace(/\n/, '<br>') }}
+                                            dangerouslySetInnerHTML={{ __html: answer.text?.replace(/\n/, '<br>') }}
                                         />
 
                                         {answer.attachment && (
@@ -84,10 +87,6 @@ const CommentsList = (): ReactElement => {
                                         <CommentButton comment={answer} />
                                     </li>
                                 ))}
-
-                                <li className={css.item}>
-                                    <CommentForm onSubmit={handleSubmit(comment._id)} />
-                                </li>
                             </ul>
                         )}
                     </li>

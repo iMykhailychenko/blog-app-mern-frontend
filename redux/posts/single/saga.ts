@@ -2,7 +2,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
 import notifications from '../../../components/Common/Notifications';
-import { IParams, IPost, IState } from '../../../interfaces';
+import { IFeedback, IParams, IPost, IState } from '../../../interfaces';
 import types from '../../types';
 
 export interface IAction {
@@ -10,7 +10,7 @@ export interface IAction {
         | typeof types.GET_SINGLE_POST_START
         | typeof types.GET_SINGLE_POST_SUCCESS
         | typeof types.GET_SINGLE_POST_ERROR;
-    payload: IPost | IState | string | null;
+    payload: IPost | IFeedback | IState | string | null;
     user?: string | null;
     config?: IParams;
 }

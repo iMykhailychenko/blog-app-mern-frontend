@@ -14,7 +14,7 @@ interface IAction {
         | typeof types.POST_COMMENT_START
         | typeof types.POST_COMMENT_SUCCESS
         | typeof types.POST_COMMENT_ERROR;
-    payload: [ICommentPagination] | IState | IComment | ICommentList | null;
+    payload: ICommentPagination | IState | IComment | ICommentList | null;
 }
 
 const INIT: ICommentList = {
@@ -29,7 +29,7 @@ const comments = (state: ICommentList = INIT, action: IAction): ICommentList => 
 
         // SUCCESS
         case types.GET_COMMENTS_SUCCESS:
-            return { loading: false, data: (action.payload as [ICommentPagination])?.[0] || null };
+            return { loading: false, data: action.payload as ICommentPagination };
 
         // ERROR
         case types.GET_COMMENTS_ERROR:

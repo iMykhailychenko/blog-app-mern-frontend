@@ -1,6 +1,6 @@
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { IPost, ISinglePost, IState } from '../../../interfaces';
+import { IFeedback, IPost, ISinglePost, IState } from '../../../interfaces';
 import types from '../../types';
 import { IAction } from './saga';
 
@@ -16,7 +16,7 @@ const single = (state: ISinglePost = INIT, action: IAction): ISinglePost => {
 
         case types.LIKE_POST_SUCCESS:
         case types.DISLIKE_POST_SUCCESS:
-            return { data: { ...state.data, feedback: (action.payload as IPost)?.feedback }, loading: false };
+            return { data: { ...state.data, feedback: action.payload as IFeedback }, loading: false };
 
         case types.GET_SINGLE_POST_SUCCESS:
             return { data: action.payload as IPost, loading: false };
