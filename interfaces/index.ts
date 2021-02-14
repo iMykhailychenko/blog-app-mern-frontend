@@ -124,10 +124,13 @@ export interface ICommentList {
 export interface IState {
     auth: IAuth | null;
     profile: IUser | null;
+    trending: {
+        post: IPost | null;
+        tags: string[];
+    };
     posts: {
         list: IPostList;
         newPost: INewPost;
-        trending: IPost | null;
         single: ISinglePost;
     };
     comments: ICommentList;

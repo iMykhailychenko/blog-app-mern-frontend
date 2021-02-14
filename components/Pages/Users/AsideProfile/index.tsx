@@ -1,4 +1,4 @@
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faKeyboard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -52,7 +52,7 @@ const AsideProfile = (): ReactElement => {
                     <Link href={routes.settings[0](auth?.user?._id)}>
                         <a className={css.add}>
                             <button className={css.addBtn} type="button">
-                                <FontAwesomeIcon icon={faPen} />
+                                <FontAwesomeIcon icon={faKeyboard} />
                             </button>
                             <p className={clsx(css.text, css.addText)}>Edit profile</p>
                         </a>

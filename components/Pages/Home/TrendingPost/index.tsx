@@ -11,20 +11,20 @@ import css from './index.module.css';
 
 const MAX_LENGTH = 200;
 const TrendingPost = (): ReactElement => {
-    const post = useSelector<IState, IPost | null>(state => state.posts.trending);
+    const trending = useSelector<IState, IPost | null>(state => state.trending.post);
 
-    const desc = post?.desc?.length > MAX_LENGTH ? post.desc.slice(0, MAX_LENGTH) + '...' : post?.desc;
-    return post ? (
+    const desc = trending?.desc?.length > MAX_LENGTH ? trending.desc.slice(0, MAX_LENGTH) + '...' : trending?.desc;
+    return trending ? (
         <div
-            className={clsx(css.banner, post?.banner && css.shadow)}
-            style={post?.banner ? { backgroundImage: `url(${config.img + post.banner})` } : {}}
+            className={clsx(css.banner, trending?.banner && css.shadow)}
+            style={trending?.banner ? { backgroundImage: `url(${config.img + trending.banner})` } : {}}
         >
             <h2 className={css.title}>Post of the day</h2>
 
             <div className={css.post}>
-                <Link href={routes.posts.single[0](post._id)}>
+                <Link href={routes.posts.single[0](trending._id)}>
                     <a className={css.link}>
-                        <h3 className={css.subtitle}>{post.title}</h3>
+                        <h3 className={css.subtitle}>{trending.title}</h3>
                         {desc && (
                             <p
                                 className={css.text}
@@ -37,7 +37,7 @@ const TrendingPost = (): ReactElement => {
                 </Link>
 
                 <div className={css.socials}>
-                    <Socials title={post.title} fill="var(--white)" />
+                    <Socials title={trending.title} fill="var(--white)" />
                 </div>
             </div>
         </div>

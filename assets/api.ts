@@ -15,8 +15,6 @@ const api = {
     profile: {
         putFollowers: (id: string): Promise<AxiosResponse<[IUser]>> => axios.put(`/users/followers/${id}`),
         getProfile: (id: string): Promise<AxiosResponse<[IUser]>> => axios.get(`/users/profile/${id}`),
-        like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/users`),
-        dislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/users`),
     },
     auth: {
         login: (body: Body): Promise<AxiosResponse<IUser>> => axios.post('/auth/login', body),
@@ -26,7 +24,6 @@ const api = {
     },
     posts: {
         getPosts: (params: IParams): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
-        getTrendingPosts: (): Promise<AxiosResponse<IPost[]>> => axios.get('/trending/posts'),
         getUserPosts: (id: string): Promise<AxiosResponse<IPost[]>> => axios.get(`/posts/user/${id}`),
         getSinglePost: (id: string, params?: { [key: string]: string | null }): Promise<AxiosResponse<IPost>> =>
             axios.get(`/posts/${id}`, { params }),
@@ -37,9 +34,17 @@ const api = {
         editPostBanner: ({ id, form }: { id: string; form: FormData | null }): Promise<AxiosResponse<void>> =>
             axios.put(`/posts/${id}/banner`, form || null),
     },
+    trending: {
+        getTrendingPosts: (): Promise<AxiosResponse<IPost[]>> => axios.get('/trending/posts'),
+        getTrendingTags: (): Promise<AxiosResponse<string[]>> => axios.get('/trending/tags'),
+    },
     feedback: {
-        like: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}`),
-        dislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}`),
+        postLike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}`),
+        postDislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}`),
+        profileLike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/users`),
+        profileDislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/users`),
+        commentLike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/comments/`),
+        commentDislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/comments/`),
     },
     comments: {
         getComment: (id: string): Promise<AxiosResponse<[ICommentPagination]>> => axios.get(`/comments/${id}`),
@@ -50,8 +55,6 @@ const api = {
             axios.put(`/comments/${comment}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
         postAnswer: ({ id, comment, form }: IAnswer): Promise<AxiosResponse<void>> =>
             axios.post(`/comments/${id}/${comment}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
-        commentLike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/like/${id}/comments/`),
-        commentDislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/comments/`),
     },
     settings: {
         updateAvatar: (form: FormData | null): Promise<AxiosResponse<void>> => axios.put('/settings/avatar/', form),

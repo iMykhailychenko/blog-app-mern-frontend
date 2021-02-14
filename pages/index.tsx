@@ -1,10 +1,12 @@
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
+import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../assets/config';
+import routes from '../assets/routes';
 import useAuth from '../components/../hooks/auth.hook';
 import FormLogin from '../components/Common/Forms/Login';
 import PostsLoader from '../components/Common/Loader/PostsLoader';
@@ -25,6 +27,7 @@ const Home = (): ReactElement => {
     const dispatch = useDispatch();
     const mobile = useMedia(900);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
+    const tags = useSelector<IState, string[]>(state => state.trending.tags);
 
     const handleMore = (page: number): void => {
         dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
@@ -34,7 +37,17 @@ const Home = (): ReactElement => {
         <>
             <Meta />
             <main className={clsx(css.main, 'container')}>
-                <Aside>{!auth?.token && mobile && <FormLogin />}</Aside>
+                <Aside>
+                    {!auth?.token && mobile && <FormLogin />}
+                    <h3 className={css.subtitle}>Trending:</h3>
+                    <div className={css.tags}>
+                        {tags.map(tag => (
+                            <Link href={routes.posts.tag[0](tag)} key={tag}>
+                                <a className={css.tag}>{`#${tag}`}</a>
+                            </Link>
+                        ))}
+                    </div>
+                </Aside>
 
                 <div className={css.content}>
                     <TrendingPost />
@@ -56,7 +69,8 @@ const Home = (): ReactElement => {
 export const getServerSideProps = wrapper.getServerSideProps(
     serverCookie(
         async ({ store, auth }: GetServerSidePropsContext & { store: IStore; auth?: IAuth }): Promise<void> => {
-            store.dispatch({ type: types.GET_FAVORITE_POST_START });
+            store.dispatch({ type: types.GET_TRENDING_POST_START });
+            store.dispatch({ type: types.GET_TRENDING_TAGS_START });
             store.dispatch({
                 type: types.GET_POSTS_START,
                 payload: { page: 1, limit: config.postPerPage, user: auth?.user?._id || null },

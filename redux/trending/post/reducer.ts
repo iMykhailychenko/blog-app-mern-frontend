@@ -4,18 +4,16 @@ import { IPost, IState } from '../../../interfaces';
 import types from '../../types';
 import { IAction } from './saga';
 
-const INIT = null;
-
-const trending = (state: IPost = INIT, action: IAction): IPost => {
+const post = (state: IPost = null, action: IAction): IPost => {
     switch (action.type) {
         case HYDRATE:
-            return (action.payload as IState).posts.trending;
+            return (action.payload as IState).trending.post;
 
-        case types.GET_FAVORITE_POST_SUCCESS:
+        case types.GET_TRENDING_POST_SUCCESS:
             return action.payload as IPost;
 
-        case types.GET_FAVORITE_POST_START:
-        case types.GET_FAVORITE_POST_ERROR:
+        case types.GET_TRENDING_POST_START:
+        case types.GET_TRENDING_POST_ERROR:
             return state;
 
         default:
@@ -23,4 +21,4 @@ const trending = (state: IPost = INIT, action: IAction): IPost => {
     }
 };
 
-export default trending;
+export default post;

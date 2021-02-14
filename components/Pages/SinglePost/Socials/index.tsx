@@ -14,11 +14,10 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
         <ul className={css.list}>
             <li className={css.item}>
                 <a
-                    className={css.link}
+                    className={hover ? css.hover : css.link}
                     href={`http://www.facebook.com/sharer.php?u=${config.host}/`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ pointerEvents: hover ? 'auto' : 'none' }}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.624 13.624" style={{ fill }}>
                         <path
@@ -31,11 +30,10 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
 
             <li className={css.item}>
                 <a
-                    className={css.link}
+                    className={hover ? css.hover : css.link}
                     href={`https://telegram.me/share/url?url=${config.host}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ pointerEvents: hover ? 'auto' : 'none' }}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.587 10.556" style={{ fill }}>
                         <path
@@ -47,11 +45,10 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             </li>
             <li className={css.item}>
                 <a
-                    className={css.link}
+                    className={hover ? css.hover : css.link}
                     href={`viber://forward?text=${config.host}/%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ pointerEvents: hover ? 'auto' : 'none' }}
                 >
                     <svg
                         enableBackground="new 0 0 24 24"
@@ -69,11 +66,10 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             </li>
             <li className={css.item}>
                 <a
-                    className={css.link}
+                    className={hover ? css.hover : css.link}
                     href={`whatsapp://send?text=${config.host}%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ pointerEvents: hover ? 'auto' : 'none' }}
                 >
                     <svg
                         version="1.1"
@@ -101,11 +97,10 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             </li>
             <li className={css.item}>
                 <a
-                    className={css.link}
+                    className={hover ? css.hover : css.link}
                     href={`https://twitter.com/intent/tweet?url=${config.host}&text=${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ pointerEvents: hover ? 'auto' : 'none' }}
                 >
                     <svg
                         version="1.1"

@@ -1,3 +1,4 @@
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
@@ -41,6 +42,7 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback }: IProps): R
                 <FontAwesomeIcon icon={faThumbsUp} />
                 <span className={css.num}>{feedback.like}</span>
             </li>
+
             <li
                 className={clsx(css.item, css.dislike, feedback.isDisliked && css.active)}
                 onClick={handleDislike}
@@ -49,12 +51,17 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback }: IProps): R
                 <FontAwesomeIcon icon={faThumbsDown} />
                 <span className={css.num}>{feedback.dislike}</span>
             </li>
+
             {feedback.view !== undefined ? (
                 <li className={clsx(css.item, feedback.isViewed && css.active)} style={{ pointerEvents: 'none' }}>
                     <FontAwesomeIcon icon={faEye} />
                     <span className={css.num}>{feedback.view}</span>
                 </li>
             ) : null}
+
+            <li className={clsx(css.item)}>
+                <FontAwesomeIcon icon={faBookmark} />
+            </li>
         </ul>
     );
 };

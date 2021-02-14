@@ -7,12 +7,15 @@ const initState: IState = {
         user: null,
     },
     profile: null,
+    trending: {
+        post: null,
+        tags: [],
+    },
     posts: {
         list: {
             loading: true,
             data: null,
         },
-        trending: null,
         newPost: {
             title: '',
             tags: '',

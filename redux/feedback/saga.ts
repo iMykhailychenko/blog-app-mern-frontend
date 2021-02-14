@@ -25,7 +25,7 @@ interface IPostAction {
 // SINGLE
 function* like({ payload }: IPostAction) {
     try {
-        const { status, data } = yield call(api.feedback.like, payload as string);
+        const { status, data } = yield call(api.feedback.postLike, payload as string);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
         yield put({ type: types.LIKE_POST_SUCCESS, payload: data });
     } catch (error) {
@@ -35,7 +35,7 @@ function* like({ payload }: IPostAction) {
 }
 function* dislike({ payload }: IPostAction) {
     try {
-        const { status, data } = yield call(api.feedback.dislike, payload as string);
+        const { status, data } = yield call(api.feedback.postDislike, payload as string);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
         yield put({ type: types.DISLIKE_POST_SUCCESS, payload: data });
     } catch (error) {
@@ -47,7 +47,7 @@ function* dislike({ payload }: IPostAction) {
 // POPULAR LIST
 function* likePopular({ payload }: IPostAction) {
     try {
-        const { status, data } = yield call(api.feedback.like, payload as string);
+        const { status, data } = yield call(api.feedback.postLike, payload as string);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
         yield put({ type: types.LIKE_POPULAR_POSTS_SUCCESS, payload: { data, id: payload } });
     } catch (error) {
@@ -57,7 +57,7 @@ function* likePopular({ payload }: IPostAction) {
 }
 function* dislikePopular({ payload }: IPostAction) {
     try {
-        const { status, data } = yield call(api.feedback.dislike, payload as string);
+        const { status, data } = yield call(api.feedback.postDislike, payload as string);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
         yield put({ type: types.DISLIKE_POPULAR_POSTS_SUCCESS, payload: { data, id: payload } });
     } catch (error) {
@@ -80,7 +80,7 @@ interface ICommentAction {
 }
 function* commentLike({ payload, postId }: ICommentAction) {
     try {
-        const { status } = yield call(api.comments.commentLike, payload as string);
+        const { status } = yield call(api.feedback.commentLike, payload as string);
         if (status < 200 || status >= 300) throw new Error('Something went wrong');
 
         yield put({ type: types.LIKE_COMMENT_SUCCESS });
@@ -94,7 +94,7 @@ function* commentLike({ payload, postId }: ICommentAction) {
 
 function* commentDislike({ payload, postId }: ICommentAction) {
     try {
-        const { status } = yield call(api.comments.commentDislike, payload as string);
+        const { status } = yield call(api.feedback.commentDislike, payload as string);
         if (status < 200 || status >= 300) throw new Error();
 
         yield put({ type: types.DISLIKE_COMMENT_SUCCESS });
@@ -120,7 +120,7 @@ interface IProfileAction {
 }
 function* likeProfile({ payload }: IProfileAction) {
     try {
-        const { status, data } = yield call(api.profile.like, payload as string);
+        const { status, data } = yield call(api.feedback.profileLike, payload as string);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.LIKE_PROFILE_SUCCESS, payload: data });
     } catch (error) {
@@ -131,7 +131,7 @@ function* likeProfile({ payload }: IProfileAction) {
 
 function* dislikeProfile({ payload }: IProfileAction) {
     try {
-        const { status, data } = yield call(api.profile.dislike, payload as string);
+        const { status, data } = yield call(api.feedback.profileDislike, payload as string);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.DISLIKE_PROFILE_SUCCESS, payload: data });
     } catch (error) {
