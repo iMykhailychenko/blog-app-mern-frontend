@@ -36,6 +36,19 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
                 loading: false,
             };
 
+        case types.UPDATE_QUEUE_POPULAR_SUCCESS:
+            return {
+                data: {
+                    ...state.data,
+                    posts: state.data.posts.map(item =>
+                        item._id === (action.payload as { id: string }).id
+                            ? { ...item, queue: (action.payload as { data: 0 | 1 }).data }
+                            : item,
+                    ),
+                },
+                loading: false,
+            };
+
         case types.GET_POSTS_SUCCESS:
         case types.GET_USER_POSTS_SUCCESS:
             return { data: action.payload as IPostPagination, loading: false };
@@ -46,8 +59,8 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
                 data: {
                     ...state.data,
                     posts: state.data.posts.map(item =>
-                        item._id === (action.payload as { data: IFeedback; id: string }).id
-                            ? { ...item, feedback: (action.payload as { data: IFeedback; id: string }).data }
+                        item._id === (action.payload as { id: string }).id
+                            ? { ...item, feedback: (action.payload as { data: IFeedback }).data }
                             : item,
                     ),
                 },

@@ -48,6 +48,17 @@
     background: var(--gray-01);
 }
 
+.queue {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.queue:hover {
+    color: var(--blue-01);
+    text-decoration: underline;
+}
+
 @media (max-width: 1200px) {
     .auth {
         padding: 5rem 10%;

@@ -17,6 +17,7 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
     const auth = useAuth();
 
     const handleLogout = (): void => {
+        onClick();
         dispatch({ type: types.LOGOUT_START });
     };
 

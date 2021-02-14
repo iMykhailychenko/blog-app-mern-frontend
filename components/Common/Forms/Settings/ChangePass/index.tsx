@@ -56,8 +56,6 @@ const ChangePass = (): ReactElement => {
             });
             return;
         }
-
-        console.log('success');
     };
 
     return (

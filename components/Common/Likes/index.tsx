@@ -1,5 +1,5 @@
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark as faBookmarkSolid, faEye, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
@@ -13,6 +13,8 @@ interface IProps {
     targetId?: string | string[];
     typeLike?: string;
     typeDislike?: string;
+    typeQueue?: string;
+    queue?: 1 | 0;
     feedback: {
         dislike: number;
         view?: number;
@@ -23,7 +25,7 @@ interface IProps {
     };
 }
 
-const Likes = ({ targetId, postId, typeLike, typeDislike, feedback }: IProps): ReactElement => {
+const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, queue }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const auth = useAuth();
 
@@ -34,6 +36,10 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback }: IProps): R
     const handleDislike = (): void => {
         if (!targetId || !typeDislike) return;
         dispatch({ type: typeDislike, payload: targetId, postId });
+    };
+    const handleQueue = (): void => {
+        if (!targetId || !typeQueue) return;
+        dispatch({ type: typeQueue, payload: targetId });
     };
 
     return (
@@ -59,9 +65,11 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback }: IProps): R
                 </li>
             ) : null}
 
-            <li className={clsx(css.item)}>
-                <FontAwesomeIcon icon={faBookmark} />
-            </li>
+            {typeQueue ? (
+                <li className={clsx(css.item, queue && css.active)} onClick={handleQueue} aria-hidden>
+                    {queue ? <FontAwesomeIcon icon={faBookmarkSolid} /> : <FontAwesomeIcon icon={faBookmark} />}
+                </li>
+            ) : null}
         </ul>
     );
 };

@@ -10,15 +10,15 @@ import css from './index.module.css';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
 
-type Dropdown = 'profile' | 'news';
-type Handler = () => void;
-
 const Profile = (): ReactElement => {
     const auth = useAuth();
 
     const [dropdown, setDropdown] = useState({ profile: false, news: false });
-    const handleDrop = (name: Dropdown): Handler => (): void => {
-        setDropdown({ ...dropdown, [name]: !dropdown[name] });
+    const handleDropProfile = (): void => {
+        setDropdown({ ...dropdown, profile: !dropdown.profile });
+    };
+    const handleDropNews = (): void => {
+        setDropdown({ ...dropdown, news: !dropdown.news });
     };
 
     return (
@@ -36,13 +36,13 @@ const Profile = (): ReactElement => {
                     </a>
                 </Link>
 
-                <button className={css.btn} type="button" onClick={handleDrop('news')}>
+                <button className={css.btn} type="button" onClick={handleDropNews}>
                     {/* TEMP */}
                     {/* {!!notification.length && <span className={css.num}>{notification.length}</span>} */}
                     <FontAwesomeIcon icon={faBell} />
                 </button>
 
-                <button className={css.wrp} type="button" onClick={handleDrop('profile')}>
+                <button className={css.wrp} type="button" onClick={handleDropProfile}>
                     {auth?.user && (
                         <UserAvatar
                             avatar={auth?.user?.avatar}
@@ -52,8 +52,8 @@ const Profile = (): ReactElement => {
                     <FontAwesomeIcon className={css.icon} icon={faChevronDown} />
                 </button>
 
-                {dropdown.profile && <ProfileModal onClick={handleDrop('profile')} />}
-                {dropdown.news && <NewsModal onClick={handleDrop('news')} />}
+                {dropdown.profile && <ProfileModal onClick={handleDropProfile} />}
+                {dropdown.news && <NewsModal onClick={handleDropNews} />}
             </div>
         </>
     );

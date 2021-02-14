@@ -103,9 +103,11 @@ const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
                         <div className={css.likes}>
                             <Likes
                                 targetId={item?._id}
+                                feedback={item.feedback}
+                                queue={item.queue}
                                 typeLike={types.LIKE_POPULAR_POSTS_START}
                                 typeDislike={types.DISLIKE_POPULAR_POSTS_START}
-                                feedback={item.feedback}
+                                typeQueue={types.UPDATE_QUEUE_POPULAR_START}
                             />
                         </div>
                     </li>

@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { ICommentPagination, IParams, IPost, IUser } from '../interfaces';
+import { ICommentPagination, IParams, IPost, IPostPagination, IUser } from '../interfaces';
 import config from './config';
 
 axios.defaults.baseURL = config.api;
@@ -47,11 +47,11 @@ const api = {
         commentDislike: (id: string): Promise<AxiosResponse<void>> => axios.put(`/feedback/dislike/${id}/comments/`),
     },
     comments: {
-        getComment: (id: string): Promise<AxiosResponse<[ICommentPagination]>> => axios.get(`/comments/${id}`),
+        getComment: (id: string): Promise<AxiosResponse<ICommentPagination>> => axios.get(`/comments/${id}`),
         postComment: ({ id, form }: { id: string; form: FormData }): Promise<AxiosResponse<void>> =>
             axios.post(`/comments/${id}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
         deleteComment: (id: string): Promise<AxiosResponse<[ICommentPagination]>> => axios.delete(`/comments/${id}`),
-        editComment: ({ comment, form }: IAnswer): Promise<AxiosResponse<[ICommentPagination]>> =>
+        editComment: ({ comment, form }: IAnswer): Promise<AxiosResponse<ICommentPagination>> =>
             axios.put(`/comments/${comment}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
         postAnswer: ({ id, comment, form }: IAnswer): Promise<AxiosResponse<void>> =>
             axios.post(`/comments/${id}/${comment}`, form, { headers: { 'content-type': 'multipart/form-data' } }),
@@ -62,6 +62,10 @@ const api = {
         updateUserInfo: (data: { name?: string; surname?: string; email?: string }): Promise<AxiosResponse<void>> =>
             axios.put('/settings/user/', data),
         updateBio: (data: string): Promise<AxiosResponse<void>> => axios.put('/settings/bio/', { bio: data }),
+    },
+    queue: {
+        getQueue: (params): Promise<AxiosResponse<IPostPagination>> => axios.get('/queue/', { params }),
+        updateQueue: (id: string): Promise<AxiosResponse<void>> => axios.put(`/queue/${id}`),
     },
 };
 

@@ -1,0 +1,19 @@
+.empty {
+    font-size: 1.4rem;
+}
+
+.loading::before,
+.loading::after {
+    content: '';
+    display: block;
+    height: 2rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+    background: var(--gray-02);
+}
+
+.loading::after {
+    width: 60%;
+    margin-bottom: 2rem;
+}

@@ -55,6 +55,7 @@ export interface IFeedback {
 export interface IPost {
     _id: string;
     feedback: IFeedback;
+    queue: 0 | 1;
     edited: string | null;
     banner: string;
     tags: string[];
@@ -124,6 +125,7 @@ export interface ICommentList {
 export interface IState {
     auth: IAuth | null;
     profile: IUser | null;
+    queue: IPostList;
     trending: {
         post: IPost | null;
         tags: string[];

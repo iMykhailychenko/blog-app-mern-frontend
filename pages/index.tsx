@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
@@ -10,6 +10,7 @@ import routes from '../assets/routes';
 import useAuth from '../components/../hooks/auth.hook';
 import FormLogin from '../components/Common/Forms/Login';
 import PostsLoader from '../components/Common/Loader/PostsLoader';
+import QueueLoader from '../components/Common/Loader/QueueLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
 import Posts from '../components/Common/Posts';
@@ -22,16 +23,26 @@ import { wrapper } from '../redux/store';
 import types from '../redux/types';
 import css from './index.module.css';
 
+const QUEUE_LENGTH = 60;
+
 const Home = (): ReactElement => {
     const auth = useAuth();
     const dispatch = useDispatch();
     const mobile = useMedia(900);
+
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
     const tags = useSelector<IState, string[]>(state => state.trending.tags);
+    const queue = useSelector<IState, IPostList>(state => state.queue);
 
     const handleMore = (page: number): void => {
         dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
     };
+
+    useEffect(() => {
+        if (auth?.token) {
+            dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: 6 } });
+        }
+    }, [auth?.token]);
 
     return (
         <>
@@ -39,6 +50,7 @@ const Home = (): ReactElement => {
             <main className={clsx(css.main, 'container')}>
                 <Aside>
                     {!auth?.token && mobile && <FormLogin />}
+
                     <h3 className={css.subtitle}>Trending:</h3>
                     <div className={css.tags}>
                         {tags.map(tag => (
@@ -47,6 +59,23 @@ const Home = (): ReactElement => {
                             </Link>
                         ))}
                     </div>
+
+                    {auth?.token && mobile ? (
+                        <>
+                            <h3 className={css.subtitle}>Queue:</h3>
+                            <QueueLoader loading={queue.loading} isEmpty={!queue?.data?.posts?.length}>
+                                {queue?.data?.posts?.map(item => (
+                                    <Link href="/" key={item._id}>
+                                        <a className={css.queue}>
+                                            {item?.title?.length > QUEUE_LENGTH
+                                                ? item.title.slice(0, QUEUE_LENGTH) + '...'
+                                                : item?.title}
+                                        </a>
+                                    </Link>
+                                ))}
+                            </QueueLoader>
+                        </>
+                    ) : null}
                 </Aside>
 
                 <div className={css.content}>

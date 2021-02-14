@@ -7,7 +7,7 @@ import { IAction } from './saga';
 const profile = (state: IUser = null, action: IAction): IUser => {
     switch (action.type) {
         case HYDRATE:
-            return (action.payload as IState).profile as IUser;
+            return (action.payload as IState).profile;
 
         case types.LIKE_PROFILE_SUCCESS:
         case types.DISLIKE_PROFILE_SUCCESS:

@@ -16,7 +16,7 @@ export interface IAction {
         | typeof types.GET_USER_POSTS_START
         | typeof types.GET_USER_POSTS_SUCCESS
         | typeof types.GET_USER_POSTS_ERROR;
-    payload: IPostPagination | IState | IPost | IParams | string | null | { data: IFeedback; id: string };
+    payload: IPostPagination | IState | IPost | IParams | string | null | { data?: IFeedback | 1 | 0; id?: string };
 }
 
 function* getPosts({ payload }: IAction) {

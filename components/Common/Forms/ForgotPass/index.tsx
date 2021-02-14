@@ -25,7 +25,6 @@ const ForgotPass = (): ReactElement => {
             initialValues={initialValues}
             validate={(values: Values): Errors => {
                 const errors: Errors = {};
-                console.log(values);
                 return errors;
             }}
             onSubmit={(values, actions) => {

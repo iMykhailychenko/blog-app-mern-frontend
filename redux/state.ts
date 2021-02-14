@@ -11,6 +11,10 @@ const initState: IState = {
         post: null,
         tags: [],
     },
+    queue: {
+        loading: true,
+        data: null,
+    },
     posts: {
         list: {
             loading: true,
