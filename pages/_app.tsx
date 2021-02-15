@@ -1,5 +1,6 @@
 import '../styles/styles.css';
 
+import axios from 'axios';
 import App, { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
@@ -32,7 +33,9 @@ MyApp.getInitialProps = async appContext => {
     const isMobile = toMatch.test(appContext?.ctx?.req?.headers?.['user-agent']);
 
     const props = await App.getInitialProps(appContext);
-    return { ...props, width: isMobile ? 500 : 1400, auth: parseCookie<IAuth>(appContext?.ctx?.req?.headers?.cookie) };
+    const auth = parseCookie<IAuth>(appContext?.ctx?.req?.headers?.cookie);
+    if (auth?.token) axios.defaults.headers.common.Authorization = `Bearer ${auth?.token}`;
+    return { ...props, width: isMobile ? 500 : 1400, auth };
 };
 
 export default wrapper.withRedux(MyApp);

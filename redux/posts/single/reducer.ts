@@ -30,6 +30,9 @@ const single = (state: ISinglePost = INIT, action: IAction): ISinglePost => {
         case types.EDIT_POSTS_BANNER_ERROR:
             return { data: { ...state.data, banner: null }, loading: false };
 
+        case types.UPDATE_QUEUE_SUCCESS:
+            return { data: { ...state.data, queue: action.payload as 1 | 0 }, loading: false };
+
         case types.GET_SINGLE_POST_ERROR:
             return { data: null, loading: false };
 

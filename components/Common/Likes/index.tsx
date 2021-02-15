@@ -44,13 +44,19 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, q
 
     return (
         <ul className={css.list} style={auth?.token ? {} : { pointerEvents: 'none' }}>
-            <li className={clsx(css.item, feedback.isLiked && css.active)} onClick={handleLike} aria-hidden>
+            <li
+                className={clsx(css.item, feedback.isLiked && css.active)}
+                title="like"
+                onClick={handleLike}
+                aria-hidden
+            >
                 <FontAwesomeIcon icon={faThumbsUp} />
                 <span className={css.num}>{feedback.like}</span>
             </li>
 
             <li
                 className={clsx(css.item, css.dislike, feedback.isDisliked && css.active)}
+                title="dislike"
                 onClick={handleDislike}
                 aria-hidden
             >
@@ -59,14 +65,23 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, q
             </li>
 
             {feedback.view !== undefined ? (
-                <li className={clsx(css.item, feedback.isViewed && css.active)} style={{ pointerEvents: 'none' }}>
+                <li
+                    className={clsx(css.item, feedback.isViewed && css.active)}
+                    title="view"
+                    style={{ pointerEvents: 'none' }}
+                >
                     <FontAwesomeIcon icon={faEye} />
                     <span className={css.num}>{feedback.view}</span>
                 </li>
             ) : null}
 
-            {typeQueue ? (
-                <li className={clsx(css.item, queue && css.active)} onClick={handleQueue} aria-hidden>
+            {typeQueue && auth?.token ? (
+                <li
+                    className={clsx(css.item, queue && css.active)}
+                    title="read later"
+                    onClick={handleQueue}
+                    aria-hidden
+                >
                     {queue ? <FontAwesomeIcon icon={faBookmarkSolid} /> : <FontAwesomeIcon icon={faBookmark} />}
                 </li>
             ) : null}

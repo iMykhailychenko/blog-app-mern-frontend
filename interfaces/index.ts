@@ -4,10 +4,6 @@ import { Task } from 'redux-saga';
 /**
  * GENERAL
  */
-export interface IParams {
-    [key: string]: string | number;
-}
-
 export interface IStore extends Store {
     sagaTask: Task;
 }

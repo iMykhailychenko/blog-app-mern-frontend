@@ -14,11 +14,10 @@ import QueueLoader from '../components/Common/Loader/QueueLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
 import Posts from '../components/Common/Posts';
-import serverCookie from '../components/HOC/ServerCookie';
 import Aside from '../components/Layout/Aside';
 import TrendingPost from '../components/Pages/Home/TrendingPost';
 import useMedia from '../hooks/media.hook';
-import { IAuth, IPostList, IState, IStore } from '../interfaces';
+import { IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';
 import types from '../redux/types';
 import css from './index.module.css';
@@ -40,7 +39,7 @@ const Home = (): ReactElement => {
 
     useEffect(() => {
         if (auth?.token) {
-            dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: 6 } });
+            dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
         }
     }, [auth?.token]);
 
@@ -64,15 +63,20 @@ const Home = (): ReactElement => {
                         <>
                             <h3 className={css.subtitle}>Queue:</h3>
                             <QueueLoader loading={queue.loading} isEmpty={!queue?.data?.posts?.length}>
-                                {queue?.data?.posts?.map(item => (
-                                    <Link href="/" key={item._id}>
-                                        <a className={css.queue}>
-                                            {item?.title?.length > QUEUE_LENGTH
-                                                ? item.title.slice(0, QUEUE_LENGTH) + '...'
-                                                : item?.title}
-                                        </a>
+                                <>
+                                    {queue?.data?.posts?.map(item => (
+                                        <Link href={routes.posts.single[0](item._id)} key={item._id}>
+                                            <a className={css.queue}>
+                                                {item?.title?.length > QUEUE_LENGTH
+                                                    ? item.title.slice(0, QUEUE_LENGTH) + '...'
+                                                    : item?.title}
+                                            </a>
+                                        </Link>
+                                    ))}
+                                    <Link href={routes.queue[0](auth?.user?._id)}>
+                                        <a className={css.viewAll}>View all</a>
                                     </Link>
-                                ))}
+                                </>
                             </QueueLoader>
                         </>
                     ) : null}
@@ -96,18 +100,16 @@ const Home = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    serverCookie(
-        async ({ store, auth }: GetServerSidePropsContext & { store: IStore; auth?: IAuth }): Promise<void> => {
-            store.dispatch({ type: types.GET_TRENDING_POST_START });
-            store.dispatch({ type: types.GET_TRENDING_TAGS_START });
-            store.dispatch({
-                type: types.GET_POSTS_START,
-                payload: { page: 1, limit: config.postPerPage, user: auth?.user?._id || null },
-            });
-            store.dispatch(END);
-            await store.sagaTask.toPromise();
-        },
-    ),
+    async ({ store }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
+        store.dispatch({ type: types.GET_TRENDING_POST_START });
+        store.dispatch({ type: types.GET_TRENDING_TAGS_START });
+        store.dispatch({
+            type: types.GET_POSTS_START,
+            payload: { page: 1, limit: config.postPerPage },
+        });
+        store.dispatch(END);
+        await store.sagaTask.toPromise();
+    },
 );
 
 export default Home;

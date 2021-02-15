@@ -24,6 +24,7 @@ const ForgotPass = (): ReactElement => {
         <Formik
             initialValues={initialValues}
             validate={(values: Values): Errors => {
+                console.log(values);
                 const errors: Errors = {};
                 return errors;
             }}

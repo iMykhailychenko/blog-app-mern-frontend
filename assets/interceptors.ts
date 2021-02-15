@@ -5,7 +5,7 @@ import { makeStore } from '../redux/store';
 import types from '../redux/types';
 import routes from './routes';
 
-const interceptors = ({ history }: { history: NextRouter }): void => {
+const interceptors = ({ history = null }: { history?: NextRouter }): void => {
     axios.interceptors.request.use(
         config => config,
         error => Promise.reject(error),
@@ -15,7 +15,7 @@ const interceptors = ({ history }: { history: NextRouter }): void => {
             if (response?.config?.url === '/auth/login/') {
                 const bearerToken = response.data.token;
                 if (bearerToken) axios.defaults.headers.common.Authorization = `Bearer ${bearerToken}`;
-                history.replace(routes.home);
+                history?.replace(routes.home);
             }
             return response;
         },

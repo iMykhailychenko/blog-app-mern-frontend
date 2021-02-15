@@ -1,8 +1,9 @@
+import { Params } from 'next/dist/next-server/server/router';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
 import notifications from '../../../components/Common/Notifications';
-import { IFeedback, IParams, IPost, IPostPagination, IState } from '../../../interfaces';
+import { IFeedback, IPost, IPostPagination, IState } from '../../../interfaces';
 import types from '../../types';
 
 export interface IAction {
@@ -16,12 +17,12 @@ export interface IAction {
         | typeof types.GET_USER_POSTS_START
         | typeof types.GET_USER_POSTS_SUCCESS
         | typeof types.GET_USER_POSTS_ERROR;
-    payload: IPostPagination | IState | IPost | IParams | string | null | { data?: IFeedback | 1 | 0; id?: string };
+    payload: IPostPagination | IState | IPost | Params | string | null | { data?: IFeedback | 1 | 0; id?: string };
 }
 
 function* getPosts({ payload }: IAction) {
     try {
-        const { status, data } = yield call(api.posts.getPosts, payload as IParams);
+        const { status, data } = yield call(api.posts.getPosts, payload as Params);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_POSTS_SUCCESS, payload: data });
     } catch (error) {
@@ -33,7 +34,7 @@ function* getPosts({ payload }: IAction) {
 
 function* morePosts({ payload }: IAction) {
     try {
-        const { status, data } = yield call(api.posts.getPosts, payload as IParams);
+        const { status, data } = yield call(api.posts.getPosts, payload as Params);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.MORE_POSTS_SUCCESS, payload: data });
     } catch (error) {

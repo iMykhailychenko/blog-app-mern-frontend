@@ -31,10 +31,6 @@
     border: 0.1rem solid var(--gray-03);
 }
 
-.btn--light {
-    background-color: var(--gray-02);
-}
-
 .add {
     position: relative;
     display: block;

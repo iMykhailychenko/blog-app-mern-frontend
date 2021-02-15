@@ -55,6 +55,9 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
                     <Link href={routes.users[0](auth?.user._id)}>
                         <a className={css.link}>Your profile</a>
                     </Link>
+                    <Link href={routes.queue[0](auth?.user._id)}>
+                        <a className={css.link}>Queue</a>
+                    </Link>
                     <Link href={routes.posts.new}>
                         <a className={css.link}>New post</a>
                     </Link>

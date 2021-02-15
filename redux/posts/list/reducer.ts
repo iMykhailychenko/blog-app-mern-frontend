@@ -37,17 +37,19 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
             };
 
         case types.UPDATE_QUEUE_POPULAR_SUCCESS:
-            return {
-                data: {
-                    ...state.data,
-                    posts: state.data.posts.map(item =>
-                        item._id === (action.payload as { id: string }).id
-                            ? { ...item, queue: (action.payload as { data: 0 | 1 }).data }
-                            : item,
-                    ),
-                },
-                loading: false,
-            };
+            return state?.data?.posts
+                ? {
+                      data: {
+                          ...state.data,
+                          posts: state.data.posts.map(item =>
+                              item._id === (action.payload as { id: string }).id
+                                  ? { ...item, queue: (action.payload as { data: 0 | 1 }).data }
+                                  : item,
+                          ),
+                      },
+                      loading: false,
+                  }
+                : state;
 
         case types.GET_POSTS_SUCCESS:
         case types.GET_USER_POSTS_SUCCESS:
@@ -55,17 +57,19 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
 
         case types.LIKE_POPULAR_POSTS_SUCCESS:
         case types.DISLIKE_POPULAR_POSTS_SUCCESS:
-            return {
-                data: {
-                    ...state.data,
-                    posts: state.data.posts.map(item =>
-                        item._id === (action.payload as { id: string }).id
-                            ? { ...item, feedback: (action.payload as { data: IFeedback }).data }
-                            : item,
-                    ),
-                },
-                loading: false,
-            };
+            return state?.data?.posts
+                ? {
+                      data: {
+                          ...state.data,
+                          posts: state.data.posts.map(item =>
+                              item._id === (action.payload as { id: string }).id
+                                  ? { ...item, feedback: (action.payload as { data: IFeedback }).data }
+                                  : item,
+                          ),
+                      },
+                      loading: false,
+                  }
+                : state;
 
         case types.GET_POSTS_ERROR:
         case types.GET_USER_POSTS_ERROR:

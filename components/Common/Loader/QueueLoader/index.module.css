@@ -1,3 +1,13 @@
+@keyframes loader {
+    0% {
+        background-color: var(--gray-01);
+    }
+
+    50% {
+        background-color: var(--gray-02);
+    }
+}
+
 .empty {
     font-size: 1.4rem;
 }
@@ -11,6 +21,7 @@
     margin-bottom: 0.5rem;
     border-radius: var(--radius);
     background: var(--gray-02);
+    animation: loader 2s ease-in-out infinite;
 }
 
 .loading::after {

@@ -6,7 +6,11 @@ const routes = {
     about: '/about',
     question: '/question',
     search: '/search',
+
     settings: [(id: string): string => `/settings/${id}`, '/settings/:id'] as IDynamic,
+
+    queue: [(id: string): string => `/queue/${id}`, '/queue/:id'] as IDynamic,
+
     users: [(id: string): string => `/users/${id}`, '/users/:id'] as IDynamic,
 
     posts: {

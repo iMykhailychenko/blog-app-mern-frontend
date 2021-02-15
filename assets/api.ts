@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
+import { Params } from 'next/dist/next-server/server/router';
 
-import { ICommentPagination, IParams, IPost, IPostPagination, IUser } from '../interfaces';
+import { ICommentPagination, IPost, IPostPagination, IUser } from '../interfaces';
 import config from './config';
 
 axios.defaults.baseURL = config.api;
@@ -23,7 +24,7 @@ const api = {
         getUser: (): Promise<AxiosResponse<void>> => axios.get('/users/profile'),
     },
     posts: {
-        getPosts: (params: IParams): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
+        getPosts: (params: Params): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
         getUserPosts: (id: string): Promise<AxiosResponse<IPost[]>> => axios.get(`/posts/user/${id}`),
         getSinglePost: (id: string, params?: { [key: string]: string | null }): Promise<AxiosResponse<IPost>> =>
             axios.get(`/posts/${id}`, { params }),

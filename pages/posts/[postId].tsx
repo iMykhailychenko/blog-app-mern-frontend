@@ -97,9 +97,11 @@ const SinglePost = (): ReactElement => {
                                     <Likes
                                         key="likes1"
                                         targetId={post._id}
-                                        typeLike={types.LIKE_POST_START}
-                                        typeDislike={types.DISLIKE_POST_START}
+                                        queue={post.queue}
                                         feedback={post.feedback}
+                                        typeLike={types.LIKE_POST_START}
+                                        typeQueue={types.UPDATE_QUEUE_START}
+                                        typeDislike={types.DISLIKE_POST_START}
                                     />
                                 </div>
                             </div>
@@ -169,9 +171,11 @@ const SinglePost = (): ReactElement => {
                             <Likes
                                 key="likes2"
                                 targetId={post._id}
-                                typeLike={types.LIKE_POST_START}
-                                typeDislike={types.DISLIKE_POST_START}
+                                queue={post.queue}
                                 feedback={post.feedback}
+                                typeLike={types.LIKE_POST_START}
+                                typeQueue={types.UPDATE_QUEUE_START}
+                                typeDislike={types.DISLIKE_POST_START}
                             />
                         </div>
 
@@ -187,16 +191,13 @@ export const getServerSideProps = wrapper.getServerSideProps(
     serverCookie(
         async (ctx: GetServerSidePropsContext & { store: IStore; auth: IAuth }): Promise<void> => {
             if (!ctx.query?.postId) return null;
-
             ctx.store.dispatch({
                 type: types.GET_COMMENTS_START,
                 payload: ctx.query.postId,
             });
-
             ctx.store.dispatch({
                 type: types.GET_SINGLE_POST_START,
                 payload: ctx.query.postId,
-                user: ctx.auth?.user?._id,
             });
             ctx.store.dispatch(END);
             await ctx.store.sagaTask.toPromise();
