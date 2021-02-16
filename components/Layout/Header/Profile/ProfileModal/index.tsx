@@ -51,18 +51,17 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
                             <p className={css.nick}>{'@' + auth?.user.nick}</p>
                         </a>
                     </Link>
-
                     <Link href={routes.users[0](auth?.user._id)}>
                         <a className={css.link}>Your profile</a>
                     </Link>
-                    <Link href={routes.queue[0](auth?.user._id)}>
-                        <a className={css.link}>Queue</a>
+                    <Link href={routes.settings[0](auth?.user?._id)}>
+                        <a className={css.link}>Settings</a>
                     </Link>
                     <Link href={routes.posts.new}>
                         <a className={css.link}>New post</a>
                     </Link>
-                    <Link href={routes.settings[0](auth?.user?._id)}>
-                        <a className={css.link}>Settings</a>
+                    <Link href={routes.queue[0](auth?.user._id)}>
+                        <a className={css.link}>Queue</a>
                     </Link>
                     <button className={css.link} type="button" onClick={handleLogout}>
                         Log out

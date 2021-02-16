@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import FormSignUp from '../../../components/Common/Forms/SignUp';
 import Meta from '../../../components/Common/Meta';
 import Picture from '../../../components/Common/Picture';
-import css from './index.module.css';
+import css from '../index.module.css';
 
 const Join = (): ReactElement => {
     return (

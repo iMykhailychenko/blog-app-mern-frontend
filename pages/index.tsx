@@ -9,7 +9,6 @@ import config from '../assets/config';
 import routes from '../assets/routes';
 import useAuth from '../components/../hooks/auth.hook';
 import FormLogin from '../components/Common/Forms/Login';
-import PostsLoader from '../components/Common/Loader/PostsLoader';
 import QueueLoader from '../components/Common/Loader/QueueLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
@@ -39,6 +38,7 @@ const Home = (): ReactElement => {
 
     useEffect(() => {
         if (auth?.token) {
+            dispatch({ type: types.GET_POSTS_START, payload: { page: 1, limit: config.queuePerPage } });
             dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
         }
     }, [auth?.token]);
@@ -59,18 +59,22 @@ const Home = (): ReactElement => {
                         ))}
                     </div>
 
-                    {auth?.token && mobile ? (
+                    {auth?.token ? (
                         <>
                             <h3 className={css.subtitle}>Queue:</h3>
                             <QueueLoader loading={queue.loading} isEmpty={!queue?.data?.posts?.length}>
                                 <>
                                     {queue?.data?.posts?.map(item => (
                                         <Link href={routes.posts.single[0](item._id)} key={item._id}>
-                                            <a className={css.queue}>
-                                                {item?.title?.length > QUEUE_LENGTH
-                                                    ? item.title.slice(0, QUEUE_LENGTH) + '...'
-                                                    : item?.title}
-                                            </a>
+                                            {mobile ? (
+                                                <a className={css.queue}>
+                                                    {item?.title?.length > QUEUE_LENGTH
+                                                        ? item.title.slice(0, QUEUE_LENGTH) + '...'
+                                                        : item?.title}
+                                                </a>
+                                            ) : (
+                                                <a className={css.queue}>{item?.title}</a>
+                                            )}
                                         </Link>
                                     ))}
                                     <Link href={routes.queue[0](auth?.user?._id)}>
@@ -87,12 +91,7 @@ const Home = (): ReactElement => {
 
                     <h2 className={css.title}>Popular posts</h2>
                     <Posts content={posts.data?.posts} />
-                    {posts.data?.posts?.length < posts.data?.total ? (
-                        <>
-                            <PostsLoader />
-                            <LoadMore onSubmit={handleMore} loading={posts.loading} />
-                        </>
-                    ) : null}
+                    <LoadMore onSubmit={handleMore} loading={posts.loading} total={posts.data?.total} />
                 </div>
             </main>
         </>

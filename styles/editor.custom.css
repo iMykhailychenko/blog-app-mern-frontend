@@ -125,7 +125,7 @@
 
 @media (max-width: 690px) {
     .quill .ql-container.ql-snow .ql-editor p {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .quill .ql-container.ql-snow .ql-editor h2 {
@@ -150,7 +150,7 @@
     .quill .ql-container.ql-snow .ql-editor li,
     .quill .ql-container.ql-snow .ql-editor blockquote,
     .quill .ql-container.ql-snow .ql-editor p {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         line-height: 1.4;
     }
 }

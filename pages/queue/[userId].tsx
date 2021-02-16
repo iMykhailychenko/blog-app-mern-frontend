@@ -6,7 +6,6 @@ import { END } from 'redux-saga';
 
 import config from '../../assets/config';
 import AuthRedirect from '../../components/Common/Auth/AuthRedirect';
-import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
 import Posts from '../../components/Common/Posts';
@@ -39,12 +38,7 @@ const Queue = (): ReactElement => {
                 <div className={css.content}>
                     <h2 className={css.title}>Queue:</h2>
                     <Posts content={queue.data?.posts} />
-                    {queue.data?.posts?.length < queue.data?.total ? (
-                        <>
-                            <PostsLoader />
-                            <LoadMore onSubmit={handleMore} loading={queue.loading} />
-                        </>
-                    ) : null}
+                    <LoadMore onSubmit={handleMore} loading={queue.loading} total={queue.data?.total} />
                 </div>
             </main>
         </>

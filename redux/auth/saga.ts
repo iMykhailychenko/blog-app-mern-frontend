@@ -2,7 +2,6 @@ import axios from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../assets/api';
-import config from '../../assets/config';
 import notifications from '../../components/Common/Notifications';
 import { IState, IUser } from '../../interfaces';
 import types from '../types';
@@ -22,10 +21,6 @@ function* login({ payload }: IAction) {
         const { status, data } = yield call(api.auth.login, payload as Body);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.LOGIN_SUCCESS, payload: data });
-        yield put({
-            type: types.GET_POSTS_START,
-            payload: { page: 1, limit: config.postPerPage, user: data?.user?._id || null },
-        });
     } catch (error) {
         yield put({ type: types.LOGIN_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
@@ -49,10 +44,6 @@ function* logout() {
         const { status } = yield call(api.auth.logout);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.LOGOUT_SUCCESS });
-        yield put({
-            type: types.GET_POSTS_START,
-            payload: { page: 1, limit: config.postPerPage },
-        });
     } catch (error) {
         yield put({ type: types.LOGOUT_ERROR });
     } finally {

@@ -76,6 +76,7 @@
 
 .profiles a {
     margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .empty {
@@ -154,6 +155,10 @@
 }
 
 @media (max-width: 768px) {
+    .bio {
+        margin-bottom: 3rem;
+    }
+
     .content {
         padding: 0;
         background: var(--white);
@@ -162,13 +167,13 @@
 
 @media (max-width: 550px) {
     .title {
-        font-size: 3rem;
-        margin-bottom: 2rem;
+        max-width: 25rem;
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 350px) {
     .title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 }

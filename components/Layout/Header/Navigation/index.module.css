@@ -68,24 +68,21 @@
 }
 
 .mobileMenu {
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: var(--radius);
-    border: 0.1rem solid var(--gray-03);
-    background-color: var(--gray-02);
+    height: 5.5rem;
+    width: 5.5rem;
+    background: none;
     color: var(--gray-03);
 }
 
 .mobileMenu svg {
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 /* media rules */
 @media (max-width: 768px) {
     .nav {
         position: relative;
-        height: 8rem;
     }
 
     .list {

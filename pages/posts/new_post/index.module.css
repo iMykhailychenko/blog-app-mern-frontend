@@ -83,6 +83,7 @@
 
 @media (max-width: 690px) {
     .banner {
+        height: 40rem;
         margin: 3rem auto;
     }
 }

@@ -4,7 +4,7 @@
     left: 0;
     z-index: 7;
     width: 100%;
-    padding-top: 0.4rem;
+    padding: 0.4rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
     transition: 0.3s ease-in-out;
@@ -18,4 +18,15 @@
 .scrolled {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+    .header {
+        background: var(--white);
+        border-bottom: 0.1rem solid var(--gray-02);
+    }
+
+    .header :global(.container) {
+        width: 100%;
+    }
 }

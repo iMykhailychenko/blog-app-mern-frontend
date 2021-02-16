@@ -61,6 +61,7 @@
     display: block;
     margin-bottom: 1rem;
     font-size: 1.4rem;
+    text-align: left;
 }
 
 .queue:hover {
@@ -92,6 +93,21 @@
     .content {
         padding: 0;
         background: var(--white);
+    }
+
+    .subtitle {
+        margin: 3rem 0 2rem;
+    }
+
+    .queue {
+        font-size: 1.6rem;
+    }
+
+    .viewAll {
+        display: block;
+        width: 100%;
+        font-size: 1.6rem;
+        text-align: left;
     }
 }
 

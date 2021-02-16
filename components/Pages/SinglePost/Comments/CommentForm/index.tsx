@@ -2,9 +2,10 @@ import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
-import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
+import React, { ChangeEvent, FormEvent, KeyboardEvent, ReactElement, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
+import useMedia from '../../../../../hooks/media.hook';
 import AttachedImg from '../AttachedImg';
 import css from './index.module.css';
 
@@ -15,6 +16,7 @@ interface IProps {
 }
 
 const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): ReactElement => {
+    const media = useMedia(900);
     const { query } = useRouter();
     const [text, setText] = useState<string>(value);
     const [file, setFile] = useState<File | null>(null);
@@ -23,8 +25,8 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
         setText(event.target.value);
     };
 
-    const handleSubmit = (event: FormEvent): void => {
-        event.preventDefault();
+    const handleSubmit = (event?: FormEvent<HTMLFormElement>): void => {
+        event?.preventDefault();
         if (!text) return;
 
         const form = new FormData();
@@ -36,8 +38,17 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
         setFile(null);
     };
 
+    const handleKeyPress = async (event: KeyboardEvent<HTMLTextAreaElement>): Promise<void> => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            if (!media) return;
+
+            event.preventDefault();
+            handleSubmit();
+        }
+    };
+
     return (
-        <form action="#" method="POST">
+        <form action="#" method="POST" onSubmit={handleSubmit}>
             <div className={css.flex}>
                 <TextareaAutosize
                     className={css.comment}
@@ -45,14 +56,11 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
                     cols={30}
                     rows={10}
                     value={text}
-                    placeholder="your comment"
+                    placeholder="Press Enter to submit or press Enter + Shift to break the line"
                     onChange={handleChange}
+                    onKeyPress={handleKeyPress}
                 />
-                <button
-                    className={clsx('btn btn--blue', css.btn, !text && 'btn--disabled')}
-                    type="submit"
-                    onClick={handleSubmit}
-                >
+                <button className={clsx('btn btn--blue', css.btn, !text && 'btn--disabled')} type="submit">
                     <FontAwesomeIcon icon={faTelegramPlane} />
                 </button>
             </div>

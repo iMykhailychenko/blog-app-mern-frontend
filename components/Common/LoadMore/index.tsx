@@ -1,19 +1,21 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+import PostsLoader from '../Loader/PostsLoader';
 import css from './index.module.css';
 
 interface IProps {
     onSubmit: (page: number) => void;
     loading: boolean;
+    total: number;
 }
 
-const LoadMore = ({ onSubmit, loading }: IProps): ReactElement => {
+const LoadMore = ({ onSubmit, loading, total = 1 }: IProps): ReactElement => {
     const [innerLoading, setInnerLoading] = useState<boolean>(true);
     const [page, setPage] = useState<number>(1);
     const { ref, inView } = useInView({
         threshold: 0,
-        rootMargin: '400px',
+        rootMargin: '200px',
     });
 
     setTimeout(() => {
@@ -37,7 +39,11 @@ const LoadMore = ({ onSubmit, loading }: IProps): ReactElement => {
         };
     }, [inView]);
 
-    return <div ref={ref} className={css.container} />;
+    return page < total ? (
+        <div ref={ref} className={css.container}>
+            <PostsLoader />
+        </div>
+    ) : null;
 };
 
 export default LoadMore;

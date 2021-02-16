@@ -2,6 +2,7 @@
     position: fixed;
     right: 2.5rem;
     bottom: 2.5rem;
+    z-index: 10000;
     height: 5rem;
     width: 5rem;
     background: var(--black);

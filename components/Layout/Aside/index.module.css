@@ -23,12 +23,16 @@
     .inner {
         padding-right: 0;
     }
-}
 
-@media (max-width: 900px) {
     .inner {
         height: 100%;
         padding: 3rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .inner {
+        padding-top: 0;
     }
 }
 

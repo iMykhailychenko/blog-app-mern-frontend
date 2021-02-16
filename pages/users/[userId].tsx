@@ -12,7 +12,6 @@ import config from '../../assets/config';
 import { bioHTML } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import useAuth from '../../components/../hooks/auth.hook';
-import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
 import { modal } from '../../components/Common/Modal';
@@ -81,7 +80,7 @@ const UserProfile = (): ReactElement => {
                                 <hr />
                                 <h3 className={css.subtitle}>Short description:</h3>
                                 {bio ? (
-                                    <div dangerouslySetInnerHTML={{ __html: bio }} />
+                                    <div className={css.bio} dangerouslySetInnerHTML={{ __html: bio }} />
                                 ) : (
                                     <div className={css.empty}>{bio}</div>
                                 )}
@@ -142,12 +141,7 @@ const UserProfile = (): ReactElement => {
                                 <hr />
                                 <div className={css.margin} />
                                 <Posts content={posts.data?.posts} author />
-                                {posts.data?.posts?.length < posts.data?.total ? (
-                                    <>
-                                        <PostsLoader />
-                                        <LoadMore onSubmit={handleMore} loading={posts.loading} />
-                                    </>
-                                ) : null}
+                                <LoadMore onSubmit={handleMore} loading={posts.loading} total={posts.data?.total} />
                             </>
                         ) : (
                             <h2 className={css.empty}>{`${profile?.name} ${profile?.surname} dont have posts yet`}</h2>
