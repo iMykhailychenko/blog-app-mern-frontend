@@ -1,7 +1,8 @@
-import { faEye, faImages, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faImages, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import React, { ChangeEvent, ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import config from '../../../../assets/config';
@@ -11,6 +12,7 @@ import types from '../../../../redux/types';
 import css from '../../Users/AsideProfile/index.module.css';
 
 const AsideProfile = (): ReactElement => {
+    const ref = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
     const profile = useSelector<IState, IUser>(state => state.profile);
 
@@ -21,19 +23,21 @@ const AsideProfile = (): ReactElement => {
         dispatch({ type: types.UPDATE_AVATAR_START, payload: null });
     };
 
+    const handleClick = (): void => {
+        ref.current.click();
+    };
+
     return profile ? (
         <div className={css.inner}>
-            <Link href={routes.users[0](profile?._id)}>
-                <a>
-                    {profile.avatar ? (
-                        <img className={css.avatar} src={config.img + profile.avatar} alt="" />
-                    ) : (
-                        <p className={css.avatar} style={{ color: config.colors[profile.name[0]] || 'var(--blue-01)' }}>
-                            {profile.name[0] + profile.surname[0]}
-                        </p>
-                    )}
-                </a>
-            </Link>
+            <button type="button" className={css.btn} onClick={handleClick}>
+                {profile.avatar ? (
+                    <img className={css.avatar} src={config.img + profile.avatar} alt="" />
+                ) : (
+                    <p className={css.avatar} style={{ color: config.colors[profile.name[0]] || 'var(--blue-01)' }}>
+                        {profile.name[0] + profile.surname[0]}
+                    </p>
+                )}
+            </button>
 
             {profile.avatar ? (
                 <button className={css.delete} onClick={handleDelete} type="button">
@@ -43,15 +47,15 @@ const AsideProfile = (): ReactElement => {
             ) : null}
 
             <div className={css.edit}>
-                <input className={css.file} onChange={handleAvatar} type="file" />
+                <input ref={ref} className={css.file} onChange={handleAvatar} type="file" />
                 <FontAwesomeIcon icon={faImages} />
                 <span>Change avatar</span>
             </div>
 
             <Link href={routes.users[0](profile?._id)}>
                 <a className={css.view}>
-                    <FontAwesomeIcon icon={faEye} />
-                    <span>View profile</span>
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                    <span>Back to profile</span>
                 </a>
             </Link>
         </div>

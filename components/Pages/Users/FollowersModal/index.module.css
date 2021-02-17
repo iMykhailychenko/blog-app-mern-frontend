@@ -32,7 +32,7 @@
 }
 
 .list {
-    margin-left: 3rem;
+    margin-left: 0;
     margin-bottom: 3rem;
     padding: 0.3rem;
     overflow: auto;
@@ -41,6 +41,7 @@
 
 .scroll {
     display: flex;
+    justify-content: center;
     grid-gap: 3rem;
     flex-wrap: wrap;
     padding-bottom: 3rem;
@@ -99,4 +100,22 @@
 .reset svg {
     height: 1.2rem;
     width: 1.2rem;
+}
+
+@media (max-width: 1200px) {
+    .search {
+        max-width: 90%;
+        margin: 3.5rem auto 4rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .list {
+        margin-left: 1rem;
+    }
+
+    .scroll {
+        justify-content: space-between;
+        grid-gap: 3rem 0;
+    }
 }

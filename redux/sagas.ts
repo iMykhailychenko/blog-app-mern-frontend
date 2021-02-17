@@ -3,6 +3,7 @@ import { all, fork } from 'redux-saga/effects';
 import auth from './auth/saga';
 import comments from './comments/saga';
 import feedback from './feedback/saga';
+import followers from './followers/saga';
 import posts from './posts/saga';
 import profile from './profile/saga';
 import queue from './queue/saga';
@@ -18,6 +19,7 @@ export default function* sagas(): Generator {
         fork(profile),
         fork(trending),
         fork(settings),
+        fork(followers),
         fork(queue),
     ]);
 }

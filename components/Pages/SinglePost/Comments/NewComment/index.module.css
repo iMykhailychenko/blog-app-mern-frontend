@@ -16,7 +16,6 @@
 .auth {
     padding: 2rem 3rem;
     border-radius: var(--radius);
-    font-weight: 600;
     font-size: 1.6rem;
     background: var(--gray-02);
 }

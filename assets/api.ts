@@ -65,8 +65,14 @@ const api = {
         updateBio: (data: string): Promise<AxiosResponse<void>> => axios.put('/settings/bio/', { bio: data }),
     },
     queue: {
-        getQueue: (params): Promise<AxiosResponse<IPostPagination>> => axios.get('/queue/', { params }),
+        getQueue: (params: Params): Promise<AxiosResponse<IPostPagination>> => axios.get('/queue/', { params }),
         updateQueue: (id: string): Promise<AxiosResponse<void>> => axios.put(`/queue/${id}`),
+    },
+    followers: {
+        followers: ({ id, params }: { id: string; params: Params }): Promise<AxiosResponse<IPostPagination>> =>
+            axios.get(`/users/profile/${id}/followers`, { params }),
+        following: ({ id, params }: { id: string; params: Params }): Promise<AxiosResponse<IPostPagination>> =>
+            axios.get(`/users/profile/${id}/following`, { params }),
     },
 };
 

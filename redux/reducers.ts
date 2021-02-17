@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import auth from './auth/reducer';
 import comments from './comments/reducer';
+import followers from './followers/reducer';
 import posts from './posts/reducer';
 import profile from './profile/reducer';
 import queue from './queue/reducer';
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     comments,
     profile,
     trending,
+    followers,
     queue,
 });
 

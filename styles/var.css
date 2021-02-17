@@ -2,6 +2,7 @@
     --radius: 0.4rem;
     --box-shadow: 0 0 0 0.3rem rgba(13, 110, 253, 0.25);
     --box-shadow-01: 0 3rem 5rem rgba(54, 39, 39, 0.04), 0 3rem 5rem rgba(0, 0, 0, 0.06);
+    --box-shadow-02: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.15);
 
     --white: rgb(255, 255, 255);
     --black: rgb(45, 45, 45);

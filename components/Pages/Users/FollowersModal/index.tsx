@@ -1,9 +1,12 @@
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import React, { ReactElement, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { IState, IUser } from '../../../../interfaces';
+import config from '../../../../assets/config';
+import { IFollowers, IFollowersPagination, IState, IUser } from '../../../../interfaces';
+import types from '../../../../redux/types';
 import { modal } from '../../../Common/Modal';
 import ProfileBig from '../../../Common/Profile/ProfileBig';
 import css from './index.module.css';
@@ -13,7 +16,17 @@ interface IProps {
 }
 
 const FollowersModal = ({ type = 'followers' }: IProps): ReactElement => {
-    const profile = useSelector<IState, IUser>(state => state.profile);
+    const { query } = useRouter();
+    const dispatch = useDispatch();
+
+    const followers = useSelector<IState, IFollowers>(state => state.followers);
+
+    useEffect(() => {
+        dispatch({
+            type: type === 'followers' ? types.GET_FOLLOWERS_START : types.GET_FOLLOWING_START,
+            payload: { params: { page: 1, limit: config.usersPerPage }, id: query.userId },
+        });
+    }, [dispatch]);
 
     return (
         <div className={css.modal}>
@@ -35,8 +48,8 @@ const FollowersModal = ({ type = 'followers' }: IProps): ReactElement => {
 
             <div className={css.list}>
                 <div className={css.scroll}>
-                    {profile?.[type]?.length
-                        ? profile?.[type]?.map(item => <ProfileBig width={12} key={item._id} user={item} />)
+                    {followers?.data?.users?.length
+                        ? followers?.data?.users?.map(item => <ProfileBig width={12} key={item._id} user={item} />)
                         : null}
                 </div>
             </div>

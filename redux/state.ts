@@ -32,6 +32,10 @@ const initState: IState = {
             data: null,
         },
     },
+    followers: {
+        loading: true,
+        data: null,
+    },
     comments: {
         loading: true,
         data: null,

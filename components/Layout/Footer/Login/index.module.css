@@ -6,7 +6,6 @@
 
 .text a {
     color: var(--gray-03);
-    font-weight: 600;
 }
 
 .text a:hover {

@@ -2,79 +2,51 @@ import { Params } from '@fortawesome/fontawesome-svg-core';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../assets/api';
-import config from '../../assets/config';
 import notifications from '../../components/Common/Notifications';
-import { IPostPagination, IState } from '../../interfaces';
+import { IFollowers, IFollowersPagination, IState } from '../../interfaces';
 import types from '../types';
+
+interface IPayload {
+    id: string;
+    params: Params;
+}
 
 export interface IAction {
     type:
-        | typeof types.GET_QUEUE_START
-        | typeof types.GET_QUEUE_SUCCESS
-        | typeof types.GET_QUEUE_ERROR
-        | typeof types.MORE_QUEUE_START
-        | typeof types.MORE_QUEUE_SUCCESS
-        | typeof types.MORE_QUEUE_ERROR
-        | typeof types.UPDATE_QUEUE_POPULAR_START
-        | typeof types.UPDATE_QUEUE_POPULAR_SUCCESS
-        | typeof types.UPDATE_QUEUE_POPULAR_ERROR
-        | typeof types.UPDATE_QUEUE_START
-        | typeof types.UPDATE_QUEUE_SUCCESS
-        | typeof types.UPDATE_QUEUE_ERROR;
-    payload: IPostPagination | IState | Params | string | null;
+        | typeof types.GET_FOLLOWERS_START
+        | typeof types.GET_FOLLOWERS_SUCCESS
+        | typeof types.GET_FOLLOWERS_ERROR
+        | typeof types.GET_FOLLOWING_START
+        | typeof types.GET_FOLLOWING_SUCCESS
+        | typeof types.GET_FOLLOWING_ERROR;
+    payload: IState | IFollowers | IFollowersPagination | IPayload | string | null;
 }
 
-function* getQueue({ payload }: IAction) {
+function* getFollowers({ payload }: IAction) {
     try {
-        const { status, data } = yield call(api.queue.getQueue, payload as Params);
+        const { status, data } = yield call(api.followers.followers, payload as IPayload);
         if (status < 200 || status >= 300) throw new Error();
-        yield put({ type: types.GET_QUEUE_SUCCESS, payload: data });
+        yield put({ type: types.GET_FOLLOWERS_SUCCESS, payload: data });
     } catch (error) {
-        yield put({ type: types.GET_QUEUE_ERROR });
+        yield put({ type: types.GET_FOLLOWERS_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }
 
-function* moreQueue({ payload }: IAction) {
+function* getFollowing({ payload }: IAction) {
     try {
-        const { status, data } = yield call(api.queue.getQueue, payload as Params);
+        const { status, data } = yield call(api.followers.followers, payload as IPayload);
         if (status < 200 || status >= 300) throw new Error();
-        yield put({ type: types.MORE_QUEUE_SUCCESS, payload: data });
+        yield put({ type: types.GET_FOLLOWING_SUCCESS, payload: data });
     } catch (error) {
-        yield put({ type: types.MORE_QUEUE_ERROR });
-        if (error?.response?.status === 401) return;
+        yield put({ type: types.GET_FOLLOWING_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }
 
-function* putQueue({ payload }: IAction) {
-    try {
-        const { status, data } = yield call(api.queue.updateQueue, payload as string);
-        if (status < 200 || status >= 300) throw new Error();
-        yield put({ type: types.UPDATE_QUEUE_SUCCESS, payload: data.queue });
-    } catch (error) {
-        yield put({ type: types.UPDATE_QUEUE_ERROR });
-        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
-    }
-}
-
-function* putQueuePopular({ payload }: IAction) {
-    try {
-        const { status, data } = yield call(api.queue.updateQueue, payload as string);
-        if (status < 200 || status >= 300) throw new Error();
-        yield put({ type: types.UPDATE_QUEUE_POPULAR_SUCCESS, payload: { data: data.queue, id: payload } });
-        yield put({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
-    } catch (error) {
-        yield put({ type: types.UPDATE_QUEUE_POPULAR_ERROR });
-        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
-    }
-}
-
-export default function* queue(): Generator {
+export default function* followers(): Generator {
     yield all([
-        yield takeLatest(types.GET_QUEUE_START, getQueue),
-        yield takeLatest(types.MORE_QUEUE_START, moreQueue),
-        yield takeLatest(types.UPDATE_QUEUE_START, putQueue),
-        yield takeLatest(types.UPDATE_QUEUE_POPULAR_START, putQueuePopular),
+        yield takeLatest(types.GET_FOLLOWERS_START, getFollowers),
+        yield takeLatest(types.GET_FOLLOWING_START, getFollowing),
     ]);
 }

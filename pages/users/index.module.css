@@ -21,7 +21,6 @@
 .title {
     font-size: 2rem;
     line-height: 1;
-    font-weight: 500;
 }
 
 .titleFlex {
@@ -59,7 +58,6 @@
 .subtitle {
     margin: 1rem 0;
     font-size: 1.6rem;
-    font-weight: 500;
 }
 
 .flex {
@@ -91,6 +89,7 @@
     background: var(--gray-02);
     border: none;
     transition: 0.3s ease-in-out;
+    box-shadow: var(--box-shadow-02);
 }
 
 .btn svg {

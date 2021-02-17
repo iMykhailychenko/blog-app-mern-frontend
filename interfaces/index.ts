@@ -116,6 +116,20 @@ export interface ICommentList {
 }
 
 /**
+ * SETTINGS
+ */
+
+export interface IFollowersPagination {
+    total: number;
+    users: IUser[];
+}
+
+export interface IFollowers {
+    loading: boolean;
+    data: IFollowersPagination | null;
+}
+
+/**
  * APP STATE
  */
 export interface IState {
@@ -131,5 +145,6 @@ export interface IState {
         newPost: INewPost;
         single: ISinglePost;
     };
+    followers: IFollowers;
     comments: ICommentList;
 }

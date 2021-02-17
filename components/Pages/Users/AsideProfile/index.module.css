@@ -34,6 +34,18 @@
     margin-top: 1rem;
 }
 
+.btn {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    cursor: pointer;
+    background: none;
+}
+.btn:focus,
+.btn:hover {
+    box-shadow: none;
+}
+
 .add {
     position: relative;
     display: block;
