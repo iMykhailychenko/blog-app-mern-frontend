@@ -126,6 +126,7 @@ export interface IFollowersPagination {
 
 export interface IFollowers {
     loading: boolean;
+    more: boolean;
     data: IFollowersPagination | null;
 }
 

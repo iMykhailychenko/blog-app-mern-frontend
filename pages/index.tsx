@@ -9,6 +9,7 @@ import config from '../assets/config';
 import routes from '../assets/routes';
 import useAuth from '../components/../hooks/auth.hook';
 import FormLogin from '../components/Common/Forms/Login';
+import PostsLoader from '../components/Common/Loader/PostsLoader';
 import QueueLoader from '../components/Common/Loader/QueueLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
@@ -91,7 +92,14 @@ const Home = (): ReactElement => {
 
                     <h2 className={css.title}>Popular posts</h2>
                     <Posts content={posts.data?.posts} />
-                    <LoadMore onSubmit={handleMore} loading={posts.loading} total={posts.data?.total} />
+                    <LoadMore
+                        onSubmit={handleMore}
+                        loading={posts.loading}
+                        total={posts.data?.total}
+                        style={{ marginTop: '4rem' }}
+                    >
+                        <PostsLoader />
+                    </LoadMore>
                 </div>
             </main>
         </>

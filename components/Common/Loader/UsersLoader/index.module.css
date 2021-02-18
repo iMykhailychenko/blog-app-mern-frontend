@@ -1,0 +1,31 @@
+@keyframes loader {
+    0% {
+        background-color: var(--gray-01);
+    }
+
+    50% {
+        background-color: var(--gray-02);
+    }
+}
+
+.wrp {
+    display: flex;
+    align-items: center;
+}
+
+.user {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1rem;
+    border-radius: var(--radius);
+    animation: loader 2s ease-in-out infinite;
+}
+
+.text > span {
+    display: block;
+    height: 1rem;
+    width: 5rem;
+    margin-bottom: 1rem;
+    border-radius: var(--radius);
+    animation: loader 2s ease-in-out infinite;
+}

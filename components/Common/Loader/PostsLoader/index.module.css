@@ -1,3 +1,13 @@
+@keyframes loader {
+    0% {
+        background-color: var(--gray-01);
+    }
+
+    50% {
+        background-color: var(--gray-02);
+    }
+}
+
 .list {
     display: flex;
     margin-left: -5rem;
@@ -14,16 +24,6 @@
     margin-bottom: 5rem;
     transition: 0.3s ease-in-out;
     border-radius: var(--radius);
-}
-
-@keyframes loader {
-    0% {
-        background-color: var(--gray-01);
-    }
-
-    50% {
-        background-color: var(--gray-02);
-    }
 }
 
 /* === content === */

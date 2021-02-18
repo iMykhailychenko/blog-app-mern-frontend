@@ -1,16 +1,15 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { CSSProperties, ReactElement, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-
-import PostsLoader from '../Loader/PostsLoader';
-import css from './index.module.css';
 
 interface IProps {
     onSubmit: (page: number) => void;
     loading: boolean;
     total: number;
+    children: ReactElement;
+    style?: CSSProperties;
 }
 
-const LoadMore = ({ onSubmit, loading, total = 1 }: IProps): ReactElement => {
+const LoadMore = ({ onSubmit, loading, total = 1, children, style }: IProps): ReactElement => {
     const [innerLoading, setInnerLoading] = useState<boolean>(true);
     const [page, setPage] = useState<number>(1);
     const { ref, inView } = useInView({
@@ -40,9 +39,10 @@ const LoadMore = ({ onSubmit, loading, total = 1 }: IProps): ReactElement => {
     }, [inView]);
 
     return page < total ? (
-        <div ref={ref} className={css.container}>
-            <PostsLoader />
-        </div>
+        <>
+            <div ref={ref} style={style || {}} />
+            {children}
+        </>
     ) : null;
 };
 

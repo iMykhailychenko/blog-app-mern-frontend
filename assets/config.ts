@@ -1,7 +1,7 @@
 const config = {
     postPerPage: 6,
     queuePerPage: 5,
-    usersPerPage: 30,
+    usersPerPage: 40,
     api: process.env.NODE_ENV === 'production' ? 'https://ihor-blog.herokuapp.com/api' : 'http://localhost:5000/api',
     img: 'https://ihor-blog.herokuapp.com/',
     host: 'https://blog-eta-teal.vercel.app/',

@@ -154,7 +154,7 @@ const SinglePost = (): ReactElement => {
 
                         <div key="subtext4" className={css.subtext}>
                             <h4 className={css.author}>Post author:</h4>
-                            <ProfileBig user={post?.user} />
+                            <ProfileBig user={post?.author[0]} />
                         </div>
 
                         <p key="subtext6" className={css.subtext}>

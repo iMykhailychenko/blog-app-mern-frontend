@@ -8,6 +8,7 @@ import { END } from 'redux-saga';
 import config from '../../assets/config';
 import routes from '../../assets/routes';
 import SearchForm from '../../components/Common/Forms/Search';
+import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
 import Posts from '../../components/Common/Posts';
@@ -71,7 +72,14 @@ const Search = (): ReactElement => {
                 {posts?.data?.posts?.length ? (
                     <>
                         <Posts content={posts.data?.posts} />
-                        <LoadMore onSubmit={handleMore} loading={posts.loading} total={posts.data?.total} />
+                        <LoadMore
+                            onSubmit={handleMore}
+                            loading={posts.loading}
+                            total={posts.data?.total}
+                            style={{ marginTop: '4rem' }}
+                        >
+                            <PostsLoader />
+                        </LoadMore>
                     </>
                 ) : (
                     <div className={css.empty}>

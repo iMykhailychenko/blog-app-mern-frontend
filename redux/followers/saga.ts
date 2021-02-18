@@ -16,9 +16,15 @@ export interface IAction {
         | typeof types.GET_FOLLOWERS_START
         | typeof types.GET_FOLLOWERS_SUCCESS
         | typeof types.GET_FOLLOWERS_ERROR
+        | typeof types.MORE_FOLLOWERS_START
+        | typeof types.MORE_FOLLOWERS_SUCCESS
+        | typeof types.MORE_FOLLOWERS_ERROR
         | typeof types.GET_FOLLOWING_START
         | typeof types.GET_FOLLOWING_SUCCESS
-        | typeof types.GET_FOLLOWING_ERROR;
+        | typeof types.GET_FOLLOWING_ERROR
+        | typeof types.MORE_FOLLOWING_START
+        | typeof types.MORE_FOLLOWING_SUCCESS
+        | typeof types.MORE_FOLLOWING_ERROR;
     payload: IState | IFollowers | IFollowersPagination | IPayload | string | null;
 }
 
@@ -33,9 +39,20 @@ function* getFollowers({ payload }: IAction) {
     }
 }
 
-function* getFollowing({ payload }: IAction) {
+function* moreFollowers({ payload }: IAction) {
     try {
         const { status, data } = yield call(api.followers.followers, payload as IPayload);
+        if (status < 200 || status >= 300) throw new Error();
+        yield put({ type: types.MORE_FOLLOWERS_SUCCESS, payload: data });
+    } catch (error) {
+        yield put({ type: types.MORE_FOLLOWERS_ERROR });
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+    }
+}
+
+function* getFollowing({ payload }: IAction) {
+    try {
+        const { status, data } = yield call(api.followers.following, payload as IPayload);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_FOLLOWING_SUCCESS, payload: data });
     } catch (error) {
@@ -44,9 +61,22 @@ function* getFollowing({ payload }: IAction) {
     }
 }
 
+function* moreFollowing({ payload }: IAction) {
+    try {
+        const { status, data } = yield call(api.followers.following, payload as IPayload);
+        if (status < 200 || status >= 300) throw new Error();
+        yield put({ type: types.MORE_FOLLOWING_SUCCESS, payload: data });
+    } catch (error) {
+        yield put({ type: types.MORE_FOLLOWING_ERROR });
+        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+    }
+}
+
 export default function* followers(): Generator {
     yield all([
         yield takeLatest(types.GET_FOLLOWERS_START, getFollowers),
+        yield takeLatest(types.MORE_FOLLOWERS_START, moreFollowers),
         yield takeLatest(types.GET_FOLLOWING_START, getFollowing),
+        yield takeLatest(types.MORE_FOLLOWING_START, moreFollowing),
     ]);
 }
