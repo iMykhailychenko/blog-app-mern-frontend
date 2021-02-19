@@ -5,10 +5,10 @@ import config from '../../../assets/config';
 
 interface IProps {
     title?: string;
-    description?: string;
-    keywords?: string;
-    icon?: string;
-    h1?: string;
+    description?: string | null;
+    keywords?: string | null;
+    icon?: string | null;
+    h1?: string | null;
 }
 
 const Meta = ({ title, description, keywords, icon, h1 }: IProps): ReactElement => (
@@ -62,7 +62,7 @@ const Meta = ({ title, description, keywords, icon, h1 }: IProps): ReactElement 
             <link rel="mask-icon" href={icon || config.host + '/about.jpg'} color="#171717" />
             <link rel="canonical" href={config.host} />
         </Head>
-        <h1 className="hidden">{`${h1 || title} ${description}`}</h1>
+        <h1 className="hidden">{`${h1 || title} | ${description}`}</h1>
     </>
 );
 

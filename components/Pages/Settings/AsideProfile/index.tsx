@@ -11,20 +11,20 @@ import { IState, IUser } from '../../../../interfaces';
 import types from '../../../../redux/types';
 import css from '../../Users/AsideProfile/index.module.css';
 
-const AsideProfile = (): ReactElement => {
+const AsideProfile = (): ReactElement | null => {
     const ref = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
-    const profile = useSelector<IState, IUser>(state => state.profile);
+    const profile = useSelector<IState, IUser | null>(state => state.profile);
 
     const handleAvatar = (event: ChangeEvent<HTMLInputElement>): void => {
-        dispatch({ type: types.UPDATE_AVATAR_START, payload: event.target.files[0] });
+        dispatch({ type: types.UPDATE_AVATAR_START, payload: event.target?.files?.[0] });
     };
     const handleDelete = (): void => {
         dispatch({ type: types.UPDATE_AVATAR_START, payload: null });
     };
 
     const handleClick = (): void => {
-        ref.current.click();
+        ref.current?.click();
     };
 
     return profile ? (

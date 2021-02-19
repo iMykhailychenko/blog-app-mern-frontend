@@ -78,7 +78,7 @@ const Home = (): ReactElement => {
                                             )}
                                         </Link>
                                     ))}
-                                    <Link href={routes.queue[0](auth?.user?._id)}>
+                                    <Link href={routes.queue[0](auth?.user?._id || '')}>
                                         <a className={css.viewAll}>View all</a>
                                     </Link>
                                 </>
@@ -91,7 +91,7 @@ const Home = (): ReactElement => {
                     <TrendingPost />
 
                     <h2 className={css.title}>Popular posts</h2>
-                    <Posts content={posts.data?.posts} />
+                    {posts.data?.posts ? <Posts content={posts.data?.posts} /> : null}
                     <LoadMore
                         onSubmit={handleMore}
                         loading={posts.loading}
@@ -107,15 +107,15 @@ const Home = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    async ({ store }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-        store.dispatch({ type: types.GET_TRENDING_POST_START });
-        store.dispatch({ type: types.GET_TRENDING_TAGS_START });
-        store.dispatch({
+    async (ctx): Promise<void> => {
+        ctx.store.dispatch({ type: types.GET_TRENDING_POST_START });
+        ctx.store.dispatch({ type: types.GET_TRENDING_TAGS_START });
+        ctx.store.dispatch({
             type: types.GET_POSTS_START,
             payload: { page: 1, limit: config.postPerPage },
         });
-        store.dispatch(END);
-        await store.sagaTask.toPromise();
+        ctx.store.dispatch(END);
+        await (ctx.store as IStore).sagaTask.toPromise();
     },
 );
 

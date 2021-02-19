@@ -22,7 +22,7 @@ import css from './index.module.css';
 
 const Settings = (): ReactElement => {
     const dispatch = useDispatch();
-    const profile = useSelector<IState, IUser>(state => state.profile);
+    const profile = useSelector<IState, IUser | null>(state => state.profile);
 
     // MEDIA
     const handleUserBanner = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -83,21 +83,21 @@ const Settings = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    serverRedirect(
-        async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-            if (!ctx.query?.userId) return null;
-            store.dispatch({
-                type: types.GET_PROFILE_START,
-                payload: ctx.query.userId,
-            });
-            store.dispatch({
-                type: types.GET_USER_POSTS_START,
-                payload: ctx.query.userId,
-            });
-            store.dispatch(END);
-            await store.sagaTask.toPromise();
-        },
-    ),
+    async (ctx): Promise<void> => {
+        if (serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
+        if (!ctx.query?.userId) return;
+
+        ctx.store.dispatch({
+            type: types.GET_PROFILE_START,
+            payload: ctx.query.userId,
+        });
+        ctx.store.dispatch({
+            type: types.GET_USER_POSTS_START,
+            payload: ctx.query.userId,
+        });
+        ctx.store.dispatch(END);
+        await (ctx.store as IStore).sagaTask.toPromise();
+    },
 );
 
 export default Settings;

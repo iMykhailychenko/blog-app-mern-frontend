@@ -8,7 +8,7 @@ import css from '../index.module.css';
 
 const UserBio = ({ profile }: { profile: IUser }): ReactElement => {
     const dispatch = useDispatch();
-    const [bio, setBio] = useState<string | null>(profile?.bio || '');
+    const [bio, setBio] = useState<string>(profile?.bio || '');
 
     const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
         setBio(event.target.value);

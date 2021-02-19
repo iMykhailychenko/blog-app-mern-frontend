@@ -12,9 +12,10 @@ interface IProps {
     onClick: () => void;
 }
 
-const ProfileModal = ({ onClick }: IProps): ReactElement => {
-    const dispatch = useDispatch();
+const ProfileModal = ({ onClick }: IProps): ReactElement | null => {
     const auth = useAuth();
+    const dispatch = useDispatch();
+    const body = document.querySelector('body');
 
     const handleLogout = (): void => {
         onClick();
@@ -40,37 +41,39 @@ const ProfileModal = ({ onClick }: IProps): ReactElement => {
         };
     }, []);
 
-    return ReactDOM.createPortal(
-        <>
-            <div className={css.backdrop} onClick={onClick} aria-hidden />
-            {auth?.user && (
-                <div className={css.modal} onClick={handleClick} aria-hidden>
-                    <Link href={routes.users[0](auth?.user._id)}>
-                        <a>
-                            <h4 className={css.name}>{`${auth?.user.name} ${auth?.user.surname}`}</h4>
-                            <p className={css.nick}>{'@' + auth?.user.nick}</p>
-                        </a>
-                    </Link>
-                    <Link href={routes.users[0](auth?.user._id)}>
-                        <a className={css.link}>Your profile</a>
-                    </Link>
-                    <Link href={routes.settings[0](auth?.user?._id)}>
-                        <a className={css.link}>Settings</a>
-                    </Link>
-                    <Link href={routes.posts.new}>
-                        <a className={css.link}>New post</a>
-                    </Link>
-                    <Link href={routes.queue[0](auth?.user._id)}>
-                        <a className={css.link}>Queue</a>
-                    </Link>
-                    <button className={css.link} type="button" onClick={handleLogout}>
-                        Log out
-                    </button>
-                </div>
-            )}
-        </>,
-        document.querySelector('body'),
-    );
+    return body
+        ? ReactDOM.createPortal(
+              <>
+                  <div className={css.backdrop} onClick={onClick} aria-hidden />
+                  {auth?.user && (
+                      <div className={css.modal} onClick={handleClick} aria-hidden>
+                          <Link href={routes.users[0](auth?.user._id)}>
+                              <a>
+                                  <h4 className={css.name}>{`${auth?.user.name} ${auth?.user.surname}`}</h4>
+                                  <p className={css.nick}>{'@' + auth?.user.nick}</p>
+                              </a>
+                          </Link>
+                          <Link href={routes.users[0](auth?.user._id)}>
+                              <a className={css.link}>Your profile</a>
+                          </Link>
+                          <Link href={routes.settings[0](auth?.user?._id)}>
+                              <a className={css.link}>Settings</a>
+                          </Link>
+                          <Link href={routes.posts.new}>
+                              <a className={css.link}>New post</a>
+                          </Link>
+                          <Link href={routes.queue[0](auth?.user._id)}>
+                              <a className={css.link}>Queue</a>
+                          </Link>
+                          <button className={css.link} type="button" onClick={handleLogout}>
+                              Log out
+                          </button>
+                      </div>
+                  )}
+              </>,
+              body,
+          )
+        : null;
 };
 
 export default ProfileModal;

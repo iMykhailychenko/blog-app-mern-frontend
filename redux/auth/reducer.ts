@@ -10,7 +10,7 @@ const INIT: IAuth = {
     user: null,
 };
 
-const auth = (state: IAuth = INIT, action: IAction): IAuth => {
+const auth = (state: IAuth = INIT, action: IAction): IAuth | null => {
     switch (action.type) {
         case HYDRATE:
             return (action.payload as IState).auth;

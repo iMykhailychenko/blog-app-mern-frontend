@@ -17,7 +17,6 @@ const Profile = (): ReactElement => {
                     <a>Create new post</a>
                 </Link>
             </li>
-            <li>{/* <Link to={routes.Settings.p}>Settings</Link> */}</li>
             <li>
                 <button type="button">Log out</button>
             </li>

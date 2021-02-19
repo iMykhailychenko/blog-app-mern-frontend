@@ -9,7 +9,7 @@ export const debounce = <M extends [], S extends (...args: M) => void>(func: S, 
     }) as S;
 };
 
-type IFunction = (...args) => void;
+type IFunction = (...args: unknown[]) => void;
 export const throttle = (func: IFunction, time: number): IFunction => {
     let timeout = true;
     return (...args) => {

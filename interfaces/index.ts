@@ -32,7 +32,7 @@ export interface IUser {
 
 export interface IAuth {
     loading: boolean;
-    token: null;
+    token: null | string;
     user: IUser | null;
 }
 

@@ -24,7 +24,7 @@ import types from '../../../redux/types';
 import css from '../new_post/index.module.css';
 const ContentEditor = dynamic(() => import('../../../components/Pages/NewPost/ContentEditor'), { ssr: false });
 
-const EditPost = (): ReactElement => {
+const EditPost = (): ReactElement | null => {
     const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
@@ -32,7 +32,10 @@ const EditPost = (): ReactElement => {
     const post = useSelector<IState, IPost | null>(state => state.posts.single.data);
 
     const handleBannerChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        dispatch({ type: types.EDIT_POSTS_BANNER_START, payload: { id: query.postId, banner: event.target.files[0] } });
+        dispatch({
+            type: types.EDIT_POSTS_BANNER_START,
+            payload: { id: query.postId, banner: event.target?.files?.[0] },
+        });
     };
 
     const handleDeleteBanner = (): void => {
@@ -102,18 +105,19 @@ const EditPost = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    serverRedirect(
-        async (ctx: GetServerSidePropsContext & { store: IStore; auth: IAuth }): Promise<void> => {
-            if (!ctx.query?.postId) return null;
-            ctx.store.dispatch({
-                type: types.GET_SINGLE_POST_START,
-                payload: ctx.query.postId,
-                user: ctx.auth?.user?._id,
-            });
-            ctx.store.dispatch(END);
-            await ctx.store.sagaTask.toPromise();
-        },
-    ),
+    async (ctx): Promise<void> => {
+        const auth: IAuth | null = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
+        if (auth) return;
+        if (!ctx.query?.postId) return;
+
+        ctx.store.dispatch({
+            type: types.GET_SINGLE_POST_START,
+            payload: ctx.query.postId,
+            user: (auth as IAuth | null)?.user?._id,
+        });
+        ctx.store.dispatch(END);
+        await (ctx?.store as IStore)?.sagaTask?.toPromise();
+    },
 );
 
 export default EditPost;

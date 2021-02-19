@@ -7,10 +7,12 @@ interface IProps {
     onClick: () => void;
 }
 
-const NewsModal = ({ onClick }: IProps): ReactElement => {
-    return ReactDOM.createPortal(
-        <div className={`${css.modal} ${css.news}`} onClick={onClick} aria-hidden>
-            {/* {!notification.length ? (
+const NewsModal = ({ onClick }: IProps): ReactElement | null => {
+    const body = document.querySelector('body');
+    return body
+        ? ReactDOM.createPortal(
+              <div className={`${css.modal} ${css.news}`} onClick={onClick} aria-hidden>
+                  {/* {!notification.length ? (
                 <p className={styles.nothing}>Nothing to show</p>
             ) : (
                 <ul className={styles.list}>
@@ -19,9 +21,10 @@ const NewsModal = ({ onClick }: IProps): ReactElement => {
                     )}
                 </ul>
             )} */}
-        </div>,
-        document.querySelector('body'),
-    );
+              </div>,
+              body,
+          )
+        : null;
 };
 
 export default NewsModal;

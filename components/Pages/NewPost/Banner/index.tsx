@@ -10,7 +10,7 @@ const Banner = (): ReactElement => {
     const value = useSelector<IState, File | null>(state => state.posts.newPost.banner);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        dispatch({ type: types.NEW_POST_BANNER, payload: event.target.files[0] || null });
+        dispatch({ type: types.NEW_POST_BANNER, payload: event?.target?.files?.[0] || null });
     };
 
     const handleDelete = (): void => {

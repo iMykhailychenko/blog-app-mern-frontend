@@ -40,7 +40,7 @@ const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
     const auth = useAuth();
     const { query } = useRouter();
 
-    const profile = useSelector<IState, IUser>(state => state.profile);
+    const profile = useSelector<IState, IUser | null>(state => state.profile);
 
     const handleDelete = (payload: string): (() => void) => (): void => {
         dispatch({

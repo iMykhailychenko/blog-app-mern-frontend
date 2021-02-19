@@ -93,13 +93,13 @@ const Search = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-        store.dispatch({
+    async (ctx): Promise<void> => {
+        ctx.store.dispatch({
             type: types.GET_POSTS_START,
             payload: { page: ctx.query?.page || 1, limit: config.postPerPage, q: ctx.query?.q || null },
         });
-        store.dispatch(END);
-        await store.sagaTask.toPromise();
+        ctx.store.dispatch(END);
+        await (ctx.store as IStore).sagaTask.toPromise();
     },
 );
 

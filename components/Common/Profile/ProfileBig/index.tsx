@@ -7,7 +7,7 @@ import UserAvatar from '../../UserAvatar';
 import css from './index.module.css';
 
 interface IProps {
-    user: IUser;
+    user: IUser | null;
     width?: number;
 }
 

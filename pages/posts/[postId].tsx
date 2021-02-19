@@ -3,10 +3,9 @@ import 'highlight.js/styles/atom-one-dark-reasonable.css';
 import { faKeyboard, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import hljs from 'highlight.js/lib/core';
+import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
-import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement, useEffect, useRef } from 'react';
@@ -20,10 +19,9 @@ import useAuth from '../../components/../hooks/auth.hook';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
 import ProfileBig from '../../components/Common/Profile/ProfileBig';
-import serverCookie from '../../components/HOC/ServerCookie';
 import Comments from '../../components/Pages/SinglePost/Comments';
 import Socials from '../../components/Pages/SinglePost/Socials';
-import { IAuth, IPost, IState, IStore } from '../../interfaces';
+import { IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
@@ -34,11 +32,11 @@ const SinglePost = (): ReactElement => {
     const router = useRouter();
     const dispatch = useDispatch();
 
-    const post = useSelector<IState, IPost>(state => state.posts.single.data);
+    const post = useSelector<IState, IPost | null>(state => state.posts.single.data);
 
     const start = (): void => {
-        document.querySelectorAll('pre.ql-syntax').forEach((block: HTMLElement) => {
-            hljs.highlightBlock(block);
+        document.querySelectorAll('pre.ql-syntax').forEach(block => {
+            hljs.highlightBlock(block as HTMLElement);
         });
     };
 
@@ -53,7 +51,7 @@ const SinglePost = (): ReactElement => {
     const handleDelete = (): void => {
         dispatch({
             type: types.DELETE_POST_START,
-            payload: post._id,
+            payload: post?._id,
         });
         router.replace(routes.home);
     };
@@ -109,7 +107,7 @@ const SinglePost = (): ReactElement => {
 
                         <p className={clsx(css.subtext, css.flex)}>
                             <span>{`Publication date: ${formatDate(post.date)} `}</span>
-                            <span>{`Edited: ${formatDate(post.edited)}`}</span>
+                            <span>{`Edited: ${formatDate(post.edited || '')}`}</span>
                         </p>
 
                         <h1 className={css.title}>{post.title}</h1>
@@ -188,21 +186,20 @@ const SinglePost = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    serverCookie(
-        async (ctx: GetServerSidePropsContext & { store: IStore; auth: IAuth }): Promise<void> => {
-            if (!ctx.query?.postId) return null;
-            ctx.store.dispatch({
-                type: types.GET_COMMENTS_START,
-                payload: ctx.query.postId,
-            });
-            ctx.store.dispatch({
-                type: types.GET_SINGLE_POST_START,
-                payload: ctx.query.postId,
-            });
-            ctx.store.dispatch(END);
-            await ctx.store.sagaTask.toPromise();
-        },
-    ),
+    async (ctx): Promise<void> => {
+        if (!ctx.query?.postId) return;
+
+        ctx.store.dispatch({
+            type: types.GET_COMMENTS_START,
+            payload: ctx.query.postId,
+        });
+        ctx.store.dispatch({
+            type: types.GET_SINGLE_POST_START,
+            payload: ctx.query.postId,
+        });
+        ctx.store.dispatch(END);
+        await (ctx.store as IStore).sagaTask.toPromise();
+    },
 );
 
 export default SinglePost;

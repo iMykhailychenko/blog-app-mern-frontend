@@ -1,6 +1,6 @@
 import React, { createContext, ReactElement, useEffect, useState } from 'react';
 
-export const Media = createContext<[media: number, setMedia: (v: number) => void]>(null);
+export const Media = createContext<[media: number | null, setMedia: ((v: number) => void) | null]>([null, null]);
 
 interface IProps {
     width?: number;
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const MediaProvider = ({ children, width }: IProps): ReactElement => {
-    const [media, setMedia] = useState<number>(width);
+    const [media, setMedia] = useState<number>(width || 767);
     useEffect(() => {
         if (process.browser) {
             const handleResize = (): void => {

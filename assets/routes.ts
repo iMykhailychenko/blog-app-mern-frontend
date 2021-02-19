@@ -7,11 +7,11 @@ const routes = {
     question: '/question',
     search: '/search',
 
-    settings: [(id: string): string => `/settings/${id}`, '/settings/:id'] as IDynamic,
+    settings: [(id: string | null | undefined = ':id'): string => `/settings/${id}`, '/settings/:id'] as IDynamic,
 
-    queue: [(id: string): string => `/queue/${id}`, '/queue/:id'] as IDynamic,
+    queue: [(id: string | null | undefined = ':id'): string => `/queue/${id}`, '/queue/:id'] as IDynamic,
 
-    users: [(id: string): string => `/users/${id}`, '/users/:id'] as IDynamic,
+    users: [(id: string | null | undefined = ':id'): string => `/users/${id}`, '/users/:id'] as IDynamic,
 
     posts: {
         single: [(id: string): string => `/posts/${id}`, '/posts/:postId'] as IDynamic,

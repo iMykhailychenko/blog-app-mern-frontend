@@ -14,12 +14,12 @@ import types from '../../../../redux/types';
 import Likes from '../../../Common/Likes';
 import css from './index.module.css';
 
-const AsideProfile = (): ReactElement => {
+const AsideProfile = (): ReactElement | null => {
     const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
 
-    const profile = useSelector<IState, IUser>(state => state.profile);
+    const profile = useSelector<IState, IUser | null>(state => state.profile);
 
     const handleSubscribe = (): void => {
         dispatch({ type: types.FOLLOW_USER_START, payload: query.userId });

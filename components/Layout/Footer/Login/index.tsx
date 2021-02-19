@@ -11,7 +11,9 @@ const Login = (): ReactElement => {
                 <a>Login</a>
             </Link>
             {' or '}
-            {/* <Link to={routes.Auth.Si}>Signup</Link> */}
+            <Link href={routes.auth.signup}>
+                <a>Signup</a>
+            </Link>
             {' to get more'}
         </p>
     );

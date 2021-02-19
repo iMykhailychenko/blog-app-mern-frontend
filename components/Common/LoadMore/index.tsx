@@ -3,13 +3,13 @@ import { useInView } from 'react-intersection-observer';
 
 interface IProps {
     onSubmit: (page: number) => void;
-    loading: boolean;
-    total: number;
+    loading?: boolean;
+    total?: number;
     children: ReactElement;
     style?: CSSProperties;
 }
 
-const LoadMore = ({ onSubmit, loading, total = 1, children, style }: IProps): ReactElement => {
+const LoadMore = ({ onSubmit, loading, total = 1, children, style }: IProps): ReactElement | null => {
     const [innerLoading, setInnerLoading] = useState<boolean>(true);
     const [page, setPage] = useState<number>(1);
     const { ref, inView } = useInView({
@@ -22,7 +22,7 @@ const LoadMore = ({ onSubmit, loading, total = 1, children, style }: IProps): Re
     }, 500);
 
     useEffect(() => {
-        let id = null;
+        let id: NodeJS.Timeout | null = null;
         if (!loading && !innerLoading) {
             setInnerLoading(true);
 

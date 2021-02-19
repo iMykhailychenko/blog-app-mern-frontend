@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
@@ -63,6 +64,8 @@ const Trial = (): ReactElement => {
     );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(serverRedirect(null, null, true));
+export const getServerSideProps = wrapper.getServerSideProps(ctx => {
+    serverRedirect((ctx as unknown) as GetServerSidePropsContext, null, true);
+});
 
 export default Trial;

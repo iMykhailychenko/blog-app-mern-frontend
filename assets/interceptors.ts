@@ -5,7 +5,7 @@ import { makeStore } from '../redux/store';
 import types from '../redux/types';
 import routes from './routes';
 
-const interceptors = ({ history = null }: { history?: NextRouter }): void => {
+const interceptors = ({ history = null }: { history?: NextRouter | null }): void => {
     axios.interceptors.request.use(
         config => config,
         error => Promise.reject(error),

@@ -9,7 +9,7 @@ import notifications from '../../../Common/Notifications';
 const ONE_MB = 1048576; // 1 Megabytes = 1048576 Bytes
 
 const Image = Quill.import('formats/image');
-Image.sanitize = function (url) {
+Image.sanitize = function (url: string) {
     if (url.length > ONE_MB) {
         notifications('error', 'Sorry, your image is too large. Max image size is 1 MB');
         return null;

@@ -7,7 +7,7 @@ import css from '../index.module.css';
 
 const UserInfo = ({ profile }: { profile: IUser }): ReactElement => {
     const dispatch = useDispatch();
-    const [info, setInfo] = useState<{ [key: string]: string | null }>({
+    const [info, setInfo] = useState<{ [key: string]: string }>({
         name: profile?.name || '',
         surname: profile?.surname || '',
         email: profile?.email || '',

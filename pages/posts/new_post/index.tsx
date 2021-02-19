@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from 'next';
 import dynamic from 'next/dynamic';
 import React, { ReactElement } from 'react';
 
@@ -40,6 +41,8 @@ const NewPost = (): ReactElement => {
     );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(serverRedirect());
+export const getServerSideProps = wrapper.getServerSideProps((ctx): void => {
+    serverRedirect((ctx as unknown) as GetServerSidePropsContext);
+});
 
 export default NewPost;

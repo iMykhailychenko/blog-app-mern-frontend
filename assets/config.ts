@@ -32,7 +32,7 @@ const config = {
         X: '#0e7df5',
         Y: '#13d7f3',
         Z: '#095ef1',
-    },
+    } as { [key: string]: string },
 };
 
 export default config;

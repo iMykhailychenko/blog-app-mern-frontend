@@ -30,7 +30,7 @@ const UserProfile = (): ReactElement => {
     const auth = useAuth();
     const dispatch = useDispatch();
 
-    const profile = useSelector<IState, IUser>(state => state.profile);
+    const profile = useSelector<IState, IUser | null>(state => state.profile);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
 
     const handleFollowersModal = (): void => {
@@ -162,18 +162,19 @@ const UserProfile = (): ReactElement => {
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(
-    async ({ store, ...ctx }: GetServerSidePropsContext & { store: IStore }): Promise<void> => {
-        if (!ctx.query?.userId) return null;
-        store.dispatch({
+    async (ctx): Promise<void> => {
+        if (!ctx.query?.userId) return;
+
+        ctx.store.dispatch({
             type: types.GET_PROFILE_START,
             payload: ctx.query.userId,
         });
-        store.dispatch({
+        ctx.store.dispatch({
             type: types.GET_USER_POSTS_START,
             payload: ctx.query.userId,
         });
-        store.dispatch(END);
-        await store.sagaTask.toPromise();
+        ctx.store.dispatch(END);
+        await (ctx.store as IStore).sagaTask.toPromise();
     },
 );
 

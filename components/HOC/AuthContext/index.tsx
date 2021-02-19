@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { IAuth, IState } from '../../../interfaces';
 
-export const Auth = createContext<[value: IAuth | null, setValue: (t: IAuth | null) => void]>(null);
+export const Auth = createContext<[value: IAuth | null, setValue: ((t: IAuth | null) => void) | null]>([null, null]);
 
 interface IProps {
     authServer?: IAuth | null;
@@ -11,8 +11,8 @@ interface IProps {
 }
 
 const AuthProvider = ({ authServer = null, children }: IProps): ReactElement => {
-    const auth = useSelector<IState, IAuth>(state => state.auth);
-    const [value, setValue] = useState<IAuth | null>(auth.token ? auth : authServer);
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
+    const [value, setValue] = useState<IAuth | null>(auth?.token ? auth : authServer);
 
     useEffect(() => {
         setValue(auth);

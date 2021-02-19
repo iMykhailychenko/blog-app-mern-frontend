@@ -10,10 +10,13 @@ import Socials from '../../SinglePost/Socials';
 import css from './index.module.css';
 
 const MAX_LENGTH = 200;
-const TrendingPost = (): ReactElement => {
-    const trending = useSelector<IState, IPost | null>(state => state.trending.post);
+const TrendingPost = (): ReactElement | null => {
+    const trending = useSelector<IState, IPost | null>(state => state.trending?.post);
 
-    const desc = trending?.desc?.length > MAX_LENGTH ? trending.desc.slice(0, MAX_LENGTH) + '...' : trending?.desc;
+    const desc =
+        trending?.desc && trending?.desc?.length > MAX_LENGTH
+            ? trending.desc.slice(0, MAX_LENGTH) + '...'
+            : trending?.desc || '';
     return trending ? (
         <div
             className={clsx(css.banner, trending?.banner && css.shadow)}

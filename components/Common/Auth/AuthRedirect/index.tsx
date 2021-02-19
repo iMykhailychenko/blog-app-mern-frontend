@@ -12,7 +12,7 @@ interface IProps {
 
 const AuthRedirect = ({ path, reverse = false }: IProps): null => {
     const router = useRouter();
-    const token = useSelector<IState, string | null>(state => state.auth.token);
+    const token = useSelector<IState, string | null | undefined>(state => state.auth?.token);
 
     useEffect(() => {
         if (reverse ? token : !token) {
