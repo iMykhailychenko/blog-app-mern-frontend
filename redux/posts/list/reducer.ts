@@ -22,7 +22,10 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
 
         case types.MORE_POSTS_SUCCESS:
             return {
-                data: { ...state.data, posts: [...state.data.posts, ...(action.payload as IPostPagination).posts] },
+                data: {
+                    ...state.data,
+                    posts: [...(state.data?.posts || []), ...(action.payload as IPostPagination).posts],
+                } as IPostPagination,
                 loading: false,
             };
 
@@ -30,8 +33,8 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
             return {
                 data: {
                     ...state.data,
-                    total: state.data.total - 1,
-                    posts: state.data.posts.filter(post => post._id !== (action.payload as string)),
+                    total: (state.data?.total || 2) - 1,
+                    posts: state.data?.posts.filter(post => post._id !== (action.payload as string)) || [],
                 },
                 loading: false,
             };

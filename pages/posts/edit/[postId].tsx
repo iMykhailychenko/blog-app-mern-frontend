@@ -85,7 +85,7 @@ const EditPost = (): ReactElement | null => {
                     ) : null}
 
                     <div className={css.banner}>
-                        {post.banner ? <img className={css.banner} src={config.img + post.banner} alt="" /> : null}
+                        {post.banner ? <img className={css.banner} src={config.front + post.banner} alt="" /> : null}
                         <input type="file" onChange={handleBannerChange} className={css.file} />
                         <div className={css.add}>
                             <div className="add" />
@@ -107,7 +107,7 @@ const EditPost = (): ReactElement | null => {
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
         const auth: IAuth | null = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
-        if (auth) return;
+        if (!auth) return;
         if (!ctx.query?.postId) return;
 
         ctx.store.dispatch({

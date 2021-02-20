@@ -22,7 +22,7 @@ const auth = (state: IAuth = INIT, action: IAction): IAuth | null => {
             return { ...state, user: action.payload as IUser };
 
         case types.UPDATE_AVATAR_SUCCESS:
-            return { ...state, user: { ...state.user, avatar: action.payload as string | null } };
+            return { ...state, user: { ...state.user, avatar: action.payload as string | null } as IUser };
 
         case types.LOGIN_SUCCESS:
             return { ...(action.payload as IResponse), loading: false };

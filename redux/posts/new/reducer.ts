@@ -47,7 +47,7 @@ const tags = (state = '', action: IAction): string => {
     }
 };
 
-const banner = (state = null, action: IAction): File => {
+const banner = (state = null, action: IAction): File | null => {
     switch (action.type) {
         case types.NEW_POST_BANNER:
             return action.payload as File;

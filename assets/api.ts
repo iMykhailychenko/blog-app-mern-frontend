@@ -26,7 +26,7 @@ const api = {
     posts: {
         getPosts: (params: Params): Promise<AxiosResponse<IPost[]>> => axios.get('/posts', { params }),
         getUserPosts: (id: string): Promise<AxiosResponse<IPost[]>> => axios.get(`/posts/user/${id}`),
-        getSinglePost: (id: string, params?: { [key: string]: string | null }): Promise<AxiosResponse<IPost>> =>
+        getSinglePost: ({ id, params }: { id: string; params?: Params }): Promise<AxiosResponse<IPost>> =>
             axios.get(`/posts/${id}`, { params }),
         newPost: (form: FormData): Promise<AxiosResponse<void>> => axios.post('/posts', form),
         deletePost: (id: string): Promise<AxiosResponse<void>> => axios.delete(`/posts/${id}`),

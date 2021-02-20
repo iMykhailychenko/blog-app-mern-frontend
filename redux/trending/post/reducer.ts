@@ -4,7 +4,7 @@ import { IPost, IState } from '../../../interfaces';
 import types from '../../types';
 import { IAction } from './saga';
 
-const post = (state: IPost = null, action: IAction): IPost => {
+const post = (state: IPost | null = null, action: IAction): IPost | null => {
     switch (action.type) {
         case HYDRATE:
             return (action.payload as IState).trending.post;

@@ -15,7 +15,7 @@ const UserAvatar = ({ avatar, name, height = 3.5, width = 3.5 }: IProps): ReactE
         <img
             className={css.avatar}
             style={{ height: `${height}rem`, width: `${width}rem` }}
-            src={config.img + avatar}
+            src={config.back + avatar}
             alt={name}
         />
     ) : (

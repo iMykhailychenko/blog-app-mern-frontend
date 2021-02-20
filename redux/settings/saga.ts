@@ -29,6 +29,7 @@ function* updateAvatar({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.UPDATE_AVATAR_SUCCESS, payload: data });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.UPDATE_AVATAR_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -42,6 +43,7 @@ function* updateUserBanner({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.UPDATE_USER_BANNER_SUCCESS, payload: data });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.UPDATE_USER_BANNER_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -54,6 +56,7 @@ function* updateUserBio({ payload }: IAction) {
         yield put({ type: types.UPDATE_USER_BIO_SUCCESS, payload: data });
         notifications('success', 'Your changes has been successfully saved');
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.UPDATE_USER_BIO_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -66,6 +69,7 @@ function* updateUserInfo({ payload }: IAction) {
         yield put({ type: types.UPDATE_USER_INFO_SUCCESS, payload: data });
         notifications('success', 'Your changes has been successfully saved');
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.UPDATE_USER_INFO_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }

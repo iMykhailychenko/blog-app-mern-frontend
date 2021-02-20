@@ -23,7 +23,7 @@ const followers = (state: IFollowers = INIT, action: IAction): IFollowers => {
             return {
                 data: {
                     ...(action.payload as IFollowersPagination),
-                    users: [...state.data.users, ...(action.payload as IFollowersPagination).users],
+                    users: [...(state.data?.users || []), ...(action.payload as IFollowersPagination).users],
                 },
                 loading: false,
                 more: false,

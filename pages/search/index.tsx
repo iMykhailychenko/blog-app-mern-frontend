@@ -1,4 +1,3 @@
-import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 import queryString from 'query-string';
 import React, { ReactElement, useEffect, useState } from 'react';

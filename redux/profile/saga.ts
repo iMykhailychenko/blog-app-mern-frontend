@@ -13,7 +13,7 @@ export interface IAction {
         | typeof types.FOLLOW_USER_START
         | typeof types.FOLLOW_USER_SUCCESS
         | typeof types.FOLLOW_USER_ERROR;
-    payload: IUser | IState | string | null | IFeedback;
+    payload: IUser | [IUser] | IState | string | null | IFeedback;
 }
 
 function* getProfile({ payload }: IAction) {
@@ -22,6 +22,7 @@ function* getProfile({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_PROFILE_SUCCESS, payload: data });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.GET_PROFILE_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -35,6 +36,7 @@ function* putFollowers({ payload }: IAction) {
         yield put({ type: types.GET_PROFILE_START, payload });
         notifications('success', 'You have successfully ' + data?.type);
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.FOLLOW_USER_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }

@@ -55,7 +55,7 @@ const Queue = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        if (serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
+        if (!serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
         if (!ctx.query?.userId) return;
 
         ctx.store.dispatch({

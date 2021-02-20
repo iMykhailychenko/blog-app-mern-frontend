@@ -30,6 +30,7 @@ function* getQueue({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_QUEUE_SUCCESS, payload: data });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.GET_QUEUE_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -41,8 +42,8 @@ function* moreQueue({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.MORE_QUEUE_SUCCESS, payload: data });
     } catch (error) {
-        yield put({ type: types.MORE_QUEUE_ERROR });
         if (error?.response?.status === 401) return;
+        yield put({ type: types.MORE_QUEUE_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }
@@ -53,6 +54,7 @@ function* putQueue({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.UPDATE_QUEUE_SUCCESS, payload: data.queue });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.UPDATE_QUEUE_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
@@ -65,6 +67,7 @@ function* putQueuePopular({ payload }: IAction) {
         yield put({ type: types.UPDATE_QUEUE_POPULAR_SUCCESS, payload: { data: data.queue, id: payload } });
         yield put({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.UPDATE_QUEUE_POPULAR_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }

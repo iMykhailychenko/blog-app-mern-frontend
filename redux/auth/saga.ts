@@ -57,6 +57,7 @@ function* getUser() {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_USER_INFO_SUCCESS, payload: data });
     } catch (error) {
+        if (error?.response?.status === 401) return;
         yield put({ type: types.GET_USER_INFO_ERROR });
     }
 }

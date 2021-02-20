@@ -42,9 +42,9 @@ const CommentsList = (): ReactElement => {
                             <button
                                 className={css.imgBtn}
                                 type="button"
-                                onClick={handleModal(config.img + comment.attachment)}
+                                onClick={handleModal(config.back + comment.attachment)}
                             >
-                                <img className={css.img} src={config.img + comment.attachment} alt="" />
+                                <img className={css.img} src={config.back + comment.attachment} alt="" />
                             </button>
                         )}
 
@@ -73,9 +73,9 @@ const CommentsList = (): ReactElement => {
                                             <button
                                                 className={css.imgBtn}
                                                 type="button"
-                                                onClick={handleModal(config.img + answer.attachment)}
+                                                onClick={handleModal(config.back + answer.attachment)}
                                             >
-                                                <img className={css.img} src={config.img + answer.attachment} alt="" />
+                                                <img className={css.img} src={config.back + answer.attachment} alt="" />
                                             </button>
                                         )}
 

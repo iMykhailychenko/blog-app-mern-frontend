@@ -49,7 +49,9 @@ const Settings = (): ReactElement => {
 
                     <div className={css.content}>
                         <div className={clsx(css.banner, !profile.banner && css.empty)}>
-                            {profile.banner && <img className={css.banner} src={config.img + profile.banner} alt="" />}
+                            {profile.banner && (
+                                <img className={css.banner} src={config.front + profile.banner} alt="" />
+                            )}
                             <input type="file" onChange={handleUserBanner} className={css.file} />
                             <div className={css.add}>
                                 <div className="add" />
@@ -84,8 +86,9 @@ const Settings = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        if (serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
+        if (!serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
         if (!ctx.query?.userId) return;
+        console.log(ctx.query?.userId);
 
         ctx.store.dispatch({
             type: types.GET_PROFILE_START,

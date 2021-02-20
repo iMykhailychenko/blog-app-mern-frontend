@@ -25,7 +25,7 @@ function* createPost({ router }: IAction) {
         const { status, data } = yield call(api.posts.newPost, form);
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.PUBLISH_POSTS_SUCCESS, payload: data });
-        router.push(routes.posts.single[0](data._id));
+        router?.push(routes.posts.single[0](data._id));
     } catch (error) {
         if (error?.response?.status === 401) return;
         yield put({ type: types.PUBLISH_POSTS_ERROR });

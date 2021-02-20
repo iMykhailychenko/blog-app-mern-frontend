@@ -18,12 +18,15 @@ export interface IAction {
 
 function* getSinglePost({ payload, user }: IAction) {
     try {
-        const { status, data } = yield call(api.posts.getSinglePost, payload as string, { user });
+        const { status, data } = yield call(api.posts.getSinglePost, { id: payload, params: { user } } as {
+            id: string;
+            params: Params;
+        });
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_SINGLE_POST_SUCCESS, payload: data });
     } catch (error) {
-        yield put({ type: types.GET_SINGLE_POST_ERROR });
         if (error?.response?.status === 401) return;
+        yield put({ type: types.GET_SINGLE_POST_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }
@@ -34,8 +37,8 @@ function* deletePost({ payload }: IAction) {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.DELETE_POST_SUCCESS, payload: data });
     } catch (error) {
-        yield put({ type: types.DELETE_POST_ERROR });
         if (error?.response?.status === 401) return;
+        yield put({ type: types.DELETE_POST_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }

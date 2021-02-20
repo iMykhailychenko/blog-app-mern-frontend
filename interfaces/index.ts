@@ -15,7 +15,7 @@ export interface IUser {
     _id: string;
     avatar: string | null;
     name: string;
-    banner: string;
+    banner: string | null;
     bio: null | string;
     feedback: {
         isLiked: 0 | 1;
@@ -53,7 +53,7 @@ export interface IPost {
     feedback: IFeedback;
     queue: 0 | 1;
     edited: string | null;
-    banner: string;
+    banner: string | null;
     tags: string[];
     title: string;
     desc: string;

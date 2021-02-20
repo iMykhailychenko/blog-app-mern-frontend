@@ -25,7 +25,7 @@ export const throttle = (func: IFunction, time: number): IFunction => {
 
 export const addZero = (value: number): string => String(value).padStart(2, '0');
 
-export const formatDate = (str: string | number): string => {
+export const formatDate = (str: string | number | Date): string => {
     const date = new Date(str);
     return `${addZero(date.getDate())}.${addZero(date.getMonth() + 1)}.${date.getFullYear()} ${addZero(
         date.getHours(),

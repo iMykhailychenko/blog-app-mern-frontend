@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

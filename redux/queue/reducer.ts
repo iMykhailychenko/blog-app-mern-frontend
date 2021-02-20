@@ -50,7 +50,10 @@ const queue = (state: IPostList = INIT, action: IAction): IPostList => {
 
         case types.MORE_QUEUE_SUCCESS:
             return {
-                data: { ...state.data, posts: [...state.data.posts, ...(action.payload as IPostPagination).posts] },
+                data: {
+                    ...state.data,
+                    posts: [...(state.data?.posts || []), ...(action.payload as IPostPagination).posts],
+                } as IPostPagination,
                 loading: false,
             };
 

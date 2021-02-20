@@ -19,8 +19,8 @@ function* getTrendingTags() {
         if (status < 200 || status >= 300) throw new Error();
         yield put({ type: types.GET_TRENDING_TAGS_SUCCESS, payload: data });
     } catch (error) {
-        yield put({ type: types.GET_TRENDING_TAGS_ERROR });
         if (error?.response?.status === 401) return;
+        yield put({ type: types.GET_TRENDING_TAGS_ERROR });
         notifications('error', 'Something went wrong. Try to repeat this action again after a while');
     }
 }

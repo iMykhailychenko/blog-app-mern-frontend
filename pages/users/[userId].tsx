@@ -2,7 +2,6 @@ import { faKeyboard, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -62,7 +61,7 @@ const UserProfile = (): ReactElement => {
                     </Aside>
 
                     <div className={css.content}>
-                        {profile.banner && <img className={css.banner} src={config.img + profile.banner} alt="" />}
+                        {profile.banner && <img className={css.banner} src={config.front + profile.banner} alt="" />}
 
                         <div className={css.titleFlex}>
                             <h2 className={css.title}>Profile info</h2>
