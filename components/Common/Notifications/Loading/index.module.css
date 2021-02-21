@@ -1,0 +1,15 @@
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 40rem;
+    padding: 3rem;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 0.1rem solid var(--gray-03);
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 2rem;
+    text-align: center;
+}

@@ -85,7 +85,9 @@ const EditPost = (): ReactElement | null => {
                     ) : null}
 
                     <div className={css.banner}>
-                        {post.banner ? <img className={css.banner} src={config.front + post.banner} alt="" /> : null}
+                        {post.banner ? (
+                            <img className={css.banner} src={config.prod.front + post.banner} alt="" />
+                        ) : null}
                         <input type="file" onChange={handleBannerChange} className={css.file} />
                         <div className={css.add}>
                             <div className="add" />

@@ -1,5 +1,7 @@
+import axios from 'axios';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
@@ -12,6 +14,8 @@ import PostsLoader from '../components/Common/Loader/PostsLoader';
 import QueueLoader from '../components/Common/Loader/QueueLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
+import { modal } from '../components/Common/Modal';
+import notifications from '../components/Common/Notifications';
 import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
 import TrendingPost from '../components/Pages/Home/TrendingPost';
@@ -25,6 +29,7 @@ const QUEUE_LENGTH = 60;
 
 const Home = (): ReactElement => {
     const auth = useAuth();
+    const history = useRouter();
     const dispatch = useDispatch();
     const mobile = useMedia(900);
 
@@ -42,6 +47,17 @@ const Home = (): ReactElement => {
             dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
         }
     }, [auth?.token]);
+
+    useEffect(() => {
+        if (history.query?.token && history.query?.user && !auth?.token) {
+            notifications('loading');
+            axios.defaults.headers.common.Authorization = `Bearer ${history.query?.token}`;
+
+            dispatch({ type: types.LOGIN_SUCCESS, payload: { token: history.query?.token, user: null } });
+            dispatch({ type: types.GET_USER_INFO_START, payload: history.query?.user });
+            history.replace(routes.home, undefined, { shallow: true });
+        }
+    }, [history.query, auth]);
 
     return (
         <>

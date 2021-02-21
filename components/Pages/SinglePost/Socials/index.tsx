@@ -15,7 +15,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`http://www.facebook.com/sharer.php?u=${config.front}/`}
+                    href={`http://www.facebook.com/sharer.php?u=${config.prod.front}/`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -31,7 +31,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`https://telegram.me/share/url?url=${config.front}`}
+                    href={`https://telegram.me/share/url?url=${config.prod.front}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -46,7 +46,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`viber://forward?text=${config.front}/%0D%0A%0D%0A${title}`}
+                    href={`viber://forward?text=${config.prod.front}/%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -67,7 +67,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`whatsapp://send?text=${config.front}%0D%0A%0D%0A${title}`}
+                    href={`whatsapp://send?text=${config.prod.front}%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -98,7 +98,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`https://twitter.com/intent/tweet?url=${config.front}&text=${title}`}
+                    href={`https://twitter.com/intent/tweet?url=${config.prod.front}&text=${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >

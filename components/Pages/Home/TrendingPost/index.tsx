@@ -20,7 +20,7 @@ const TrendingPost = (): ReactElement | null => {
     return trending ? (
         <div
             className={clsx(css.banner, trending?.banner && css.shadow)}
-            style={trending?.banner ? { backgroundImage: `url(${config.back + trending.banner})` } : {}}
+            style={trending?.banner ? { backgroundImage: `url(${config.prod.back + trending.banner})` } : {}}
         >
             <h2 className={css.title}>Post of the day</h2>
 

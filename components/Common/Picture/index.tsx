@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 import css from './index.module.css';
 
@@ -22,8 +22,16 @@ const picture: string[] = [
 ];
 
 const Picture = ({ className }: IProps): ReactElement => {
-    const random = Math.round(Math.random() * 10);
-    return <img className={clsx(css.banner, className)} src={`/img/banners/${picture[random]}`} alt="" />;
+    const [img, setImg] = useState('');
+
+    useEffect(() => {
+        if (process.browser) {
+            const random = Math.round(Math.random() * 10);
+            setImg(`/img/banners/${picture[random]}`);
+        }
+    }, []);
+
+    return <img className={clsx(css.banner, className)} src={img} alt="" />;
 };
 
 export default Picture;

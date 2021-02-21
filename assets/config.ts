@@ -1,17 +1,23 @@
-const dev = 'http://localhost:5000/api';
-const back = 'https://ihor-blog.herokuapp.com/';
-const google = 'https://ihor-blog.herokuapp.com/api/auth/google';
-const front = 'https://blog-eta-teal.vercel.app/';
-
 const config = {
-    dev,
-    back,
-    front,
-    google,
     postPerPage: 6,
     queuePerPage: 5,
     usersPerPage: 40,
-    api: process.env.NODE_ENV === 'production' ? back + 'api' : dev,
+    api: process.env.NODE_ENV === 'production' ? 'https://ihor-blog.herokuapp.com/api' : 'http://localhost:5000/api',
+    google:
+        process.env.NODE_ENV === 'production'
+            ? 'https://ihor-blog.herokuapp.com/api/auth/google/url'
+            : 'http://localhost:5000/api/auth/google/url',
+    dev: {
+        back: 'http://localhost:5000',
+        front: 'http://localhost:5050',
+    },
+    prod: {
+        back: 'https://ihor-blog.herokuapp.com',
+        front: 'https://blog-eta-teal.vercel.app',
+    },
+    img(url = ''): string {
+        return url.includes('http') ? url : this.prod.back + url;
+    },
     colors: {
         A: '#2575f5',
         B: '#17b4f3',

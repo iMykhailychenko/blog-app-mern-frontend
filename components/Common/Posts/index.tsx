@@ -58,7 +58,7 @@ const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
                         <Link href={routes.posts.single[0](item?._id)}>
                             <a className={css.postLink}>
                                 {item.banner && (
-                                    <img className={css.img} src={config.back + item.banner} alt={item.title} />
+                                    <img className={css.img} src={config.img(item.banner)} alt={item.title} />
                                 )}
                                 <div className={css.inner}>
                                     <h4 className={css.title}>{item.title}</h4>

@@ -31,7 +31,7 @@ const AsideProfile = (): ReactElement | null => {
         <div className={css.inner}>
             <button type="button" className={css.btn} onClick={handleClick}>
                 {profile.avatar ? (
-                    <img className={css.avatar} src={config.back + profile.avatar} alt="" />
+                    <img className={css.avatar} src={config.img(profile.avatar)} alt="" />
                 ) : (
                     <p className={css.avatar} style={{ color: config.colors[profile.name[0]] || 'var(--blue-01)' }}>
                         {profile.name[0] + profile.surname[0]}

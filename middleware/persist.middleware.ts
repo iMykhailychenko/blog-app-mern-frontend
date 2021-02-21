@@ -3,7 +3,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 import { Middleware } from 'redux';
 
 import notifications from '../components/Common/Notifications';
-import { IState } from '../interfaces';
+import { IState, IUser } from '../interfaces';
 import initState from '../redux/state';
 import types from '../redux/types';
 
@@ -12,7 +12,7 @@ const Persist: Middleware = store => next => action => {
         /**
          * SET DATA TO STORAGE
          * */
-        if (types.LOGIN_SUCCESS === action.type || types.GET_USER_INFO_SUCCESS === action.type) {
+        if (types.LOGIN_SUCCESS === action.type) {
             try {
                 const state: IState = store.getState();
                 Cookies.set('blog_auth', JSON.stringify({ ...state.auth, ...action.payload }));
@@ -45,7 +45,7 @@ const Persist: Middleware = store => next => action => {
                     'blog_auth',
                     JSON.stringify({
                         ...state.auth,
-                        user: { ...state.auth.user, avatar: action.payload.trim() || null },
+                        user: { ...(state.auth?.user as IUser), avatar: action.payload.trim() || null },
                     }),
                 );
                 next(action);
@@ -76,14 +76,7 @@ const Persist: Middleware = store => next => action => {
             try {
                 const authStr = Cookies.get('blog_auth');
                 const auth = authStr ? JSON.parse(authStr) : initState.auth;
-
-                next({
-                    type: HYDRATE,
-                    payload: {
-                        ...action.payload,
-                        auth,
-                    },
-                });
+                next({ type: HYDRATE, payload: { ...action.payload, auth } });
                 return;
             } catch (error) {
                 notifications('error', 'Oops, Something went wrong. Please, reload your browser and try again');
