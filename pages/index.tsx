@@ -14,7 +14,6 @@ import PostsLoader from '../components/Common/Loader/PostsLoader';
 import QueueLoader from '../components/Common/Loader/QueueLoader';
 import LoadMore from '../components/Common/LoadMore';
 import Meta from '../components/Common/Meta';
-import { modal } from '../components/Common/Modal';
 import notifications from '../components/Common/Notifications';
 import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
