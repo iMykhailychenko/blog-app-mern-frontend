@@ -62,7 +62,7 @@ const SinglePost = (): ReactElement => {
             {post && (
                 <div className={css.container}>
                     <div className={css.content}>
-                        {auth?.user?._id === post?.user?._id && (
+                        {auth?.user?._id === post?.author?.[0]?._id ? (
                             <>
                                 <div key="subtext5" className={clsx(css.subtext, css.manageFlex)}>
                                     <Link href={routes.posts.edit[0](post._id)}>
@@ -77,7 +77,7 @@ const SinglePost = (): ReactElement => {
                                     </button>
                                 </div>
                             </>
-                        )}
+                        ) : null}
 
                         <div className={css.likesHead}>
                             <div>
@@ -135,7 +135,7 @@ const SinglePost = (): ReactElement => {
                             </div>
                         </div>
 
-                        {auth?.user?._id === post?.user?._id && (
+                        {auth?.user?._id === post?.author?.[0]?._id ? (
                             <>
                                 <div key="subtext5" className={clsx(css.subtext, css.manageFlex)}>
                                     <Link href={routes.posts.edit[0](post._id)}>
@@ -150,7 +150,7 @@ const SinglePost = (): ReactElement => {
                                     </button>
                                 </div>
                             </>
-                        )}
+                        ) : null}
 
                         <div key="subtext4" className={css.subtext}>
                             <h4 className={css.author}>Post author:</h4>
