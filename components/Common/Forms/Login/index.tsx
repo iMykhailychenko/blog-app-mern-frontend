@@ -83,7 +83,7 @@ const FormLogin = (): ReactElement => {
 
                     <ul className={css.list}>
                         <li>
-                            <a href={config.google} style={{ background: 'var(--blue-01)' }} className={css.icon}>
+                            <a href={config.facebook} style={{ background: 'var(--blue-01)' }} className={css.icon}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     xmlnsXlink="http://www.w3.org/1999/xlink"

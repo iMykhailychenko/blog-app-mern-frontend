@@ -7,6 +7,10 @@ const config = {
         process.env.NODE_ENV === 'production'
             ? 'https://ihor-blog.herokuapp.com/api/auth/google/url'
             : 'http://localhost:5000/api/auth/google/url',
+    facebook:
+        process.env.NODE_ENV === 'production'
+            ? 'https://ihor-blog.herokuapp.com/api/auth/facebook/url'
+            : 'http://localhost:5000/api/auth/facebook/url',
     dev: {
         back: 'http://localhost:5000',
         front: 'http://localhost:5050',
