@@ -21,7 +21,7 @@ const picture: string[] = [
     '10.jpg',
 ];
 
-const Picture = ({ className }: IProps): ReactElement => {
+const Picture = ({ className }: IProps): ReactElement | null => {
     const [img, setImg] = useState('');
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const Picture = ({ className }: IProps): ReactElement => {
         }
     }, []);
 
-    return <img className={clsx(css.banner, className)} src={img} alt="" />;
+    return img ? <img className={clsx(css.banner, className)} src={img} alt="" /> : null;
 };
 
 export default Picture;
