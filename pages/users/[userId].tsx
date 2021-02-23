@@ -62,7 +62,7 @@ const UserProfile = (): ReactElement => {
 
                     <div className={css.content}>
                         {profile.banner && (
-                            <img className={css.banner} src={config.prod.front + profile.banner} alt="" />
+                            <img className={css.banner} src={config.prod.back + profile.banner} alt="" />
                         )}
 
                         <div className={css.titleFlex}>

@@ -50,7 +50,7 @@ const Settings = (): ReactElement => {
                     <div className={css.content}>
                         <div className={clsx(css.banner, !profile.banner && css.empty)}>
                             {profile.banner && (
-                                <img className={css.banner} src={config.prod.front + profile.banner} alt="" />
+                                <img className={css.banner} src={config.prod.back + profile.banner} alt="" />
                             )}
                             <input type="file" onChange={handleUserBanner} className={css.file} />
                             <div className={css.add}>

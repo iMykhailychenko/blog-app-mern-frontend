@@ -121,7 +121,7 @@ const SinglePost = (): ReactElement => {
                         </div>
 
                         {post.banner && (
-                            <img className={css.banner} src={config.prod.front + post.banner} alt={post.title} />
+                            <img className={css.banner} src={config.prod.back + post.banner} alt={post.title} />
                         )}
 
                         <div className="ready quill">
