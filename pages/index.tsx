@@ -56,6 +56,8 @@ const Home = (): ReactElement => {
             dispatch({ type: types.GET_USER_INFO_START, payload: history.query?.user });
             history.replace(routes.home, undefined, { shallow: true });
         }
+
+        if (history.query.error) notifications('error', history.query.error as string);
     }, [history.query, auth]);
 
     return (
