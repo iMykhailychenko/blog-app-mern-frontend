@@ -19,8 +19,8 @@ import useAuth from '../../components/../hooks/auth.hook';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
 import ProfileBig from '../../components/Common/Profile/ProfileBig';
+import Socials from '../../components/Common/Socials';
 import Comments from '../../components/Pages/SinglePost/Comments';
-import Socials from '../../components/Pages/SinglePost/Socials';
 import { IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
@@ -84,7 +84,12 @@ const SinglePost = (): ReactElement => {
                                 <p key="subtext2" className={css.subtext}>
                                     Share this post in social media:
                                 </p>
-                                <Socials key="socials1" title={post.title} hover />
+                                <Socials
+                                    key="socials1"
+                                    link={routes.posts.single[0](post._id)}
+                                    title={post.title}
+                                    hover
+                                />
                             </div>
 
                             <div>
@@ -161,7 +166,7 @@ const SinglePost = (): ReactElement => {
                             Share this post in social media:
                         </p>
                         <div className={css.likes}>
-                            <Socials key="socials2" title={post.title} hover />
+                            <Socials key="socials2" link={routes.posts.single[0](post._id)} title={post.title} hover />
                         </div>
 
                         <p key="subtext7" className={css.subtext}>

@@ -103,7 +103,7 @@
     margin-right: 1rem;
     border-radius: var(--radius);
     background: none;
-    color: var(--blue-01);
+    color: var(--black);
     transition: 0.3s ease-in-out;
     outline: none;
 }

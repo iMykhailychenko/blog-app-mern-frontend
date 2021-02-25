@@ -41,7 +41,6 @@
     width: 3.5rem;
     background-color: var(--gray-02);
     color: var(--black);
-    border: 0.1rem solid var(--gray-03);
     border-radius: var(--radius);
     font-size: 1.2rem;
     transition: 0.3s ease-in-out;

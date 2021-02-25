@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import config from '../../../../assets/config';
 import routes from '../../../../assets/routes';
 import { IPost, IState } from '../../../../interfaces';
-import Socials from '../../SinglePost/Socials';
+import Socials from '../../../Common/Socials';
 import css from './index.module.css';
 
 const MAX_LENGTH = 200;
@@ -40,7 +40,7 @@ const TrendingPost = (): ReactElement | null => {
                 </Link>
 
                 <div className={css.socials}>
-                    <Socials title={trending.title} fill="var(--white)" />
+                    <Socials title={trending.title} link={routes.posts.single[0](trending._id)} fill="var(--white)" />
                 </div>
             </div>
         </div>

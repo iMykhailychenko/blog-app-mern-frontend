@@ -27,7 +27,6 @@
 
 .btn--gray {
     background-color: var(--gray-02);
-    border: 0.1rem solid var(--gray-03);
 }
 
 .add {

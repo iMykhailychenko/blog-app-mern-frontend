@@ -1,21 +1,23 @@
 import React, { ReactElement } from 'react';
 
-import config from '../../../../assets/config';
+import config from '../../../assets/config';
+import routes from '../../../assets/routes';
 import css from './index.module.css';
 
 interface IProps {
     title: string;
+    link?: string;
     fill?: string;
     hover?: boolean;
 }
 
-const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): ReactElement => {
+const Socials = ({ title, fill = 'var(--gray-03)', link = routes.home, hover = false }: IProps): ReactElement => {
     return (
         <ul className={css.list}>
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`http://www.facebook.com/sharer.php?u=${config.prod.front}/`}
+                    href={`http://www.facebook.com/sharer.php?u=${config.prod.front + link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -31,7 +33,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`https://telegram.me/share/url?url=${config.prod.front}`}
+                    href={`https://telegram.me/share/url?url=${config.prod.front + link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -46,7 +48,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`viber://forward?text=${config.prod.front}/%0D%0A%0D%0A${title}`}
+                    href={`viber://forward?text=${config.prod.front + link}%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -67,7 +69,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`whatsapp://send?text=${config.prod.front}%0D%0A%0D%0A${title}`}
+                    href={`whatsapp://send?text=${config.prod.front + link}%0D%0A%0D%0A${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -98,7 +100,7 @@ const Socials = ({ title, fill = 'var(--gray-03)', hover = false }: IProps): Rea
             <li className={css.item}>
                 <a
                     className={hover ? css.hover : css.link}
-                    href={`https://twitter.com/intent/tweet?url=${config.prod.front}&text=${title}`}
+                    href={`https://twitter.com/intent/tweet?url=${config.prod.front + link}&text=${title}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
