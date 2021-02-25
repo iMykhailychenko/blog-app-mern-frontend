@@ -65,6 +65,7 @@ export interface IPost {
 
 export interface IPostPagination {
     total: number;
+    count: number;
     posts: IPost[];
 }
 
@@ -107,6 +108,7 @@ export interface IComment {
 
 export interface ICommentPagination {
     total: number;
+    count: number;
     comments: IComment[];
 }
 
@@ -121,6 +123,7 @@ export interface ICommentList {
 
 export interface IFollowersPagination {
     total: number;
+    count: number;
     users: IUser[];
 }
 

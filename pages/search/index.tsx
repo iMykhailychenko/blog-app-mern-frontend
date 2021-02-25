@@ -66,7 +66,7 @@ const Search = (): ReactElement => {
             <Meta title="Blog app | Search posts" />
             <SearchForm value={search} onReset={handleReset} onChange={setSearch} onSubmit={handleSubmit} />
             <div className={css.content}>
-                <p className={css.total}>total results: {posts?.data?.total}</p>
+                <p className={css.total}>total results: {posts?.data?.count}</p>
                 <h2 className={css.title}>{isPopular ? 'Popular posts:' : 'Search result:'}</h2>
                 {posts?.data?.posts?.length ? (
                     <>
