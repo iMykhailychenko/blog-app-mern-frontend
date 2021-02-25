@@ -34,6 +34,7 @@ const list = (state: IPostList = INIT, action: IAction): IPostList => {
                 data: {
                     ...state.data,
                     total: (state.data?.total || 2) - 1,
+                    count: (state.data?.count || 2) - 1,
                     posts: state.data?.posts.filter(post => post._id !== (action.payload as string)) || [],
                 },
                 loading: false,
