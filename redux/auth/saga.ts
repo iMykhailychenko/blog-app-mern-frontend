@@ -23,7 +23,10 @@ function* login({ payload }: IAction) {
         yield put({ type: types.LOGIN_SUCCESS, payload: data });
     } catch (error) {
         yield put({ type: types.LOGIN_ERROR });
-        notifications('error', 'Something went wrong. Try to repeat this action again after a while');
+        notifications(
+            'error',
+            error?.response?.data?.massage || 'Something went wrong. Try to repeat this action again after a while',
+        );
     }
 }
 
