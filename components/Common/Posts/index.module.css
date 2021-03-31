@@ -1,6 +1,14 @@
-.column {
+.wrp {
     display: flex;
     flex-direction: column;
+}
+
+.wrp .img {
+    height: 70vh;
+}
+
+.wrp .card {
+    margin-bottom: 10rem;
 }
 
 .list {
@@ -40,8 +48,13 @@
 /* === content === */
 .img {
     height: 32rem;
-    border-radius: var(--radius) var(--radius) 0 0;
     object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.img:hover {
+    transform: scale(1.015) translateY(-1rem);
+    box-shadow: var(--box-shadow-01);
 }
 
 .title {
@@ -115,6 +128,10 @@
 
 /* media rules */
 @media (max-width: 1300px) {
+    .wrp .img {
+        height: 40vh;
+    }
+
     .list {
         margin-left: -3rem;
     }
@@ -131,6 +148,10 @@
 }
 
 @media (max-width: 580px) {
+    .wrp .card {
+        margin-bottom: 6rem;
+    }
+
     .card {
         margin-bottom: 7rem;
     }

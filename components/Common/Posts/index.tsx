@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
+import { useSelector } from 'react-redux';
 
-import { IPost } from '../../../interfaces';
+import { IPost, IState } from '../../../interfaces';
 import css from './index.module.css';
 import SinglePost from './SinglePost';
 
@@ -19,12 +20,13 @@ interface IProps {
     wide?: boolean;
     author?: boolean;
     col?: number;
-    isColumn?: boolean;
 }
 
-const Posts = ({ content, col = 2, author, isColumn = false }: IProps): ReactElement => {
+const Posts = ({ content, col = 2, author }: IProps): ReactElement => {
+    const isColumn = useSelector<IState, boolean>(state => state.config.postColumn);
+
     return isColumn ? (
-        <ul className={css.column}>
+        <ul className={css.wrp}>
             {content?.length && content?.map(item => <SinglePost key={item._id} item={item} author={author} />)}
         </ul>
     ) : (

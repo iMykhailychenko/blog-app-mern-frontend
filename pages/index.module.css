@@ -17,6 +17,9 @@
 }
 
 .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 2rem 0 4rem;
     font-size: 3rem;
     line-height: 1;
@@ -66,6 +69,18 @@
 .queue:hover {
     color: var(--blue-01);
     text-decoration: underline;
+}
+
+.btn {
+    height: 4rem;
+    width: 4rem;
+    padding: 1rem;
+    background: var(--gray-02);
+    border-radius: var(--radius);
+    border: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: var(--box-shadow-02);
+    font-size: 1.6rem;
 }
 
 @media (max-width: 1200px) {

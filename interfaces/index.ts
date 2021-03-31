@@ -140,6 +140,9 @@ export interface IState {
     auth: IAuth | null;
     profile: IUser | null;
     queue: IPostList;
+    config: {
+        postColumn: boolean;
+    };
     trending: {
         post: IPost | null;
         tags: string[];

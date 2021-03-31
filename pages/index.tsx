@@ -1,3 +1,6 @@
+import { faList } from '@fortawesome/free-solid-svg-icons/faList';
+import { faThLarge } from '@fortawesome/free-solid-svg-icons/faThLarge';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -31,11 +34,15 @@ const Home = (): ReactElement => {
     const history = useRouter();
     const dispatch = useDispatch();
     const mobile = useMedia(900);
+    const isColumn = useSelector<IState, boolean>(state => state.config.postColumn);
 
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
     const tags = useSelector<IState, string[]>(state => state.trending.tags);
     const queue = useSelector<IState, IPostList>(state => state.queue);
 
+    const handleClick = (): void => {
+        dispatch({ type: types.POST_IN_COLUMN, payload: !isColumn });
+    };
     const handleMore = (page: number): void => {
         dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
     };
@@ -106,7 +113,12 @@ const Home = (): ReactElement => {
                 <div className={css.content}>
                     <TrendingPost />
 
-                    <h2 className={css.title}>Popular posts</h2>
+                    <h2 className={css.title}>
+                        <span>Popular posts</span>
+                        <button type="button" className={css.btn} onClick={handleClick}>
+                            {isColumn ? <FontAwesomeIcon icon={faList} /> : <FontAwesomeIcon icon={faThLarge} />}
+                        </button>
+                    </h2>
                     {posts.data?.posts ? <Posts content={posts.data?.posts} /> : null}
                     <LoadMore
                         onSubmit={handleMore}

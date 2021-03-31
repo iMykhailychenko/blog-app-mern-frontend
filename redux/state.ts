@@ -6,6 +6,9 @@ const initState: IState = {
         token: null,
         user: null,
     },
+    config: {
+        postColumn: false,
+    },
     profile: null,
     trending: {
         post: null,

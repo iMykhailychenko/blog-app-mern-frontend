@@ -1,8 +1,7 @@
 .banner {
     position: relative;
     margin: 2rem 0 6rem;
-    padding: 9rem 6rem;
-    border-radius: var(--radius);
+    padding: 12rem 6rem;
     color: var(--white);
     background: var(--blue-01);
     background-repeat: no-repeat;
