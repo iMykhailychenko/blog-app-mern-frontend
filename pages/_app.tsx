@@ -33,7 +33,7 @@ const MyApp = ({
     );
 };
 
-MyApp.getInitialProps = async (appContext: AppContextType<Router>) => {
+MyApp.getServerSideProps = async (appContext: AppContextType<Router>) => {
     const toMatch = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i;
     const isMobile = toMatch.test(appContext?.ctx?.req?.headers?.['user-agent'] || '');
 

@@ -31,7 +31,7 @@ const CommentForm = ({ onSubmit, value = '', hasAttachment = true }: IProps): Re
         file && form.append('attachment', file);
         form.append('text', text);
 
-        onSubmit({ id: query.postId, form });
+        onSubmit({ id: String(query.postId), form });
         setText('');
         setFile(null);
     };

@@ -4,7 +4,7 @@ import api from '../../../assets/api';
 import { generateTags } from '../../../assets/helpers';
 import routes from '../../../assets/routes';
 import notifications from '../../../components/Common/Notifications';
-import { INewPost, IState } from '../../../interfaces';
+import { INewPost, IPost, IState } from '../../../interfaces';
 import types from '../../types';
 import { IAction } from './interfaces';
 
@@ -21,11 +21,11 @@ function* getEditPost({ payload }: IAction) {
 }
 
 function* updatePost({ payload, router }: IAction) {
-    const post = yield select((state: IState): INewPost => state.posts.newPost);
+    const post: INewPost = yield select((state: IState): INewPost => state.posts.newPost);
     try {
         const { status, data } = yield call(api.posts.editPost, {
             id: payload as string,
-            form: { ...post, tags: generateTags(post.tags) },
+            form: { ...post, tags: generateTags(post.tags) } as IPost,
         });
         if (status < 200 || status >= 300) throw new Error();
 
