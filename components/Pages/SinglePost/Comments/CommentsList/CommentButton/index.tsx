@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import useAuth from '../../../../../../hooks/auth.hook';
-import { IComment } from '../../../../../../interfaces';
+import { IAuth, IComment, IState } from '../../../../../../interfaces';
 import types from '../../../../../../redux/types';
 import Likes from '../../../../../Common/Likes';
 import { modal } from '../../../../../Common/Modal';
@@ -19,7 +18,8 @@ interface IProps {
 const CommentButton = ({ comment, hasAnswer = false }: IProps): ReactElement => {
     const dispatch = useDispatch();
     const { query } = useRouter();
-    const auth = useAuth();
+
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     const handleDelete = (): void => {
         dispatch({ type: types.DELETE_COMMENT_START, payload: comment._id });

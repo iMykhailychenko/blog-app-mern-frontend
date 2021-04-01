@@ -2,8 +2,8 @@ import { GetServerSidePropsContext } from 'next';
 import dynamic from 'next/dynamic';
 import React, { ReactElement } from 'react';
 
-import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import Meta from '../../../components/Common/Meta';
+import AuthRedirect from '../../../components/HOC/Auth/AuthRedirect';
 import serverRedirect from '../../../components/HOC/ServerRedirect';
 import Banner from '../../../components/Pages/NewPost/Banner';
 import DateText from '../../../components/Pages/NewPost/DateText';

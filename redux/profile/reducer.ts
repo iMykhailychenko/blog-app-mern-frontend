@@ -2,7 +2,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { IFeedback, IState, IUser } from '../../interfaces';
 import types from '../types';
-import { IAction } from './saga';
+import { IAction } from './interfaces';
 
 const profile = (state: IUser | null = null, action: IAction): IUser | null => {
     switch (action.type) {

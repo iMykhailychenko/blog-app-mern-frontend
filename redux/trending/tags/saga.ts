@@ -2,16 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
 import notifications from '../../../components/Common/Notifications';
-import { IState } from '../../../interfaces';
 import types from '../../types';
-
-export interface IAction {
-    type:
-        | typeof types.GET_TRENDING_TAGS_START
-        | typeof types.GET_TRENDING_TAGS_SUCCESS
-        | typeof types.GET_TRENDING_TAGS_ERROR;
-    payload: IState | string[] | null;
-}
 
 function* getTrendingTags() {
     try {

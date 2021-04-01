@@ -1,3 +1,5 @@
+import cookie from 'cookie';
+
 export const debounce = <M extends [], S extends (...args: M) => void>(func: S, waitFor: number): S => {
     const timeout = 0;
 
@@ -39,12 +41,17 @@ export const generateTags = (str: string): string[] => {
 };
 
 // decode data from cookie
-export const decode = (cookie = ''): string => decodeURI(cookie).replace(/\\"/gi, '');
+export const decode = (value = ''): string => decodeURI(value).replace(/\\"/gi, '');
 
 // parse cookie on server
-export const parseCookie = <T>(cookie = '', key = 'blog_auth='): T | null => {
+interface IParseCookieParams {
+    value?: string;
+    key?: string;
+    parsed?: boolean;
+}
+export const parseCookie = <T>({ value = '', key = 'blog_auth', parsed = false }: IParseCookieParams): T | null => {
     try {
-        return JSON.parse(decode(cookie).replace(/\+/g, ' ').replace(/%2C/gi, ',').split(key)[1]);
+        return parsed ? cookie.parse(value)[key] || null : JSON.parse(cookie.parse(value)[key]);
     } catch (error) {
         return null;
     }

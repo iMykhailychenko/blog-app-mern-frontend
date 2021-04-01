@@ -1,4 +1,3 @@
-import { NextRouter } from 'next/router';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
@@ -6,11 +5,7 @@ import routes from '../../../assets/routes';
 import notifications from '../../../components/Common/Notifications';
 import { INewPost, IState } from '../../../interfaces';
 import types from '../../types';
-
-interface IAction {
-    type: typeof types.PUBLISH_POSTS_SUCCESS | typeof types.PUBLISH_POSTS_START | typeof types.PUBLISH_POSTS_ERROR;
-    router: NextRouter | null;
-}
+import { IAction } from './interfaces';
 
 function* createPost({ router }: IAction) {
     try {

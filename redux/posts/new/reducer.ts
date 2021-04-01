@@ -2,16 +2,7 @@ import { combineReducers } from 'redux';
 
 import { IPost } from '../../../interfaces';
 import types from '../../types';
-
-interface IAction {
-    type:
-        | typeof types.NEW_POST_TITLE
-        | typeof types.NEW_POST_TAGS
-        | typeof types.NEW_POST_DESC
-        | typeof types.NEW_POST_BANNER
-        | typeof types.NEW_POST_CONTENT;
-    payload: string | File | null | IPost;
-}
+import { IAction } from './interfaces';
 
 const title = (state = '', action: IAction): string => {
     switch (action.type) {

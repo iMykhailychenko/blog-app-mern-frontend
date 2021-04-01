@@ -10,7 +10,6 @@ import { END } from 'redux-saga';
 import config from '../../assets/config';
 import { bioHTML } from '../../assets/helpers';
 import routes from '../../assets/routes';
-import useAuth from '../../components/../hooks/auth.hook';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
@@ -20,15 +19,15 @@ import ProfileSmall from '../../components/Common/Profile/ProfileSmall';
 import Aside from '../../components/Layout/Aside';
 import AsideProfile from '../../components/Pages/Users/AsideProfile';
 import FollowersModal from '../../components/Pages/Users/FollowersModal';
-import { IPostList, IState, IStore, IUser } from '../../interfaces';
+import { IAuth, IPostList, IState, IStore, IUser } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
 
 const UserProfile = (): ReactElement => {
-    const auth = useAuth();
     const dispatch = useDispatch();
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const profile = useSelector<IState, IUser | null>(state => state.profile);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
 

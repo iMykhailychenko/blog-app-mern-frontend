@@ -4,25 +4,8 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import api from '../../assets/api';
 import config from '../../assets/config';
 import notifications from '../../components/Common/Notifications';
-import { IPostPagination, IState } from '../../interfaces';
 import types from '../types';
-
-export interface IAction {
-    type:
-        | typeof types.GET_QUEUE_START
-        | typeof types.GET_QUEUE_SUCCESS
-        | typeof types.GET_QUEUE_ERROR
-        | typeof types.MORE_QUEUE_START
-        | typeof types.MORE_QUEUE_SUCCESS
-        | typeof types.MORE_QUEUE_ERROR
-        | typeof types.UPDATE_QUEUE_POPULAR_START
-        | typeof types.UPDATE_QUEUE_POPULAR_SUCCESS
-        | typeof types.UPDATE_QUEUE_POPULAR_ERROR
-        | typeof types.UPDATE_QUEUE_START
-        | typeof types.UPDATE_QUEUE_SUCCESS
-        | typeof types.UPDATE_QUEUE_ERROR;
-    payload: IPostPagination | IState | Params | string | null;
-}
+import { IAction } from './interfaces';
 
 function* getQueue({ payload }: IAction) {
     try {

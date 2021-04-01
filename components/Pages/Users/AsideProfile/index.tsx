@@ -8,17 +8,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import config from '../../../../assets/config';
 import routes from '../../../../assets/routes';
-import useAuth from '../../../../hooks/auth.hook';
-import { IState, IUser } from '../../../../interfaces';
+import { IAuth, IState, IUser } from '../../../../interfaces';
 import types from '../../../../redux/types';
 import Likes from '../../../Common/Likes';
 import css from './index.module.css';
 
 const AsideProfile = (): ReactElement | null => {
-    const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const profile = useSelector<IState, IUser | null>(state => state.profile);
 
     const handleSubscribe = (): void => {

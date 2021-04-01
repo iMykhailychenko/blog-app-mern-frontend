@@ -3,43 +3,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import api from '../../assets/api';
 import notifications from '../../components/Common/Notifications';
 import types from '../types';
-
-interface IPOSTComment {
-    id: string;
-    form: FormData;
-}
-
-interface IPUTComment {
-    id: string;
-    comment: string;
-    form: FormData;
-}
-
-interface IPOSTAnswer {
-    id: string;
-    comment: string;
-    form: FormData;
-}
-
-interface IAction {
-    type:
-        | typeof types.GET_COMMENTS_START
-        | typeof types.GET_COMMENTS_SUCCESS
-        | typeof types.GET_COMMENTS_ERROR
-        | typeof types.POST_ANSWER_START
-        | typeof types.POST_ANSWER_SUCCESS
-        | typeof types.POST_ANSWER_ERROR
-        | typeof types.POST_COMMENT_START
-        | typeof types.POST_COMMENT_SUCCESS
-        | typeof types.POST_COMMENT_ERROR
-        | typeof types.EDIT_COMMENT_START
-        | typeof types.EDIT_COMMENT_SUCCESS
-        | typeof types.EDIT_COMMENT_ERROR
-        | typeof types.DELETE_COMMENT_START
-        | typeof types.DELETE_COMMENT_SUCCESS
-        | typeof types.DELETE_COMMENT_ERROR;
-    payload: string | IPOSTComment | IPOSTAnswer;
-}
+import { IAction, IPOSTAnswer, IPOSTComment, IPUTComment } from './interfaces';
 
 function* getComments({ payload }: IAction) {
     try {

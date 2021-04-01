@@ -2,7 +2,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { IPost, IState } from '../../../interfaces';
 import types from '../../types';
-import { IAction } from './saga';
+import { IAction } from './interfaces';
 
 const post = (state: IPost | null = null, action: IAction): IPost | null => {
     switch (action.type) {

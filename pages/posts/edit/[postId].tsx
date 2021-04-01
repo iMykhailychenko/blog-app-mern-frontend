@@ -8,9 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../../assets/config';
-import useAuth from '../../../components/../hooks/auth.hook';
-import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import Meta from '../../../components/Common/Meta';
+import AuthRedirect from '../../../components/HOC/Auth/AuthRedirect';
 import serverRedirect from '../../../components/HOC/ServerRedirect';
 import DateText from '../../../components/Pages/NewPost/DateText';
 import Desc from '../../../components/Pages/NewPost/Desc';
@@ -25,10 +24,10 @@ import css from '../new_post/index.module.css';
 const ContentEditor = dynamic(() => import('../../../components/Pages/NewPost/ContentEditor'), { ssr: false });
 
 const EditPost = (): ReactElement | null => {
-    const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const post = useSelector<IState, IPost | null>(state => state.posts.single.data);
 
     const handleBannerChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -108,14 +107,13 @@ const EditPost = (): ReactElement | null => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        const auth: IAuth | null = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
+        const auth: string | null = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
         if (!auth) return;
         if (!ctx.query?.postId) return;
 
         ctx.store.dispatch({
             type: types.GET_SINGLE_POST_START,
             payload: ctx.query.postId,
-            user: (auth as IAuth | null)?.user?._id,
         });
         ctx.store.dispatch(END);
         await (ctx?.store as IStore)?.sagaTask?.toPromise();

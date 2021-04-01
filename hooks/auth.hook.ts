@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 
-import { Auth } from '../components/HOC/AuthContext';
-import { IAuth } from '../interfaces';
+import { Auth } from '../components/HOC/Auth/AuthContext';
 
-const useAuth = (): IAuth | null => {
+const useAuth = (): string | null => {
     const [value] = useContext(Auth);
     return value;
 };

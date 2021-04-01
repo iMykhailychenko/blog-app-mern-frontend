@@ -2,14 +2,16 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement } from 'react';
+import { useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
-import useAuth from '../../../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../../../interfaces';
 import css from '../index.module.css';
 
 const DesktopNav = (): ReactElement => {
-    const auth = useAuth();
     const history = useRouter();
+
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     return (
         <ul className={clsx(css.list, css.open)}>

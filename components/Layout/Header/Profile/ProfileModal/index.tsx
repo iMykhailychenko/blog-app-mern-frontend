@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React, { MouseEvent, ReactElement, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
-import useAuth from '../../../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../../../interfaces';
 import types from '../../../../../redux/types';
 import css from '../index.module.css';
 
@@ -13,9 +13,9 @@ interface IProps {
 }
 
 const ProfileModal = ({ onClick }: IProps): ReactElement | null => {
-    const auth = useAuth();
     const dispatch = useDispatch();
     const body = document.querySelector('body');
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     const handleLogout = (): void => {
         onClick();

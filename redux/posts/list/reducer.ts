@@ -2,7 +2,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { IFeedback, IPostList, IPostPagination, IState } from '../../../interfaces';
 import types from '../../types';
-import { IAction } from './saga';
+import { IAction } from './interfaces';
 
 const INIT: IPostList = {
     loading: true,

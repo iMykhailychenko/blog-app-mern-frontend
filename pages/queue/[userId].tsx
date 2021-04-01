@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import AuthRedirect from '../../components/Common/Auth/AuthRedirect';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
 import Posts from '../../components/Common/Posts';
+import AuthRedirect from '../../components/HOC/Auth/AuthRedirect';
 import serverRedirect from '../../components/HOC/ServerRedirect';
 import Aside from '../../components/Layout/Aside';
 import AsideProfile from '../../components/Pages/Users/AsideProfile';

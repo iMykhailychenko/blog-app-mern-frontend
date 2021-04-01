@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 
-import AuthRedirect from '../../../components/Common/Auth/AuthRedirect';
 import FormLogin from '../../../components/Common/Forms/Login';
 import Meta from '../../../components/Common/Meta';
 import Picture from '../../../components/Common/Picture';
+import AuthRedirect from '../../../components/HOC/Auth/AuthRedirect';
 import css from '../index.module.css';
 
 const Login = (): ReactElement => {

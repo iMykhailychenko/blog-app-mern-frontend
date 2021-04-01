@@ -2,17 +2,17 @@ import { faBell, faChevronDown, faPlus, faSearch } from '@fortawesome/free-solid
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
-import useAuth from '../../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../../interfaces';
 import UserAvatar from '../../../Common/UserAvatar';
 import css from './index.module.css';
 import NewsModal from './NewsModal';
 import ProfileModal from './ProfileModal';
 
 const Profile = (): ReactElement => {
-    const auth = useAuth();
-
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const [dropdown, setDropdown] = useState({ profile: false, news: false });
     const handleDropProfile = (): void => {
         setDropdown({ ...dropdown, profile: !dropdown.profile });

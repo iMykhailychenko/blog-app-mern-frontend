@@ -4,9 +4,9 @@ import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
 import routes from '../../assets/routes';
-import AuthRedirect from '../../components/Common/Auth/AuthRedirect';
 import Meta from '../../components/Common/Meta';
 import Picture from '../../components/Common/Picture';
+import AuthRedirect from '../../components/HOC/Auth/AuthRedirect';
 import serverRedirect from '../../components/HOC/ServerRedirect';
 import PageTitle from '../../components/Layout/PageTitle';
 import { wrapper } from '../../redux/store';

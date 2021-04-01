@@ -1,32 +1,9 @@
-import { Params } from '@fortawesome/fontawesome-svg-core';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../assets/api';
 import notifications from '../../components/Common/Notifications';
-import { IFollowers, IFollowersPagination, IState } from '../../interfaces';
 import types from '../types';
-
-interface IPayload {
-    id: string;
-    params: Params;
-}
-
-export interface IAction {
-    type:
-        | typeof types.GET_FOLLOWERS_START
-        | typeof types.GET_FOLLOWERS_SUCCESS
-        | typeof types.GET_FOLLOWERS_ERROR
-        | typeof types.MORE_FOLLOWERS_START
-        | typeof types.MORE_FOLLOWERS_SUCCESS
-        | typeof types.MORE_FOLLOWERS_ERROR
-        | typeof types.GET_FOLLOWING_START
-        | typeof types.GET_FOLLOWING_SUCCESS
-        | typeof types.GET_FOLLOWING_ERROR
-        | typeof types.MORE_FOLLOWING_START
-        | typeof types.MORE_FOLLOWING_SUCCESS
-        | typeof types.MORE_FOLLOWING_ERROR;
-    payload: IState | IFollowers | IFollowersPagination | IPayload | string | null;
-}
+import { IAction, IPayload } from './interfaces';
 
 function* getFollowers({ payload }: IAction) {
     try {

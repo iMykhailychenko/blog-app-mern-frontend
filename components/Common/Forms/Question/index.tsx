@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { ReactElement } from 'react';
+import { useSelector } from 'react-redux';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import useAuth from '../../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../../interfaces';
 import css from './index.module.css';
 
 interface Values {
@@ -25,7 +26,7 @@ const initialValues: Values = {
 // const validEmail: RegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const Question = (): ReactElement => {
-    const auth = useAuth();
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     return (
         <Formik

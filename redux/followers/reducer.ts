@@ -2,7 +2,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { IFollowers, IFollowersPagination, IState } from '../../interfaces';
 import types from '../types';
-import { IAction } from './saga';
+import { IAction } from './interfaces';
 
 const INIT: IFollowers = { data: null, loading: true, more: true };
 const followers = (state: IFollowers = INIT, action: IAction): IFollowers => {

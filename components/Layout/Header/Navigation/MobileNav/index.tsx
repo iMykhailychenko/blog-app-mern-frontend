@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
+import { useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
-import useAuth from '../../../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../../../interfaces';
 import css from '../index.module.css';
 
 interface IProps {
@@ -12,8 +13,8 @@ interface IProps {
 }
 
 const MobileNav = ({ className, onClick }: IProps): ReactElement | null => {
-    const auth = useAuth();
     const body = document.querySelector('body');
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     return body
         ? ReactDOM.createPortal(

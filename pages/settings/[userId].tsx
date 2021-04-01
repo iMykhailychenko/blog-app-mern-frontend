@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import AuthRedirect from '../../components/Common/Auth/AuthRedirect';
 import ChangePass from '../../components/Common/Forms/Settings/ChangePass';
 import UserBio from '../../components/Common/Forms/Settings/UserBio';
 import UserInfo from '../../components/Common/Forms/Settings/UserInfo';
 import Meta from '../../components/Common/Meta';
+import AuthRedirect from '../../components/HOC/Auth/AuthRedirect';
 import serverRedirect from '../../components/HOC/ServerRedirect';
 import Aside from '../../components/Layout/Aside';
 import AsideProfile from '../../components/Pages/Settings/AsideProfile';

@@ -3,9 +3,9 @@ import { faBookmark as faBookmarkSolid, faEye, faThumbsDown, faThumbsUp } from '
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import useAuth from '../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../interfaces';
 import css from './index.module.css';
 
 interface IProps {
@@ -27,7 +27,7 @@ interface IProps {
 
 const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, queue }: IProps): ReactElement => {
     const dispatch = useDispatch();
-    const auth = useAuth();
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     const handleLike = (): void => {
         if (!targetId || !typeLike) return;

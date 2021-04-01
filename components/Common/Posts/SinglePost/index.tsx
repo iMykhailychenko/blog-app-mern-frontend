@@ -9,8 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import config from '../../../../assets/config';
 import { formatDate } from '../../../../assets/helpers';
 import routes from '../../../../assets/routes';
-import useAuth from '../../../../hooks/auth.hook';
-import { IPost, IState, IUser } from '../../../../interfaces';
+import { IAuth, IPost, IState, IUser } from '../../../../interfaces';
 import types from '../../../../redux/types';
 import Likes from '../../Likes';
 import ProfileBig from '../../Profile/ProfileBig';
@@ -24,10 +23,10 @@ interface IProps {
 }
 
 const SinglePost = ({ item, author }: IProps): ReactElement => {
-    const auth = useAuth();
     const { query } = useRouter();
     const dispatch = useDispatch();
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const profile = useSelector<IState, IUser | null>(state => state.profile);
 
     const handleDelete = (): void => {

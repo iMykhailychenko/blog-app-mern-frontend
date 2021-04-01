@@ -3,22 +3,8 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import api from '../../../assets/api';
 import notifications from '../../../components/Common/Notifications';
-import { IFeedback, IPost, IPostPagination, IState } from '../../../interfaces';
 import types from '../../types';
-
-export interface IAction {
-    type:
-        | typeof types.GET_POSTS_START
-        | typeof types.GET_POSTS_SUCCESS
-        | typeof types.GET_POSTS_ERROR
-        | typeof types.MORE_POSTS_START
-        | typeof types.MORE_POSTS_SUCCESS
-        | typeof types.MORE_POSTS_ERROR
-        | typeof types.GET_USER_POSTS_START
-        | typeof types.GET_USER_POSTS_SUCCESS
-        | typeof types.GET_USER_POSTS_ERROR;
-    payload: IPostPagination | IState | IPost | Params | string | null | { data?: IFeedback | 1 | 0; id?: string };
-}
+import { IAction } from './interfaces';
 
 function* getPosts({ payload }: IAction) {
     try {

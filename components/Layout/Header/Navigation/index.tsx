@@ -4,19 +4,20 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { Router } from 'next/router';
 import React, { ReactElement, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
-import useAuth from '../../../../hooks/auth.hook';
 import useMedia from '../../../../hooks/media.hook';
+import { IAuth, IState } from '../../../../interfaces';
 import Profile from '../Profile';
 import DesktopNav from './DesktopNav';
 import css from './index.module.css';
 import MobileNav from './MobileNav';
 
 const Navigation = (): ReactElement => {
-    const auth = useAuth();
     const mobile = useMedia(768);
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const [menu, setMenu] = useState<boolean>(false);
 
     const handleClose = (): void => {

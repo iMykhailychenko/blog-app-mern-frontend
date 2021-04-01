@@ -8,18 +8,22 @@ import React, { ReactElement } from 'react';
 
 import { parseCookie } from '../assets/helpers';
 import interceptors from '../assets/interceptors';
-import AuthProvider from '../components/HOC/AuthContext';
+import AuthProvider from '../components/HOC/Auth/AuthContext';
 import MediaProvider from '../components/HOC/Media';
 import Layout from '../components/Layout/Layout';
-import { IAuth } from '../interfaces';
 import { wrapper } from '../redux/store';
 
-const MyApp = ({ Component, pageProps, width, auth }: AppProps & { width: number; auth: IAuth }): ReactElement => {
+const MyApp = ({
+    Component,
+    pageProps,
+    width,
+    token,
+}: AppProps & { width: number; token: string | null }): ReactElement => {
     const history = useRouter();
     interceptors({ history });
 
     return (
-        <AuthProvider authServer={auth}>
+        <AuthProvider tokenServer={token}>
             <MediaProvider width={width}>
                 <Layout>
                     <Component {...pageProps} />
@@ -33,10 +37,11 @@ MyApp.getInitialProps = async (appContext: AppContextType<Router>) => {
     const toMatch = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i;
     const isMobile = toMatch.test(appContext?.ctx?.req?.headers?.['user-agent'] || '');
 
+    const token = parseCookie<string | null>({ value: appContext?.ctx?.req?.headers?.cookie, parsed: true });
+    if (token) axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+
     const props = await App.getInitialProps(appContext);
-    const auth = parseCookie<IAuth>(appContext?.ctx?.req?.headers?.cookie);
-    if (auth?.token) axios.defaults.headers.common.Authorization = `Bearer ${auth?.token}`;
-    return { ...props, width: isMobile ? 500 : 1400, auth };
+    return { ...props, width: isMobile ? 500 : 1400, token };
 };
 
 export default wrapper.withRedux(MyApp);

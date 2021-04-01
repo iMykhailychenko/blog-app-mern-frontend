@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import routes from '../../../../../assets/routes';
-import useAuth from '../../../../../hooks/auth.hook';
+import { IAuth, IState } from '../../../../../interfaces';
 import types from '../../../../../redux/types';
 import ProfileBig from '../../../../Common/Profile/ProfileBig';
 import CommentForm from '../CommentForm';
@@ -11,7 +11,7 @@ import css from './index.module.css';
 
 const NewComment = (): ReactElement => {
     const dispatch = useDispatch();
-    const auth = useAuth();
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
 
     const handleSubmit = (payload: { id: string | string[]; form: FormData }): void => {
         dispatch({ type: types.POST_COMMENT_START, payload });

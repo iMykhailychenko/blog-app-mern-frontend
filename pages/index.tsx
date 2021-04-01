@@ -1,6 +1,3 @@
-import { faList } from '@fortawesome/free-solid-svg-icons/faList';
-import { faThLarge } from '@fortawesome/free-solid-svg-icons/faThLarge';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -11,7 +8,6 @@ import { END } from 'redux-saga';
 
 import config from '../assets/config';
 import routes from '../assets/routes';
-import useAuth from '../components/../hooks/auth.hook';
 import FormLogin from '../components/Common/Forms/Login';
 import PostsLoader from '../components/Common/Loader/PostsLoader';
 import QueueLoader from '../components/Common/Loader/QueueLoader';
@@ -22,7 +18,7 @@ import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
 import TrendingPost from '../components/Pages/Home/TrendingPost';
 import useMedia from '../hooks/media.hook';
-import { IPostList, IState, IStore } from '../interfaces';
+import { IAuth, IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';
 import types from '../redux/types';
 import css from './index.module.css';
@@ -30,19 +26,15 @@ import css from './index.module.css';
 const QUEUE_LENGTH = 60;
 
 const Home = (): ReactElement => {
-    const auth = useAuth();
     const history = useRouter();
     const dispatch = useDispatch();
     const mobile = useMedia(900);
-    const isColumn = useSelector<IState, boolean>(state => state.config.postColumn);
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const posts = useSelector<IState, IPostList>(state => state.posts.list);
     const tags = useSelector<IState, string[]>(state => state.trending.tags);
     const queue = useSelector<IState, IPostList>(state => state.queue);
 
-    const handleClick = (): void => {
-        dispatch({ type: types.POST_IN_COLUMN, payload: !isColumn });
-    };
     const handleMore = (page: number): void => {
         dispatch({ type: types.MORE_POSTS_START, payload: { page, limit: config.postPerPage } });
     };
@@ -113,12 +105,7 @@ const Home = (): ReactElement => {
                 <div className={css.content}>
                     <TrendingPost />
 
-                    <h2 className={css.title}>
-                        <span>Popular posts</span>
-                        <button type="button" className={css.btn} onClick={handleClick}>
-                            {isColumn ? <FontAwesomeIcon icon={faList} /> : <FontAwesomeIcon icon={faThLarge} />}
-                        </button>
-                    </h2>
+                    <h2 className={css.title}>Popular posts</h2>
                     {posts.data?.posts ? <Posts content={posts.data?.posts} /> : null}
                     <LoadMore
                         onSubmit={handleMore}

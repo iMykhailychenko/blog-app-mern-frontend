@@ -15,23 +15,22 @@ import { END } from 'redux-saga';
 import config from '../../assets/config';
 import { formatDate } from '../../assets/helpers';
 import routes from '../../assets/routes';
-import useAuth from '../../components/../hooks/auth.hook';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
 import ProfileBig from '../../components/Common/Profile/ProfileBig';
 import Socials from '../../components/Common/Socials';
 import Comments from '../../components/Pages/SinglePost/Comments';
-import { IPost, IState, IStore } from '../../interfaces';
+import { IAuth, IPost, IState, IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
 
 const SinglePost = (): ReactElement => {
     const ref = useRef<HTMLDivElement>(null);
-    const auth = useAuth();
     const router = useRouter();
     const dispatch = useDispatch();
 
+    const auth = useSelector<IState, IAuth | null>(state => state.auth);
     const post = useSelector<IState, IPost | null>(state => state.posts.single.data);
 
     const start = (): void => {

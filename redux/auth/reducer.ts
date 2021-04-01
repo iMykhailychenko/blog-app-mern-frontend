@@ -2,7 +2,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { IAuth, IState, IUser } from '../../interfaces';
 import types from '../types';
-import { IAction, IResponse } from './saga';
+import { IAction, IResponse } from './interfaces';
 
 const INIT: IAuth = {
     loading: false,
