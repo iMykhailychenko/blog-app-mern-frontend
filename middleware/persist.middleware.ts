@@ -6,7 +6,7 @@ import { Middleware } from 'redux';
 import notifications from '../components/Common/Notifications';
 import types from '../redux/types';
 
-const Persist: Middleware = store => next => action => {
+const Persist: Middleware = () => next => action => {
     if (process.browser) {
         switch (action.type) {
             case types.LOGIN_SUCCESS:

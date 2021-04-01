@@ -5,7 +5,6 @@ import Link from 'next/link';
 import React, { ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import config from '../../../../assets/config';
 import routes from '../../../../assets/routes';
 import types from '../../../../redux/types';
 import GoogleFacebook from '../../GoogleFacebook';

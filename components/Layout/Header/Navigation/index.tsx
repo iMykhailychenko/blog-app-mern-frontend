@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { Router } from 'next/router';
 import React, { ReactElement, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import routes from '../../../../assets/routes';
 import useAuth from '../../../../hooks/auth.hook';
