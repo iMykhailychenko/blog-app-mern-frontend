@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Cookies from 'js-cookie';
 import { HYDRATE } from 'next-redux-wrapper';
 import { Middleware } from 'redux';
@@ -5,7 +6,7 @@ import { Middleware } from 'redux';
 import notifications from '../components/Common/Notifications';
 import types from '../redux/types';
 
-const Persist: Middleware = () => next => action => {
+const Persist: Middleware = store => next => action => {
     if (process.browser) {
         switch (action.type) {
             case types.LOGIN_SUCCESS:
@@ -30,9 +31,6 @@ const Persist: Middleware = () => next => action => {
                 }
                 break;
 
-            /**
-             * HYDRATE ACTION
-             * */
             case HYDRATE:
                 try {
                     const token = Cookies.get('blog_auth') || null;
@@ -49,8 +47,22 @@ const Persist: Middleware = () => next => action => {
         }
     }
 
-    // Do stuff
-    next(action);
+    if (!process.browser) {
+        switch (action.type) {
+            case HYDRATE:
+                try {
+                    const token = axios.defaults.headers.common.Authorization.replace('Bearer ', '');
+                    next({ type: HYDRATE, payload: { ...action.payload, auth: { ...action.payload.auth, token } } });
+                } catch (error) {
+                    console.dir(error);
+                    next(action);
+                }
+                break;
+
+            default:
+                next(action);
+        }
+    }
 };
 
 export default Persist;

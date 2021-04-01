@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React, { ReactElement } from 'react';
 
 import routes from '../../../../assets/routes';
-// import { useDispatch } from 'react-redux';
 import css from './index.module.css';
 
 interface Values {

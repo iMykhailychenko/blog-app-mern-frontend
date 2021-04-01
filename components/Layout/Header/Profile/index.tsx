@@ -13,6 +13,7 @@ import ProfileModal from './ProfileModal';
 
 const Profile = (): ReactElement => {
     const auth = useSelector<IState, IAuth | null>(state => state.auth);
+
     const [dropdown, setDropdown] = useState({ profile: false, news: false });
     const handleDropProfile = (): void => {
         setDropdown({ ...dropdown, profile: !dropdown.profile });

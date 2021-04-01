@@ -10,6 +10,7 @@ const AuthInterceptor = (): null => {
     const token = useSelector<IState, string | null>(state => state.auth?.token || null);
 
     useEffect(() => {
+        console.log({ AuthInterceptor: token });
         if (token) {
             axios.defaults.headers.common.Authorization = `Bearer ${token}`;
             dispatch({ type: types.GET_USER_INFO_START });

@@ -17,6 +17,7 @@ import notifications from '../components/Common/Notifications';
 import Posts from '../components/Common/Posts';
 import Aside from '../components/Layout/Aside';
 import TrendingPost from '../components/Pages/Home/TrendingPost';
+import useAuth from '../hooks/auth.hook';
 import useMedia from '../hooks/media.hook';
 import { IAuth, IPostList, IState, IStore } from '../interfaces';
 import { wrapper } from '../redux/store';
@@ -26,6 +27,7 @@ import css from './index.module.css';
 const QUEUE_LENGTH = 60;
 
 const Home = (): ReactElement => {
+    const token = useAuth();
     const history = useRouter();
     const dispatch = useDispatch();
     const mobile = useMedia(900);
@@ -40,14 +42,14 @@ const Home = (): ReactElement => {
     };
 
     useEffect(() => {
-        if (auth?.token) {
+        if (token) {
             dispatch({ type: types.GET_POSTS_START, payload: { page: 1, limit: config.queuePerPage } });
             dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
         }
-    }, [auth?.token]);
+    }, [token]);
 
     useEffect(() => {
-        if (history.query?.token && history.query?.user && !auth?.token) {
+        if (history.query?.token && history.query?.user && !token) {
             notifications('loading');
             axios.defaults.headers.common.Authorization = `Bearer ${history.query?.token}`;
 
@@ -64,7 +66,7 @@ const Home = (): ReactElement => {
             <Meta />
             <main className={clsx(css.main, 'container')}>
                 <Aside>
-                    {!auth?.token && mobile && <FormLogin />}
+                    {!token && mobile && <FormLogin />}
 
                     <h3 className={css.subtitle}>Trending:</h3>
                     <div className={css.tags}>
@@ -75,7 +77,7 @@ const Home = (): ReactElement => {
                         ))}
                     </div>
 
-                    {auth?.token ? (
+                    {token ? (
                         <>
                             <h3 className={css.subtitle}>Queue:</h3>
                             <QueueLoader loading={queue.loading} isEmpty={!queue?.data?.posts?.length}>

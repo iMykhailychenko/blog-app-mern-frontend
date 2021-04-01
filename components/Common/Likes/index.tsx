@@ -3,9 +3,9 @@ import { faBookmark as faBookmarkSolid, faEye, faThumbsDown, faThumbsUp } from '
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { IAuth, IState } from '../../../interfaces';
+import useAuth from '../../../hooks/auth.hook';
 import css from './index.module.css';
 
 interface IProps {
@@ -27,7 +27,7 @@ interface IProps {
 
 const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, queue }: IProps): ReactElement => {
     const dispatch = useDispatch();
-    const auth = useSelector<IState, IAuth | null>(state => state.auth);
+    const auth = useAuth();
 
     const handleLike = (): void => {
         if (!targetId || !typeLike) return;
@@ -43,7 +43,7 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, q
     };
 
     return (
-        <ul className={css.list} style={auth?.token ? {} : { pointerEvents: 'none' }}>
+        <ul className={css.list} style={auth ? {} : { pointerEvents: 'none' }}>
             <li
                 className={clsx(css.item, feedback.isLiked && css.active)}
                 title="like"
@@ -75,7 +75,7 @@ const Likes = ({ targetId, postId, typeLike, typeDislike, feedback, typeQueue, q
                 </li>
             ) : null}
 
-            {typeQueue && auth?.token ? (
+            {typeQueue && auth ? (
                 <li
                     className={clsx(css.item, queue && css.active)}
                     title="read later"
