@@ -2,13 +2,14 @@ import { faKeyboard, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
+import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import { bioHTML } from '../../assets/helpers';
+import { bioHTML, serverCookie } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
@@ -163,7 +164,8 @@ const UserProfile = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        if (!ctx.query?.userId) return;
+        if (serverCookie((ctx as unknown) as GetServerSidePropsContext))
+            ctx.store.dispatch({ type: types.GET_USER_INFO_START });
 
         ctx.store.dispatch({
             type: types.GET_PROFILE_START,

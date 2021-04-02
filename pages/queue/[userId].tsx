@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
+import { serverRedirect } from '../../assets/helpers';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
 import LoadMore from '../../components/Common/LoadMore';
 import Meta from '../../components/Common/Meta';
 import Posts from '../../components/Common/Posts';
 import AuthRedirect from '../../components/HOC/Auth/AuthRedirect';
-import serverRedirect from '../../components/HOC/ServerRedirect';
 import Aside from '../../components/Layout/Aside';
 import AsideProfile from '../../components/Pages/Users/AsideProfile';
 import { IPostList, IState, IStore } from '../../interfaces';
@@ -55,9 +55,10 @@ const Queue = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        if (!serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
-        if (!ctx.query?.userId) return;
+        const token = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
+        if (!token) return;
 
+        ctx.store.dispatch({ type: types.GET_USER_INFO_START });
         ctx.store.dispatch({
             type: types.GET_PROFILE_START,
             payload: ctx.query.userId,

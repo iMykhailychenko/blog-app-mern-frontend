@@ -15,7 +15,7 @@ const AuthProvider = ({ tokenServer = null, children }: IProps): ReactElement =>
     const auth = useSelector<IState, string | null>(state => state.auth?.token || null);
 
     useEffect(() => {
-        setValue(auth || tokenServer);
+        setValue(process.browser ? auth : tokenServer);
     }, [auth, tokenServer]);
 
     return <Auth.Provider value={[value, setValue]}>{children}</Auth.Provider>;

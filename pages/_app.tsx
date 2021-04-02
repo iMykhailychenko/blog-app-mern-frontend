@@ -13,12 +13,9 @@ import MediaProvider from '../components/HOC/Media';
 import Layout from '../components/Layout/Layout';
 import { wrapper } from '../redux/store';
 
-const MyApp = ({
-    Component,
-    pageProps,
-    width,
-    token,
-}: AppProps & { width: number; token: string | null }): ReactElement => {
+type IProps = AppProps & { width: number; token: string | null };
+
+const MyApp = ({ Component, pageProps, width, token }: IProps): ReactElement => {
     const history = useRouter();
     interceptors({ history });
 
@@ -33,7 +30,8 @@ const MyApp = ({
     );
 };
 
-MyApp.getInitialProps = async (appContext: AppContextType<Router>) => {
+type ServerProps = { width: number; token: string | null; pageProps: unknown };
+MyApp.getInitialProps = async (appContext: AppContextType<Router>): Promise<ServerProps> => {
     const toMatch = /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i;
     const isMobile = toMatch.test(appContext?.ctx?.req?.headers?.['user-agent'] || '');
 

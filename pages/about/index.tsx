@@ -1,8 +1,14 @@
+import { GetServerSidePropsContext } from 'next';
 import React, { ReactElement } from 'react';
+import { END } from 'redux-saga';
 
+import { serverCookie } from '../../assets/helpers';
 import Meta from '../../components/Common/Meta';
 import PageTitle from '../../components/Layout/PageTitle';
 import Slider from '../../components/Pages/About/Slider';
+import { IStore } from '../../interfaces';
+import { wrapper } from '../../redux/store';
+import types from '../../redux/types';
 import css from './index.module.css';
 
 const About = (): ReactElement => {
@@ -29,5 +35,16 @@ const About = (): ReactElement => {
         </>
     );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+    async (ctx): Promise<void> => {
+        const token = serverCookie((ctx as unknown) as GetServerSidePropsContext);
+        if (token) {
+            ctx.store.dispatch({ type: types.GET_USER_INFO_START });
+            ctx.store.dispatch(END);
+            await (ctx.store as IStore).sagaTask.toPromise();
+        }
+    },
+);
 
 export default About;

@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
+import { serverRedirect } from '../../assets/helpers';
 import ChangePass from '../../components/Common/Forms/Settings/ChangePass';
 import UserBio from '../../components/Common/Forms/Settings/UserBio';
 import UserInfo from '../../components/Common/Forms/Settings/UserInfo';
 import Meta from '../../components/Common/Meta';
 import AuthRedirect from '../../components/HOC/Auth/AuthRedirect';
-import serverRedirect from '../../components/HOC/ServerRedirect';
 import Aside from '../../components/Layout/Aside';
 import AsideProfile from '../../components/Pages/Settings/AsideProfile';
 import { IState, IStore, IUser } from '../../interfaces';
@@ -86,9 +86,10 @@ const Settings = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        if (!serverRedirect((ctx as unknown) as GetServerSidePropsContext)) return;
-        if (!ctx.query?.userId) return;
+        const token = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
+        if (!token) return;
 
+        ctx.store.dispatch({ type: types.GET_USER_INFO_START });
         ctx.store.dispatch({
             type: types.GET_PROFILE_START,
             payload: ctx.query.userId,

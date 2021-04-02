@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../../assets/config';
+import { serverRedirect } from '../../../assets/helpers';
 import Meta from '../../../components/Common/Meta';
 import AuthRedirect from '../../../components/HOC/Auth/AuthRedirect';
-import serverRedirect from '../../../components/HOC/ServerRedirect';
 import DateText from '../../../components/Pages/NewPost/DateText';
 import Desc from '../../../components/Pages/NewPost/Desc';
 import EditButtons from '../../../components/Pages/NewPost/EditButtons';
@@ -109,7 +109,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
         const auth: string | null = serverRedirect((ctx as unknown) as GetServerSidePropsContext);
         if (!auth) return;
-        if (!ctx.query?.postId) return;
+        ctx.store.dispatch({ type: types.GET_USER_INFO_START });
 
         ctx.store.dispatch({
             type: types.GET_SINGLE_POST_START,

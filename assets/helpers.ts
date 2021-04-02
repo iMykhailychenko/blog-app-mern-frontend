@@ -1,4 +1,7 @@
 import cookie from 'cookie';
+import { GetServerSidePropsContext } from 'next';
+
+import routes from './routes';
 
 export const debounce = <M extends [], S extends (...args: M) => void>(func: S, waitFor: number): S => {
     const timeout = 0;
@@ -55,6 +58,24 @@ export const parseCookie = <T>({ value = '', key = 'blog_auth', parsed = false }
     } catch (error) {
         return null;
     }
+};
+
+export const serverCookie = (ctx: GetServerSidePropsContext): string | null =>
+    parseCookie<string | null>({ value: ctx.req.headers.cookie, parsed: true });
+
+export const serverRedirect = (
+    ctx: GetServerSidePropsContext,
+    path?: string | null,
+    reverse = false,
+): string | null => {
+    const token = serverCookie(ctx);
+    const redirect = reverse ? token : !token;
+    if (redirect) {
+        ctx.res.statusCode = 302;
+        ctx.res.setHeader('Location', path || routes.home);
+    }
+
+    return token;
 };
 
 export const bioHTML = (content: string): string =>

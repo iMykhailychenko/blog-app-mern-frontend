@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
+import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement, useEffect, useRef } from 'react';
@@ -13,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
-import { formatDate } from '../../assets/helpers';
+import { formatDate, serverCookie } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import Likes from '../../components/Common/Likes';
 import Meta from '../../components/Common/Meta';
@@ -193,7 +194,8 @@ const SinglePost = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
-        if (!ctx.query?.postId) return;
+        if (serverCookie((ctx as unknown) as GetServerSidePropsContext))
+            ctx.store.dispatch({ type: types.GET_USER_INFO_START });
 
         ctx.store.dispatch({
             type: types.GET_COMMENTS_START,

@@ -2,13 +2,15 @@ import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
+import { END } from 'redux-saga';
 
+import { serverRedirect } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import Meta from '../../components/Common/Meta';
 import Picture from '../../components/Common/Picture';
 import AuthRedirect from '../../components/HOC/Auth/AuthRedirect';
-import serverRedirect from '../../components/HOC/ServerRedirect';
 import PageTitle from '../../components/Layout/PageTitle';
+import { IStore } from '../../interfaces';
 import { wrapper } from '../../redux/store';
 import types from '../../redux/types';
 import css from './index.module.css';
@@ -64,8 +66,13 @@ const Trial = (): ReactElement => {
     );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(ctx => {
-    serverRedirect((ctx as unknown) as GetServerSidePropsContext, null, true);
+export const getServerSideProps = wrapper.getServerSideProps(async ctx => {
+    const token = serverRedirect((ctx as unknown) as GetServerSidePropsContext, null, true);
+    if (token) {
+        ctx.store.dispatch({ type: types.GET_USER_INFO_START });
+        ctx.store.dispatch(END);
+        await (ctx.store as IStore).sagaTask.toPromise();
+    }
 });
 
 export default Trial;

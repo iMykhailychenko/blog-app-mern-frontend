@@ -1,3 +1,4 @@
+import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 import queryString from 'query-string';
 import React, { ReactElement, useEffect, useState } from 'react';
@@ -5,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../../assets/config';
+import { serverCookie } from '../../assets/helpers';
 import routes from '../../assets/routes';
 import SearchForm from '../../components/Common/Forms/Search';
 import PostsLoader from '../../components/Common/Loader/PostsLoader';
@@ -93,6 +95,9 @@ const Search = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
+        if (serverCookie((ctx as unknown) as GetServerSidePropsContext))
+            ctx.store.dispatch({ type: types.GET_USER_INFO_START });
+
         ctx.store.dispatch({
             type: types.GET_POSTS_START,
             payload: { page: ctx.query?.page || 1, limit: config.postPerPage, q: ctx.query?.q || null },

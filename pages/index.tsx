@@ -1,5 +1,6 @@
 import axios from 'axios';
 import clsx from 'clsx';
+import { GetServerSidePropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { ReactElement, useEffect } from 'react';
@@ -7,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 
 import config from '../assets/config';
+import { serverCookie } from '../assets/helpers';
 import routes from '../assets/routes';
 import FormLogin from '../components/Common/Forms/Login';
 import PostsLoader from '../components/Common/Loader/PostsLoader';
@@ -43,13 +45,12 @@ const Home = (): ReactElement => {
 
     useEffect(() => {
         if (token) {
-            dispatch({ type: types.GET_POSTS_START, payload: { page: 1, limit: config.queuePerPage } });
             dispatch({ type: types.GET_QUEUE_START, payload: { page: 1, limit: config.queuePerPage } });
         }
     }, [token]);
 
     useEffect(() => {
-        if (history.query?.token && history.query?.user && !token) {
+        if (history.query.token && history.query.user && !token) {
             notifications('loading');
             axios.defaults.headers.common.Authorization = `Bearer ${history.query?.token}`;
 
@@ -59,7 +60,7 @@ const Home = (): ReactElement => {
         }
 
         if (history.query.error) notifications('error', history.query.error as string);
-    }, [history.query, auth]);
+    }, [history.query.token, history.query.user, token]);
 
     return (
         <>
@@ -125,6 +126,9 @@ const Home = (): ReactElement => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx): Promise<void> => {
+        if (serverCookie((ctx as unknown) as GetServerSidePropsContext))
+            ctx.store.dispatch({ type: types.GET_USER_INFO_START });
+
         ctx.store.dispatch({ type: types.GET_TRENDING_POST_START });
         ctx.store.dispatch({ type: types.GET_TRENDING_TAGS_START });
         ctx.store.dispatch({
