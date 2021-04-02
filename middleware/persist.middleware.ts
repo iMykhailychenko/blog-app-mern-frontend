@@ -11,7 +11,7 @@ const Persist: Middleware = () => next => action => {
         switch (action.type) {
             case types.LOGIN_SUCCESS:
                 try {
-                    Cookies.set('blog_auth', action.payload.token);
+                    Cookies.set('blog_auth_token', action.payload.token);
                     next(action);
                 } catch (error) {
                     notifications('error', 'Oops, Something went wrong. Please, reload your browser and try again');
@@ -22,7 +22,7 @@ const Persist: Middleware = () => next => action => {
 
             case types.LOGOUT_SUCCESS:
                 try {
-                    Cookies.set('blog_auth', '');
+                    Cookies.set('blog_auth_token', '');
                     next(action);
                 } catch (error) {
                     notifications('error', 'Oops, Something went wrong. Please, reload your browser and try again');
@@ -33,7 +33,7 @@ const Persist: Middleware = () => next => action => {
 
             case HYDRATE:
                 try {
-                    const token = Cookies.get('blog_auth') || null;
+                    const token = Cookies.get('blog_auth_token') || null;
                     next({ type: HYDRATE, payload: { ...action.payload, auth: { ...action.payload.auth, token } } });
                 } catch (error) {
                     notifications('error', 'Oops, Something went wrong. Please, reload your browser and try again');

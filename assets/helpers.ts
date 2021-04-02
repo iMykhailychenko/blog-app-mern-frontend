@@ -43,16 +43,17 @@ export const generateTags = (str: string): string[] => {
     return cutArr.map(item => (item.length > 15 ? item.slice(0, 25) : item));
 };
 
-// decode data from cookie
-export const decode = (value = ''): string => decodeURI(value).replace(/\\"/gi, '');
-
 // parse cookie on server
 interface IParseCookieParams {
     value?: string;
     key?: string;
     parsed?: boolean;
 }
-export const parseCookie = <T>({ value = '', key = 'blog_auth', parsed = false }: IParseCookieParams): T | null => {
+export const parseCookie = <T>({
+    value = '',
+    key = 'blog_auth_token',
+    parsed = false,
+}: IParseCookieParams): T | null => {
     try {
         return parsed ? cookie.parse(value)[key] || null : JSON.parse(cookie.parse(value)[key]);
     } catch (error) {
